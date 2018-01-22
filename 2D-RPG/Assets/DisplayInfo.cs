@@ -6,6 +6,7 @@ public class DisplayInfo : MonoBehaviour
 {
 	void Update () 
 	{
-		transform.position = Input.mousePosition;
+		if(GameManagerSingleton.instance.tooltip.IsActive())
+			transform.position = Input.mousePosition;
 	}
 }

@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour 
+public class Interactable : MonoBehaviour
 {
 	public float radius = 3f;
+	protected bool isFocus = false; 
+	protected bool hasInteracted = false;
+	public Transform player;
 
-	bool isFocus = false;
-	bool hasInteracted = false;
-	public Text tooltip;
-	Transform player;
+
+	public Interactable()
+	{
+		this.radius = radius;
+		this.isFocus = isFocus;
+		this.hasInteracted = hasInteracted;
+		this.player = player;
+	}
+
 
 	public virtual void Interact()
 	{
-		//Debug.Log ("Interacting with" + transform.name);
-	}
-		
-	void Start () 
-	{
-		tooltip.gameObject.SetActive (false);
+		//Debug.Log ("Interacting with " + transform.name);
 	}
 
-	void Update () 
+	void Start () 
+	{
+	}
+
+	public virtual void Update () 
 	{
 		if (isFocus && !hasInteracted) 
 		{
@@ -51,12 +58,12 @@ public class Interactable : MonoBehaviour
 
 	void OnMouseEnter()
 	{
-		tooltip.text = transform.name;
-		tooltip.gameObject.SetActive (true);
+		GameManagerSingleton.instance.tooltip.text = transform.name;
+		GameManagerSingleton.instance.tooltip.gameObject.SetActive (true);
 	}
 
 	void OnMouseExit()
 	{
-		tooltip.gameObject.SetActive (false);
+		GameManagerSingleton.instance.tooltip.gameObject.SetActive (false);
 	}
 }
