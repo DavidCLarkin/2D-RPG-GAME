@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 	private Camera cam;
 	private float speed = 2.5f;
+	public float health = 100.0f;
 	private Rigidbody2D rigidbody;
 	private Animator anim;
 
@@ -21,46 +22,56 @@ public class PlayerController : MonoBehaviour
 	public string startPoint;
 	public Interactable focus;
 
-	void Start () 
+	void Start() 
 	{
 		cam = Camera.main;
-		rigidbody = gameObject.GetComponent<Rigidbody2D>();
-		anim = gameObject.GetComponent<Animator>();
+		rigidbody = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 
-		if (!playerExists) 
+		if(!playerExists) 
 		{
 			playerExists = true;
-			DontDestroyOnLoad (transform.gameObject);
+			DontDestroyOnLoad(transform.gameObject);
 		} 
 		else
-			Destroy (gameObject);
+			Destroy(gameObject);
 	}
 
-	void Update () 
+	void Update() 
 	{
 		horizontal = Input.GetAxisRaw ("Horizontal");
 		vertical = Input.GetAxisRaw ("Vertical");
 		rigidbody.velocity = new Vector2 (horizontal * speed, rigidbody.velocity.y);
 		rigidbody.velocity = new Vector2 (rigidbody.velocity.x, vertical * speed);
 
-		if (Input.GetMouseButtonDown(0)) 
+		if(Input.GetMouseButtonDown(0)) 
 		{
-			Ray ray = cam.ScreenPointToRay (Input.mousePosition);
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 
 			if(Physics.Raycast(ray, out hit, 100))
 			{
 				Interactable interactable = hit.collider.GetComponent<Interactable> ();
-				print (interactable.name);
-				if (interactable != null) 
+				if(interactable != null) 
 				{
+					string intTag = interactable.tag;
+					switch (intTag)
+					{
+					case "Enemy":
+						Debug.Log ("Enemy CASE"); //ATTACK
+						break;
+					case "Item":
+						Debug.Log ("Item CASE"); //PICK UP
+						break;
+					}
+
 					setFocus (interactable);
 				}
 			}
 		}
 
 
-		animate ();
+		animate();
 	
 	}
 

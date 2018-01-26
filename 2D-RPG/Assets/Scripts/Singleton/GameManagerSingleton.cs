@@ -9,6 +9,7 @@ public class GameManagerSingleton : MonoBehaviour
 
 	//Objects
 	public Text tooltip;
+	public GameObject player;
 
 	private void Awake()
 	{

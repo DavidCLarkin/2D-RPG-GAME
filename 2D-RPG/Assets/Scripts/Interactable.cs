@@ -10,31 +10,21 @@ public class Interactable : MonoBehaviour
 	protected bool hasInteracted = false;
 	public Transform player;
 
-
-	public Interactable()
-	{
-		this.radius = radius;
-		this.isFocus = isFocus;
-		this.hasInteracted = hasInteracted;
-		this.player = player;
-	}
-
-
 	public virtual void Interact()
 	{
 		//Debug.Log ("Interacting with " + transform.name);
 	}
 
-	void Start () 
+	void Start() 
 	{
 	}
 
-	public virtual void Update () 
+	public virtual void Update() 
 	{
-		if (isFocus && !hasInteracted) 
+		if(isFocus && !hasInteracted) 
 		{
 			float distance = Vector2.Distance (player.position, transform.position);
-			if (distance <= radius)
+			if(distance <= radius)
 			{
 				Interact();
 				hasInteracted = true;

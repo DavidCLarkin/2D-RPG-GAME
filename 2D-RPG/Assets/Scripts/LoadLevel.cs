@@ -9,10 +9,11 @@ public class LoadLevel : MonoBehaviour
 	public string exitPoint;
 
 	private PlayerController player;
+
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameObject.FindObjectOfType<PlayerController>();
+		player = GameManagerSingleton.instance.player.GetComponent<PlayerController>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

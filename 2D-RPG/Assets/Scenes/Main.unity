@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1258712005}
+  player: {fileID: 1790295961}
 --- !u!4 &372113311
 Transform:
   m_ObjectHideFlags: 0
@@ -234,8 +235,8 @@ GameObject:
   - component: {fileID: 753027125}
   - component: {fileID: 753027129}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,7 +315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 753027124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e10730bd8d134040b080b560e3c3166, type: 3}
+  m_Script: {fileID: 11500000, guid: 4377e7fb29b8c1d43ba159faf26a3ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
@@ -890,7 +891,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -913,7 +914,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8899994, y: -22.87, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1028,6 +1029,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1790295961 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1092323442689602, guid: bffce1b7fe921a2429e1471201f98321,
+    type: 2}
+  m_PrefabInternal: {fileID: 1367700717}
 --- !u!4 &1812189219 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4262464137271566, guid: bffce1b7fe921a2429e1471201f98321,
@@ -1048,7 +1054,7 @@ GameObject:
   - component: {fileID: 1975085481}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,6 +1073,7 @@ MonoBehaviour:
   radius: 3
   player: {fileID: 0}
   speed: 2
+  health: 100
 --- !u!23 &1975085477
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1147,7 +1154,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &2034286074
 Prefab:
   m_ObjectHideFlags: 0
