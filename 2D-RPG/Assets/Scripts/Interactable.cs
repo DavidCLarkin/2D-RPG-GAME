@@ -49,11 +49,11 @@ public class Interactable : MonoBehaviour
 	void OnMouseEnter()
 	{
 		GameManagerSingleton.instance.tooltip.text = transform.name;
-		GameManagerSingleton.instance.tooltip.gameObject.SetActive (true);
+		GameManagerSingleton.instance.tooltip.gameObject.SetActive(true);
 	}
 
 	void OnMouseExit()
 	{
-		GameManagerSingleton.instance.tooltip.gameObject.SetActive (false);
+		GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
 	}
 }

@@ -10,9 +10,11 @@ public class Enemy : Interactable
 	private float ATTACK_DELAY = 1.5f;
 	private float DAMAGE_TIMER;
 	private float ATTACK_TIMER;
+	private float testTimer;
 
  	public float speed = 1.5f;
 	public float health = 100.0f;
+	public float followRange;
 	private Rigidbody2D rigidbody;
 	private bool moving;
 	private float distance;
@@ -30,6 +32,7 @@ public class Enemy : Interactable
 		{
 			//Play death Animation
 			Destroy (gameObject);
+			GameManagerSingleton.instance.tooltip.gameObject.SetActive(false); //Otherwise, tooltip stays
 		}
 
 		//Timers
@@ -58,6 +61,7 @@ public class Enemy : Interactable
 		if (DAMAGE_TIMER <= 0)
 		{
 			health -= 25;
+			Knockback();
 			DAMAGE_TIMER = DAMAGE_DELAY;
 		}
 	}
@@ -69,11 +73,12 @@ public class Enemy : Interactable
 	public void FollowTarget(Transform target)
 	{
 		distance = Vector2.Distance(player.position, transform.position);
-		if(distance <= 5f)
+		if(distance <= followRange)
 		{
 			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 			Vector3 vectorToTarget = player.transform.position - transform.position;
 			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+			//print(angle);
 			Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, qt, Time.deltaTime * 0.5f);
 		}
@@ -91,6 +96,33 @@ public class Enemy : Interactable
 			player.GetComponent<PlayerController>().health -= 25f;
 			ATTACK_TIMER = ATTACK_DELAY; 
 		}
+	}
+
+	public void Knockback()
+	{
+		float xPos = 0.5f;
+		float yPos = 0.5f;
+
+		if(player.position.x > transform.position.x)
+		{
+			xPos = transform.position.x - 0.5f;
+		} 
+		else if(player.position.x < transform.position.x)
+		{
+			xPos = transform.position.x + 0.5f;
+		}
+
+		if(player.position.y > transform.position.y)
+		{
+			yPos = transform.position.y - 0.5f;
+		} 
+		else if(player.position.y < transform.position.y)
+		{
+			yPos = transform.position.y + 0.5f;
+		}
+
+		transform.position = new Vector2(xPos, yPos);
+
 	}
 		
 }
