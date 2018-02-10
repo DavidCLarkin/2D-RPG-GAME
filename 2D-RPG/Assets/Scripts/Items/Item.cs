@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Item : Interactable 
 {
-	// Use this for initialization
-	void Start () 
-	{
-	}
-	
-	// Update is called once per frame
 	public override void Update () 
 	{
 		base.Update();
@@ -19,7 +13,15 @@ public class Item : Interactable
 	{
 		//base.Interact();
 		Debug.Log("Added to items");
+		PickUp();
+		gameObject.SetActive(false);
+		//Inventory.instance.ListItems();
 		//Add to inventory
 
+	}
+
+	void PickUp()
+	{
+		Inventory.instance.Add(this);
 	}
 }

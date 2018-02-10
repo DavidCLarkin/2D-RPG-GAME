@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
 					case "Enemy":
 						Debug.Log ("Enemy CASE"); //ATTACK
 						break;
-					case "Item":
-						Debug.Log ("Item CASE"); //PICK UP
+						case "Item":
+						Debug.Log("Item CASE"); //PICK UP
 						break;
 					default:
 						Debug.Log("Default");
