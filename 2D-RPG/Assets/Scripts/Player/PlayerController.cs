@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	public float health = 100.0f;
 	private Rigidbody2D rigidbody;
 	private Animator anim;
+	private Inventory inventory;
 
 	private bool walkingUp;
 	private bool walkingDown;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start() 
 	{
+		inventory = GetComponent<Inventory>();
 		cam = Camera.main;
 		rigidbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
