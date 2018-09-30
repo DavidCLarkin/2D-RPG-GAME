@@ -9,6 +9,7 @@ public class Generator : MonoBehaviour
 	public Room[] rooms;
 	public int rows = 10;
 	public int cols = 10;
+	public int numOfRooms = 5;
 	GameObject[,] grid;
 
 	private GameObject dungeon;
@@ -54,29 +55,52 @@ public class Generator : MonoBehaviour
 				{
 					if(j == room.yPos || j == (room.yPos + room.height) - 1)
 					{
-						Instantiate(wallTiles[1], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
+						grid[i,j] = Instantiate(wallTiles[1], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
 					}
 					if(i == room.xPos || i == (room.xPos + room.width) - 1)
 					{
 						//Order in layer higher for walls/fences
-						Instantiate(wallTiles[0], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
+						grid[i,j] = Instantiate(wallTiles[0], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
 					}
 
-					Instantiate(groundTiles[0], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
+					grid[i,j] = Instantiate(groundTiles[0], new Vector2(i * tileWidth, j * tileHeight), Quaternion.identity);
 				}
 			}
 		}
+		/*
+		Room shortestDistRoom;
+		for(int i = 0; i < rooms.Length; i++)
+		{
+			for(int j = i+1; j < rooms.Length; j++)
+			{
+				print("Room i : " + rooms[i]);
+				print("Room j : " + rooms[j]);
+			}
+				
+		}
+		*/
+
+
+
 
 	}
 
 	public void AddRooms()
 	{
-		rooms = new Room[5];
+		rooms = new Room[numOfRooms];
 		for(int i = 0; i < rooms.Length; i++)
 		{
 			rooms[i] = new Room();
 			rooms[i].AddCorrider(Random.Range(1,4));
-			rooms[i].SetupRoom(8, 7, cols, rows, groundTiles);
+			rooms[i].SetupRoom(Random.Range(6,10), Random.Range(6,10), cols, rows, wallTiles, groundTiles);
+			/*foreach(Room room in rooms)
+			{
+				if(rooms[i].xPos == room.xPos)
+				{
+					
+				}
+			}
+			*/
 		}
 	}
 

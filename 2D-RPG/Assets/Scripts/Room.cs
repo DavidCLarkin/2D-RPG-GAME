@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room
+public class Room : MonoBehaviour
 {
 	public int width;
 	public int height;
 	public int xPos;
 	public int yPos;
+	public bool isTouchingRoom;
+	public Collider2D collider;
 
 	public enum Direction
 	{
@@ -17,7 +19,7 @@ public class Room
 	//public GameObject[,] roomCoords;
 
 
-	public void SetupRoom(int roomWidth, int roomHeight, int cols, int rows, GameObject[] groundTiles)
+	public void SetupRoom(int roomWidth, int roomHeight, int cols, int rows, GameObject[] wallTiles, GameObject[] groundTiles)
 	{
 		width = roomWidth;
 		height = roomHeight;
@@ -26,8 +28,10 @@ public class Room
 
 		xPos = Random.Range(width, rows - width);
 		yPos = Random.Range(height, cols - height);
-	}
 
+
+	}
+		
 	public void AddCorrider(int randDir)
 	{
 		Direction direction = (Direction)randDir;
