@@ -68,7 +68,7 @@ public class MapGenerator : MonoBehaviour
 				if(grid[i, j] == 1)
 				{
 					grid[i, j] = 1;
-					Instantiate(groundTiles[0], new Vector2(i*2, j*2), Quaternion.identity);
+					Instantiate(groundTiles[0], new Vector2(i*2, j*2), Quaternion.identity); // - new Vector2(i,j) for NOT 2x2
 				} 
 				else
 				{
@@ -88,16 +88,16 @@ public class MapGenerator : MonoBehaviour
 					//	break;
 					if(x < rows - 1)
 						if(grid[x + 1, y] == 0)
-						Instantiate(groundTiles[1], new Vector2((x + 0.71f)*2, (y*2)+0.3f), Quaternion.identity); //Change to Right side Wall
+						Instantiate(groundTiles[1], new Vector2((x + 0.71f)*2, (y*2)+0.3f), Quaternion.identity); //Change to Right side Wall - 2x2 :new Vector2((x + 0.71f)*2, (y*2)+0.3f) NORMAL://new Vector2(x+1, y)
 					if(y < cols - 1) 
 						if(grid[x, y + 1] == 0)
-						Instantiate(groundTiles[4], new Vector2((x*2)+0.03f, (y + 1)*2+0.35f), Quaternion.identity); //Change to Top wall
+						Instantiate(groundTiles[4], new Vector2((x*2)+0.03f, (y + 1)*2+0.35f), Quaternion.identity); //Change to Top wall - 2x2 : new Vector2((x*2)+0.03f, (y + 1)*2+0.35f) NORMAL://new Vector2(x, y+1)
 					if(x > 1) 
 						if(grid[x - 1, y] == 0)
-							Instantiate(groundTiles[2], new Vector2((x-0.34f)*2, (y*2)+0.28f), Quaternion.identity); //Change to Left Wall ((x-0.34f)*2, (y*2)+0.35f) for 2x2
+						Instantiate(groundTiles[2], new Vector2((x-0.34f)*2, (y*2)+0.28f), Quaternion.identity); //Change to Left Wall - 2x2:  new Vector2((x-0.34f)*2, (y*2)+0.28f) NORMAL://new Vector2(x-1, y)
 					if(y > 1)
 						if(grid[x, y - 1] == 0)
-						Instantiate(groundTiles[3], new Vector2((x*2)-2.44f, (y*2)-0.92f), Quaternion.identity); //Change to bottom wall - x,y for normal, ((x*2)-2.44f, (y-0.82f))
+						Instantiate(groundTiles[3], new Vector2((x*2)-2.44f, (y*2)-0.92f), Quaternion.identity); //Change to bottom wall - 2x2: new Vector2((x*2)-2.44f, (y*2)-0.92f)  NORMAL://new Vector2(x, y-1)
 				}
 			}
 		}
