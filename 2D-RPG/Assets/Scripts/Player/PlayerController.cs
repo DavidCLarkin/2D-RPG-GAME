@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 					string intTag = interactable.tag;
 					switch (intTag)
 					{
-					case "Enemy":
+					case "Enemy": // TODO add attacking, interaction etc.
 						Debug.Log ("Enemy CASE"); //ATTACK
 						break;
 						case "Item":

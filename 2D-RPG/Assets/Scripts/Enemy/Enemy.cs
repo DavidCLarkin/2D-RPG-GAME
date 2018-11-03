@@ -6,27 +6,41 @@ using UnityEngine;
 //[RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : Interactable
 {
-	private float DAMAGE_DELAY = 1f;
-	private float ATTACK_DELAY = 1.5f;
-	private float DAMAGE_TIMER;
-	private float ATTACK_TIMER;
+	protected float DAMAGE_DELAY = 1f;
+	protected float ATTACK_DELAY = 1.5f;
+	protected float DAMAGE_TIMER;
+	protected float ATTACK_TIMER;
+    protected float ANIMATION_DELAY;
+    protected float ANIMATION_TIMER;
 
  	public float speed = 1.5f;
 	public float health = 100.0f;
 	public float followRange;
 	public float attackRange;
-	private Rigidbody2D rigi;
+	protected Rigidbody2D rigi;
+    protected Animator anim;
+    protected bool canBeKnockedBack;
 	private bool moving;
 	private float distance;
 
-	enum State { Moving, Attacking, Idle };
+	protected enum State { Moving, Attacking, Idle };
 	State state = State.Idle;
 
-	void Start() 
+	protected virtual void Start() 
 	{
-		player = GameManagerSingleton.instance.player.transform;
-		rigi = GetComponent<Rigidbody2D>();
+        // Set the player object - For Pathfinding etc.
+        SetUp();
+        canBeKnockedBack = true;
 	}
+
+    // Simple method to set up necessary variables - Used so I can have different variables for different enemies 
+    // e.g,. setting canBeKnockedBack to false for bosses
+    private void SetUp()
+    {
+        player = GameManagerSingleton.instance.player.transform;
+        rigi = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
 	public override void Update() 
 	{
@@ -50,6 +64,11 @@ public class Enemy : Interactable
 			ATTACK_TIMER -= Time.deltaTime;
 		}
 			
+        if(ANIMATION_TIMER >= 0)
+        {
+            ANIMATION_TIMER -= Time.deltaTime;
+        }
+
 		DistanceChecking();
 		StateDecision();
 
@@ -61,7 +80,8 @@ public class Enemy : Interactable
 		if (DAMAGE_TIMER <= 0)
 		{
 			health -= 25;
-			Knockback(10000f);
+            if(canBeKnockedBack)
+			    Knockback(10000f);
 			DAMAGE_TIMER = DAMAGE_DELAY;
 		}
 	}
@@ -70,7 +90,7 @@ public class Enemy : Interactable
 	 * Checking the distance between player and AI.
 	 * Changes the state of the FSM
 	 */ 
-	public void DistanceChecking()
+	public virtual void DistanceChecking()
 	{
 		distance = Vector2.Distance(player.position, transform.position);
 		if(distance > followRange)
@@ -90,19 +110,19 @@ public class Enemy : Interactable
 	/*
 	 * Deciding what methods to use for the AI
 	 */
-	public void StateDecision()
+	public virtual void StateDecision()
 	{
 		switch(state)
 		{
 			case State.Idle:
-				Debug.Log("Idle");
+				//Debug.Log("Idle");
 				break;
 			case State.Moving:
-				Debug.Log("Moving");
+				//Debug.Log("Moving");
 				FollowTarget(player);
 				break;
 			case State.Attacking:
-				Debug.Log("Attacking");
+				//Debug.Log("Attacking");
 				Attack();
 				break;
 		}
@@ -110,11 +130,13 @@ public class Enemy : Interactable
 	}
 
 	/*
-	 * Method that makes te enemy follow the player around.
+	 * Method that makes the enemy follow the player around.
 	 * NEED TO IMPLEMENT COLLISION DETECTION
 	 */
-	public void FollowTarget(Transform target)
+	public virtual void FollowTarget(Transform target)
 	{
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("knight_slice_down"))
+            return;
 		distance = Vector2.Distance(target.position, transform.position);
 		if(distance <= followRange)
 		{
@@ -130,18 +152,29 @@ public class Enemy : Interactable
 	 * Attack method which checks distance, and if distance is less than Enemy radius
 	 * it attacks the player (deducts health from the player), then sets the ATTACK_TIMER
 	 */
-	public void Attack()
+	public virtual void Attack()
 	{
 		if(ATTACK_TIMER <= 0)
 		{
 			distance = Vector2.Distance(player.position, transform.position);
 			if(distance <= radius)
 			{
-				player.GetComponent<PlayerController>().health -= 25f;
-				ATTACK_TIMER = ATTACK_DELAY; 
+                PerformAttack(25f);
 			}
 		}
 	}
+
+    public virtual void PerformAttack(float damage)
+    {
+        ChooseAttack();
+        player.GetComponent<PlayerController>().health -= damage;
+        ATTACK_TIMER = ATTACK_DELAY;
+    }
+
+    public virtual void ChooseAttack()
+    {
+
+    }
 
 	/*
 	public void Knockback()
@@ -172,7 +205,7 @@ public class Enemy : Interactable
 	}
 	*///Not Used 
 
-	public void Knockback(float force)
+	public virtual void Knockback(float force)
 	{
 		float xPos = force;
 		float yPos = force;
