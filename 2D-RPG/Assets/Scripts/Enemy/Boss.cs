@@ -26,7 +26,7 @@ public class Boss : Enemy
 	public override void Update ()
     {
         base.Update();
-        animate();
+        //animate();
         Vector3 oldRot = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
         Debug.Log("Timer: "+ANIMATION_TIMER);
@@ -65,11 +65,14 @@ public class Boss : Enemy
 
     public override void FollowTarget(Transform target)
     {
+		if (anim.GetBool("attackDown") == true)
+			return;
         base.FollowTarget(target);
     }
 
     private void animate()
     {
+			
         anim.SetBool("walkingUp", walkingUp);
         anim.SetBool("walkingDown", walkingDown);
         anim.SetBool("walkingLeft", walkingLeft);

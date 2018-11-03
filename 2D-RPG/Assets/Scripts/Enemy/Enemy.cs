@@ -135,8 +135,8 @@ public class Enemy : Interactable
 	 */
 	public virtual void FollowTarget(Transform target)
 	{
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("knight_slice_down"))
-            return;
+        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("knight_slice_down"))
+          //  return;
 		distance = Vector2.Distance(target.position, transform.position);
 		if(distance <= followRange)
 		{
