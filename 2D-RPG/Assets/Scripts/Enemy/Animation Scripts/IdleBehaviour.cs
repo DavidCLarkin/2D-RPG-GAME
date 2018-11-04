@@ -11,8 +11,10 @@ public class IdleBehaviour : StateMachineBehaviour {
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (Vector2.Distance (player.position, animator.transform.position) < 2) {
+	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+		if (Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Boss>().attackRange)
+        {
 			animator.SetBool("attackDown", true);
 		}
 	}

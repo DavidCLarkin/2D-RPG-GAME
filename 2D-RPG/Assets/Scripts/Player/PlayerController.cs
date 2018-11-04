@@ -11,10 +11,21 @@ public class PlayerController : MonoBehaviour
 	private Animator anim;
 	private Inventory inventory;
 
+    private KeyCode[] keys = new KeyCode[] { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
+
+    private float pressCooldown = 0.5f;
+    private int buttonCount = 0;
+
 	private bool walkingUp;
 	private bool walkingDown;
 	private bool walkingLeft;
 	private bool walkingRight;
+
+    public float dodgeSpeed;
+    public float startDodgetime;
+    private float dodgeTime;
+    private int direction;
+
 
 	private float vertical;
 	private float horizontal;
@@ -29,6 +40,7 @@ public class PlayerController : MonoBehaviour
 		cam = Camera.main;
 		rigidbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+        dodgeTime = startDodgetime;
 
 		if(!playerExists) 
 		{
@@ -75,10 +87,23 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
+        Dodge();
+
 
 		animate();
-	
-	}
+
+        if (pressCooldown > 0)
+        {
+
+            pressCooldown -= 1 * Time.deltaTime;
+
+        }
+        else
+        {
+            buttonCount = 0;
+        }
+
+    }
 
 	void setFocus(Interactable newFocus)
 	{
@@ -119,5 +144,49 @@ public class PlayerController : MonoBehaviour
 		else
 			walkingRight = false;
 	}
+
+    public void Dodge()
+    {
+        if(direction == 0)
+        {
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (Input.GetKey(keys[i]) && Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    direction = i + 1;
+                }
+            }
+        }
+        else
+        {
+            if(dodgeTime <= 0)
+            {
+                direction = 0;
+                dodgeTime = startDodgetime;
+                rigidbody.velocity = Vector2.zero;
+            }
+            else
+            {
+                dodgeTime -= Time.deltaTime;
+
+                if(direction == 1)
+                {
+                    rigidbody.velocity = Vector2.up * dodgeSpeed;
+                }
+                else if(direction == 2)
+                {
+                    rigidbody.velocity = Vector2.left * dodgeSpeed;
+                }
+                else if(direction == 3)
+                {
+                    rigidbody.velocity = Vector2.down * dodgeSpeed;
+                }
+                else if(direction == 4)
+                {
+                    rigidbody.velocity = Vector2.right * dodgeSpeed;
+                }
+            }
+        }
+    }
 		
 }

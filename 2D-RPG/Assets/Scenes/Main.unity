@@ -1152,6 +1152,16 @@ Prefab:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114779924885597894, guid: bffce1b7fe921a2429e1471201f98321,
+        type: 2}
+      propertyPath: dodgeSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114779924885597894, guid: bffce1b7fe921a2429e1471201f98321,
+        type: 2}
+      propertyPath: startDodgetime
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bffce1b7fe921a2429e1471201f98321, type: 2}
   m_IsPrefabAsset: 0
@@ -2886,6 +2896,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114157549024267164, guid: 4311b2c12e558b94e91243339e18c8b8,
+        type: 2}
+      propertyPath: attackRange
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
   m_IsPrefabAsset: 0
@@ -3188,6 +3203,21 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 5fd70c88d12a6e046bd493753f47d804, type: 2}
+    - target: {fileID: 114909670762831822, guid: 782a63ab67a1d2d4aa0775c42c06ac8e,
+        type: 2}
+      propertyPath: ATTACK_DELAY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61691045885216128, guid: 782a63ab67a1d2d4aa0775c42c06ac8e,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.13687375
+      objectReference: {fileID: 0}
+    - target: {fileID: 61691045885216128, guid: 782a63ab67a1d2d4aa0775c42c06ac8e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.37830704
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 782a63ab67a1d2d4aa0775c42c06ac8e, type: 2}
   m_IsPrefabAsset: 0

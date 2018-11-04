@@ -7,11 +7,16 @@ using UnityEngine;
 public class Enemy : Interactable
 {
 	protected float DAMAGE_DELAY = 1f;
-	protected float ATTACK_DELAY = 1.5f;
+	protected float ATTACK_DELAY = 1.5f; // base for enemies
 	protected float DAMAGE_TIMER;
-	protected float ATTACK_TIMER;
+	public float ATTACK_TIMER;
     protected float ANIMATION_DELAY;
     protected float ANIMATION_TIMER;
+
+    public float BASE_ATTACK_RANGE;
+    public float MEDIUM_ATTACK_RANGE;
+    public float HARD_ATTACK_RANGE;
+    public float LIGHT_ATTACK_RANGE;
 
  	public float speed = 1.5f;
 	public float health = 100.0f;
@@ -21,7 +26,7 @@ public class Enemy : Interactable
     protected Animator anim;
     protected bool canBeKnockedBack;
 	private bool moving;
-	private float distance;
+	protected float distance;
 
 	protected enum State { Moving, Attacking, Idle };
 	State state = State.Idle;
@@ -122,7 +127,7 @@ public class Enemy : Interactable
 				FollowTarget(player);
 				break;
 			case State.Attacking:
-				//Debug.Log("Attacking");
+                //Debug.Log("Attacking");
 				Attack();
 				break;
 		}
@@ -154,27 +159,36 @@ public class Enemy : Interactable
 	 */
 	public virtual void Attack()
 	{
-		if(ATTACK_TIMER <= 0)
+        if (ATTACK_TIMER > 0) return;
+
+		distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+		if(distance <= attackRange)
 		{
-			distance = Vector2.Distance(player.position, transform.position);
-			if(distance <= radius)
-			{
-                PerformAttack(25f);
-			}
+            PerformAttack(25f, ATTACK_DELAY);
 		}
 	}
 
-    public virtual void PerformAttack(float damage)
+    public virtual void PerformAttack(float damage, float timeDelay)
     {
         ChooseAttack();
         player.GetComponent<PlayerController>().health -= damage;
-        ATTACK_TIMER = ATTACK_DELAY;
+        ATTACK_TIMER = timeDelay;
     }
 
     public virtual void ChooseAttack()
     {
 
     }
+
+    public virtual void LightAttack()
+    { }
+
+    public virtual void MediumAttack()
+    { }
+
+    public virtual void HeavyAttack()
+    { }
+
 
 	/*
 	public void Knockback()

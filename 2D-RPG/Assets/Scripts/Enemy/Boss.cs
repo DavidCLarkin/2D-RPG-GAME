@@ -19,7 +19,11 @@ public class Boss : Enemy
         //rigi.mass = 1000f; // Higher mass = less knockback
         canBeKnockedBack = false;
         DAMAGE_DELAY = 1.5f;
-        ATTACK_DELAY = 1.5f;
+        BASE_ATTACK_RANGE = 1.5f;
+        MEDIUM_ATTACK_RANGE = 2f;
+        HARD_ATTACK_RANGE = 3f;
+        LIGHT_ATTACK_RANGE = 2f;
+        attackRange = BASE_ATTACK_RANGE; // this changes depending on attacks
     }
 	
 	// Update is called once per frame
@@ -29,7 +33,15 @@ public class Boss : Enemy
         //animate();
         Vector3 oldRot = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
-        Debug.Log("Timer: "+ANIMATION_TIMER);
+    }
+
+    public override void MediumAttack()
+    {
+        distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+        if (distance <= attackRange)
+        {
+            PerformAttack(25f, ATTACK_DELAY);
+        }
     }
 
     //Fix Z position, bug in Freeze Rotation
@@ -49,13 +61,14 @@ public class Boss : Enemy
 
     public override void Attack()
     {
-        base.Attack();
+        //Don't want to use this, as attacking times are determined in animation Behaviours
+        return;
     }
+    
 
     public override void ChooseAttack()
     {
         base.ChooseAttack();
-        
     }
 
     public override void StateDecision()
@@ -97,27 +110,6 @@ public class Boss : Enemy
             walkingRight = true;
         else
             walkingRight = false;
-
-        if (ANIMATION_TIMER <= 0)
-        {
-            if (Vector2.Distance(player.position, transform.position) <= radius)
-            {
-                if (!attacking)
-                {
-                    ANIMATION_TIMER = anim.GetCurrentAnimatorStateInfo(0).length;
-                    attacking = true;
-                    //attacking = true;
-                    //ANIMATION_TIMER = anim.GetCurrentAnimatorStateInfo(0).length;
-                    //StartCoroutine(StopAnimation());
-                    Debug.Log("Attacking");
-                }
-                // TODO ADD TIMER TO LET BOSS STOP ATTACKING
-            }
-            else
-            {
-                attacking = false;
-            }
-        }
 
     }
 
