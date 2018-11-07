@@ -11,11 +11,23 @@ public class Boss : Enemy
     private bool walkingLeft;
     private bool walkingRight;
     private bool attacking;
+    protected bool hasWeapon;
+
+    //protected PolygonCollider2D[] weaponColliders;
+    protected Weapon weapon;
 
     // Use this for initialization
     protected override void Start ()
     {
         base.Start();
+
+        hasWeapon = (GetComponentInChildren<Weapon>() != null);
+        //Debug.Log(hasWeapon);
+        //hasWeapon = (GetComponentInChildren<PolygonCollider2D>() != null); // has weapon is true if children has PolygonCollider2D
+
+        if(hasWeapon)
+            weapon = GetComponentInChildren<Weapon>(); // Get Colliders for the weapon
+
         //rigi.mass = 1000f; // Higher mass = less knockback
         canBeKnockedBack = false;
         DAMAGE_DELAY = 1.5f;
@@ -37,11 +49,11 @@ public class Boss : Enemy
 
     public override void MediumAttack()
     {
-        distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-        if (distance <= attackRange)
-        {
-            PerformAttack(25f, ATTACK_DELAY);
-        }
+        distance = Vector2.Distance(player.position, transform.position); // check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+        //if (distance <= attackRange)
+        //{
+        //    PerformAttack(25f, ATTACK_DELAY);
+        //}
     }
 
     //Fix Z position, bug in Freeze Rotation

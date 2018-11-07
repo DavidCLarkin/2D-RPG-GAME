@@ -22,8 +22,10 @@ public class Enemy : Interactable
 	public float health = 100.0f;
 	public float followRange;
 	public float attackRange;
+
 	protected Rigidbody2D rigi;
     protected Animator anim;
+
     protected bool canBeKnockedBack;
 	private bool moving;
 	protected float distance;

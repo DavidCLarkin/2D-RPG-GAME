@@ -13,8 +13,9 @@ public class AttackBehaviour : StateMachineBehaviour
 		timer = stateInfo.length;
         enemy = animator.GetComponent<Enemy>();
 
-        enemy.attackRange = 2f;
-		Debug.Log (timer);
+        //enemy.attackRange = 2f; CURRENTLY USING ENABLE/DISABLE COLLIDERS
+
+		//Debug.Log(timer);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -36,7 +37,7 @@ public class AttackBehaviour : StateMachineBehaviour
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy.MediumAttack();
-        enemy.attackRange = enemy.BASE_ATTACK_RANGE;
+        //enemy.attackRange = enemy.BASE_ATTACK_RANGE; // CURRENTLY USING ENABLE/DISABLE COLLIDERS
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
