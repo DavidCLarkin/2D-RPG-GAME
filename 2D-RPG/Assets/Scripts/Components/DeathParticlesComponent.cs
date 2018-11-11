@@ -6,7 +6,6 @@ public class DeathParticlesComponent : MonoBehaviour
 {
     public GameObject particles;
 
-	// Use this for initialization
 	void Start ()
     {
         GetComponent<HealthComponent>().OnDie += SpawnParticles;

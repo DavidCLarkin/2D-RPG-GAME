@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField]
-    public int health;
-    [SerializeField]
-    protected int maxHealth;
+    //[SerializeField]
+    //public int health;
+    //[SerializeField]
+    //protected int maxHealth;
 }

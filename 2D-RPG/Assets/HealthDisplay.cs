@@ -13,6 +13,6 @@ public class HealthDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        healthText.text = "Health: " + GameManagerSingleton.instance.player.GetComponent<Player>().health;
+        healthText.text = "Health: " + GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health;
 	}
 }

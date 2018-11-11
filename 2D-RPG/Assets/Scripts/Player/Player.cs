@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character, IMoveable, IDamageable, IAnimateable
+public class Player : Character, IMoveable, IAnimateable
 {
     private KeyCode[] keys = new KeyCode[] { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
     private Rigidbody2D rigidbody;
@@ -103,17 +103,6 @@ public class Player : Character, IMoveable, IDamageable, IAnimateable
         vertical = Input.GetAxisRaw("Vertical");
         rigidbody.velocity = new Vector2(horizontal * speed, rigidbody.velocity.y);
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, vertical * speed);
-    }
-
-    //Interface Method
-    public void TakeDamage(int damageAmount)
-    {
-        health -= damageAmount;
-        if (health <= 0)
-        {
-            //Destroy(gameObject);
-            Debug.Log("Dead");
-        }
     }
 
     //Interface Method

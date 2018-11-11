@@ -173,7 +173,7 @@ public abstract class Enemy : Interactable
     public virtual void PerformAttack(int damage, float timeDelay)
     {
         ChooseAttack();
-        player.GetComponent<Player>().health -= damage;
+        player.GetComponent<HealthComponent>().health -= damage;
         ATTACK_TIMER = timeDelay;
     }
 

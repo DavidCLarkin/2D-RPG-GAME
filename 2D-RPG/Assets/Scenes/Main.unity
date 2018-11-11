@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977dd77e3ebd3054098184fc9a38ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 0}
+  particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
 --- !u!224 &758898772 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224403224145807074, guid: 3e250e3f6ecf55342a06983a8da53b85,
