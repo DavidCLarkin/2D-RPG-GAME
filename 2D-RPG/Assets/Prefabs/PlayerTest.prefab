@@ -23,9 +23,7 @@ GameObject:
   - component: {fileID: 95467724687440780}
   - component: {fileID: 50232606613705314}
   - component: {fileID: 114350817273485776}
-  - component: {fileID: 114215238264495226}
   - component: {fileID: 114532834457852878}
-  - component: {fileID: 61972791606597832}
   - component: {fileID: 60927248500000794}
   m_Layer: 0
   m_Name: PlayerTest
@@ -106,31 +104,6 @@ PolygonCollider2D:
       - {x: 0.12353885, y: -0.072954655}
       - {x: 0.15346432, y: -0.060858727}
       - {x: 0.15599442, y: 0.19095874}
---- !u!61 &61972791606597832
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.011528045, y: -0.11676234}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.84, y: 0.84}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3466012, y: 0.60647523}
-  m_EdgeRadius: 0
 --- !u!95 &95467724687440780
 Animator:
   serializedVersion: 3
@@ -149,22 +122,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114215238264495226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026dce370aee1104090265b61c562f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  dodgeSpeed: 25
-  startDodgetime: 0.05
-  startPoint: 
-  focus: {fileID: 0}
 --- !u!114 &114350817273485776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,7 +136,10 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   focus: {fileID: 0}
-  speed: 2.5
+  speed: 2
+  dodgeSpeed: 25
+  startDodgetime: 0.05
+  startPoint: 
 --- !u!114 &114532834457852878
 MonoBehaviour:
   m_ObjectHideFlags: 1

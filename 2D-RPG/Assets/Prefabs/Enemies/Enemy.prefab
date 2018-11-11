@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212265269372166570}
   - component: {fileID: 50612524980389960}
   - component: {fileID: 61572892367824648}
-  - component: {fileID: 114157549024267164}
   - component: {fileID: 95042690825400716}
+  - component: {fileID: 114195922110552642}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240788755770154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.67, y: -17.7, z: 0.08994492}
+  m_LocalPosition: {x: 7.3, y: -7.91, z: 0.08994492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114157549024267164
+--- !u!114 &114195922110552642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,15 +115,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240788755770154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d744b1faa241b3f438c3a07d530a25a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d3a7ec0e9375944bb20ee49f7d9b1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  ATTACK_TIMER: 0
+  BASE_ATTACK_RANGE: 0
+  MEDIUM_ATTACK_RANGE: 0
+  HARD_ATTACK_RANGE: 0
+  LIGHT_ATTACK_RANGE: 0
   speed: 1.5
   health: 100
   followRange: 5
-  attackRange: 1
+  attackRange: 2
 --- !u!212 &212265269372166570
 SpriteRenderer:
   m_ObjectHideFlags: 1

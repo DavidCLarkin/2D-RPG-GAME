@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using UnityEngine;
 
 //[RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : Interactable
+public abstract class Enemy : Interactable
 {
 	protected float DAMAGE_DELAY = 1f;
 	protected float ATTACK_DELAY = 1.5f; // base for enemies
@@ -166,14 +166,14 @@ public class Enemy : Interactable
 		distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
 		if(distance <= attackRange)
 		{
-            PerformAttack(25f, ATTACK_DELAY);
+            PerformAttack(25, ATTACK_DELAY);
 		}
 	}
 
-    public virtual void PerformAttack(float damage, float timeDelay)
+    public virtual void PerformAttack(int damage, float timeDelay)
     {
         ChooseAttack();
-        player.GetComponent<PlayerController>().health -= damage;
+        player.GetComponent<Player>().health -= damage;
         ATTACK_TIMER = timeDelay;
     }
 

@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
 
     private KeyCode[] keys = new KeyCode[] { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
 
-    private float pressCooldown = 0.5f;
-    private int buttonCount = 0;
 
 	private bool walkingUp;
 	private bool walkingDown;
@@ -92,16 +90,6 @@ public class PlayerController : MonoBehaviour
 
 		animate();
 
-        if (pressCooldown > 0)
-        {
-
-            pressCooldown -= 1 * Time.deltaTime;
-
-        }
-        else
-        {
-            buttonCount = 0;
-        }
 
     }
 

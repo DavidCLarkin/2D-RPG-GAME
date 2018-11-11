@@ -2500,31 +2500,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114350817273485776, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114350817273485776, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114350817273485776, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114350817273485776, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: startDodgetime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114350817273485776, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: dodgeSpeed
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b13b383c3d80644295114bcf003ad53, type: 2}
   m_IsPrefabAsset: 0
@@ -2962,11 +2937,6 @@ Prefab:
     - target: {fileID: 4243769021501756, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114157549024267164, guid: 4311b2c12e558b94e91243339e18c8b8,
-        type: 2}
-      propertyPath: attackRange
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
