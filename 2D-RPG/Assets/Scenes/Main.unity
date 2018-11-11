@@ -1557,6 +1557,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224403224145807074, guid: 3e250e3f6ecf55342a06983a8da53b85,
     type: 2}
   m_PrefabInternal: {fileID: 1749947281}
+--- !u!1 &745253685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1433843073848626, guid: 8b13b383c3d80644295114bcf003ad53,
+    type: 2}
+  m_PrefabInternal: {fileID: 1389512177}
+--- !u!114 &745253686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745253685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977dd77e3ebd3054098184fc9a38ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 0}
 --- !u!224 &758898772 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224403224145807074, guid: 3e250e3f6ecf55342a06983a8da53b85,
@@ -2661,6 +2678,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 60570305359967732, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505447522064566, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: customDamage
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
   m_IsPrefabAsset: 0
@@ -2937,6 +2964,10 @@ Prefab:
     - target: {fileID: 4243769021501756, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240788755770154, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
+      propertyPath: m_Name
+      value: Goblin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
@@ -3390,7 +3421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 480.3, y: 5.0999756}
+  m_AnchoredPosition: {x: 480.30078, y: 5.0999756}
   m_SizeDelta: {x: 219.8, y: 19.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731192138

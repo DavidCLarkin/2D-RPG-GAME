@@ -1,33 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Weapon : Interactable
+public class Weapon : MonoBehaviour, IDamageDealer
 {
-    protected PolygonCollider2D[] weaponColliders;
-    public int damage;
+    //protected PolygonCollider2D[] weaponColliders;
 
-	// Use this for initialization
-	void Start ()
+    public int customDamage;
+    public int Damage { get; set; }
+
+    void Awake()
     {
-        player = GameManagerSingleton.instance.player.transform;
-        weaponColliders = GetComponentsInChildren<PolygonCollider2D>();
+        Damage = customDamage;
+    }
+    // Use this for initialization
+    void Start ()
+    {
+        Damage = customDamage;
+        //player = GameManagerSingleton.instance.player.transform;
+        //weaponColliders = GetComponentsInChildren<PolygonCollider2D>();
 	}
 	
 	// Update is called once per frame
-	public override void Update ()
+	public void Update ()
     {
         //Debug.Log(weaponColliders);
 	}
 
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals(player.tag))
         {
             Debug.Log("Collided");
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            damageable.TakeDamage(damage);
+            damageable.TakeDamage(Damage);
         }
     }
+    */
+    
 
 }
