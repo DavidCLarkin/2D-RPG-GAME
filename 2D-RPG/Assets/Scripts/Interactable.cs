@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
 	public float radius = 3f;
 	protected bool isFocus = false; 
@@ -56,4 +56,5 @@ public class Interactable : MonoBehaviour
 	{
 		GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
 	}
+
 }

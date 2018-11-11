@@ -19,6 +19,7 @@ public class GameManagerSingleton : MonoBehaviour
 		} 
 		else
 		{
+            player = GameObject.FindGameObjectWithTag("Player");
 			instance = this;
 			DontDestroyOnLoad(gameObject);
 		}

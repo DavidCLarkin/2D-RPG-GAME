@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStartPoint : MonoBehaviour 
 {
-	private PlayerController player;
+	private Player player;
 	private CameraController camera;
 	private VCameraController vCamera;
 
@@ -13,7 +13,7 @@ public class PlayerStartPoint : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		player = FindObjectOfType<PlayerController>();
+		player = GameManagerSingleton.instance.player.GetComponent<Player>();
 
 		if (player.startPoint == pointName) 
 		{

@@ -25,8 +25,9 @@ public class Weapon : Interactable
         if (collision.gameObject.tag.Equals(player.tag))
         {
             Debug.Log("Collided");
-            player.GetComponent<PlayerController>().health -= damage; //probably want to change this to invoke method
-            
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            damageable.TakeDamage(damage);
         }
     }
+
 }

@@ -8,17 +8,17 @@ public class LoadLevel : MonoBehaviour
 	public string levelToLoad;
 	public string exitPoint;
 
-	private PlayerController player;
+	private Player player;
 
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameManagerSingleton.instance.player.GetComponent<PlayerController>();
+		player = GameManagerSingleton.instance.player.GetComponent<Player>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.name == "Player") 
+		if (other.gameObject.tag == "Player") 
 		{
 			SceneManager.LoadScene (levelToLoad);
 			player.startPoint = exitPoint;
