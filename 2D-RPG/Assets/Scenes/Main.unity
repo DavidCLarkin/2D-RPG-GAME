@@ -978,10 +978,10 @@ MonoBehaviour:
   - {fileID: 1693142080309796, guid: 9fd7822c966824344a1999974d84fb31, type: 2}
   - {fileID: 1422804489123188, guid: b399de3da4d80da47870dda146cdd9d6, type: 2}
   - {fileID: 1036976006763714, guid: 32713b6c6c4f4db4bbc29e13fb00524f, type: 2}
-  rows: 75
-  cols: 75
+  rows: 100
+  cols: 100
   numOfTunnels: 300
-  maxTunnelLength: 5
+  maxTunnelLength: 3
   minTunnelLength: 2
 --- !u!114 &372113314
 MonoBehaviour:
@@ -3020,7 +3020,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3043,7 +3043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.6599998, y: -4.82, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
