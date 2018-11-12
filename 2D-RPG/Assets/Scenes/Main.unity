@@ -2683,6 +2683,16 @@ Prefab:
       propertyPath: customDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114565011140562972, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114565011140562972, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
   m_IsPrefabAsset: 0

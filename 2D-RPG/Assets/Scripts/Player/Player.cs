@@ -16,10 +16,19 @@ public class Player : Character, IMoveable, IAnimateable
     private float speed = 2.5f;
 
     private static bool playerExists;
+
     private bool walkingUp;
     private bool walkingDown;
     private bool walkingLeft;
     private bool walkingRight;
+    private bool attackDown;
+    private bool attackUp;
+    private bool attackLeft;
+    private bool attackRight;
+    public bool isAttacking;
+
+
+    private int facingDirection;
 
     public float dodgeSpeed;
     public float startDodgetime;
@@ -32,6 +41,7 @@ public class Player : Character, IMoveable, IAnimateable
     void Start ()
     {
         //inventory = GetComponent<Inventory>();
+        facingDirection = 3; // Set facing down
         cam = Camera.main;
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -49,7 +59,8 @@ public class Player : Character, IMoveable, IAnimateable
 	// Update is called once per frame
 	public void Update ()
     {
-        Move();
+        //Debug.Log(facingDirection);
+        MouseDirectionAttack();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -81,6 +92,7 @@ public class Player : Character, IMoveable, IAnimateable
         }
 
         Animate();
+        Move();
         Dodge();
     }
 
@@ -96,9 +108,42 @@ public class Player : Character, IMoveable, IAnimateable
         focus = null;
     }
 
+    public void MouseDirectionAttack()
+    {
+        Vector2 dir = cam.ScreenToViewportPoint((Input.mousePosition));
+        Debug.Log(dir);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (dir.y >= 0.65f)
+            {
+                Debug.Log("Top");
+                facingDirection = 1;
+
+            }
+            else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
+            {
+                Debug.Log("Left");
+                facingDirection = 2;
+            }
+            else if (dir.y <= 0.35f)
+            {
+                Debug.Log("Down");
+                facingDirection = 3;
+            }
+            else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
+            {
+                Debug.Log("Right");
+                facingDirection = 4;
+            }
+            //Debug.Log(dir);
+        }
+    }
+
     //Interface method
     public void Move()
     {
+        if (isAttacking)
+            return;
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         rigidbody.velocity = new Vector2(horizontal * speed, rigidbody.velocity.y);
@@ -112,30 +157,77 @@ public class Player : Character, IMoveable, IAnimateable
         anim.SetBool("walkingDown", walkingDown);
         anim.SetBool("walkingLeft", walkingLeft);
         anim.SetBool("walkingRight", walkingRight);
+        anim.SetBool("knight_slice_down", attackDown);
+        anim.SetBool("attackLeft", attackLeft);
+        anim.SetBool("attackRight", attackRight);
+        anim.SetBool("attackUp", attackUp);
+
+        if (Input.GetMouseButtonDown(0) && facingDirection == 1)
+            attackUp = true;
+        else
+            attackUp = false;
+
+        if (Input.GetMouseButtonDown(0) && facingDirection == 2)
+            attackLeft = true;
+        else
+            attackLeft = false;
+
+        if (Input.GetMouseButtonDown(0) && facingDirection == 3)
+            attackDown = true;
+        else
+            attackDown = false;
+
+        if (Input.GetMouseButtonDown(0) && facingDirection == 4)
+            attackRight = true;
+        else
+            attackRight = false;
 
         if (Input.GetKey(KeyCode.W))
+        {
             walkingUp = true;
+            //facingDirection = 1;
+        }
         else
+        {
             walkingUp = false;
-
-        if (Input.GetKey(KeyCode.S))
-            walkingDown = true;
-        else
-            walkingDown = false;
+        }
 
         if (Input.GetKey(KeyCode.A))
+        {
             walkingLeft = true;
+            //facingDirection = 2;
+        }
         else
+        {
             walkingLeft = false;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            walkingDown = true;
+            //facingDirection = 3;
+        }
+        else
+        {
+            walkingDown = false;
+        }
 
         if (Input.GetKey(KeyCode.D))
+        {
             walkingRight = true;
+            //facingDirection = 4;
+        }
         else
+        {
             walkingRight = false;
+        }
     }
 
     public void Dodge()
     {
+        if (isAttacking)
+            return;
+
         if (direction == 0)
         {
             for (int i = 0; i < keys.Length; i++)

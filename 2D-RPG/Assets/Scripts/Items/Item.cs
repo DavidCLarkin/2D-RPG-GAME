@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Item : Interactable 
 {
-	public override void Update () 
+    public override void Update () 
 	{
 		base.Update();
 	}
@@ -24,4 +22,16 @@ public class Item : Interactable
 	{
 		Inventory.instance.Add(this);
 	}
+
+    void OnMouseEnter()
+    {
+        GameManagerSingleton.instance.tooltip.text = transform.name;
+        GameManagerSingleton.instance.tooltip.gameObject.SetActive(true);
+    }
+
+    void OnMouseExit()
+    {
+        GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
+    }
+
 }
