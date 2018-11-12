@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114532834457852878}
   - component: {fileID: 60927248500000794}
   - component: {fileID: 114043762561686482}
+  - component: {fileID: 114907859802262046}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Player
@@ -147,8 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dee47b4a8a104c4396a96d5c7c2547c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
   focus: {fileID: 0}
   speed: 2
   dodgeSpeed: 25
@@ -166,6 +165,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &114907859802262046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433843073848626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977dd77e3ebd3054098184fc9a38ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
 --- !u!212 &212835673172454662
 SpriteRenderer:
   m_ObjectHideFlags: 1
