@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using UnityEngine;
 
 //[RequireComponent(typeof(Rigidbody2D))]
-public abstract class Enemy : Interactable
+public abstract class Enemy : Interactable, IDamageable
 {
 	protected float DAMAGE_DELAY = 1f;
 	protected float ATTACK_DELAY = 1.5f; // base for enemies
@@ -246,5 +246,9 @@ public abstract class Enemy : Interactable
 
 		rigi.AddForce(new Vector2(xPos, yPos));
 	}
-		
+
+    public void TakeDamage(int damageAmount)
+    {
+        throw new System.NotImplementedException();
+    }
 }

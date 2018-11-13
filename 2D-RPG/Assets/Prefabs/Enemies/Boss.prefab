@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 50887532232373166}
   - component: {fileID: 61381099451191934}
   - component: {fileID: 114565011140562972}
+  - component: {fileID: 114350058042648990}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -372,6 +373,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114350058042648990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993732715031192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2000
+  health: 0
+  isAI: 1
 --- !u!114 &114505447522064566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,9 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b34f65d6c200744baa1cb6b20dd9381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  player: {fileID: 0}
-  damage: 20
+  customDamage: 20
 --- !u!114 &114565011140562972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40eb75437f824e438154eb53dd6aa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 3
   player: {fileID: 0}
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
@@ -407,7 +420,7 @@ MonoBehaviour:
   speed: 1
   health: 100
   followRange: 5
-  attackRange: 2
+  attackRange: 3
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

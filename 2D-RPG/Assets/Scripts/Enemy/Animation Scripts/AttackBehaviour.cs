@@ -13,9 +13,6 @@ public class AttackBehaviour : StateMachineBehaviour
 		timer = stateInfo.length;
         enemy = animator.GetComponent<Enemy>();
 
-        //enemy.attackRange = 2f; CURRENTLY USING ENABLE/DISABLE COLLIDERS
-
-		//Debug.Log(timer);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

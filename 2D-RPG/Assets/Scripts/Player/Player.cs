@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character, IMoveable, IAnimateable
+public class Player : Character, IAnimateable
 {
     private KeyCode[] keys = new KeyCode[] { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
     private Rigidbody2D rigidbody;
@@ -10,10 +10,11 @@ public class Player : Character, IMoveable, IAnimateable
     private Animator anim;
     public Interactable focus;
 
-    private float vertical;
-    private float horizontal;
-    [SerializeField]
-    private float speed = 2.5f;
+    //private float vertical;
+    //private float horizontal;
+
+    //[SerializeField]
+    //private float speed = 2.5f;
 
     private static bool playerExists;
 
@@ -62,7 +63,7 @@ public class Player : Character, IMoveable, IAnimateable
         //Debug.Log(facingDirection);
         MouseDirectionAttack();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -92,7 +93,7 @@ public class Player : Character, IMoveable, IAnimateable
         }
 
         Animate();
-        Move();
+        //Move();
         Dodge();
     }
 
@@ -111,7 +112,7 @@ public class Player : Character, IMoveable, IAnimateable
     public void MouseDirectionAttack()
     {
         Vector2 dir = cam.ScreenToViewportPoint((Input.mousePosition));
-        Debug.Log(dir);
+        //Debug.Log(dir);
         if (Input.GetMouseButtonDown(0))
         {
             if (dir.y >= 0.65f)
@@ -140,7 +141,7 @@ public class Player : Character, IMoveable, IAnimateable
     }
 
     //Interface method
-    public void Move()
+    /*public void Move()
     {
         if (isAttacking)
             return;
@@ -149,6 +150,7 @@ public class Player : Character, IMoveable, IAnimateable
         rigidbody.velocity = new Vector2(horizontal * speed, rigidbody.velocity.y);
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, vertical * speed);
     }
+    */
 
     //Interface Method
     public void Animate()
