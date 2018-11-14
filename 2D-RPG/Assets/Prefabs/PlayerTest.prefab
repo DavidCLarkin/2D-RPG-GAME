@@ -71,12 +71,13 @@ GameObject:
   - component: {fileID: 50232606613705314}
   - component: {fileID: 114022492373825988}
   - component: {fileID: 114233320065855936}
-  - component: {fileID: 114350817273485776}
   - component: {fileID: 114532834457852878}
   - component: {fileID: 114907859802262046}
   - component: {fileID: 114160261082746414}
   - component: {fileID: 114043762561686482}
+  - component: {fileID: 114400466678232406}
   - component: {fileID: 114105536752077910}
+  - component: {fileID: 114308860328978886}
   - component: {fileID: 60927248500000794}
   m_Layer: 0
   m_Name: PlayerTest
@@ -435,22 +436,34 @@ MonoBehaviour:
   startDodgetime: 0.05
   dodgeTime: 0
   speed: 2
---- !u!114 &114350817273485776
+--- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dee47b4a8a104c4396a96d5c7c2547c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
   isAttacking: 0
-  dodgeSpeed: 25
-  startDodgetime: 0.05
+  dodgeSpeed: 0
+  startDodgetime: 0
   startPoint: 
+--- !u!114 &114400466678232406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433843073848626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed14a75d6294e944bb8ebeb652dac3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
 --- !u!114 &114532834457852878
 MonoBehaviour:
   m_ObjectHideFlags: 1

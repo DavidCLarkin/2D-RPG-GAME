@@ -22,7 +22,7 @@ public class InputComponent : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update ()
+    void Update()
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
@@ -44,16 +44,5 @@ public class InputComponent : MonoBehaviour
             Debug.Log("Interacting");
             OnInteract();
         }
-    }
-
-
-    bool isHorizontalPressed()
-    {
-        return (Horizontal == 1 || Horizontal == -1);
-    }
-
-    bool isVerticalPressed()
-    {
-        return (Vertical == 1 || Vertical == -1);
     }
 }

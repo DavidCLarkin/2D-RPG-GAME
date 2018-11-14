@@ -23,7 +23,6 @@ public class MovementComponent : MonoBehaviour, IMoveable
         input.OnDodge += Dodge;
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
-
     }
 
     // Update is called once per frame
@@ -35,12 +34,18 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
     public void Move()
     {
+        if (player != null && player.isAttacking)
+            return;
+
         rigidbody.velocity = new Vector2(input.Horizontal * speed, rigidbody.velocity.y);
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, input.Vertical * speed);
     }
 
     void Dodge()
     {
+        if (player != null && player.isAttacking)
+            return;
+
         if (direction == 0)
         {
             for (int i = 0; i < input.keys.Length; i++)
