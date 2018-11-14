@@ -85,7 +85,8 @@ public class MapGenerator : MonoBehaviour
         */
 
         // TODO: WORKS SMOETIMES, but obviously sometimes cant get a spot to place, so i need to make it so it chooses a differnt position to try available slots in
-        Debug.Log(test);
+        //Debug.Log(test);
+        Vector2 savedPos = currentPos;
         currentPos += randDirection;
         bool goodPath = false;
         bool hasRoom = false;
@@ -93,6 +94,13 @@ public class MapGenerator : MonoBehaviour
         {
             for (int i = 0; i < test; i++)
             {
+                if (currentPos.x > rows - 1 || currentPos.x <= 0 || currentPos.y > cols - 1 || currentPos.y <= 0)
+                {
+                    Debug.Log("Out of bounds, changing currentpost to saved Pos: curPos: " + currentPos + "savedPos: " + savedPos);
+                    currentPos = savedPos;
+                    break;
+                }
+
                 if (grid[(int)currentPos.x, (int)currentPos.y] != 1)
                 {
                     Instantiate(groundTiles[0], currentPos, Quaternion.identity);
@@ -107,7 +115,7 @@ public class MapGenerator : MonoBehaviour
                                 // Debug.Log("i: " + i + ",j: " + j);
                                 if (grid[j, k] == 1)
                                 {
-                                    return;
+                                    continue;
                                     //endPos += directions[Random.Range(0, directions.Length)];
                                 }
                             }
@@ -207,6 +215,9 @@ public class MapGenerator : MonoBehaviour
             {
                 if (grid[x, y] == 0)
                 {
+                    if (x + 1 > rows || x - 1 < 0 || y + 1 > cols || y - 1 < 0)
+                        continue;
+
                     if (grid[x + 1, y] == 1 && grid[x, y + 1] == 1 && grid[x - 1, y] == 1 && grid[x, y - 1] == 1)
                     {
                         //Debug.Log("Filled in" + x + ", " + y);
