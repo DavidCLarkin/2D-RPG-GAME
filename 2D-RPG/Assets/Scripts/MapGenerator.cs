@@ -29,11 +29,6 @@ public class MapGenerator : MonoBehaviour
 	public int minTunnelLength = 2; // Set in inspector
 
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-            RemoveDoubleWalls();
-    }
     // Use this for initialization
     void Start ()
     {
@@ -78,7 +73,7 @@ public class MapGenerator : MonoBehaviour
         }
 
         RemoveSingleWalls();
-        //RemoveDoubleWalls();
+        RemoveDoubleWalls();
 
         int test = 10;
         /*randDirection = directions[Random.Range(0, directions.Length)];
@@ -214,7 +209,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     if (grid[x + 1, y] == 1 && grid[x, y + 1] == 1 && grid[x - 1, y] == 1 && grid[x, y - 1] == 1)
                     {
-                        Debug.Log("Filled in" + x + ", " + y);
+                        //Debug.Log("Filled in" + x + ", " + y);
                         grid[x, y] = 1;
                     }
                 }
@@ -230,39 +225,26 @@ public class MapGenerator : MonoBehaviour
             {
                 if (grid[x, y] == 1)
                 {
-                    if (x + 2 >= rows || x - 2 <= 0 || y + 2 >= cols || y - 2 <= 0)
+                    if (x + 3 >= rows || x - 3 <= 0 || y + 3 >= cols || y - 3 <= 0)
                         continue;
 
-                    // sideways double walls
+                    // sideways double walls (Checking if a tile is not a ground, then if tiles around it ARE floor, then fill it in)
                     if ((grid[x + 1, y] == 0 && grid[x + 1, y + 1] == 1 && grid[x + 1, y-1]==1) && (grid[x+2, y] == 0 && grid[x+2, y+1] == 1 && grid[x+2, y-1] == 1 && grid[x+3, y]==1))
                     {
-                        Debug.Log("Filled in double walls : " + x + ", " + y);
-                        Instantiate(groundTiles[5], new Vector2(x + 1, y), Quaternion.identity);
-                        Instantiate(groundTiles[5], new Vector2(x + 2, y), Quaternion.identity);
+                        //Debug.Log("Filled in double walls : " + x + ", " + y);
+                        //Instantiate(groundTiles[5], new Vector2(x + 1, y), Quaternion.identity);
+                        //Instantiate(groundTiles[5], new Vector2(x + 2, y), Quaternion.identity);
                         grid[x + 1, y] = 1;
                         grid[x + 2, y] = 1;
                     }
-                    // upwards double walls
-                    /*
-                    if(grid[x, y + 1] == 0 && grid[x, y + 2] == 0)
+                    // upwards/downwards double walls (Same as above)
+                    if((grid[x, y+1] == 0 && grid[x+1, y+1] == 1 && grid[x - 1, y + 1] == 1) && (grid[x, y+2] == 0 && grid[x+1, y+2] == 1 && grid[x-1, y+2] == 1 && grid[x, y+3]== 1))
                     {
-                        Debug.Log("Filled in" + x + ", " + y);
+                        //Instantiate(groundTiles[5], new Vector2(x, y + 1), Quaternion.identity);
+                        //Instantiate(groundTiles[5], new Vector2(x, y + 2), Quaternion.identity);
                         grid[x, y + 1] = 1;
                         grid[x, y + 2] = 1;
                     }
-                    if (grid[x-1, y] == 0 && grid[x-2, y] == 0)
-                    {
-                        Debug.Log("Filled in" + x + ", " + y);
-                        grid[x - 1, y] = 1;
-                        grid[x - 2, y] = 1;
-                    }
-                    if (grid[x, y - 1] == 0 && grid[x, y - 2] == 0)
-                    {
-                        Debug.Log("Filled in" + x + ", " + y);
-                        grid[x, y - 1] = 1;
-                        grid[x, y - 2] = 1;
-                    }
-                    */
                 }
             }
         }
