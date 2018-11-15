@@ -116,11 +116,16 @@ public class PlayerController : MonoBehaviour
 			walkingUp = true;	
 		else
 			walkingUp = false;
-		
-		if (Input.GetKey (KeyCode.S))
-			walkingDown = true;
-		else
-			walkingDown = false;
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            walkingDown = true;
+            direction = 3;
+        }
+        else
+        {
+            walkingDown = false;
+        }
 
 		if (Input.GetKey (KeyCode.A))
 			walkingLeft = true;

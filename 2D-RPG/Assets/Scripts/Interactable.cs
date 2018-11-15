@@ -45,16 +45,4 @@ public abstract class Interactable : MonoBehaviour
 		player = null;
 		hasInteracted = false;
 	}
-
-	void OnMouseEnter()
-	{
-		GameManagerSingleton.instance.tooltip.text = transform.name;
-		GameManagerSingleton.instance.tooltip.gameObject.SetActive(true);
-	}
-
-	void OnMouseExit()
-	{
-		GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
-	}
-
 }

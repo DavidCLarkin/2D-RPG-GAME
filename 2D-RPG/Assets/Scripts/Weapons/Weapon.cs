@@ -11,11 +11,14 @@ public class Weapon : MonoBehaviour, IDamageDealer
     {
         Damage = customDamage;
     }
+<<<<<<< HEAD
 
     void Start ()
     {
         Damage = customDamage;
 	}
     
+=======
+>>>>>>> 41680df57ad1705639630fbc954845fbe358b5ef
 
 }
