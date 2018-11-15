@@ -31,6 +31,7 @@ public class PlayerAnimationComponent : MonoBehaviour
     {
         MouseDirectionAttack();
     }
+
     void Animate()
     {
         if(input != null && anim != null)

@@ -203,6 +203,8 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+
+		//GameManagerSingleton.instance.player.transform.position = startPos;
         //lastDirection = directions[0];
         //randDirection = directions[Random.Range(0, directions.Length)];
     }

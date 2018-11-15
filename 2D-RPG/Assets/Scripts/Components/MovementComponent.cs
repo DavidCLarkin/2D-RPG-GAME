@@ -4,12 +4,14 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour, IMoveable
 {
     private InputComponent input;
+	private MovementComponent movement;
     private Rigidbody2D rigidbody;
     private Player player;
 
     public float dodgeSpeed;
     public float startDodgetime;
     public float dodgeTime;
+	public float dashCost = 30f;
     private int direction;
 
     [SerializeField]
@@ -20,6 +22,8 @@ public class MovementComponent : MonoBehaviour, IMoveable
     {
         direction = 1;
         input = GetComponent<InputComponent>();
+		movement = GetComponent<MovementComponent> ();
+		GetComponent<StaminaComponent> ().OnUse += UseStamina;
         input.OnDodge += Dodge;
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
@@ -40,6 +44,11 @@ public class MovementComponent : MonoBehaviour, IMoveable
         rigidbody.velocity = new Vector2(input.Horizontal * speed, rigidbody.velocity.y);
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, input.Vertical * speed);
     }
+
+	public void UseStamina()
+	{
+		Debug.Log ("Stamina used");
+	}
 
     void Dodge()
     {
@@ -63,6 +72,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
                 direction = 0;
                 dodgeTime = startDodgetime;
                 rigidbody.velocity = Vector2.zero;
+				UseStamina ();
             }
             else
             {
