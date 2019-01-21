@@ -6,18 +6,19 @@ using System;
 public class StaminaComponent : MonoBehaviour 
 {
 	public float maxStamina;
-	public float stamina;
+    public float stamina;
 
 	private InputComponent input;
 	public event Action OnUse = delegate { };
 
-	void Awake()
-	{
-		stamina = maxStamina;
-		input = GetComponent<InputComponent> ();
-	}
+    void Start()
+    {
+        stamina = maxStamina;
+        input = GetComponent<InputComponent>();
+        StartCoroutine(RegenerateStamina());
+    }
 
-	void Update()
+    void Update()
 	{
 		for(int i = 0; i < input.keys.Length; i++)
 		{
@@ -25,12 +26,26 @@ public class StaminaComponent : MonoBehaviour
 				UseStamina ();
 		}
 	}
-		
-	public void UseStamina()
+
+    IEnumerator RegenerateStamina()
+    {
+        while(true)
+        {
+            stamina += 5f;
+
+            if (stamina > maxStamina)
+                stamina = maxStamina;
+
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    public void UseStamina()
 	{
 		if (stamina >= 30f) 
 		{
 			stamina -= 30f;
 		}
-	}
+
+    }
 }
