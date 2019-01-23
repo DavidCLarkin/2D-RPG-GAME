@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 114400466678232406}
   - component: {fileID: 114105536752077910}
   - component: {fileID: 114308860328978886}
+  - component: {fileID: 114281135109530564}
   - component: {fileID: 60927248500000794}
   m_Layer: 0
   m_Name: PlayerTest
@@ -141,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6600003, y: -4.82, z: 0}
+  m_LocalPosition: {x: 0.64, y: -1.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -400,7 +401,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20000
+  maxHealth: 100
   health: 0
   isAI: 0
 --- !u!114 &114105536752077910
@@ -510,7 +511,21 @@ MonoBehaviour:
   dodgeSpeed: 25
   startDodgetime: 0.05
   dodgeTime: 0
+  dashCost: 30
   speed: 2
+--- !u!114 &114281135109530564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433843073848626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb886a658127a85439405464cb245b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  stamina: 0
 --- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,7 +23,9 @@ public abstract class Enemy : Interactable, IDamageable
 	public float followRange;
 	public float attackRange;
 
-	protected Rigidbody2D rigi;
+    private Grid grid;
+    private List<Node> path = new List<Node>();
+    protected Rigidbody2D rigi;
     protected Animator anim;
 
     protected bool canBeKnockedBack;
@@ -47,6 +49,7 @@ public abstract class Enemy : Interactable, IDamageable
         player = GameManagerSingleton.instance.player.transform;
         rigi = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        grid = GameObject.Find("A*").GetComponent<Grid>();
     }
 
 	public override void Update() 
@@ -136,24 +139,23 @@ public abstract class Enemy : Interactable, IDamageable
 
 	}
 
-	/*
-	 * Method that makes the enemy follow the player around.
-	 * NEED TO IMPLEMENT COLLISION DETECTION
-	 */
+    // Pathfinding method
 	public virtual void FollowTarget(Transform target)
 	{
-        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("knight_slice_down"))
-          //  return;
-		distance = Vector2.Distance(target.position, transform.position);
-		if(distance <= followRange)
-		{
-			transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-			Vector3 vectorToTarget = target.transform.position - transform.position;
-			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-			Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, qt, Time.deltaTime * 0.5f);
-		}
-	}
+        // Pathfinding
+        path = grid.path;
+        if (path != null)
+        {
+            if ((Vector2)transform.position != path[0].position)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, path[0].position, speed * Time.deltaTime);
+            }
+            else
+            {
+                path.RemoveAt(0);
+            }
+        }
+    }
 
 	/*
 	 * Attack method which checks distance, and if distance is less than Enemy radius

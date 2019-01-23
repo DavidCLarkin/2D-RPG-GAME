@@ -21,6 +21,7 @@ public class Boss : Enemy
     {
         base.Start();
 
+
         hasWeapon = (GetComponentInChildren<Weapon>() != null);
         //Debug.Log(hasWeapon);
         //hasWeapon = (GetComponentInChildren<PolygonCollider2D>() != null); // has weapon is true if children has PolygonCollider2D
@@ -42,6 +43,7 @@ public class Boss : Enemy
 	public override void Update ()
     {
         base.Update();
+
         //animate();
         Vector3 oldRot = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
