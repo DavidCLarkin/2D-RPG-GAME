@@ -23,7 +23,7 @@ public abstract class Enemy : Interactable, IDamageable
 	public float followRange;
 	public float attackRange;
 
-    private Grid grid;
+    private LevelGrid grid;
     private List<Node> path = new List<Node>();
     protected Rigidbody2D rigi;
     protected Animator anim;
@@ -49,7 +49,7 @@ public abstract class Enemy : Interactable, IDamageable
         player = GameManagerSingleton.instance.player.transform;
         rigi = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        grid = GameObject.Find("A*").GetComponent<Grid>();
+        grid = GameObject.Find("A*").GetComponent<LevelGrid>();
     }
 
 	public override void Update() 
@@ -144,7 +144,7 @@ public abstract class Enemy : Interactable, IDamageable
 	{
         // Pathfinding
         path = grid.path;
-        if (path != null)
+        if (path.Count > 0) // game freezes if computing this when no path
         {
             if ((Vector2)transform.position != path[0].position)
             {
