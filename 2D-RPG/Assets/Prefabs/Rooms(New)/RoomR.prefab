@@ -12114,7 +12114,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -9}
+  m_Offset: {x: -0.018350601, y: -8.981652}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12125,7 +12125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 2}
+  m_Size: {x: 17.963299, y: 1.8898983}
   m_EdgeRadius: 0
 --- !u!61 &61192724897235740
 BoxCollider2D:
@@ -12139,7 +12139,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -9.5, y: 0}
+  m_Offset: {x: -9.5, y: -0.0000019073486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12150,7 +12150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 20}
+  m_Size: {x: 0.8842087, y: 19.884212}
   m_EdgeRadius: 0
 --- !u!61 &61437014958989230
 BoxCollider2D:
@@ -12175,7 +12175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 1}
+  m_Size: {x: 18, y: 0.8842163}
   m_EdgeRadius: 0
 --- !u!61 &61612419392232448
 BoxCollider2D:
@@ -12189,7 +12189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.5, y: -6.5}
+  m_Offset: {x: 9.5, y: -6.521962}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12200,7 +12200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 7}
+  m_Size: {x: 0.9121628, y: 6.8682384}
   m_EdgeRadius: 0
 --- !u!61 &61814071923735446
 BoxCollider2D:
@@ -12214,7 +12214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.5, y: 6.5}
+  m_Offset: {x: 9.5, y: 6.511532}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12225,7 +12225,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 7}
+  m_Size: {x: 0.9538727, y: 6.930807}
   m_EdgeRadius: 0
 --- !u!212 &212000351221520070
 SpriteRenderer:

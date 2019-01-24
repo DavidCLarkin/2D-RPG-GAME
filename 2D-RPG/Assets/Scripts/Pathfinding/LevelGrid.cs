@@ -30,7 +30,7 @@ public class LevelGrid : MonoBehaviour
         {
             for(int y = 0; y < gridSizeY; y++)
             {
-                Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter) + Vector2.up * (y * nodeDiameter);
+                Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 bool walkable = !Physics2D.OverlapCircle(worldPoint, nodeRadius, unwalkableMask);
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
