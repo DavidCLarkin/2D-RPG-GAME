@@ -97,6 +97,7 @@ public class Boss : Enemy
         base.FollowTarget(target);
     }
 
+    /*
     private void animate()
     {
 			
@@ -126,6 +127,7 @@ public class Boss : Enemy
             walkingRight = false;
 
     }
+    */
 
     IEnumerator StopAnimation()
     {

@@ -213,7 +213,7 @@ public class LevelGeneration : MonoBehaviour
             drawPos.y *= 20;
 
             //Spawn boss room at the end
-            Debug.Log(room.position);
+            //Debug.Log(room.position);
             if (room.position == finalRoomPos)
             {
                 Instantiate(bossRooms[Random.Range(0, bossRooms.Length)], drawPos, Quaternion.identity);

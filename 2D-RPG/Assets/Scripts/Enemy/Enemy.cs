@@ -125,14 +125,14 @@ public abstract class Enemy : Interactable, IDamageable
 		switch(state)
 		{
 			case State.Idle:
-				//Debug.Log("Idle");
+				Debug.Log("Idle");
 				break;
 			case State.Moving:
-				//Debug.Log("Moving");
+				Debug.Log("Moving");
 				FollowTarget(player);
 				break;
 			case State.Attacking:
-                //Debug.Log("Attacking");
+                Debug.Log("Attacking");
 				Attack();
 				break;
 		}
@@ -142,7 +142,7 @@ public abstract class Enemy : Interactable, IDamageable
     // Pathfinding method
 	public virtual void FollowTarget(Transform target)
 	{
-        // Pathfindinge
+        // Pathfinding
 
         path = grid.path;
         if (path.Count > 0) // game freezes if computing this when no path
