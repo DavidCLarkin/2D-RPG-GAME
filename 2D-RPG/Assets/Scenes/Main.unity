@@ -506,7 +506,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429511212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49000013, y: 3.4, z: -10}
+  m_LocalPosition: {x: -0.49000025, y: 3.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1545961303}
@@ -682,11 +682,6 @@ Prefab:
     - target: {fileID: 4128257301822246, guid: 8b13b383c3d80644295114bcf003ad53, type: 2}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 50232606613705314, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b13b383c3d80644295114bcf003ad53, type: 2}
@@ -928,6 +923,36 @@ Prefab:
         type: 2}
       propertyPath: followRange
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.023723215
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.699501
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.0072315037
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32707113
+      objectReference: {fileID: 0}
+    - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
+        type: 2}
+      propertyPath: m_AutoTiling
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
@@ -1198,7 +1223,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49000013, y: 3.4, z: -10}
+  m_LocalPosition: {x: -0.49000025, y: 3.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

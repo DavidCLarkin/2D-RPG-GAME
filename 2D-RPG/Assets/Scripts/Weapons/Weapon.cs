@@ -12,9 +12,4 @@ public class Weapon : MonoBehaviour, IDamageDealer
         Damage = customDamage;
     }
 
-    void Start ()
-    {
-        Damage = customDamage;
-	}
-
 }

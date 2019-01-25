@@ -41,9 +41,9 @@ public class PlayerAnimationComponent : MonoBehaviour
             anim.SetBool("walkingLeft", walkingLeft);
             anim.SetBool("walkingRight", walkingRight);
             anim.SetBool("knight_slice_down", attackDown);
-            anim.SetBool("attackLeft", attackLeft);
-            anim.SetBool("attackRight", attackRight);
-            anim.SetBool("attackUp", attackUp);
+            anim.SetBool("knight_slice_left", attackLeft);
+            anim.SetBool("knight_slice_right", attackRight);
+            anim.SetBool("knight_slice_up", attackUp);
 
             if (Input.GetMouseButtonDown(0) && facingDirection == 1)
                 attackUp = true;
