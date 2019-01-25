@@ -6,12 +6,14 @@ public class LevelGeneration : MonoBehaviour
 {
     public Vector2 mapSize = new Vector2(100, 100);
     public int numbOfRooms = 30;
+    public Vector2 finalRoomPos; // keep final room as it's going to be the boss room spawn location
 
     Room[,] rooms;
     List<Vector2> takenPositions = new List<Vector2>();
     int gridSizeX, gridSizeY;
 
     public GameObject roomR, roomL, roomU, roomD, roomDL, roomDR, roomDLR, roomLR, roomUD, roomUDL, roomUDLR, roomUDR, roomUL, roomULR, roomUR;
+    public GameObject[] bossRooms;
 
 	// Use this for initialization
 	void Start ()
@@ -65,6 +67,11 @@ public class LevelGeneration : MonoBehaviour
             //finalise pos
             rooms[(int)checkPos.x + gridSizeX, (int)checkPos.y + gridSizeY] = new Room(checkPos, 0);
             takenPositions.Insert(0, checkPos);
+
+            if (i == numbOfRooms - 2)
+                finalRoomPos = checkPos;
+
+            //Debug.Log(finalRoomPos);
         }
 
     }
@@ -204,6 +211,14 @@ public class LevelGeneration : MonoBehaviour
             Vector2 drawPos = room.position;
             drawPos.x *= 20;
             drawPos.y *= 20;
+
+            //Spawn boss room at the end
+            //Debug.Log(room.position);
+            if (room.position == finalRoomPos)
+            {
+                Instantiate(bossRooms[Random.Range(0, bossRooms.Length)], drawPos, Quaternion.identity);
+                continue;
+            }
 
             // Basically checking which specific room to place - not complicated, just long
             if(room.doorTop)

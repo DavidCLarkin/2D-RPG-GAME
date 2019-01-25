@@ -5,11 +5,11 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
     public Transform seeker, target;
-    Grid grid;
+    LevelGrid grid;
 
     private void Awake()
     {
-        grid = GetComponent<Grid>();
+        grid = GetComponent<LevelGrid>();
     }
 
     void Update()

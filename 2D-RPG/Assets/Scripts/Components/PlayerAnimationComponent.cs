@@ -66,22 +66,26 @@ public class PlayerAnimationComponent : MonoBehaviour
                 attackRight = false;
 
 
-            if (Input.GetKey(KeyCode.W))
+            //if (Input.GetKey(KeyCode.W))
+            if(Input.GetAxisRaw("Vertical") > 0)
                 walkingUp = true;
             else
                 walkingUp = false;
 
-            if (Input.GetKey(KeyCode.A))
+            //if (Input.GetKey(KeyCode.A))
+            if(Input.GetAxisRaw("Horizontal") < 0)
                 walkingLeft = true;
             else
                 walkingLeft = false;
 
-            if (Input.GetKey(KeyCode.S))
+            //if (Input.GetKey(KeyCode.S))
+            if(Input.GetAxisRaw("Vertical") < 0)
                 walkingDown = true;
             else
                 walkingDown = false;
 
-            if (Input.GetKey(KeyCode.D))
+            //if (Input.GetKey(KeyCode.D))
+            if(Input.GetAxisRaw("Horizontal") > 0)
                 walkingRight = true;
             else
                 walkingRight = false;
@@ -94,23 +98,23 @@ public class PlayerAnimationComponent : MonoBehaviour
         //Debug.Log(dir);
             if (dir.y >= 0.65f)
             {
-                Debug.Log("Top");
+                //Debug.Log("Top");
                 facingDirection = 1;
 
             }
             else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
             {
-                Debug.Log("Left");
+                //Debug.Log("Left");
                 facingDirection = 2;
             }
             else if (dir.y <= 0.35f)
             {
-                Debug.Log("Down");
+                //Debug.Log("Down");
                 facingDirection = 3;
             }
             else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
             {
-                Debug.Log("Right");
+                //Debug.Log("Right");
                 facingDirection = 4;
             }
             //Debug.Log(dir);

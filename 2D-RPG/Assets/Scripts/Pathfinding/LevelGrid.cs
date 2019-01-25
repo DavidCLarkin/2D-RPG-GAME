@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class LevelGrid : MonoBehaviour
 {
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
@@ -24,7 +24,7 @@ public class Grid : MonoBehaviour
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
-        Vector2 worldBottomLeft = new Vector2(transform.position.x, transform.position.y) - Vector2.right * gridWorldSize.x/2 - Vector2.up * gridWorldSize.y / 2;
+        Vector2 worldBottomLeft = (Vector2)transform.position - Vector2.right * gridWorldSize.x/2 - Vector2.up * gridWorldSize.y / 2;
 
         for(int x = 0; x < gridSizeX; x++)
         {
@@ -93,8 +93,4 @@ public class Grid : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
