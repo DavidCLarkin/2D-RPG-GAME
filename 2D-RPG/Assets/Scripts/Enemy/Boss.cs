@@ -12,6 +12,9 @@ public class Boss : Enemy
     private bool walkingRight;
     private bool attacking;
     protected bool hasWeapon;
+    public float SPAWN_TILE_DELAY = 5f;
+    public float SPAWN_TILE_TIMER;
+
     private GameObject bossRoom;
     public GameObject objToSpawn;
 
@@ -26,11 +29,10 @@ public class Boss : Enemy
         bossRoom = GameObject.Find("BossRoom1");
 
         hasWeapon = (GetComponentInChildren<Weapon>() != null);
-
+        
         if(hasWeapon)
             weapon = GetComponentInChildren<Weapon>(); // Get Colliders for the weapon
 
-        //rigi.mass = 1000f; // Higher mass = less knockback
         canBeKnockedBack = false;
         DAMAGE_DELAY = 1.5f;
         BASE_ATTACK_RANGE = 1.5f;
@@ -49,9 +51,9 @@ public class Boss : Enemy
         Vector3 oldRot = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
 
-        if(Input.GetKeyDown(KeyCode.B))
+        if(SPAWN_TILE_TIMER >= 0)
         {
-            SpawnHarmfulTiles();
+            SPAWN_TILE_TIMER -= Time.deltaTime;
         }
 
     }
@@ -80,16 +82,13 @@ public class Boss : Enemy
         base.DistanceChecking();
     }
 
-    public override void Attack()
+    public override void ChooseAttack(float timeDelay, int attackChosen)
     {
-        //Don't want to use this, as attacking times are determined in animation Behaviours
-        return;
-    }
-    
-
-    public override void ChooseAttack()
-    {
-        base.ChooseAttack();
+        base.ChooseAttack(timeDelay, attackChosen);
+        if(attackChosen == 1)
+        {
+            SpawnHarmfulTiles();
+        }
     }
 
     public override void StateDecision()
@@ -137,6 +136,9 @@ public class Boss : Enemy
 
     }
 
+    /*
+     * Method to spawn an object at all adjacent ground tiles in straight lines in each direction
+     */
     void SpawnHarmfulTiles()
     {
         List<Transform> besideTiles = GetAllTilesStraightLines();

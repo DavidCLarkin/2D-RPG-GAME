@@ -19,7 +19,6 @@ public abstract class Enemy : Interactable, IDamageable
     public float LIGHT_ATTACK_RANGE;
 
  	public float speed = 1.5f;
-	//public float health = 100.0f;
 	public float followRange;
 	public float attackRange;
 
@@ -29,7 +28,7 @@ public abstract class Enemy : Interactable, IDamageable
     protected Animator anim;
 
     protected bool canBeKnockedBack;
-	private bool moving;
+	protected bool moving;
 	protected float distance;
 
 	protected enum State { Moving, Attacking, Idle };
@@ -125,7 +124,7 @@ public abstract class Enemy : Interactable, IDamageable
 				break;
 			case State.Attacking:
                 Debug.Log("Attacking");
-				Attack();
+				Attack(Random.Range(0,2));
 				break;
 		}
 
@@ -154,27 +153,39 @@ public abstract class Enemy : Interactable, IDamageable
 	 * Attack method which checks distance, and if distance is less than Enemy radius
 	 * it attacks the player (deducts health from the player), then sets the ATTACK_TIMER
 	 */
-	public virtual void Attack()
+	public virtual void Attack(int attackChosen)
 	{
         if (ATTACK_TIMER > 0) return;
 
-		distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-		if(distance <= attackRange)
-		{
-            PerformAttack(25, ATTACK_DELAY);
-		}
+         distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+         if (distance <= attackRange)
+         {
+             ChooseAttack(ATTACK_DELAY, attackChosen);
+         }
+
 	}
 
-    public virtual void PerformAttack(int damage, float timeDelay)
+    public virtual void ChooseAttack(float timeDelay, int attackChosen)
     {
-        ChooseAttack();
-        player.GetComponent<HealthComponent>().health -= damage;
-        ATTACK_TIMER = timeDelay;
+        int damage = PerformAttack(attackChosen);
+        ATTACK_TIMER = timeDelay + Random.Range(1,3);
     }
 
-    public virtual void ChooseAttack()
+    public virtual int PerformAttack(int attackChosen)
     {
+        int dmg = 0;
+        switch(attackChosen)
+        {
+            case 0: dmg = 20;
+                break;
+            case 1: dmg = 25;
+                break;
+            default: dmg = 0;
+                Debug.Log("No damage, default case");
+                break;
+        }
 
+        return dmg;
     }
 
     public virtual void LightAttack()
@@ -185,36 +196,6 @@ public abstract class Enemy : Interactable, IDamageable
 
     public virtual void HeavyAttack()
     { }
-
-
-	/*
-	public void Knockback()
-	{
-		float xPos = 0.5f;
-		float yPos = 0.5f;
-
-		if(player.position.x > transform.position.x)
-		{
-			xPos = transform.position.x - 0.5f;
-		} 
-		else if(player.position.x < transform.position.x)
-		{
-			xPos = transform.position.x + 0.5f;
-		}
-
-		if(player.position.y > transform.position.y)
-		{
-			yPos = transform.position.y - 0.5f;
-		} 
-		else if(player.position.y < transform.position.y)
-		{
-			yPos = transform.position.y + 0.5f;
-		}
-
-		transform.position = new Vector2(xPos, yPos);
-
-	}
-	*///Not Used 
 
 	public virtual void Knockback(float force)
 	{
