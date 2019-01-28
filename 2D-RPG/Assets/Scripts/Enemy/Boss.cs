@@ -13,6 +13,7 @@ public class Boss : Enemy
     private bool attacking;
     protected bool hasWeapon;
     private GameObject bossRoom;
+    public GameObject objToSpawn;
 
     //protected PolygonCollider2D[] weaponColliders;
     protected Weapon weapon;
@@ -23,10 +24,6 @@ public class Boss : Enemy
         base.Start();
 
         bossRoom = GameObject.Find("BossRoom1");
-        List<Transform> besideTiles = GetAllTilesStraightLines();
-
-        foreach (Transform tile in besideTiles)
-            Debug.Log(tile.transform.position); // Printing all tiles beside enemy
 
         hasWeapon = (GetComponentInChildren<Weapon>() != null);
 
@@ -51,6 +48,12 @@ public class Boss : Enemy
         //animate();
         Vector3 oldRot = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            SpawnHarmfulTiles();
+        }
+
     }
 
     public override void MediumAttack()
@@ -134,5 +137,12 @@ public class Boss : Enemy
 
     }
 
+    void SpawnHarmfulTiles()
+    {
+        List<Transform> besideTiles = GetAllTilesStraightLines();
+
+        foreach (Transform tile in besideTiles)
+            Instantiate(objToSpawn, tile.position, Quaternion.identity);
+    }
     
 }

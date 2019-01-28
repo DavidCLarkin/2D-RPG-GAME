@@ -19,7 +19,7 @@ public abstract class Enemy : Interactable, IDamageable
     public float LIGHT_ATTACK_RANGE;
 
  	public float speed = 1.5f;
-	public float health = 100.0f;
+	//public float health = 100.0f;
 	public float followRange;
 	public float attackRange;
 
@@ -56,13 +56,6 @@ public abstract class Enemy : Interactable, IDamageable
 	{
 		base.Update();
 
-		if(health <= 0)
-		{
-			//Play death Animation
-			Destroy (gameObject);
-			GameManagerSingleton.instance.tooltip.gameObject.SetActive(false); //Otherwise, tooltip stays
-		}
-
 		//Timers
 		if(DAMAGE_TIMER >= 0)
 		{
@@ -89,7 +82,6 @@ public abstract class Enemy : Interactable, IDamageable
 		//base.Interact();
 		if (DAMAGE_TIMER <= 0)
 		{
-			health -= 25;
             if(canBeKnockedBack)
 			    Knockback(10000f);
 			DAMAGE_TIMER = DAMAGE_DELAY;
