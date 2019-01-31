@@ -30,6 +30,7 @@ public abstract class Enemy : Interactable, IDamageable
     protected bool canBeKnockedBack;
 	protected bool moving;
 	protected float distance;
+	public int attackChosen;
 
 	protected enum State { Moving, Attacking, Idle };
 	State state = State.Idle;
@@ -123,8 +124,9 @@ public abstract class Enemy : Interactable, IDamageable
 				FollowTarget(player);
 				break;
 			case State.Attacking:
-                Debug.Log("Attacking");
-				Attack(Random.Range(0,2));
+				Debug.Log ("Attacking");
+				attackChosen = Random.Range (0, 2); // only needs to be called once
+				Attack(attackChosen);
 				break;
 		}
 

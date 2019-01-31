@@ -18,7 +18,6 @@ public class Boss : Enemy
     private GameObject bossRoom;
     public GameObject objToSpawn;
 
-    //protected PolygonCollider2D[] weaponColliders;
     protected Weapon weapon;
 
     // Use this for initialization
@@ -26,7 +25,7 @@ public class Boss : Enemy
     {
         base.Start();
 
-        bossRoom = GameObject.Find("BossRoom1");
+		bossRoom = GameObject.FindGameObjectWithTag("BossRoom");
 
         hasWeapon = (GetComponentInChildren<Weapon>() != null);
         
@@ -55,6 +54,8 @@ public class Boss : Enemy
         {
             SPAWN_TILE_TIMER -= Time.deltaTime;
         }
+
+		//GetCurrentRoom();
 
     }
 
@@ -85,7 +86,7 @@ public class Boss : Enemy
     public override void ChooseAttack(float timeDelay, int attackChosen)
     {
         base.ChooseAttack(timeDelay, attackChosen);
-        if(attackChosen == 1)
+		if(attackChosen == 1 && SPAWN_TILE_TIMER <= 0)
         {
             SpawnHarmfulTiles();
         }
@@ -138,6 +139,7 @@ public class Boss : Enemy
 
     /*
      * Method to spawn an object at all adjacent ground tiles in straight lines in each direction
+     *  REMEMBER: ATTACH A DESTROY SCRIPT TO THE TILES SPAWNED SO THEY DESTROY
      */
     void SpawnHarmfulTiles()
     {
@@ -145,6 +147,24 @@ public class Boss : Enemy
 
         foreach (Transform tile in besideTiles)
             Instantiate(objToSpawn, tile.position, Quaternion.identity);
+
+		SPAWN_TILE_TIMER = SPAWN_TILE_DELAY;
     }
     
+	/*
+	 * Could maybe be reworked to detect any current room the boss or enemy is in
+	 */
+	void GetCurrentRoom()
+	{
+		GameObject room = GameObject.FindGameObjectWithTag ("BossRoom"); // or search for room
+		foreach (Transform tile in room.GetComponent<Tiles>().tiles)
+		{
+			//Debug.Log (ConvertAbsPositionToUnitPos(transform.position) + "Boss Pos: "+transform.position);
+			//Debug.Log ("Tile Pos:" + tile.transform.position);
+			if (ConvertAbsPositionToUnitPos (transform.position) == (Vector2)tile.transform.position) 
+			{
+				Debug.Log ("Tile and boss room the same");
+			}
+		}
+	}
 }

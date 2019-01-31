@@ -6,16 +6,18 @@ public class IdleBehaviour : StateMachineBehaviour {
 
 	public Transform player;
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
+	{
 		player = GameManagerSingleton.instance.player.transform;
 	}
-
-	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+		
+	// Also determines what and if to plat animations based on bosses variables
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 		if (Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Boss>().attackRange)
         {
-			animator.SetBool("attackDown", true);
+			if (animator.GetComponent<Enemy> ().attackChosen == 0)
+				animator.SetBool ("attackDown", true);
 		}
 	}
 
