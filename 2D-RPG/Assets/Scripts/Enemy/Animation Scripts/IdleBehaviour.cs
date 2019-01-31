@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleBehaviour : StateMachineBehaviour {
+public class IdleBehaviour : StateMachineBehaviour 
+{
 
 	public Transform player;
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -11,13 +12,14 @@ public class IdleBehaviour : StateMachineBehaviour {
 		player = GameManagerSingleton.instance.player.transform;
 	}
 		
-	// Also determines what and if to plat animations based on bosses variables
+	// Also determines what and if to play animations based on bosses variables
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-		if (Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Boss>().attackRange)
+		if(Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Boss>().attackRange)
         {
-			if (animator.GetComponent<Enemy> ().attackChosen == 0)
+			if (animator.GetComponent<Enemy> ().attackChosen == 1) 
 				animator.SetBool ("attackDown", true);
+			
 		}
 	}
 

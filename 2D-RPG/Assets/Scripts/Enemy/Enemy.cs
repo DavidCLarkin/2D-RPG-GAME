@@ -157,13 +157,13 @@ public abstract class Enemy : Interactable, IDamageable
 	 */
 	public virtual void Attack(int attackChosen)
 	{
-        if (ATTACK_TIMER > 0) return;
+        if(ATTACK_TIMER > 0) return;
 
-         distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-         if (distance <= attackRange)
-         {
-             ChooseAttack(ATTACK_DELAY, attackChosen);
-         }
+        distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+        if (distance <= attackRange)
+        {
+            ChooseAttack(ATTACK_DELAY, attackChosen);
+        }
 
 	}
 
