@@ -33,7 +33,7 @@ public abstract class Enemy : Interactable, IDamageable
 	public int attackChosen;
 
 	protected enum State { Moving, Attacking, Idle };
-	State state = State.Idle;
+	protected State state = State.Idle;
 
 	protected virtual void Start() 
 	{
@@ -124,9 +124,12 @@ public abstract class Enemy : Interactable, IDamageable
 				FollowTarget(player);
 				break;
 			case State.Attacking:
-				Debug.Log ("Attacking");
-				attackChosen = Random.Range (0, 2); // only needs to be called once
-				Attack(attackChosen);
+                if (ATTACK_TIMER <= 0)
+                {
+                    Debug.Log("Attacking");
+                    attackChosen = Random.Range(0, 2); // only needs to be called once
+                    Attack(attackChosen);
+                }
 				break;
 		}
 
@@ -157,8 +160,6 @@ public abstract class Enemy : Interactable, IDamageable
 	 */
 	public virtual void Attack(int attackChosen)
 	{
-        if(ATTACK_TIMER > 0) return;
-
         distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
         if (distance <= attackRange)
         {
@@ -170,7 +171,7 @@ public abstract class Enemy : Interactable, IDamageable
     public virtual void ChooseAttack(float timeDelay, int attackChosen)
     {
         int damage = PerformAttack(attackChosen);
-        ATTACK_TIMER = timeDelay + Random.Range(1,3);
+        ATTACK_TIMER = timeDelay; // + Random.Range(1,3);
     }
 
     public virtual int PerformAttack(int attackChosen)

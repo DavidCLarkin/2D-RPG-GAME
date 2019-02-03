@@ -14,8 +14,11 @@ public class Boss : Enemy
     protected bool hasWeapon;
     public float SPAWN_TILE_DELAY = 5f;
     public float SPAWN_TILE_TIMER;
+    float CHARGE_ATTACK_DELAY = 5f;
+    public float CHARGE_ATTACK_TIMER;
 
     private GameObject bossRoom;
+    bool isCoroutineRunning = false;
     public GameObject objToSpawn;
 
     protected Weapon weapon;
@@ -55,7 +58,10 @@ public class Boss : Enemy
             SPAWN_TILE_TIMER -= Time.deltaTime;
         }
 
-		//GetCurrentRoom();
+        if(CHARGE_ATTACK_TIMER >= 0)
+        {
+            CHARGE_ATTACK_TIMER -= Time.deltaTime;
+        }
 
     }
 
@@ -94,7 +100,34 @@ public class Boss : Enemy
 
     public override void StateDecision()
     {
-        base.StateDecision();
+        //base.StateDecision();
+        switch (state)
+        {
+            case State.Idle:
+                Debug.Log("Idle");
+                break;
+            case State.Moving:
+                Debug.Log("Moving");
+                FollowTarget(player);
+                if (distance >= 6f && CHARGE_ATTACK_TIMER <= 0)
+                    SprintTowardsPlayer();
+                break;
+            case State.Attacking:
+                if (ATTACK_TIMER <= 0)
+                {
+                    // Needs to be reworked to work correctly
+                  
+
+                    if (SPAWN_TILE_TIMER <= 0)
+                        attackChosen = 1;
+                    else
+                        attackChosen = 0;
+                    Debug.Log("Attacking");
+                    //attackChosen = Random.Range(0, 2); // only needs to be called once
+                    Attack(attackChosen);
+                }
+                break;
+        }
     }
 
     public override void FollowTarget(Transform target)
@@ -167,4 +200,26 @@ public class Boss : Enemy
 			}
 		}
 	}
+
+    void SprintTowardsPlayer()
+    {
+        Debug.Log("Charge at enemy");
+        Vector2 playerPos = player.transform.position;
+
+        StartCoroutine(DashToLocation(playerPos, 1));         
+    }
+
+    IEnumerator DashToLocation(Vector2 location, int seconds)
+    {
+        if (isCoroutineRunning)
+            yield break;
+        isCoroutineRunning = true;
+
+        yield return new WaitForSeconds(seconds);
+
+        transform.position = location;
+        CHARGE_ATTACK_TIMER = CHARGE_ATTACK_DELAY;
+        isCoroutineRunning = false;
+
+    }
 }

@@ -506,7 +506,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429511212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49000025, y: 3.4, z: -10}
+  m_LocalPosition: {x: -0.49000013, y: 3.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1545961303}
@@ -1105,7 +1105,7 @@ Prefab:
     - target: {fileID: 114565011140562972, guid: 5a7375f89edff434192a11eba66e2248,
         type: 2}
       propertyPath: followRange
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 61381099451191934, guid: 5a7375f89edff434192a11eba66e2248,
         type: 2}
@@ -1141,7 +1141,7 @@ Prefab:
         type: 2}
       propertyPath: objToSpawn
       value: 
-      objectReference: {fileID: 1725540340596104, guid: fe3ad37dc466bd74db206c088fe3d26f,
+      objectReference: {fileID: 1065177561435902, guid: 6aab3b205f6dc5e4dac6b4c9f8606bd6,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
@@ -1389,7 +1389,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1412,7 +1412,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49000025, y: 3.4, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1574,6 +1574,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1706608535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993732715031192, guid: 5a7375f89edff434192a11eba66e2248,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514607847}
+--- !u!114 &1706608542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706608535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977dd77e3ebd3054098184fc9a38ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
 --- !u!1001 &2034286074
 Prefab:
   m_ObjectHideFlags: 0

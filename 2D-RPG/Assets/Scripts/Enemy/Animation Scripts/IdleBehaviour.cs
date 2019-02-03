@@ -15,11 +15,12 @@ public class IdleBehaviour : StateMachineBehaviour
 	// Also determines what and if to play animations based on bosses variables
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-		if(Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Boss>().attackRange)
+		if(Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Enemy>().attackRange)
         {
-			if (animator.GetComponent<Enemy> ().attackChosen == 1) 
-				animator.SetBool ("attackDown", true);
-			
+            if (animator.GetComponent<Enemy>().attackChosen == 0)
+                animator.SetBool("attackDown", true);
+                //if (animator.GetComponent<Enemy>().attackChosen == 0)
+                  //  animator.SetTrigger("idle");
 		}
 	}
 
