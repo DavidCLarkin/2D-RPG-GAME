@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
+// Attack 0 - Default Attack, Attack 1 - Spawn Dangerous Tiles
+
 public class Boss : Enemy
 {
-
     private bool walkingUp;
     private bool walkingDown;
     private bool walkingLeft;
@@ -42,6 +43,7 @@ public class Boss : Enemy
         HARD_ATTACK_RANGE = 3f;
         LIGHT_ATTACK_RANGE = 2f;
         attackRange = BASE_ATTACK_RANGE; // this changes depending on attacks
+        CHARGE_ATTACK_TIMER = CHARGE_ATTACK_DELAY; // So boss can't charge immediately at start of fight
     }
 	
 	// Update is called once per frame
@@ -109,15 +111,13 @@ public class Boss : Enemy
             case State.Moving:
                 Debug.Log("Moving");
                 FollowTarget(player);
+                // Used to get closer to player. Not really an attack, just a gap closer
                 if (distance >= 6f && CHARGE_ATTACK_TIMER <= 0)
                     SprintTowardsPlayer();
                 break;
             case State.Attacking:
                 if (ATTACK_TIMER <= 0)
                 {
-                    // Needs to be reworked to work correctly
-                  
-
                     if (SPAWN_TILE_TIMER <= 0)
                         attackChosen = 1;
                     else
@@ -192,8 +192,6 @@ public class Boss : Enemy
 		GameObject room = GameObject.FindGameObjectWithTag ("BossRoom"); // or search for room
 		foreach (Transform tile in room.GetComponent<Tiles>().tiles)
 		{
-			//Debug.Log (ConvertAbsPositionToUnitPos(transform.position) + "Boss Pos: "+transform.position);
-			//Debug.Log ("Tile Pos:" + tile.transform.position);
 			if (ConvertAbsPositionToUnitPos (transform.position) == (Vector2)tile.transform.position) 
 			{
 				Debug.Log ("Tile and boss room the same");
@@ -209,6 +207,9 @@ public class Boss : Enemy
         StartCoroutine(DashToLocation(playerPos, 1));         
     }
 
+    /*
+     * Only dash if this is not already running
+     */
     IEnumerator DashToLocation(Vector2 location, int seconds)
     {
         if (isCoroutineRunning)

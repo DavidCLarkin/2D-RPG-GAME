@@ -139,7 +139,6 @@ public abstract class Enemy : Interactable, IDamageable
 	public virtual void FollowTarget(Transform target)
 	{
         // Pathfinding
-
         path = grid.path;
         if (path.Count > 0) // game freezes if computing this when no path
         {

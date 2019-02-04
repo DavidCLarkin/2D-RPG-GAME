@@ -8,6 +8,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public bool isAI;
 
     public event Action OnDie = delegate { }; //delegate to spawn particles or something, animation
+    public event Action EnableSpawnRoom = delegate { }; //delegate to enable exit point
 
 
     // Use this for initialization
@@ -22,6 +23,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             OnDie();
+            EnableSpawnRoom();
             Destroy(gameObject);
         }
     }

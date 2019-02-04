@@ -8,6 +8,8 @@ public class Tiles : MonoBehaviour
 
 	void Start ()
     {
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
+
         foreach (Transform child in transform)
         {
             if (child.name == "Ground")
@@ -16,6 +18,10 @@ public class Tiles : MonoBehaviour
                     tiles.Add(groundTile);
             }
         }
+    }
 
+    void EnableRoom()
+    {
+        tiles[tiles.Count - 1].gameObject.SetActive(true);
     }
 }

@@ -119,9 +119,10 @@ GameObject:
   - component: {fileID: 61381099451191934}
   - component: {fileID: 114565011140562972}
   - component: {fileID: 114350058042648990}
+  - component: {fileID: 114167043676680754}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993732715031192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.7435718, y: -1.8671881, z: -2.578619}
+  m_LocalPosition: {x: 1.76, y: -4.35, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children:
   - {fileID: 4588952717767896}
@@ -339,10 +340,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13687375}
+  m_Offset: {x: -0.0072315037, y: 0.023723215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -353,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31260812, y: 0.37830704}
+  m_Size: {x: 0.32707113, y: 0.699501}
   m_EdgeRadius: 0
 --- !u!95 &95798333192321930
 Animator:
@@ -373,6 +374,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114167043676680754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993732715031192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977dd77e3ebd3054098184fc9a38ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
 --- !u!114 &114350058042648990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
-  isAI: 0
+  isAI: 1
 --- !u!114 &114505447522064566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,9 +431,13 @@ MonoBehaviour:
   HARD_ATTACK_RANGE: 0
   LIGHT_ATTACK_RANGE: 0
   speed: 1
-  health: 100
-  followRange: 5
+  followRange: 12
   attackRange: 3
+  attackChosen: 0
+  SPAWN_TILE_DELAY: 5
+  SPAWN_TILE_TIMER: 0
+  CHARGE_ATTACK_TIMER: 0
+  objToSpawn: {fileID: 1065177561435902, guid: 6aab3b205f6dc5e4dac6b4c9f8606bd6, type: 2}
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

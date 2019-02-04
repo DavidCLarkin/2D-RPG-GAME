@@ -10,6 +10,7 @@ public class Pathfinding : MonoBehaviour
     private void Awake()
     {
         grid = GetComponent<LevelGrid>();
+        target = GameManagerSingleton.instance.player.transform;
     }
 
     void Update()
