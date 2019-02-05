@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public float maxHealth;
     public float health;
     public bool isAI;
+    public bool isBoss;
 
     public event Action OnDie = delegate { }; //delegate to spawn particles or something, animation
     public event Action EnableSpawnRoom = delegate { }; //delegate to enable exit point
@@ -22,8 +23,10 @@ public class HealthComponent : MonoBehaviour, IDamageable
         health -= damageAmount;
         if (health <= 0)
         {
-            OnDie();
-            EnableSpawnRoom();
+            health = 0;
+            OnDie(); // call all delegates
+            if(isBoss)
+                EnableSpawnRoom(); // if it's a boss, spawn the boss room
             Destroy(gameObject);
         }
     }
