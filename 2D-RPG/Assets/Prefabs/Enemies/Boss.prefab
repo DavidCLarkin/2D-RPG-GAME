@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 114565011140562972}
   - component: {fileID: 114350058042648990}
   - component: {fileID: 114167043676680754}
+  - component: {fileID: 114571457861371634}
+  - component: {fileID: 114638093433205536}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -151,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993732715031192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.76, y: -4.35, z: 0}
+  m_LocalPosition: {x: -0, y: -6.65, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children:
   - {fileID: 4588952717767896}
@@ -400,6 +402,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   isAI: 1
+  isBoss: 1
 --- !u!114 &114505447522064566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,7 +440,30 @@ MonoBehaviour:
   SPAWN_TILE_DELAY: 5
   SPAWN_TILE_TIMER: 0
   CHARGE_ATTACK_TIMER: 0
-  objToSpawn: {fileID: 1065177561435902, guid: 6aab3b205f6dc5e4dac6b4c9f8606bd6, type: 2}
+  objToSpawn: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
+--- !u!114 &114571457861371634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993732715031192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84060fa8f943e148877fc41dcaac736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &114638093433205536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993732715031192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d0333552bc29642b48414aed875335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

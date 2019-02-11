@@ -26,9 +26,11 @@ public class InteractComponent : MonoBehaviour
                 string intTag = interactable.tag;
                 switch (intTag)
                 {
+                    /*
                     case "Enemy": // TODO add attacking, interaction etc.
                         Debug.Log("Enemy CASE"); //ATTACK
                         break;
+                        */
                     case "Item":
                         Debug.Log("Item CASE"); //PICK UP
                         break;

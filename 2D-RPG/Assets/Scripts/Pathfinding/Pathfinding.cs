@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
-    public Transform seeker, target;
-    LevelGrid grid;
+    [HideInInspector]
+    public Transform target;
+
+    private LevelGrid grid;
 
     private void Awake()
     {
-        grid = GetComponent<LevelGrid>();
-        target = GameManagerSingleton.instance.player.transform;
+        grid = GameObject.Find("A*").GetComponent<LevelGrid>();
     }
 
     void Update()
     {
-        FindPath(seeker.position, target.position);
+        if(target != null)
+            FindPath(transform.position, target.position);
     }
 
-    void FindPath(Vector2 startPos, Vector2 targetPos)
+    public void FindPath(Vector2 startPos, Vector2 targetPos)
     {
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);

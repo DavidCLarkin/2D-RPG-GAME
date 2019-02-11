@@ -135,6 +135,7 @@ public class Boss : Enemy
 		if (anim.GetBool("attackDown") == true)
 			return;
         base.FollowTarget(target);
+
     }
 
     IEnumerator StopAnimation()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
-//[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Pathfinding))]
 public abstract class Enemy : Interactable, IDamageable
 {
 	protected float DAMAGE_DELAY = 1f;
@@ -26,6 +26,7 @@ public abstract class Enemy : Interactable, IDamageable
     private List<Node> path = new List<Node>();
     protected Rigidbody2D rigi;
     protected Animator anim;
+    protected Pathfinding pathfinding;
 
     protected bool canBeKnockedBack;
 	protected bool moving;
@@ -50,6 +51,7 @@ public abstract class Enemy : Interactable, IDamageable
         rigi = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         grid = GameObject.Find("A*").GetComponent<LevelGrid>();
+        pathfinding = GetComponent<Pathfinding>();
     }
 
 	public override void Update() 
@@ -101,6 +103,7 @@ public abstract class Enemy : Interactable, IDamageable
 		}
 		else if(distance <= followRange && distance > attackRange)
 		{
+            pathfinding.target = GameManagerSingleton.instance.player.transform;
 			state = State.Moving;
 		} 
 		else if(distance <= attackRange)
@@ -140,7 +143,7 @@ public abstract class Enemy : Interactable, IDamageable
 	{
         // Pathfinding
         path = grid.path;
-        if (path.Count > 0) // game freezes if computing this when no path
+        if (path.Count > 0)
         {
             if ((Vector2)transform.position != path[0].position)
             {
