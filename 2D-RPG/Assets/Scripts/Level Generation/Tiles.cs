@@ -20,6 +20,9 @@ public class Tiles : MonoBehaviour
         }
     }
 
+	/*
+	 * Method to enable the last tile within a Room, which for my design will be the room to exit the dungeon
+	 */
     void EnableRoom()
     {
         tiles[tiles.Count - 1].gameObject.SetActive(true);

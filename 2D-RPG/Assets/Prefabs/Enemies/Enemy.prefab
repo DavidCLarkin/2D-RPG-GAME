@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 61572892367824648}
   - component: {fileID: 95042690825400716}
   - component: {fileID: 114195922110552642}
+  - component: {fileID: 114450354508658032}
+  - component: {fileID: 114075208255579078}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240788755770154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -7.91, z: 0.08994492}
+  m_LocalPosition: {x: 6.7, y: 6.58, z: 0.08994492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +109,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114075208255579078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240788755770154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84060fa8f943e148877fc41dcaac736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114195922110552642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,9 +140,24 @@ MonoBehaviour:
   HARD_ATTACK_RANGE: 0
   LIGHT_ATTACK_RANGE: 0
   speed: 1.5
-  health: 100
   followRange: 5
   attackRange: 2
+  attackChosen: 0
+--- !u!114 &114450354508658032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240788755770154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  health: 0
+  isAI: 1
+  isBoss: 0
 --- !u!212 &212265269372166570
 SpriteRenderer:
   m_ObjectHideFlags: 1
