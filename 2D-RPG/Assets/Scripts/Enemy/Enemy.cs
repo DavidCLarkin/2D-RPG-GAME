@@ -22,6 +22,8 @@ public abstract class Enemy : Interactable, IDamageable
 	public float followRange;
 	public float attackRange;
 
+	public int Experience;
+
     private LevelGrid grid;
     private List<Node> path = new List<Node>();
     protected Rigidbody2D rigi;
@@ -39,6 +41,7 @@ public abstract class Enemy : Interactable, IDamageable
 	protected virtual void Start() 
 	{
         // Set the player object - For Pathfinding etc.
+		GetComponent<HealthComponent> ().OnDie += IncreasePlayerExp;
         SetUp();
         canBeKnockedBack = true;
 	}
@@ -232,4 +235,9 @@ public abstract class Enemy : Interactable, IDamageable
     {
         throw new System.NotImplementedException();
     }
+
+	void IncreasePlayerExp()
+	{
+		GameManagerSingleton.instance.player.GetComponent<ExperienceComponent> ().IncreaseExp (Experience);	
+	}
 }

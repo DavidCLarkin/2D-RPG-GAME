@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1
   health: 0
   isAI: 1
   isBoss: 1
@@ -436,11 +436,12 @@ MonoBehaviour:
   speed: 1
   followRange: 12
   attackRange: 3
+  Experience: 240
   attackChosen: 0
   SPAWN_TILE_DELAY: 5
   SPAWN_TILE_TIMER: 0
   CHARGE_ATTACK_TIMER: 0
-  objToSpawn: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
+  objToSpawn: {fileID: 0}
 --- !u!114 &114571457861371634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,6 +465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d0333552bc29642b48414aed875335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items:
+  - {fileID: 114084222068391050, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
+  - {fileID: 114656460206725156, guid: 64bb9ceccd88946429f1af593774b700, type: 2}
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

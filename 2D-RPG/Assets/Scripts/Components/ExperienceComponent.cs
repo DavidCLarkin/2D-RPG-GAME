@@ -27,7 +27,7 @@ public class ExperienceComponent : MonoBehaviour
 		}
 	}
 
-	void IncreaseExp(int exp)
+	public void IncreaseExp(int exp)
 	{
 		currentExp += exp;
 		if (currentExp >= expToLevel) 
@@ -43,6 +43,7 @@ public class ExperienceComponent : MonoBehaviour
 		currentExp -= expToLevel;
 		level++;
 		expToLevel = (int)(baseExp * (Mathf.Pow (expIncrease, level)));
+		expBar.GetComponentInChildren<Text> ().text = level.ToString(); // Change the level text field when level up
 	}
 
 	float CalculateExpPercentage()
