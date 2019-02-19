@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 114105536752077910}
   - component: {fileID: 114308860328978886}
   - component: {fileID: 114281135109530564}
+  - component: {fileID: 114284943723754334}
   - component: {fileID: 60927248500000794}
   m_Layer: 0
   m_Name: Player
@@ -142,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: 3.4, z: 0}
+  m_LocalPosition: {x: -0, y: 4.53, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -475,6 +476,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   isAI: 0
+  isBoss: 0
 --- !u!114 &114105536752077910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,6 +528,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   stamina: 0
+--- !u!114 &114284943723754334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433843073848626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9df1577deec8714db9d18ef16467fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1

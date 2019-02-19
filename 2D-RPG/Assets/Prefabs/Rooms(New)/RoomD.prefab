@@ -643,13 +643,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4471187401461256}
+  - component: {fileID: 114103838235365238}
   m_Layer: 0
   m_Name: RoomD
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1112047868638484
 GameObject:
   m_ObjectHideFlags: 1
@@ -741,7 +742,7 @@ GameObject:
   m_Layer: 0
   m_Name: Position
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1956,7 +1957,7 @@ GameObject:
   m_Layer: 0
   m_Name: Position (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2499,7 +2500,7 @@ GameObject:
   m_Layer: 0
   m_Name: Position (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4765,7 +4766,7 @@ GameObject:
   m_Layer: 0
   m_Name: Position (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5052,7 +5053,7 @@ GameObject:
   m_Layer: 0
   m_Name: Position (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -12039,6 +12040,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.962577, y: 1.8248463}
   m_EdgeRadius: 0
+--- !u!114 &114103838235365238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110109241038190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90209cd5de74fc949864ff25d2998c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  objects:
+  - {fileID: 1725540340596104, guid: fe3ad37dc466bd74db206c088fe3d26f, type: 2}
+  - {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
+  - {fileID: 1240788755770154, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
 --- !u!212 &212000778567537654
 SpriteRenderer:
   m_ObjectHideFlags: 1
