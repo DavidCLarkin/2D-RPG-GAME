@@ -8,6 +8,9 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public bool isAI;
     public bool isBoss;
 
+    [Tooltip("The length of the Death Animation for this enemy")]
+    public float deathTimer;
+
     public event Action OnDie = delegate { }; //delegate to spawn particles or something, animation
     public event Action EnableSpawnRoom = delegate { }; //delegate to enable exit point
 
@@ -27,7 +30,11 @@ public class HealthComponent : MonoBehaviour, IDamageable
             OnDie(); // call all delegates
             if(isBoss)
                 EnableSpawnRoom(); // if it's a boss, spawn the boss room
-            Destroy(gameObject);
+
+            //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Die"))
+            //   Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            //else
+            Destroy(gameObject, deathTimer);
         }
     }
 

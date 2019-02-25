@@ -48,7 +48,6 @@ public class ExperienceComponent : MonoBehaviour
 
 	float CalculateExpPercentage()
 	{
-		Debug.Log (currentExp / baseExp);
 		return (float)currentExp / expToLevel;
 	}
 }

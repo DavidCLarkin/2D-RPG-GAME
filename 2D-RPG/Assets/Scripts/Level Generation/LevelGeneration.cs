@@ -28,14 +28,14 @@ public class LevelGeneration : MonoBehaviour
 
         CreateRooms();
         SetRoomDoors();
-        DrawMap();
+        InstantiateRooms();
 	}
 
     void CreateRooms()
     {
         rooms = new Room[gridSizeX * 2, gridSizeY * 2];
         rooms[gridSizeX, gridSizeY] = new Room(new Vector2(0,0), 1); // first room set to center
-        takenPositions.Insert(0, new Vector2(0,0));
+        takenPositions.Insert(0, new Vector2(0,0)); //insert a taken position to list
         Vector2 checkPos = new Vector2(0,0);
 
         //magic numb
@@ -60,8 +60,6 @@ public class LevelGeneration : MonoBehaviour
                     iterations++;
                 }
                 while (NumberOfNeighbours(checkPos, takenPositions) > 1 && iterations < 100);
-                if (iterations >= 50)
-                    print("couldn't create fewer neighbours than :" + NumberOfNeighbours(checkPos, takenPositions));
             }
 
             //finalise pos
@@ -69,9 +67,8 @@ public class LevelGeneration : MonoBehaviour
             takenPositions.Insert(0, checkPos);
 
             if (i == numbOfRooms - 2)
-                finalRoomPos = checkPos;
+                finalRoomPos = checkPos; // setting boss room position as last room
 
-            //Debug.Log(finalRoomPos);
         }
 
     }
@@ -149,7 +146,7 @@ public class LevelGeneration : MonoBehaviour
         return checkingPos;
     }
 
-    // Helper to get the number of rooms beside a position
+    // Helper to get the number of rooms beside a position, checking up, down, left and right of the room
     int NumberOfNeighbours(Vector2 checkingPos, List<Vector2> usedPositions)
     {
         int numbOfNeighbours = 0;
@@ -178,7 +175,7 @@ public class LevelGeneration : MonoBehaviour
                 if (y - 1 < 0)
                     rooms[x, y].doorBottom = false;
                 else
-                    rooms[x, y].doorBottom = (rooms[x, y - 1] != null);
+                    rooms[x, y].doorBottom = (rooms[x, y - 1] != null); // if theres a room below, then it's true, else false. Same for all below
 
                 //Check below
                 if (y + 1 >= gridSizeY * 2)
@@ -201,7 +198,10 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    void DrawMap()
+    /*
+     * Method to finally Instantiate each room at their positions, with a little math to place them properly
+     */ 
+    void InstantiateRooms()
     {
         foreach (Room room in rooms)
         {
@@ -213,7 +213,6 @@ public class LevelGeneration : MonoBehaviour
             drawPos.y *= 20;
 
             //Spawn boss room at the end
-            //Debug.Log(room.position);
             if (room.position == finalRoomPos)
             {
                 Instantiate(bossRooms[Random.Range(0, bossRooms.Length)], drawPos, Quaternion.identity);
