@@ -39,9 +39,9 @@ public class Boss : Enemy
         canBeKnockedBack = false;
         DAMAGE_DELAY = 1.5f;
         BASE_ATTACK_RANGE = 1.5f;
-        MEDIUM_ATTACK_RANGE = 2f;
-        HARD_ATTACK_RANGE = 3f;
-        LIGHT_ATTACK_RANGE = 2f;
+        //MEDIUM_ATTACK_RANGE = 2f;
+        //HARD_ATTACK_RANGE = 3f;
+        //LIGHT_ATTACK_RANGE = 2f;
         attackRange = BASE_ATTACK_RANGE; // this changes depending on attacks
         CHARGE_ATTACK_TIMER = CHARGE_ATTACK_DELAY; // So boss can't charge immediately at start of fight
     }

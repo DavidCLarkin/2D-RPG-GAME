@@ -764,6 +764,33 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c9e1d2825ff0d4daaaff8ce310a0cf, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &739861566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1015869225983704, guid: 88d90415e7b932e448175f46d75dac8c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2143500516}
+--- !u!114 &739861574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 739861566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d5ea2ebe9a5a646986bef5ac2dd22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  player: {fileID: 0}
+  ATTACK_TIMER: 3
+  BASE_ATTACK_RANGE: 0
+  speed: 1
+  followRange: 5
+  attackRange: 4
+  Experience: 50
+  attackChosen: 0
+  state: 2
+  outOfRange: 6
 --- !u!1 &948599458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1448,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1993732715031192, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
   m_IsPrefabAsset: 0
@@ -1541,6 +1572,7 @@ Prefab:
       propertyPath: deathTimer
       value: 0.58
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114634497681898228, guid: 88d90415e7b932e448175f46d75dac8c, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 88d90415e7b932e448175f46d75dac8c, type: 2}
   m_IsPrefabAsset: 0

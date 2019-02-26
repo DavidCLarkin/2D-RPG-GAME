@@ -14,9 +14,9 @@ public abstract class Enemy : Interactable, IDamageable
     protected float ANIMATION_TIMER;
 
     public float BASE_ATTACK_RANGE;
-    public float MEDIUM_ATTACK_RANGE;
-    public float HARD_ATTACK_RANGE;
-    public float LIGHT_ATTACK_RANGE;
+    //public float MEDIUM_ATTACK_RANGE;
+    //public float HARD_ATTACK_RANGE;
+    //public float LIGHT_ATTACK_RANGE;
 
  	public float speed = 1.5f;
 	public float followRange;
@@ -35,8 +35,10 @@ public abstract class Enemy : Interactable, IDamageable
 	protected float distance;
 	public int attackChosen;
 
-	protected enum State { Moving, Attacking, Idle };
-	protected State state = State.Idle;
+    [HideInInspector]
+	public enum State { Moving, Attacking, Idle };
+    [HideInInspector]
+	public State state = State.Idle;
 
 	protected virtual void Start() 
 	{
@@ -154,7 +156,7 @@ public abstract class Enemy : Interactable, IDamageable
             }
             else
             {
-                path.RemoveAt(0);
+                path.RemoveAt(0); // Remove the path node and continue to the next one
             }
         }
     }

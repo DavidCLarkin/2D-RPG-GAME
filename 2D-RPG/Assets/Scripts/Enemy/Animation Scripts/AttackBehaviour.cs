@@ -6,6 +6,8 @@ public class AttackBehaviour : StateMachineBehaviour
 {
 	public float timer;
     private Enemy enemy;
+    public string animationToEnd;
+    public string animationToReturnTo;
 
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,9 +22,9 @@ public class AttackBehaviour : StateMachineBehaviour
     {
 		if(timer <= 0)
 		{
-			animator.SetBool ("attackDown", false);
+			animator.SetBool (animationToEnd, false);
             //Instead of choosing idle, change this to decide random triggers - random other attack
-			animator.SetTrigger("idle");
+			animator.SetTrigger(animationToReturnTo);
 		}
 		else
 		{
@@ -33,7 +35,6 @@ public class AttackBehaviour : StateMachineBehaviour
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy.MediumAttack();
         //enemy.attackRange = enemy.BASE_ATTACK_RANGE; // CURRENTLY USING ENABLE/DISABLE COLLIDERS
     }
 
