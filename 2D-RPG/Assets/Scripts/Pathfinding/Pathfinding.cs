@@ -83,7 +83,7 @@ public class Pathfinding : MonoBehaviour
 
         path.Reverse();
 
-        grid.path = path;
+        GetComponent<Enemy>().path = path;
     }
 
     int GetDistance(Node nodeA, Node nodeB)

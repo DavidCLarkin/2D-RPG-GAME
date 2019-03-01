@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Follow: {fileID: 591055786}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 3.5
+    OrthographicSize: 4.5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -547,7 +547,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429511212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000011920929, y: 4.53, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 4.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1545961303}
@@ -791,6 +791,7 @@ MonoBehaviour:
   attackChosen: 0
   state: 2
   outOfRange: 6
+  minion: {fileID: 1372599778122718, guid: c0f44ff95c230004e893de15b22459f3, type: 2}
 --- !u!1 &948599458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,7 +1451,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1993732715031192, guid: 5a7375f89edff434192a11eba66e2248, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7375f89edff434192a11eba66e2248, type: 2}

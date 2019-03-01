@@ -25,7 +25,7 @@ public abstract class Enemy : Interactable, IDamageable
 	public int Experience;
 
     private LevelGrid grid;
-    private List<Node> path = new List<Node>();
+    public List<Node> path = new List<Node>();
     protected Rigidbody2D rigi;
     protected Animator anim;
     protected Pathfinding pathfinding;
@@ -147,7 +147,7 @@ public abstract class Enemy : Interactable, IDamageable
 	public virtual void FollowTarget(Transform target)
 	{
         // Pathfinding
-        path = grid.path;
+        //path = grid.path;
         if (path.Count > 0)
         {
             if ((Vector2)transform.position != path[0].position)

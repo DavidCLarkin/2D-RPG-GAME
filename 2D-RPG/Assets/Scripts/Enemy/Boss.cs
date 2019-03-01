@@ -76,11 +76,6 @@ public class Boss : Enemy
         //}
     }
 
-    //Fix Z position, bug in Freeze Rotation
-    void FixedUpdate()
-    {
-    }
-
     public override void Interact()
     {
         base.Interact();
