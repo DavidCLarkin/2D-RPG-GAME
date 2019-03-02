@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Minion : Enemy
 {
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         base.Start();
         pathfinding.target = player;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         base.Update();
-        Debug.Log("Minion path:" + path.Count);
-	}
+    }
 
     public override void DistanceChecking()
     {

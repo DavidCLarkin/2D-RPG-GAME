@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 60410984081704546}
   m_Layer: 0
   m_Name: Weapon_Left
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4991298523244132}
   m_Layer: 0
   m_Name: AnimationColliders
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 60170778743727318}
   m_Layer: 0
   m_Name: Weapon_Down
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 60047590726081134}
   m_Layer: 0
   m_Name: Weapon_Up
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 60761060606685152}
   m_Layer: 0
   m_Name: Weapon_Right
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 114560733381892178}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,6 +477,7 @@ MonoBehaviour:
   health: 0
   isAI: 0
   isBoss: 0
+  deathTimer: 0
 --- !u!114 &114105536752077910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,6 +540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9df1577deec8714db9d18ef16467fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
+  currentExp: 0
+  baseExp: 100
+  expToLevel: 100
+  expIncrease: 1.7
+  expBar: {fileID: 0}
 --- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1
