@@ -403,6 +403,7 @@ MonoBehaviour:
   health: 0
   isAI: 1
   isBoss: 1
+  deathTimer: 0
 --- !u!114 &114505447522064566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,14 +431,12 @@ MonoBehaviour:
   player: {fileID: 0}
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
-  MEDIUM_ATTACK_RANGE: 0
-  HARD_ATTACK_RANGE: 0
-  LIGHT_ATTACK_RANGE: 0
   speed: 1
   followRange: 12
   attackRange: 3
   Experience: 240
   attackChosen: 0
+  state: 2
   SPAWN_TILE_DELAY: 5
   SPAWN_TILE_TIMER: 0
   CHARGE_ATTACK_TIMER: 0
@@ -466,8 +465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 114084222068391050, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
-  - {fileID: 114656460206725156, guid: 64bb9ceccd88946429f1af593774b700, type: 2}
+  - {fileID: 1616025297648912, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
+  - {fileID: 1750879186552694, guid: 64bb9ceccd88946429f1af593774b700, type: 2}
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

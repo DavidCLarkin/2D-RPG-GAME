@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropTable : MonoBehaviour
 {
-    public List<Interactable> items; // Set a list of items that enemy can drop, and choose randomly
+    public List<GameObject> items; // Set a list of items that enemy can drop, and choose randomly
     Interactable item;
 
 	// Use this for initialization
@@ -15,7 +15,7 @@ public class DropTable : MonoBehaviour
 
     void DropItem()
     {
-        item = items[Random.Range(0, items.Count)]; // make it so that a certain weapon is rare, maybe 1/10 etc. if number is 10, drop weapon, else 1-9, drop something else
+        item = items[Random.Range(0, items.Count)].GetComponent<Item>(); // make it so that a certain weapon is rare, maybe 1/10 etc. if number is 10, drop weapon, else 1-9, drop something else
         Instantiate(item, transform.position, Quaternion.identity);
     }
 }

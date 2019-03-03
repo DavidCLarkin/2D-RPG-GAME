@@ -80,6 +80,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  type: 1
+  itemName: Sword of Elders
+  description: Ferocious Sword
+  icon: {fileID: 21300118, guid: 0e132b8bfd16a7748aa3ae803e6cb23d, type: 3}
 --- !u!212 &212704557910972398
 SpriteRenderer:
   m_ObjectHideFlags: 1

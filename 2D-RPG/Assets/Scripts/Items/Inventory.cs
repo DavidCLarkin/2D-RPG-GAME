@@ -5,6 +5,8 @@ using UnityEngine;
 public class Inventory : MonoBehaviour 
 {
 	public static Inventory instance;
+    public int numberOfSlots = 4;
+    public GameObject slotHolder;
 
 	#region Singleton
 	void Awake()
@@ -18,25 +20,50 @@ public class Inventory : MonoBehaviour
 		instance = this;
 	}
 
-	#endregion
+    #endregion
 
-	public List<Item> items = new List<Item>();
+    //public List<Item> items = new List<Item>();
+    public GameObject[] slots;
 
-	public void Add(Item item)
+    public void Start()
+    {
+        //items = new List<Item>(slots); // setting capacity of inventory
+        slots = new GameObject[numberOfSlots];
+
+        for (int i = 0; i < numberOfSlots; i++)
+        {
+           slots[i] = slotHolder.transform.GetChild(i).gameObject;
+
+            if (slots[i].GetComponent<Slot>().itemName == "")
+                slots[i].GetComponent<Slot>().isEmpty = true;
+
+        }
+
+    }
+
+    public void Add(Item item)
 	{
-		items.Add(item);
+        for (int i = 0; i < numberOfSlots; i++)
+        {
+            if(slots[i].GetComponent<Slot>().isEmpty) //empty slot
+            {
+                slots[i].GetComponent<Slot>().itemName = item.itemName;
+                slots[i].GetComponent<Slot>().description = item.description;
+                slots[i].GetComponent<Slot>().icon = item.icon;
+                slots[i].GetComponent<Slot>().isEmpty = false;
+                item.gameObject.SetActive(false);
+
+                return;
+            }
+        }
 	}
 
 	public void Remove(Item item)
 	{
-		items.Remove(item);
+		//items.Remove(item);
 	}
 
 	public void ListItems()
 	{
-		foreach(Item item in items)
-		{
-			print(item.name);
-		}
 	}
 }

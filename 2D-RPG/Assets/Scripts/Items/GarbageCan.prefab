@@ -80,6 +80,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  type: 0
+  itemName: Garbage Can
+  description: What use is this?
+  icon: {fileID: 21301546, guid: b55e2dcd3e26e304fac45b95e0eb0366, type: 3}
 --- !u!212 &212100926443090340
 SpriteRenderer:
   m_ObjectHideFlags: 1
