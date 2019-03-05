@@ -12,6 +12,7 @@ public class PlayerAnimationComponent : MonoBehaviour
     private bool walkingDown;
     private bool walkingLeft;
     private bool walkingRight;
+    private string lastMovementDirection;
     private bool attackDown;
     private bool attackLeft;
     private bool attackRight;
@@ -25,6 +26,7 @@ public class PlayerAnimationComponent : MonoBehaviour
         input = GetComponent<InputComponent>();
         input.OnAttack += MouseDirectionAttack;
         anim = GetComponent<Animator>();
+        lastMovementDirection = "Down";
     }
 
     private void Update()
@@ -45,48 +47,60 @@ public class PlayerAnimationComponent : MonoBehaviour
             anim.SetBool("knight_slice_right", attackRight);
             anim.SetBool("knight_slice_up", attackUp);
 
-            if (Input.GetMouseButtonDown(0) && facingDirection == 1)
+            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 1)
                 attackUp = true;
             else
                 attackUp = false;
 
-            if (Input.GetMouseButtonDown(0) && facingDirection == 2)
+            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 2)
                 attackLeft = true;
             else
                 attackLeft = false;
 
-            if (Input.GetMouseButtonDown(0) && facingDirection == 3)
+            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 3)
                 attackDown = true;
             else
                 attackDown = false;
 
-            if (Input.GetMouseButtonDown(0) && facingDirection == 4)
+            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 4)
                 attackRight = true;
             else
                 attackRight = false;
 
 
             //if (Input.GetKey(KeyCode.W))
-            if(Input.GetAxisRaw("Vertical") > 0)
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
                 walkingUp = true;
+                lastMovementDirection = "Up";
+            }
             else
                 walkingUp = false;
 
             //if (Input.GetKey(KeyCode.A))
-            if(Input.GetAxisRaw("Horizontal") < 0)
+            if (Input.GetAxisRaw("Horizontal") < 0)
+            {
                 walkingLeft = true;
+                lastMovementDirection = "Left";
+            }
             else
                 walkingLeft = false;
 
             //if (Input.GetKey(KeyCode.S))
-            if(Input.GetAxisRaw("Vertical") < 0)
+            if (Input.GetAxisRaw("Vertical") < 0)
+            {
                 walkingDown = true;
+                lastMovementDirection = "Down";
+            }
             else
                 walkingDown = false;
 
             //if (Input.GetKey(KeyCode.D))
-            if(Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
                 walkingRight = true;
+                lastMovementDirection = "Right";
+            }
             else
                 walkingRight = false;
         }
@@ -96,27 +110,30 @@ public class PlayerAnimationComponent : MonoBehaviour
     {
         Vector2 dir = cam.ScreenToViewportPoint((Input.mousePosition));
         //Debug.Log(dir);
-            if (dir.y >= 0.65f)
-            {
-                //Debug.Log("Top");
-                facingDirection = 1;
-
-            }
-            else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
-            {
-                //Debug.Log("Left");
-                facingDirection = 2;
-            }
-            else if (dir.y <= 0.35f)
-            {
-                //Debug.Log("Down");
-                facingDirection = 3;
-            }
-            else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
-            {
-                //Debug.Log("Right");
-                facingDirection = 4;
-            }
-            //Debug.Log(dir);
+        //if (dir.y >= 0.65f || lastMovementDirection.Equals("Top"))
+        if(lastMovementDirection.Equals("Up"))
+        {
+            //Debug.Log("Top");
+            facingDirection = 1;
+        }
+        //else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f) || lastMovementDirection.Equals("Left"))
+        else if(lastMovementDirection.Equals("Left"))
+        {
+            //Debug.Log("Left");
+            facingDirection = 2;
+        }
+        //else if (dir.y <= 0.35f || lastMovementDirection.Equals("Down"))
+        else if(lastMovementDirection.Equals("Down"))
+        {
+            //Debug.Log("Down");
+            facingDirection = 3;
+        }
+        //else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f) || lastMovementDirection.Equals("Right"))
+        else if(lastMovementDirection.Equals("Right"))
+        {
+            //Debug.Log("Right");
+            facingDirection = 4;
+        }
+        //Debug.Log(dir);
     }
 }

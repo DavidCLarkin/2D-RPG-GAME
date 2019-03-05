@@ -17,6 +17,6 @@ public class TextDisplay : MonoBehaviour
 	void Update ()
     {
         healthText.text = "Health: " + GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health;
-        staminaText.text = "Stamina: " + GameManagerSingleton.instance.player.GetComponent<StaminaComponent>().stamina;
+        staminaText.text = "Stamina: " + GameManagerSingleton.instance.player.GetComponent<MovementComponent>().stamina;
 	}
 }

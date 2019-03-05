@@ -20,11 +20,17 @@ public class StaminaComponent : MonoBehaviour
 
     void Update()
 	{
-		for(int i = 0; i < input.keys.Length; i++)
+		/*for(int i = 0; i < input.keys.Length; i++)
 		{
 			if (input.Dodge && Input.GetKey(input.keys[i])) // need to not allow dodging if stamina too low
 				UseStamina ();
 		}
+        */
+        //if(input.Dodge && Input.GetAxisRaw("Horizontal") > 0 || input.Dodge && Input.GetAxisRaw("Horizontal") < 0 || 
+        //    input.Dodge && Input.GetAxisRaw("Vertical") > 0 || input.Dodge && Input.GetAxisRaw("Vertical") < 0)
+        //{
+        //    UseStamina();
+        //}
 	}
 
     IEnumerator RegenerateStamina()

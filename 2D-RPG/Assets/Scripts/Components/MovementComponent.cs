@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour, IMoveable
@@ -11,8 +12,11 @@ public class MovementComponent : MonoBehaviour, IMoveable
     public float dodgeSpeed;
     public float startDodgetime;
     public float dodgeTime;
-	public float dashCost = 30f;
+	public int dashCost = 30;
     private int direction;
+
+    public int maxStamina;
+    public int stamina;
 
     [SerializeField]
     private float speed;
@@ -21,12 +25,15 @@ public class MovementComponent : MonoBehaviour, IMoveable
     private void Awake()
     {
         direction = 1;
+        stamina = maxStamina;
         input = GetComponent<InputComponent>();
 		movement = GetComponent<MovementComponent> ();
 		GetComponent<StaminaComponent> ().OnUse += UseStamina;
         input.OnDodge += Dodge;
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+
+        StartCoroutine(RegenerateStamina());
     }
 
     // Update is called once per frame
@@ -34,6 +41,17 @@ public class MovementComponent : MonoBehaviour, IMoveable
     {
         AnimateMovement();
         Move();
+
+        if (Input.GetAxisRaw("Vertical") > 0)
+            direction = 1;
+        if (Input.GetAxisRaw("Horizontal") < 0)
+            direction = 2;
+        if (Input.GetAxisRaw("Vertical") < 0)
+            direction = 3;
+        if (Input.GetAxisRaw("Horizontal") > 0)
+            direction = 4;
+
+        //Debug.Log(direction);
     }
 
     public void Move()
@@ -47,23 +65,62 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
 	public void UseStamina()
 	{
-		Debug.Log ("Stamina used");
+        stamina -= dashCost;
 	}
 
     void Dodge()
     {
+        if (dodgeTime <= 0)
+        {
+            if (stamina >= dashCost)
+            {
+                if (direction == 1)
+                {
+                    rigidbody.velocity = Vector2.up * dodgeSpeed;
+                    UseStamina();
+                }
+                else if (direction == 2)
+                {
+                    rigidbody.velocity = Vector2.left * dodgeSpeed;
+                    UseStamina();
+                }
+                else if (direction == 3)
+                {
+                    rigidbody.velocity = Vector2.down * dodgeSpeed;
+                    UseStamina();
+                }
+                else if (direction == 4)
+                {
+                    rigidbody.velocity = Vector2.right * dodgeSpeed;
+                    UseStamina();
+                }
+            }
+        }
+
+        /*
         if (player != null && player.isAttacking)
+            return;
+        if (GetComponent<StaminaComponent>().stamina < 30)
             return;
 
         if (direction == 0)
         {
-            for (int i = 0; i < input.keys.Length; i++)
+            if(Input.GetAxisRaw("Vertical") > 0 && input.Dodge)
+                direction = 1;
+            if(Input.GetAxisRaw("Horizontal") < 0 && input.Dodge)
+                direction = 2;
+            if(Input.GetAxisRaw("Vertical") < 0 && input.Dodge)
+                direction = 3;
+            if(Input.GetAxisRaw("Horizontal") > 0 && input.Dodge)
+                direction = 4;
+            /*for (int i = 0; i < input.keys.Length; i++)
             {
                 if (Input.GetKey(input.keys[i]) && input.Dodge)
                 {
                     direction = i + 1;
                 }
             }
+            
         }
         else
         {
@@ -95,6 +152,20 @@ public class MovementComponent : MonoBehaviour, IMoveable
                     rigidbody.velocity = Vector2.right * dodgeSpeed;
                 }
             }
+        }
+    }*/
+    }
+
+    IEnumerator RegenerateStamina()
+    {
+        while (true)
+        {
+            stamina += 5;
+
+            if (stamina > maxStamina)
+                stamina = maxStamina;
+
+            yield return new WaitForSeconds(1);
         }
     }
 

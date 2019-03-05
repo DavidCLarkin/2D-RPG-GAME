@@ -15,7 +15,6 @@ public class InputComponent : MonoBehaviour
     public event Action OnAttack = delegate { };
     public event Action OnInteract = delegate { };
     public event Action OnDodge = delegate { };
-    //public event Action OnDodge = delegate { };
 
     private void Awake()
     {
@@ -28,20 +27,21 @@ public class InputComponent : MonoBehaviour
         Vertical = Input.GetAxisRaw("Vertical");
         Attack = Input.GetMouseButtonDown(0); // Left mouse click
         Interact = Input.GetKeyDown(KeyCode.E); // Press E to interact
-        Dodge = Input.GetKeyDown(KeyCode.Space);
+        Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B");
 
 
         if (Attack)
         {
-            Debug.Log("Attacking");
+            //Debug.Log("Attacking");
             OnAttack();
         }
 
-        OnDodge();
+        if(Dodge)
+            OnDodge();
 
         if (Interact)
         {
-            Debug.Log("Interacting");
+            //Debug.Log("Interacting");
             OnInteract();
         }
     }
