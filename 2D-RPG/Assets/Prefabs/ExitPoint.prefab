@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7effe084d350c544ab6b1dbc23dba364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: House_Normal
+  levelToLoad: Hub
   exitPoint: House In
 --- !u!212 &212887882216923430
 SpriteRenderer:

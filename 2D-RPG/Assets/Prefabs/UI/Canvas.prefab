@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223221927832903188}
   - component: {fileID: 114006793726714274}
   - component: {fileID: 114549642328646896}
+  - component: {fileID: 114080177506818432}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -355,6 +356,7 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
+  isEmpty: 0
 --- !u!114 &114073742721158818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +409,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b180a87ae9f874b9e41228d4235355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114080177506818432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073485738315322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08bf6189f3ecb643b7cbd04d9f70b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114154458650873612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,6 +461,7 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
+  isEmpty: 0
 --- !u!114 &114319056952075416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,6 +503,7 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
+  isEmpty: 0
 --- !u!114 &114391121075542704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,6 +935,7 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
+  isEmpty: 0
 --- !u!114 &114975376279079944
 MonoBehaviour:
   m_ObjectHideFlags: 1

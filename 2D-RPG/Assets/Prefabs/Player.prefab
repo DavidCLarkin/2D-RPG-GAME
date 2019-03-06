@@ -511,10 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1120046990c62841851ed199360d834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeSpeed: 25
+  dodgeSpeed: 60
   startDodgetime: 0.05
   dodgeTime: 0
   dashCost: 30
+  maxStamina: 100
+  stamina: 0
   speed: 2
 --- !u!114 &114281135109530564
 MonoBehaviour:
@@ -522,7 +524,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb886a658127a85439405464cb245b4d, type: 3}
   m_Name: 
@@ -585,7 +587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9deb2a7703d31864b9b3a6dbe03bb003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  numberOfSlots: 4
+  slotHolder: {fileID: 0}
+  slots: []
 --- !u!114 &114560733381892178
 MonoBehaviour:
   m_ObjectHideFlags: 1
