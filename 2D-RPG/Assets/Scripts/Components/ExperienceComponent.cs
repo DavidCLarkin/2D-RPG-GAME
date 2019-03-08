@@ -10,6 +10,7 @@ public class ExperienceComponent : MonoBehaviour
 	public int baseExp = 100;
 	public int expToLevel = 100;
 	public float expIncrease = 1.7f;
+    public float totalExp;
 
 	public Slider expBar;
 
@@ -23,13 +24,14 @@ public class ExperienceComponent : MonoBehaviour
 	{
 		if (Input.GetKeyDown (KeyCode.N)) 
 		{
-			IncreaseExp (50);
+			IncreaseExp (500);
 		}
 	}
 
 	public void IncreaseExp(int exp)
 	{
 		currentExp += exp;
+        totalExp += exp;
 		if (currentExp >= expToLevel) 
 		{
 			LevelUp();

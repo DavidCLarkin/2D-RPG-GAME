@@ -6,7 +6,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
 {
     private InputComponent input;
 	private MovementComponent movement;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     private Player player;
 
     public float dodgeSpeed;
@@ -25,15 +25,19 @@ public class MovementComponent : MonoBehaviour, IMoveable
     private void Awake()
     {
         direction = 1;
-        stamina = maxStamina;
         input = GetComponent<InputComponent>();
 		movement = GetComponent<MovementComponent> ();
 		GetComponent<StaminaComponent> ().OnUse += UseStamina;
         input.OnDodge += Dodge;
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
 
         StartCoroutine(RegenerateStamina());
+    }
+
+    void Start()
+    {
+        stamina = maxStamina;
     }
 
     // Update is called once per frame
@@ -41,15 +45,6 @@ public class MovementComponent : MonoBehaviour, IMoveable
     {
         AnimateMovement();
         Move();
-
-        if (Input.GetAxisRaw("Vertical") > 0)
-            direction = 1;
-        if (Input.GetAxisRaw("Horizontal") < 0)
-            direction = 2;
-        if (Input.GetAxisRaw("Vertical") < 0)
-            direction = 3;
-        if (Input.GetAxisRaw("Horizontal") > 0)
-            direction = 4;
 
         //Debug.Log(direction);
     }
@@ -59,8 +54,17 @@ public class MovementComponent : MonoBehaviour, IMoveable
         if (player != null && player.isAttacking)
             return;
 
-        rigidbody.velocity = new Vector2(input.Horizontal * speed, rigidbody.velocity.y);
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x, input.Vertical * speed);
+        rb.velocity = new Vector2(input.Horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x, input.Vertical * speed);
+
+        if (Input.GetAxisRaw("Vertical") > 0)
+            direction = 1;
+        if (Input.GetAxisRaw("Horizontal") < 0)
+            direction = 2;
+        if (Input.GetAxisRaw("Vertical") < 0)
+            direction = 3;
+        if (Input.GetAxisRaw("Horizontal") > 0)
+            direction = 4;
     }
 
 	public void UseStamina()
@@ -76,22 +80,22 @@ public class MovementComponent : MonoBehaviour, IMoveable
             {
                 if (direction == 1)
                 {
-                    rigidbody.velocity = Vector2.up * dodgeSpeed;
+                    rb.AddForce(Vector2.up * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                 }
                 else if (direction == 2)
                 {
-                    rigidbody.velocity = Vector2.left * dodgeSpeed;
+                    rb.AddForce(Vector2.left * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                 }
                 else if (direction == 3)
                 {
-                    rigidbody.velocity = Vector2.down * dodgeSpeed;
+                    rb.AddForce(Vector2.down * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                 }
                 else if (direction == 4)
                 {
-                    rigidbody.velocity = Vector2.right * dodgeSpeed;
+                    rb.AddForce(Vector2.right * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                 }
             }
