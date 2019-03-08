@@ -22,12 +22,10 @@ public class Inventory : MonoBehaviour
 
     #endregion
 
-    //public List<Item> items = new List<Item>();
     public GameObject[] slots;
 
     public void Start()
     {
-        //items = new List<Item>(slots); // setting capacity of inventory
         slots = new GameObject[numberOfSlots];
 
         for (int i = 0; i < numberOfSlots; i++)
@@ -40,7 +38,10 @@ public class Inventory : MonoBehaviour
         }
 
     }
-
+    
+    /*
+     * Add an item to the player's inventory
+     */
     public void Add(Item item)
 	{
         for (int i = 0; i < numberOfSlots; i++)
@@ -51,7 +52,8 @@ public class Inventory : MonoBehaviour
                 slots[i].GetComponent<Slot>().description = item.description;
                 slots[i].GetComponent<Slot>().icon = item.icon;
                 slots[i].GetComponent<Slot>().isEmpty = false;
-                item.gameObject.SetActive(false);
+                //item.gameObject.SetActive(false);
+                Destroy(item.gameObject);
 
                 return;
             }

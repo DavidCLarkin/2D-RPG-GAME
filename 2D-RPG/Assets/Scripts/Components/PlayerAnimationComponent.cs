@@ -47,22 +47,22 @@ public class PlayerAnimationComponent : MonoBehaviour
             anim.SetBool("knight_slice_right", attackRight);
             anim.SetBool("knight_slice_up", attackUp);
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 1)
+            if (input.Attack && facingDirection == 1)
                 attackUp = true;
             else
                 attackUp = false;
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 2)
+            if (input.Attack && facingDirection == 2)
                 attackLeft = true;
             else
                 attackLeft = false;
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 3)
+            if (input.Attack && facingDirection == 3)
                 attackDown = true;
             else
                 attackDown = false;
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("A")) && facingDirection == 4)
+            if (input.Attack && facingDirection == 4)
                 attackRight = true;
             else
                 attackRight = false;

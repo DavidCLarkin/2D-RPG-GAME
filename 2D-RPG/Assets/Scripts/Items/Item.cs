@@ -37,15 +37,30 @@ public class Item : Interactable
 
 	}
 
-    void OnMouseEnter()
+    protected override void EnableTooltip()
     {
         GameManagerSingleton.instance.tooltip.text = itemName;
-        GameManagerSingleton.instance.tooltip.gameObject.SetActive(true);
+        base.EnableTooltip();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnableTooltip();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        DisableTooltip();
+    }
+
+    void OnMouseEnter()
+    {
+        EnableTooltip();
     }
 
     void OnMouseExit()
     {
-        GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
+        DisableTooltip();
     }
 
 }

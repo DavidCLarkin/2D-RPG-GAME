@@ -17,6 +17,7 @@ public abstract class Interactable : MonoBehaviour
 
 	void Start() 
 	{
+        player = GameManagerSingleton.instance.player.transform;
 	}
 
 	public virtual void Update() 
@@ -26,23 +27,36 @@ public abstract class Interactable : MonoBehaviour
 			float distance = Vector2.Distance (player.position, transform.position);
 			if(distance <= radius)
 			{
-				Interact();
+				//Interact();
 				hasInteracted = true;
 			}
 		}
 	}
 
-	public void onFocused(Transform playerTransform)
+	public void OnFocused(Transform playerTransform)
 	{
 		isFocus = true;
-		player = playerTransform;
+		//player = playerTransform;
 		hasInteracted = false;
 	}
 		
-	public void deFocused()
+	public void DeFocused()
 	{
 		isFocus = false;
-		player = null;
+		//player = null;
 		hasInteracted = false;
 	}
+
+    protected virtual void EnableTooltip()
+    {
+        // Need to set the text in corresponding Interactable
+        GameManagerSingleton.instance.tooltip.gameObject.SetActive(true);
+        GameManagerSingleton.instance.tooltip.gameObject.GetComponent<DisplayInfo>().SetPosition(gameObject.transform);
+    }
+
+    protected virtual void DisableTooltip()
+    {
+        GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
+    }
+
 }

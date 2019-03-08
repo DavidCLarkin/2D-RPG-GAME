@@ -5,8 +5,8 @@ public class InputComponent : MonoBehaviour
 {
     public float Horizontal { get; set; }
     public float Vertical { get; set; }
-    private bool Attack { get; set; }
-    private bool Interact { get; set; }
+    public bool Attack { get; set; }
+    public bool Interact { get; set; }
     public bool Dodge { get; set; }
     private Rigidbody2D rigidbody;
 
@@ -25,9 +25,9 @@ public class InputComponent : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
-        Attack = Input.GetMouseButtonDown(0); // Left mouse click
-        Interact = Input.GetKeyDown(KeyCode.E); // Press E to interact
-        Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B");
+        Attack = Input.GetMouseButtonDown(0) || Input.GetButtonDown("A"); // Left mouse click or A on controller to Attack
+        Interact = Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Y"); // Press E or Y on controller to Interact
+        Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B"); // Press Space or B on controller to Dodge
 
 
         if (Attack)

@@ -15,43 +15,84 @@ public class InteractComponent : MonoBehaviour
 
     void Interact()
     {
-        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        //Debug.Log(Input.GetJoystickNames().Length > 0 ? true : false);
 
-        if (hit)
+        // Easier to do with controller, may change
+        if (focus != null)
         {
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-            if (interactable != null)
+            string focusTag = focus.tag;
+            switch (focusTag)
             {
-                string intTag = interactable.tag;
-                switch (intTag)
-                {
-                    /*
-                    case "Enemy": // TODO add attacking, interaction etc.
-                        Debug.Log("Enemy CASE"); //ATTACK
-                        break;
-                        */
-                    case "Item":
-                        Debug.Log("Item CASE"); //PICK UP
-                        break;
-                    default:
-                        Debug.Log("Default");
-                        break;
-                }
-                setFocus(interactable);
+                case "NPC":
+                    focus.Interact();
+                    break;
+                case "Item":
+                    focus.Interact();
+                    break;
+
             }
+        }
+        /*else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit)
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable != null)
+                {
+                    string intTag = interactable.tag;
+                    switch (intTag)
+                    {
+                        /*
+                        case "Enemy": // TODO add attacking, interaction etc.
+                            Debug.Log("Enemy CASE"); //ATTACK
+                            break;
+                            
+                        case "NPC":
+                            Debug.Log("NPC CASE");
+                            interactable.Interact();
+                            break;
+                        case "Item":
+                            Debug.Log("Item CASE"); //PICK UP
+                            break;
+                        default:
+                            Debug.Log("Default");
+                            break;
+                    }
+                    SetFocus(interactable);
+                }
+            }
+        }
+*/
+
+    }
+
+    void SetFocus(Interactable newFocus)
+    {
+        focus = newFocus;
+        newFocus.OnFocused(transform);
+    }
+
+    void RemoveFocus()
+    {
+        if (focus == null) return;
+
+        focus.DeFocused();
+        focus = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.GetComponent<Interactable>() != null)
+        {
+            Interactable interactable = collision.gameObject.GetComponent<Interactable>();
+            SetFocus(interactable);
         }
     }
 
-    void setFocus(Interactable newFocus)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        focus = newFocus;
-        newFocus.onFocused(transform);
-    }
-
-    void removeFocus()
-    {
-        focus.deFocused();
-        focus = null;
+        RemoveFocus();
     }
 }

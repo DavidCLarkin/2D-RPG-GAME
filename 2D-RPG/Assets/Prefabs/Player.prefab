@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 114281135109530564}
   - component: {fileID: 114284943723754334}
   - component: {fileID: 60927248500000794}
+  - component: {fileID: 114163959613214420}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4de064767df6d824880f459c71319d06, type: 3}
   m_Name: 
@@ -500,6 +501,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a420d778fcf7a654cb14c0d6a9f1cbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114163959613214420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433843073848626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba396dfcb7fbdd44db75329ebb965d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114233320065855936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1120046990c62841851ed199360d834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeSpeed: 60
+  dodgeSpeed: 2000
   startDodgetime: 0.05
   dodgeTime: 0
   dashCost: 30
@@ -547,6 +559,7 @@ MonoBehaviour:
   baseExp: 100
   expToLevel: 100
   expIncrease: 1.7
+  totalExp: 0
   expBar: {fileID: 0}
 --- !u!114 &114308860328978886
 MonoBehaviour:

@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 						break;
 					}
 
-					setFocus (interactable);
+					SetFocus (interactable);
 				}
 			}
 		}
@@ -93,15 +93,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-	void setFocus(Interactable newFocus)
+	void SetFocus(Interactable newFocus)
 	{
 		focus = newFocus;
-		newFocus.onFocused(transform);
+		newFocus.OnFocused(transform);
 	}
 
-	void removeFocus()
+	void RemoveFocus()
 	{
-		focus.deFocused ();
+		focus.DeFocused ();
 		focus = null;
 	}
 
