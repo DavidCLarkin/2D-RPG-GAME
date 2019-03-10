@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
@@ -8,6 +9,15 @@ public class Stats : MonoBehaviour
     public Stat StaminaStat { get; set; }
     public Stat HealthStat { get; set; }
 
+    private HealthComponent health;
+    private MovementComponent stamina;
+    private ExperienceComponent exp;
+
+    public Text currentHealthUIDisplay;
+    public Text newHealthUIDisplay;
+    public Text currentStaminaUIDisplay;
+    public Text newStaminaUIDisplay;
+
     // Use this for initialization
     void Start ()
     {
@@ -15,8 +25,17 @@ public class Stats : MonoBehaviour
         StaminaStat = new Stat(1, "StaminaStat");
         StrengthStat = new Stat(1, "StrengthStat");
 
-        GetComponent<MovementComponent>().maxStamina = 90 + (10 * StaminaStat.StatLevel); // base 100
-        GetComponent<HealthComponent>().maxHealth = 90 + (10 * HealthStat.StatLevel);
+        health = GetComponent<HealthComponent>();
+        stamina = GetComponent<MovementComponent>();
+        exp = GetComponent<ExperienceComponent>();
+
+        stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel); // base 100
+        health.maxHealth = 90 + (10 * HealthStat.StatLevel);
+
+        currentHealthUIDisplay.text = (health.maxHealth).ToString();
+        newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
+        currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
+        newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
 
 	}
 	
@@ -29,30 +48,67 @@ public class Stats : MonoBehaviour
             UpdateStat(StaminaStat);
 	}
 
-    void UpdateStat(Stat statToUpgrade)
+    public void UpgradeHealth()
+    {
+        int expCost = CalculateExpCost(HealthStat);
+        if (expCost <= exp.totalExp)
+        {
+            HealthStat.StatLevel++;
+            exp.totalExp -= expCost;
+
+            health.maxHealth = 90 + (10 * HealthStat.StatLevel);
+            health.health = health.maxHealth; // set health to max
+            currentHealthUIDisplay.text = (health.maxHealth).ToString();
+            newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
+
+            Debug.Log("Leveled up");
+        }
+    }
+
+    public void UpgradeStamina()
+    {
+        int expCost = CalculateExpCost(StaminaStat);
+        if (expCost <= exp.totalExp)
+        {
+            StaminaStat.StatLevel++;
+            exp.totalExp -= expCost;
+
+            stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
+            stamina.stamina = stamina.maxStamina; // set health to max
+            currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
+            newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
+
+            Debug.Log("Leveled up");
+        }
+    }
+
+    public void UpdateStat(Stat statToUpgrade)
     {
         int expCost = CalculateExpCost(statToUpgrade);
         Debug.Log("Need " + expCost + " to level up");
-        if (expCost <= GetComponent<ExperienceComponent>().totalExp)
+        if (expCost <= exp.totalExp)
         {
             statToUpgrade.StatLevel++;
-            GetComponent<ExperienceComponent>().totalExp -= expCost;
+            exp.totalExp -= expCost;
 
             if (statToUpgrade.StatName.Equals("HealthStat"))
             {
-                GetComponent<HealthComponent>().maxHealth = 90 + (10 * HealthStat.StatLevel);
-                GetComponent<HealthComponent>().health = GetComponent<HealthComponent>().maxHealth; // set health to max
+                health.maxHealth = 90 + (10 * HealthStat.StatLevel);
+                health.health = health.maxHealth; // set health to max
+                currentHealthUIDisplay.text = (health.maxHealth).ToString();
+                newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
             }
             if (statToUpgrade.StatName.Equals("StaminaStat"))
             {
-                GetComponent<MovementComponent>().maxStamina = 90 + (10 * StaminaStat.StatLevel);
-                GetComponent<MovementComponent>().stamina = GetComponent<MovementComponent>().maxStamina; //set stamina to max
+                stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
+                stamina.stamina = stamina.maxStamina; //set stamina to max
             }
 
             Debug.Log("Leveled Up");
 
         }
     }
+
 
     int CalculateExpCost(Stat stat)
     {

@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 4.53, z: 0}
+  m_LocalPosition: {x: -3.35, y: 1.01, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -512,6 +512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba396dfcb7fbdd44db75329ebb965d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealthUIDisplay: {fileID: 0}
+  newHealthUIDisplay: {fileID: 0}
+  currentStaminaUIDisplay: {fileID: 0}
+  newStaminaUIDisplay: {fileID: 0}
 --- !u!114 &114233320065855936
 MonoBehaviour:
   m_ObjectHideFlags: 1
