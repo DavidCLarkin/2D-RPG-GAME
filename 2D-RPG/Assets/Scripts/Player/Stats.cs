@@ -17,6 +17,9 @@ public class Stats : MonoBehaviour
     public Text newHealthUIDisplay;
     public Text currentStaminaUIDisplay;
     public Text newStaminaUIDisplay;
+    public Text currentExpUIDisplay;
+    public Text healthUpgradeCost;
+    public Text staminaUpgradeCost;
 
     // Use this for initialization
     void Start ()
@@ -37,6 +40,8 @@ public class Stats : MonoBehaviour
         currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
         newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
 
+        StartCoroutine(UpdateUI());
+
 	}
 	
 	// Update is called once per frame
@@ -46,6 +51,7 @@ public class Stats : MonoBehaviour
             UpdateStat(HealthStat);
         if (Input.GetKeyDown(KeyCode.M))
             UpdateStat(StaminaStat);
+
 	}
 
     public void UpgradeHealth()
@@ -113,5 +119,32 @@ public class Stats : MonoBehaviour
     int CalculateExpCost(Stat stat)
     {
         return 500 * (stat.StatLevel * 2);
+    }
+
+    // Coroutine to update the UI every 1/10th second instead of every frame
+    IEnumerator UpdateUI()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+
+            int healthCost = CalculateExpCost(HealthStat);
+            int staminaCost = CalculateExpCost(StaminaStat);
+
+            currentExpUIDisplay.text = (exp.totalExp).ToString();
+            healthUpgradeCost.text = healthCost.ToString();
+            staminaUpgradeCost.text = staminaCost.ToString();
+
+            // Set color of text to indicate whether stat can be upgraded or not
+            if (exp.totalExp < healthCost)
+                healthUpgradeCost.color = Color.red;
+            else
+                healthUpgradeCost.color = Color.green;
+
+            if (exp.totalExp < staminaCost)
+                staminaUpgradeCost.color = Color.red;
+            else
+                staminaUpgradeCost.color = Color.green;
+        }
     }
 }

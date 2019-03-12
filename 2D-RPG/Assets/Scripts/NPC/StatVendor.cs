@@ -6,7 +6,7 @@ using UnityEngine;
 public class StatVendor : Interactable
 {
 	public GameObject upgradePanel;
-	bool panelOpen = false;
+	public bool panelOpen = false;
 
 	// Use this for initialization
 	void Start ()
@@ -22,9 +22,8 @@ public class StatVendor : Interactable
 
     public override void Interact()
     {
-        Debug.Log("Show GUI");
-		panelOpen = true;
-
+        panelOpen = !panelOpen;
+        GameManagerSingleton.instance.PauseGame();
     }
 
     protected override void EnableTooltip()
@@ -41,7 +40,6 @@ public class StatVendor : Interactable
     private void OnTriggerExit2D(Collider2D collision)
     {
         DisableTooltip();
-		panelOpen = false;
     }
 
     void OnMouseEnter()
