@@ -13,20 +13,26 @@ public class ExperienceComponent : MonoBehaviour
     public float totalExp;
 
 	public Slider expBar;
+    public Text currentExpDisplay;
+    private Text expText;
+
+    private string expString;
 
 	void Start()
 	{
-		expBar.value = CalculateExpPercentage ();
-	}
+        expText = expBar.GetComponentInChildren<Text>();
+        StartCoroutine(FrequentUpdateExp());
+    }
 
-	// Update is called once per frame
-	void Update () 
+    // Update is called once per frame
+    void Update () 
 	{
 		if (Input.GetKeyDown (KeyCode.N)) 
 		{
 			IncreaseExp (500);
 		}
-	}
+
+    }
 
 	public void IncreaseExp(int exp)
 	{
@@ -37,19 +43,33 @@ public class ExperienceComponent : MonoBehaviour
 			LevelUp();
 		}
 
-		expBar.value = CalculateExpPercentage ();
-	}
+        UpdateExpUI();
+    }
 
 	void LevelUp()
 	{
 		currentExp -= expToLevel;
 		level++;
 		expToLevel = (int)(baseExp * (Mathf.Pow (expIncrease, level)));
-		expBar.GetComponentInChildren<Text> ().text = level.ToString(); // Change the level text field when level up
-	}
+        UpdateExpUI();
+    }
 
 	float CalculateExpPercentage()
 	{
 		return (float)currentExp / expToLevel;
 	}
+
+    IEnumerator FrequentUpdateExp()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.25f);
+            UpdateExpUI();
+        }
+    }
+
+    void UpdateExpUI()
+    {
+        expText.text = totalExp.ToString();
+    }
 }

@@ -17,7 +17,29 @@ public class IdleBehaviour : StateMachineBehaviour
 		if(Vector2.Distance (player.position, animator.transform.position) < animator.GetComponent<Enemy>().attackRange)
         {
             if (animator.GetComponent<Enemy>().attackChosen == 0)
-                animator.SetBool("attackDown", true);
+            {
+                if (player.position.y <= animator.transform.position.y)
+                {
+                    Debug.Log("Player below");
+                    animator.SetBool("attackDown", true);
+                }
+                else if (player.position.y > animator.transform.position.y)
+                {
+                    Debug.Log("Player Above");
+                    animator.SetBool("attackUp", true);
+                }
+
+                if (player.position.x >= animator.transform.position.x)
+                {
+                    Debug.Log("player to right");
+                    animator.SetBool("attackRight", true);
+                }
+                else if (player.position.x < animator.transform.position.x)
+                {
+                    Debug.Log("Player to left");
+                    animator.SetBool("attackLeft", true);
+                }
+            }
                 //if (animator.GetComponent<Enemy>().attackChosen == 0)
                   //  animator.SetTrigger("idle");
 		}

@@ -24,7 +24,7 @@ public class HandleSpawns : MonoBehaviour
 
 	void SpawnObjects()
 	{
-		int numObjToSpawn = Random.Range (1, 4);
+		int numObjToSpawn = Random.Range (Random.Range(1, spawnPoints.Count), spawnPoints.Count); // random between 1 and spawnpoints size
 		Debug.Log (numObjToSpawn);
 		for (int i = 0; i < numObjToSpawn; i++) 
 		{

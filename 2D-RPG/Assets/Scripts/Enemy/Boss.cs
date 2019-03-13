@@ -127,7 +127,7 @@ public class Boss : Enemy
 
     public override void FollowTarget(Transform target)
     {
-		if (anim.GetBool("attackDown") == true)
+		if (anim.GetBool("attackDown") || anim.GetBool("attackUp"))
 			return;
         base.FollowTarget(target);
 
@@ -158,7 +158,7 @@ public class Boss : Enemy
         List<Transform> tilesToUse = new List<Transform>();
         foreach(Transform tile in bossRoom.GetComponent<Tiles>().tiles)
         {
-            if (tile.transform.position.x == currentPos.x || tile.transform.position.y == currentPos.y)
+            if (tile.transform.position.x % 32 == currentPos.x % 32 || tile.transform.position.y % 32 == currentPos.y % 32)
                 tilesToUse.Add(tile);
         }
 
@@ -173,11 +173,13 @@ public class Boss : Enemy
     void SpawnHarmfulTiles()
     {
         List<Transform> besideTiles = GetAllTilesStraightLines();
+        Debug.Log("tiles to spawn size: " + besideTiles.Count);
 
         foreach (Transform tile in besideTiles)
             Instantiate(objToSpawn, tile.position, Quaternion.identity);
 
 		SPAWN_TILE_TIMER = SPAWN_TILE_DELAY;
+        Debug.Log("Spawned tiles");
     }
     
 	/*

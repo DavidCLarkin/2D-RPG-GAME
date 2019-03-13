@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212986836215288040}
   - component: {fileID: 95001305726333500}
   - component: {fileID: 114147070002012816}
-  - component: {fileID: 114634497681898228}
   - component: {fileID: 114890145480912526}
   - component: {fileID: 61798813519163910}
+  - component: {fileID: 114063939438280086}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -54,7 +54,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0017410517, y: -0.0013471842}
@@ -88,6 +88,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114063939438280086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015869225983704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d5ea2ebe9a5a646986bef5ac2dd22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  player: {fileID: 0}
+  ATTACK_TIMER: 3
+  BASE_ATTACK_RANGE: 0
+  speed: 1
+  followRange: 5
+  attackRange: 4
+  Experience: 50
+  attackChosen: 0
+  state: 2
+  outOfRange: 6
+  minion: {fileID: 1372599778122718, guid: c0f44ff95c230004e893de15b22459f3, type: 2}
 --- !u!114 &114147070002012816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,29 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &114634497681898228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015869225983704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d3a7ec0e9375944bb20ee49f7d9b1b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  player: {fileID: 0}
-  ATTACK_TIMER: 0
-  BASE_ATTACK_RANGE: 0
-  MEDIUM_ATTACK_RANGE: 0
-  HARD_ATTACK_RANGE: 0
-  LIGHT_ATTACK_RANGE: 0
-  speed: 1.5
-  followRange: 5
-  attackRange: 0
-  Experience: 50
-  attackChosen: 0
 --- !u!114 &114890145480912526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,10 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 25
   health: 0
   isAI: 1
   isBoss: 0
+  deathTimer: 0.58
 --- !u!212 &212986836215288040
 SpriteRenderer:
   m_ObjectHideFlags: 1

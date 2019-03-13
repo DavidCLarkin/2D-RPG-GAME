@@ -136,13 +136,12 @@ MonoBehaviour:
   player: {fileID: 0}
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
-  MEDIUM_ATTACK_RANGE: 0
-  HARD_ATTACK_RANGE: 0
-  LIGHT_ATTACK_RANGE: 0
   speed: 1.5
   followRange: 5
-  attackRange: 2
+  attackRange: 0
+  Experience: 500
   attackChosen: 0
+  state: 2
 --- !u!114 &114450354508658032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +157,7 @@ MonoBehaviour:
   health: 0
   isAI: 1
   isBoss: 0
+  deathTimer: 0
 --- !u!212 &212265269372166570
 SpriteRenderer:
   m_ObjectHideFlags: 1

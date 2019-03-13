@@ -6,6 +6,7 @@ public class Pathfinding : MonoBehaviour
 {
     [HideInInspector]
     public Transform target;
+    float timeElapsed = 0f;
 
     private LevelGrid grid;
 
@@ -16,8 +17,15 @@ public class Pathfinding : MonoBehaviour
 
     void Update()
     {
-        if(target != null)
-            FindPath(transform.position, target.position);
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= 0.25f) // only update every 1/4 second instead of every frame
+        {
+            if (target != null && Vector3.Distance(target.transform.position, gameObject.transform.position) < 15f)
+            {
+                FindPath(transform.position, target.position);
+                timeElapsed = 0f;
+            }
+        }
     }
 
     public void FindPath(Vector2 startPos, Vector2 targetPos)

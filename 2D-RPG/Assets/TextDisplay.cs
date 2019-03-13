@@ -5,18 +5,31 @@ using UnityEngine.UI;
 
 public class TextDisplay : MonoBehaviour
 {
+    public Slider healthBar;
+    public Slider staminaBar;
 
-    public Text healthText;
-    public Text staminaText;
+    private HealthComponent playerHealth;
+    private MovementComponent playerStamina;
 
 	// Use this for initialization
-	void Start () {
-	}
+	void Start ()
+    {
+        playerHealth = GameManagerSingleton.instance.player.GetComponent<HealthComponent>();
+        playerStamina = GameManagerSingleton.instance.player.GetComponent<MovementComponent>();
+
+        healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
+        staminaBar.value = CalculateFillPercentage(playerStamina.stamina, playerStamina.maxStamina);
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        healthText.text = "Health: " + GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health;
-        staminaText.text = "Stamina: " + GameManagerSingleton.instance.player.GetComponent<MovementComponent>().stamina;
+        healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
+        staminaBar.value = CalculateFillPercentage(playerStamina.stamina, playerStamina.maxStamina);
 	}
+
+    float CalculateFillPercentage(float current, float max)
+    {
+        return current / max;
+    }
 }
