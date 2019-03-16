@@ -74,7 +74,7 @@ public class InteractComponent : MonoBehaviour
         newFocus.OnFocused(transform);
     }
 
-    void RemoveFocus()
+    public void RemoveFocus()
     {
         if (focus == null) return;
 

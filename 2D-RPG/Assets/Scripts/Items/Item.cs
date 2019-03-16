@@ -14,6 +14,15 @@ public class Item : Interactable
 		base.Update();
 	}
 
+    public void Use()
+    {
+        if(type == TYPE.Consumable)
+        {
+            GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health += 20;
+            Debug.Log("Increased Health");
+        }
+    }
+
 	public override void Interact()
 	{
         //base.Interact();

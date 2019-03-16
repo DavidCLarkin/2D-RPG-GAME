@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.35, y: 1.01, z: 0}
+  m_LocalPosition: {x: 0.03, y: -2.18, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -478,6 +478,8 @@ MonoBehaviour:
   health: 0
   isAI: 0
   isBoss: 0
+  damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
+    type: 2}
   deathTimer: 0
 --- !u!114 &114105536752077910
 MonoBehaviour:
@@ -516,6 +518,9 @@ MonoBehaviour:
   newHealthUIDisplay: {fileID: 0}
   currentStaminaUIDisplay: {fileID: 0}
   newStaminaUIDisplay: {fileID: 0}
+  currentExpUIDisplay: {fileID: 0}
+  healthUpgradeCost: {fileID: 0}
+  staminaUpgradeCost: {fileID: 0}
 --- !u!114 &114233320065855936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,6 +570,7 @@ MonoBehaviour:
   expIncrease: 1.7
   totalExp: 0
   expBar: {fileID: 0}
+  currentExpDisplay: {fileID: 0}
 --- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1

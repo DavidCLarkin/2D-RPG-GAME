@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class HealthComponent : MonoBehaviour, IDamageable
@@ -7,6 +8,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public float health;
     public bool isAI;
     public bool isBoss;
+    public GameObject damageNotifier;
 
     [Tooltip("The length of the Death Animation for this enemy")]
     public float deathTimer;
@@ -36,6 +38,18 @@ public class HealthComponent : MonoBehaviour, IDamageable
             //else
             Destroy(gameObject, deathTimer);
         }
+
+        if(damageNotifier != null)
+            ShowDamageNotifier(damageAmount);
+    }
+
+    void ShowDamageNotifier(int damageAmount)
+    {
+        GameObject damageNotifierClone = damageNotifier;
+        damageNotifierClone.GetComponent<TextMesh>().text = damageAmount.ToString();
+        damageNotifierClone.GetComponent<TextMesh>().color = isAI ? Color.red : Color.green;
+
+        Instantiate(damageNotifierClone, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z - 1), Quaternion.identity, transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

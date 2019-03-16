@@ -48,12 +48,14 @@ public class Inventory : MonoBehaviour
         {
             if(slots[i].GetComponent<Slot>().isEmpty) //empty slot
             {
+                slots[i].GetComponent<Slot>().item = item;
                 slots[i].GetComponent<Slot>().itemName = item.itemName;
                 slots[i].GetComponent<Slot>().description = item.description;
                 slots[i].GetComponent<Slot>().icon = item.icon;
                 slots[i].GetComponent<Slot>().isEmpty = false;
-                //item.gameObject.SetActive(false);
-                Destroy(item.gameObject);
+                item.gameObject.SetActive(false);
+                GameManagerSingleton.instance.player.GetComponent<InteractComponent>().RemoveFocus();
+                //Destroy(item.gameObject);
 
                 return;
             }
@@ -62,7 +64,6 @@ public class Inventory : MonoBehaviour
 
 	public void Remove(Item item)
 	{
-		//items.Remove(item);
 	}
 
 	public void ListItems()

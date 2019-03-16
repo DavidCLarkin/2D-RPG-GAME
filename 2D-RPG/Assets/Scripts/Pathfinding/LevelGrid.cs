@@ -75,6 +75,7 @@ public class LevelGrid : MonoBehaviour
 
     public List<Node> path;
     
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
@@ -94,5 +95,6 @@ public class LevelGrid : MonoBehaviour
             }
         }
     }
+    */
     
 }
