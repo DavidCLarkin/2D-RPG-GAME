@@ -157,6 +157,8 @@ MonoBehaviour:
   health: 0
   isAI: 1
   isBoss: 0
+  damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
+    type: 2}
   deathTimer: 0
 --- !u!212 &212265269372166570
 SpriteRenderer:

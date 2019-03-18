@@ -2,7 +2,7 @@
 
 public enum TYPE { Consumable, Weapon, Note };
 
-public class Item : Interactable 
+public abstract class Item : Interactable 
 {
     public TYPE type;
     public string itemName;
@@ -14,12 +14,19 @@ public class Item : Interactable
 		base.Update();
 	}
 
-    public void Use()
+    public virtual void Use()
     {
-        if(type == TYPE.Consumable)
+        //if(type == TYPE.Consumable)
+        //{
+         //   GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health += 20;
+          //  Debug.Log("Increased Health");
+        //}
+
+        if(type == TYPE.Weapon)
         {
-            GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health += 20;
-            Debug.Log("Increased Health");
+            Debug.Log(GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null);
+            GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(25);
+            Debug.Log("Equipped weapon");
         }
     }
 

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4301746353785680}
   - component: {fileID: 212021842224842644}
-  - component: {fileID: 114196757477890078}
   - component: {fileID: 61602720102546786}
+  - component: {fileID: 114385623780447998}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Item
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167208984112654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.078738, y: -2.7726395, z: 0}
   m_LocalScale: {x: 3.217711, y: 3.2177107, z: 3.2177107}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &114196757477890078
+--- !u!114 &114385623780447998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167208984112654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4377e7fb29b8c1d43ba159faf26a3ae7, type: 3}
+  m_Script: {fileID: 11500000, guid: bd34d06b5d323f746928dc615c01efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
@@ -84,6 +84,8 @@ MonoBehaviour:
   itemName: Health Potion
   description: Heals some health
   icon: {fileID: 21300646, guid: b55e2dcd3e26e304fac45b95e0eb0366, type: 3}
+  amount: 20
+  potionType: 0
 --- !u!212 &212021842224842644
 SpriteRenderer:
   m_ObjectHideFlags: 1

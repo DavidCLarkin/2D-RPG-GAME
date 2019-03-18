@@ -11,5 +11,10 @@ public class PlayerWeapon : MonoBehaviour, IAiDamageDealer
     {
         Damage = customDamage;
 	}
-	
+
+    public void EquipWeapon(int newDamage)
+    {
+        Damage = newDamage;
+    }
+
 }

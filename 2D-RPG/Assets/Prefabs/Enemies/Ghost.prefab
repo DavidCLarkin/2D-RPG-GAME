@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015869225983704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.58, y: 0, z: 0}
+  m_LocalPosition: {x: -10.484994, y: -23.216486, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   health: 0
   isAI: 1
   isBoss: 0
+  damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
+    type: 2}
   deathTimer: 0.58
 --- !u!212 &212986836215288040
 SpriteRenderer:
