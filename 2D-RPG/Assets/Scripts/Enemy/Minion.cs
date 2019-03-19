@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Doesn't use pathfinding because its a spirit, like the ghost.
-public class Minion : Enemy
+public class Minion : MonoBehaviour
 {
+    public float followRange;
+    public float speed;
+
     private void FixedUpdate()
     {
         if(Vector2.Distance(gameObject.transform.position, GameManagerSingleton.instance.player.transform.position) <= followRange)

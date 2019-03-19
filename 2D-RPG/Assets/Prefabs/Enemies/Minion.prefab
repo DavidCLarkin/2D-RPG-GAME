@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4195050889642684}
   - component: {fileID: 212307287092410952}
   - component: {fileID: 95194141771936236}
-  - component: {fileID: 114306329014548260}
   - component: {fileID: 114098526147422978}
   - component: {fileID: 61281416228793676}
   - component: {fileID: 114879263470556752}
@@ -162,18 +161,6 @@ MonoBehaviour:
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
     type: 2}
   deathTimer: 0
---- !u!114 &114306329014548260
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1372599778122718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84060fa8f943e148877fc41dcaac736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &114498109343459624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,16 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce474193999f91441a2971ad1f9d944f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  player: {fileID: 0}
-  ATTACK_TIMER: 0
-  BASE_ATTACK_RANGE: 0
-  speed: 1
   followRange: 10
-  attackRange: 0
-  Experience: 50
-  attackChosen: 0
-  state: 2
+  speed: 1
 --- !u!212 &212307287092410952
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -125,16 +125,16 @@ public abstract class Enemy : Interactable, IDamageable
 		switch(state)
 		{
 			case State.Idle:
-				Debug.Log("Idle");
+				//Debug.Log("Idle");
 				break;
 			case State.Moving:
-				Debug.Log("Moving");
+				//Debug.Log("Moving");
 				FollowTarget(player);
 				break;
 			case State.Attacking:
                 if (ATTACK_TIMER <= 0)
                 {
-                    Debug.Log("Attacking");
+                    //Debug.Log("Attacking");
                     attackChosen = Random.Range(0, 2); // only needs to be called once
                     Attack(attackChosen);
                 }

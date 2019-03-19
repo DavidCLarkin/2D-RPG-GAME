@@ -101,10 +101,10 @@ public class Boss : Enemy
         switch (state)
         {
             case State.Idle:
-                Debug.Log("Idle");
+                //Debug.Log("Idle");
                 break;
             case State.Moving:
-                Debug.Log("Moving");
+                //Debug.Log("Moving");
                 FollowTarget(player);
                 // Used to get closer to player. Not really an attack, just a gap closer
                 if (distance >= 6f && CHARGE_ATTACK_TIMER <= 0)
@@ -117,7 +117,7 @@ public class Boss : Enemy
                         attackChosen = 1;
                     else
                         attackChosen = 0;
-                    Debug.Log("Attacking");
+                    //Debug.Log("Attacking");
                     //attackChosen = Random.Range(0, 2); // only needs to be called once
                     Attack(attackChosen);
                 }
