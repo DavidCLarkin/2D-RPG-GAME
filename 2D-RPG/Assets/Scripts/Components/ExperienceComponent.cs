@@ -21,6 +21,7 @@ public class ExperienceComponent : MonoBehaviour
 	void Start()
 	{
         expText = expBar.GetComponentInChildren<Text>();
+        UpdateExpUI();
         StartCoroutine(FrequentUpdateExp());
     }
 

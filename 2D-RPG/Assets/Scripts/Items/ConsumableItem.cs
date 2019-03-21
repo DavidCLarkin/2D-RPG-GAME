@@ -13,12 +13,12 @@ public class ConsumableItem : Item
     {
         if (potionType == CONSUME_TYPE.Health)
         {
-            GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health += amount;
+            GameManagerSingleton.instance.player.GetComponent<HealthComponent>().Health += amount;
             Debug.Log("Increased Health");
         }
         if (potionType == CONSUME_TYPE.Stamina)
         {
-            GameManagerSingleton.instance.player.GetComponent<MovementComponent>().stamina += amount;
+            GameManagerSingleton.instance.player.GetComponent<MovementComponent>().Stamina += amount;
             Debug.Log("Increase Stamina");
         }
     }

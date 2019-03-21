@@ -80,7 +80,7 @@ public class Stats : MonoBehaviour
             exp.totalExp -= expCost;
 
             stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
-            stamina.stamina = stamina.maxStamina; // set health to max
+            stamina.Stamina = stamina.maxStamina; // set health to max
             currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
             newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
 
@@ -107,7 +107,7 @@ public class Stats : MonoBehaviour
             if (statToUpgrade.StatName.Equals("StaminaStat"))
             {
                 stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
-                stamina.stamina = stamina.maxStamina; //set stamina to max
+                stamina.Stamina = stamina.maxStamina; //set stamina to max
             }
 
             Debug.Log("Leveled Up");

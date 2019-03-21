@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour 
@@ -7,6 +8,9 @@ public class Inventory : MonoBehaviour
 	public static Inventory instance;
     public int numberOfSlots = 4;
     public GameObject slotHolder;
+    public int slotSelected = 0;
+    private InputComponent input;
+    private Slot[] itemSlots;
 
 	#region Singleton
 	void Awake()
@@ -26,6 +30,12 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        input = GetComponent<InputComponent>();
+
+        input.OnInventoryMoveLeft += ChangeSlotLeft;
+        input.OnInventoryMoveRight += ChangeSlotRight;
+        input.OnUseInventoryItem += UseItemSelected;
+
         slots = new GameObject[numberOfSlots];
 
         for (int i = 0; i < numberOfSlots; i++)
@@ -37,8 +47,47 @@ public class Inventory : MonoBehaviour
 
         }
 
+        // Get each slot in the Inventories assigned Grid
+        itemSlots = slotHolder.GetComponentsInChildren<Slot>();
+
     }
-    
+
+    /*
+     * Set the highlight image thats currently active (if there is one) inactive, and activate the next one
+     */ 
+    void ChangeSlotRight()
+    {
+        if (slotSelected < numberOfSlots - 1)
+        {
+            if (itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.activeSelf)
+                itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(false);
+
+            slotSelected++;
+            itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
+    /*
+    * Set the highlight image thats currently active (if there is one) inactive, and activate the next one
+    */
+    void ChangeSlotLeft()
+    {
+        if (slotSelected > 0)
+        {
+            if (itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.activeSelf)
+                itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(false);
+
+            slotSelected--;
+            itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
+    void UseItemSelected()
+    {
+        if (!itemSlots[slotSelected].isEmpty)
+            itemSlots[slotSelected].UseItem();
+    }
+
     /*
      * Add an item to the player's inventory
      */

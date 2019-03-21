@@ -6,6 +6,15 @@ public class HealthComponent : MonoBehaviour, IDamageable
 {
     public float maxHealth;
     public float health;
+
+    public float Health
+    {
+        get { return health; }
+        set { health += value;
+            if (health >= maxHealth) health = maxHealth;
+        }
+    }
+
     public bool isAI;
     public bool isBoss;
     public GameObject damageNotifier;

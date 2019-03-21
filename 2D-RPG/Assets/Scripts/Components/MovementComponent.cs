@@ -16,7 +16,16 @@ public class MovementComponent : MonoBehaviour, IMoveable
     private int direction;
 
     public int maxStamina;
-    public int stamina;
+    private int stamina;
+    public float Stamina
+    {
+        get { return stamina; }
+        set
+        {
+            stamina += (int)value;
+            if (stamina >= maxStamina) stamina = maxStamina;
+        }
+    }
 
     [SerializeField]
     private float speed;

@@ -124,12 +124,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1282129403}
   m_Script: {fileID: 11500000, guid: ba396dfcb7fbdd44db75329ebb965d35, type: 3}
---- !u!114 &208770362 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114419113682400186, guid: 4e05ce59328f3464390a777404cff2dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 932146887}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &277951030
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +209,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375005641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114938389153858414, guid: 4e05ce59328f3464390a777404cff2dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 932146887}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &460898112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114228123730307524, guid: 4e05ce59328f3464390a777404cff2dd,
@@ -419,7 +419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647147490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3500004, y: 1.01, z: -10}
+  m_LocalPosition: {x: -3.3500001, y: 1.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -609,9 +609,20 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224736844816183740, guid: 4e05ce59328f3464390a777404cff2dd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e05ce59328f3464390a777404cff2dd, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &932146888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114269749894399336, guid: 4e05ce59328f3464390a777404cff2dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 932146887}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &985200040 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114224796305176946, guid: 4e05ce59328f3464390a777404cff2dd,
@@ -795,7 +806,7 @@ Prefab:
         type: 2}
       propertyPath: expBar
       value: 
-      objectReference: {fileID: 1908987423}
+      objectReference: {fileID: 932146888}
     - target: {fileID: 114163959613214420, guid: 8b13b383c3d80644295114bcf003ad53,
         type: 2}
       propertyPath: currentExpUIDisplay
@@ -811,6 +822,11 @@ Prefab:
       propertyPath: staminaUpgradeCost
       value: 
       objectReference: {fileID: 1829930365}
+    - target: {fileID: 114284943723754334, guid: 8b13b383c3d80644295114bcf003ad53,
+        type: 2}
+      propertyPath: currentExpDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b13b383c3d80644295114bcf003ad53, type: 2}
   m_IsPrefabAsset: 0
@@ -874,7 +890,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1369047901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3500004, y: 1.01, z: -10}
+  m_LocalPosition: {x: -3.3500001, y: 1.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1987263128}
@@ -884,12 +900,6 @@ Transform:
 --- !u!114 &1369561142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114793984189090280, guid: 4e05ce59328f3464390a777404cff2dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 932146887}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &1676029822 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114950748698916686, guid: 4e05ce59328f3464390a777404cff2dd,
     type: 2}
   m_PrefabInternal: {fileID: 932146887}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1324,12 +1334,22 @@ Prefab:
         type: 2}
       propertyPath: healthText
       value: 
-      objectReference: {fileID: 1676029822}
+      objectReference: {fileID: 0}
     - target: {fileID: 114550631014186126, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
         type: 2}
       propertyPath: staminaText
       value: 
-      objectReference: {fileID: 208770362}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114550631014186126, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 375005641}
+    - target: {fileID: 114550631014186126, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: staminaBar
+      value: 
+      objectReference: {fileID: 1908987423}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f, type: 2}
   m_IsPrefabAsset: 0

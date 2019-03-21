@@ -18,14 +18,14 @@ public class TextDisplay : MonoBehaviour
         playerStamina = GameManagerSingleton.instance.player.GetComponent<MovementComponent>();
 
         healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
-        staminaBar.value = CalculateFillPercentage(playerStamina.stamina, playerStamina.maxStamina);
+        staminaBar.value = CalculateFillPercentage(playerStamina.Stamina, playerStamina.maxStamina);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
-        staminaBar.value = CalculateFillPercentage(playerStamina.stamina, playerStamina.maxStamina);
+        staminaBar.value = CalculateFillPercentage(playerStamina.Stamina, playerStamina.maxStamina);
 	}
 
     float CalculateFillPercentage(float current, float max)

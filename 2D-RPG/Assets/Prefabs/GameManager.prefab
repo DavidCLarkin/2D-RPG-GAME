@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a501d234d2f5eb1419dc486b820ffd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  staminaText: {fileID: 0}
+  healthBar: {fileID: 0}
+  staminaBar: {fileID: 0}
 --- !u!114 &114766233184251044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 0}
   player: {fileID: 0}
+  isPaused: 0
 --- !u!224 &224622113691729326
 RectTransform:
   m_ObjectHideFlags: 1
