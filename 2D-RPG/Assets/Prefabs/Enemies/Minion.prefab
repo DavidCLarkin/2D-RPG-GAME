@@ -184,8 +184,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce474193999f91441a2971ad1f9d944f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
+  player: {fileID: 0}
+  ATTACK_TIMER: 0
+  BASE_ATTACK_RANGE: 0
+  speed: 3
   followRange: 10
-  speed: 1
+  attackRange: 0
+  Experience: 10
+  attackChosen: 0
+  state: 2
 --- !u!212 &212307287092410952
 SpriteRenderer:
   m_ObjectHideFlags: 1
