@@ -16,18 +16,7 @@ public abstract class Item : Interactable
 
     public virtual void Use()
     {
-        //if(type == TYPE.Consumable)
-        //{
-         //   GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health += 20;
-          //  Debug.Log("Increased Health");
-        //}
-
-        if(type == TYPE.Weapon)
-        {
-            Debug.Log(GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null);
-            GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(25);
-            Debug.Log("Equipped weapon");
-        }
+        // To be overridden
     }
 
 	public override void Interact()

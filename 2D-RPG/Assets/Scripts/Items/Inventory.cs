@@ -113,6 +113,8 @@ public class Inventory : MonoBehaviour
 
 	public void Remove(Item item)
 	{
+        item.gameObject.transform.position = GameManagerSingleton.instance.player.transform.position;
+        item.gameObject.SetActive(true);
 	}
 
 	public void ListItems()

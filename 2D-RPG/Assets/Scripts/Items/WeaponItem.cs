@@ -8,7 +8,10 @@ public class WeaponItem : Item
 
     public override void Use()
     {
-        if(GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null)
+        if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null)
+        {
             GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(damage);
+        }
+        //Debug.Log("OVERIDDING");
     }
 }

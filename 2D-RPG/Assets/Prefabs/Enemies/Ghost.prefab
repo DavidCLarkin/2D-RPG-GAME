@@ -106,7 +106,7 @@ MonoBehaviour:
   speed: 1
   followRange: 5
   attackRange: 4
-  Experience: 50
+  Experience: 300
   attackChosen: 0
   state: 2
   outOfRange: 6
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 50
   health: 0
   isAI: 1
   isBoss: 0

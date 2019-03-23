@@ -537,7 +537,6 @@ MonoBehaviour:
   dodgeTime: 0
   dashCost: 30
   maxStamina: 100
-  stamina: 0
   speed: 2
 --- !u!114 &114281135109530564
 MonoBehaviour:
@@ -612,6 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfSlots: 4
   slotHolder: {fileID: 0}
+  slotSelected: 0
   slots: []
 --- !u!114 &114560733381892178
 MonoBehaviour:

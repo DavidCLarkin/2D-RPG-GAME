@@ -29,13 +29,25 @@ public class Slot : MonoBehaviour
             item.Use();
             if (item.type == TYPE.Consumable)
             {
-                RemoveItem();
+                RemoveItemCompletely();
                 UpdateSlot();
             }
         }
     }
 
-    void RemoveItem()
+    // For dropping items
+    public void RemoveItem()
+    {
+        itemName = "";
+        description = "";
+        icon = null;
+        isEmpty = true;
+        Inventory.instance.Remove(item);
+        item = null;
+    }
+
+    // If consumed, destroy
+    public void RemoveItemCompletely()
     {
         itemName = "";
         description = "";

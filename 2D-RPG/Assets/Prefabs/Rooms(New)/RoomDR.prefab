@@ -11296,8 +11296,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 28.26
+  m_Intensity: 3.5
+  m_Range: 7.54
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -11411,9 +11411,9 @@ MonoBehaviour:
   spawnPoints: []
   objects:
   - {fileID: 1015869225983704, guid: 88d90415e7b932e448175f46d75dac8c, type: 2}
-  - {fileID: 1240788755770154, guid: 4311b2c12e558b94e91243339e18c8b8, type: 2}
+  - {fileID: 1146589237493812, guid: 0ca97b2ca96be0948bde561e8a90551d, type: 2}
   - {fileID: 1372599778122718, guid: c0f44ff95c230004e893de15b22459f3, type: 2}
-  - {fileID: 1616025297648912, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
+  - {fileID: 1880501086672596, guid: 91261e984c9a6cb47b0d08848a71a6e2, type: 2}
 --- !u!212 &212012003803603856
 SpriteRenderer:
   m_ObjectHideFlags: 1

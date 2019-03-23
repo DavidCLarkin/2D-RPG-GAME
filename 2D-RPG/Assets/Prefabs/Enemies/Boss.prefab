@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 250
   health: 0
   isAI: 1
   isBoss: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   speed: 1
   followRange: 12
   attackRange: 3
-  Experience: 240
+  Experience: 2500
   attackChosen: 0
   state: 2
   SPAWN_TILE_DELAY: 5

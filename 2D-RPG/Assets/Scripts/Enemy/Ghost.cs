@@ -22,9 +22,9 @@ public class Ghost : Enemy
 
     public override void FollowTarget(Transform target)
     {
-        if (Vector3.Distance(transform.position, GameManagerSingleton.instance.player.transform.position) >= attackRange) return;
+        if (Vector2.Distance(transform.position, target.position) >= attackRange) return;
 
-        transform.position = Vector2.MoveTowards(transform.position, GameManagerSingleton.instance.player.transform.position, -1 * speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, -1 * speed * Time.deltaTime);
     }
 
     public override void DistanceChecking()

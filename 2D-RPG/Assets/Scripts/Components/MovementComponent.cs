@@ -16,7 +16,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
     private int direction;
 
     public int maxStamina;
-    private int stamina;
+    public float stamina;
     public float Stamina
     {
         get { return stamina; }
