@@ -76,5 +76,6 @@ public class InputComponent : MonoBehaviour
 
         if (Pause)
             OnPause();
+
     }
 }

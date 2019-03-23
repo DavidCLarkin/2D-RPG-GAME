@@ -26,6 +26,12 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public event Action EnableSpawnRoom = delegate { }; //delegate to enable exit point
 
 
+    void Update()
+    {
+        if (health >= maxHealth)
+            health = maxHealth;
+    }
+
     // Use this for initialization
     void Start()
     {

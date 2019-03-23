@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 114319056952075416}
   - component: {fileID: 114073742721158818}
   - component: {fileID: 114058055513188502}
+  - component: {fileID: 114310981396538662}
   m_Layer: 5
   m_Name: Slot 2
   m_TagString: Untagged
@@ -193,6 +194,7 @@ GameObject:
   - component: {fileID: 114462385431683100}
   - component: {fileID: 114571346935597616}
   - component: {fileID: 114307989848195486}
+  - component: {fileID: 114151024882125456}
   m_Layer: 5
   m_Name: Slot 4
   m_TagString: Untagged
@@ -411,6 +413,7 @@ GameObject:
   - component: {fileID: 114391121075542704}
   - component: {fileID: 114615817356417044}
   - component: {fileID: 114953480610113300}
+  - component: {fileID: 114821771790392364}
   m_Layer: 5
   m_Name: Slot 1
   m_TagString: Untagged
@@ -598,6 +601,7 @@ GameObject:
   - component: {fileID: 114813800243545922}
   - component: {fileID: 114566300162091764}
   - component: {fileID: 114330299240316148}
+  - component: {fileID: 114571134018448252}
   m_Layer: 5
   m_Name: Slot 3
   m_TagString: Untagged
@@ -939,7 +943,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114058055513188502}
-        m_MethodName: UseItem
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1068,6 +1072,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Stamina
+--- !u!114 &114151024882125456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1251192355884902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee7e0bcfd246844823029781afc7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114151886611952008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1397,6 +1412,17 @@ MonoBehaviour:
   icon: {fileID: 0}
   isEmpty: 0
   item: {fileID: 0}
+--- !u!114 &114310981396538662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115507276248114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee7e0bcfd246844823029781afc7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114319056952075416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1708,7 +1734,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114330299240316148}
-        m_MethodName: UseItem
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1720,6 +1746,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114571134018448252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759752286859716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee7e0bcfd246844823029781afc7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114571346935597616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1760,7 +1797,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114307989848195486}
-        m_MethodName: UseItem
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1872,7 +1909,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114953480610113300}
-        m_MethodName: UseItem
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2091,6 +2128,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114821771790392364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535245935496868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee7e0bcfd246844823029781afc7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114855525004908266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2683,7 +2731,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &224001942971340982
 RectTransform:

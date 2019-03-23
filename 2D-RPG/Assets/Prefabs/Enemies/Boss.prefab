@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 1
   health: 0
   isAI: 1
   isBoss: 1
@@ -505,7 +505,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 1616025297648912, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
-  - {fileID: 1750879186552694, guid: 64bb9ceccd88946429f1af593774b700, type: 2}
+  - {fileID: 1880501086672596, guid: 91261e984c9a6cb47b0d08848a71a6e2, type: 2}
+  - {fileID: 1533345754708618, guid: ce224856fd3f88e448d83112eb165283, type: 2}
+  - {fileID: 1133313339940626, guid: 224a0968109d7e544875681612bd9855, type: 2}
 --- !u!212 &212460448723181800
 SpriteRenderer:
   m_ObjectHideFlags: 1

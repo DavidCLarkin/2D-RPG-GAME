@@ -13,7 +13,14 @@ public class MovementComponent : MonoBehaviour, IMoveable
     public float startDodgetime;
     public float dodgeTime;
 	public int dashCost = 30;
+    private float walkTimer = 0.55f;
+
+    public AudioClip step1;
+    public AudioClip step2;
+    public AudioClip step3;
+
     private int direction;
+    private bool isMoving;
 
     public int maxStamina;
     public float stamina;
@@ -47,15 +54,16 @@ public class MovementComponent : MonoBehaviour, IMoveable
     void Start()
     {
         stamina = maxStamina;
+        StartCoroutine(Footsteps());
     }
 
     // Update is called once per frame
     void Update ()
     {
+        isMoving = (rb.velocity.magnitude > 0); // whether is moving or not
+
         AnimateMovement();
         Move();
-
-        //Debug.Log(direction);
     }
 
     public void Move()
@@ -181,5 +189,17 @@ public class MovementComponent : MonoBehaviour, IMoveable
             yield return new WaitForSeconds(1);
         }
     }
+
+    IEnumerator Footsteps()
+    {
+        while (true)
+        {
+            if(isMoving)
+                SoundManager.instance.RandomizeSfx(step1, step2, step3);
+
+            yield return new WaitForSeconds(walkTimer);
+        }
+    }
+
 
 }
