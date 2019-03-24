@@ -52,6 +52,9 @@ public class Stats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
             UpdateStat(StaminaStat);
 
+        Debug.Log("Stamina level:" + StaminaStat.StatLevel);
+        Debug.Log("Health LeveL: " + HealthStat.StatLevel);
+
 	}
 
     public void UpgradeHealth()
@@ -121,30 +124,49 @@ public class Stats : MonoBehaviour
         return 500 * (stat.StatLevel * 2);
     }
 
+    public void UpdateVariables()
+    {
+        stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
+        health.maxHealth = 90 + (10 * HealthStat.StatLevel);
+
+        health.health = health.maxHealth;
+        stamina.stamina = stamina.maxStamina;
+
+        currentHealthUIDisplay.text = (health.maxHealth).ToString();
+        newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
+
+        currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
+        newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
+    }
+
     // Coroutine to update the UI every 1/10th second instead of every frame
     IEnumerator UpdateUI()
     {
         while (true)
         {
             yield return new WaitForSecondsRealtime(0.1f);
-
-            int healthCost = CalculateExpCost(HealthStat);
-            int staminaCost = CalculateExpCost(StaminaStat);
-
-            currentExpUIDisplay.text = (exp.totalExp).ToString();
-            healthUpgradeCost.text = healthCost.ToString();
-            staminaUpgradeCost.text = staminaCost.ToString();
-
-            // Set color of text to indicate whether stat can be upgraded or not
-            if (exp.totalExp < healthCost)
-                healthUpgradeCost.color = Color.red;
-            else
-                healthUpgradeCost.color = Color.green;
-
-            if (exp.totalExp < staminaCost)
-                staminaUpgradeCost.color = Color.red;
-            else
-                staminaUpgradeCost.color = Color.green;
+            StatUIUpdate();
         }
+    }
+
+    void StatUIUpdate()
+    {
+        int healthCost = CalculateExpCost(HealthStat);
+        int staminaCost = CalculateExpCost(StaminaStat);
+
+        currentExpUIDisplay.text = (exp.totalExp).ToString();
+        healthUpgradeCost.text = healthCost.ToString();
+        staminaUpgradeCost.text = staminaCost.ToString();
+
+        // Set color of text to indicate whether stat can be upgraded or not
+        if (exp.totalExp < healthCost)
+            healthUpgradeCost.color = Color.red;
+        else
+            healthUpgradeCost.color = Color.green;
+
+        if (exp.totalExp < staminaCost)
+            staminaUpgradeCost.color = Color.red;
+        else
+            staminaUpgradeCost.color = Color.green;
     }
 }

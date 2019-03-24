@@ -10,7 +10,7 @@ public class ExperienceComponent : MonoBehaviour
 	public int baseExp = 100;
 	public int expToLevel = 100;
 	public float expIncrease = 1.7f;
-    public float totalExp;
+    public int totalExp;
 
 	public Slider expBar;
     public Text currentExpDisplay;

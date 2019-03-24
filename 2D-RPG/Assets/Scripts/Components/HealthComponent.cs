@@ -4,10 +4,10 @@ using System;
 
 public class HealthComponent : MonoBehaviour, IDamageable
 {
-    public float maxHealth;
-    public float health;
+    public int maxHealth;
+    public int health;
 
-    public float Health
+    public int Health
     {
         get { return health; }
         set { health += value;
