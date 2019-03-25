@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class HealthComponent : MonoBehaviour, IDamageable
@@ -51,7 +52,19 @@ public class HealthComponent : MonoBehaviour, IDamageable
             //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Die"))
             //   Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             //else
-            Destroy(gameObject, deathTimer);
+
+            if(!isAI && !isBoss)
+            {
+                //Destroy(GameManagerSingleton.instance);
+                //Destroy(SoundManager.instance);
+                SceneManager.LoadScene("Hub");
+                GetComponent<Player>().Load();
+
+            }
+
+            //Destroy(gameObject, deathTimer);
+
+
         }
 
         if(damageNotifier != null)

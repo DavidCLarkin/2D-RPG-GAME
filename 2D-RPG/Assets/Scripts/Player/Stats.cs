@@ -21,12 +21,16 @@ public class Stats : MonoBehaviour
     public Text healthUpgradeCost;
     public Text staminaUpgradeCost;
 
-    // Use this for initialization
-    void Start ()
+    private void Awake()
     {
         HealthStat = new Stat(1, "HealthStat");
         StaminaStat = new Stat(1, "StaminaStat");
         StrengthStat = new Stat(1, "StrengthStat");
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
 
         health = GetComponent<HealthComponent>();
         stamina = GetComponent<MovementComponent>();

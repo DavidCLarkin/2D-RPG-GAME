@@ -20,14 +20,23 @@ public class SkeletonWalkBehaviour : StateMachineBehaviour
     {
         isPlayerToTheRight = (player.position.x >= animator.transform.position.x);
 
-        if (isPlayerToTheRight)
+        if (Vector2.Distance(player.transform.position, animator.transform.position) <= enemy.followRange)
         {
-            animator.SetBool("WalkRight", true);
-            animator.SetBool("WalkLeft", false);
+            if (isPlayerToTheRight)
+            {
+                animator.SetBool("WalkRight", true);
+                animator.SetBool("WalkLeft", false);
+            }
+            else
+            {
+                animator.SetBool("WalkLeft", true);
+                animator.SetBool("WalkRight", false);
+            }
         }
         else
         {
-            animator.SetBool("WalkLeft", true);
+            //Go back to idle
+            animator.SetBool("WalkLeft", false);
             animator.SetBool("WalkRight", false);
         }
             

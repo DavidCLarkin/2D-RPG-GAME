@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Enemy : Interactable, IDamageable
 {
 	protected float DAMAGE_DELAY = 1f;
-	protected float ATTACK_DELAY = 1.5f; // base for enemies
+	public float ATTACK_DELAY; // set in inspector for time between attacks
 	protected float DAMAGE_TIMER;
 	public float ATTACK_TIMER;
     protected float ANIMATION_DELAY;
@@ -167,11 +167,11 @@ public abstract class Enemy : Interactable, IDamageable
 	 */
 	public virtual void Attack(int attackChosen)
 	{
-        distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-        if (distance <= attackRange)
-        {
+        //distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
+        //if (distance <= attackRange)
+        //{
             ChooseAttack(ATTACK_DELAY, attackChosen);
-        }
+        //}
 
 	}
 

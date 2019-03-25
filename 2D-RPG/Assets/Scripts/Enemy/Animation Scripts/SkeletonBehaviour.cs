@@ -26,6 +26,7 @@ public class SkeletonBehaviour : StateMachineBehaviour
         isPlayerToTheRight = (player.position.x >= animator.transform.position.x);
 
         float distance = Vector2.Distance(animator.transform.position, GameManagerSingleton.instance.player.transform.position);
+
         if (health.health <= 0)
         {
             animator.SetTrigger("Die");

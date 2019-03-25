@@ -65,6 +65,7 @@ public class Boss : Enemy
             CHARGE_ATTACK_TIMER -= Time.deltaTime;
         }
 
+
     }
 
     public override void MediumAttack()
@@ -83,7 +84,20 @@ public class Boss : Enemy
 
     public override void DistanceChecking()
     {
-        base.DistanceChecking();
+        distance = Vector2.Distance(player.position, transform.position);
+        if (distance > followRange)
+        {
+            state = State.Idle;
+        }
+        else if (distance <= followRange && distance > attackRange)
+        {
+            pathfinding.target = GameManagerSingleton.instance.player.transform;
+            state = State.Moving;
+        }
+        else if (distance <= attackRange && ATTACK_TIMER <= 0)
+        {
+            state = State.Attacking;
+        }
     }
 
     public override void ChooseAttack(float timeDelay, int attackChosen)

@@ -498,11 +498,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  ATTACK_DELAY: 1
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
   speed: 1
-  followRange: 5
-  attackRange: 1.25
+  followRange: 6
+  attackRange: 1.4
   Experience: 400
   attackChosen: 0
   state: 2

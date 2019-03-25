@@ -6,6 +6,13 @@ using UnityEngine;
 public class InputFunctions : MonoBehaviour
 {
     public string sceneToLoad;
+    public AudioClip menuMusic;
+
+    private void Start()
+    {
+        SoundManager.instance.musicSource.clip = menuMusic;
+        SoundManager.instance.musicSource.Play();
+    }
 
     private void LoadScene()
     {

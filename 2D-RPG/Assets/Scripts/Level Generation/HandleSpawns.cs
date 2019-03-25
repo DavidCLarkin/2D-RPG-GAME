@@ -24,8 +24,9 @@ public class HandleSpawns : MonoBehaviour
 
 	void SpawnObjects()
 	{
-		int numObjToSpawn = Random.Range (Random.Range(1, spawnPoints.Count), spawnPoints.Count); // random between 1 and spawnpoints size
-		Debug.Log (numObjToSpawn);
+        // 2 to get more population of interaction
+		int numObjToSpawn = Random.Range (Random.Range(2, spawnPoints.Count), spawnPoints.Count); // random between 1 and spawnpoints size
+		//Debug.Log (numObjToSpawn);
 		for (int i = 0; i < numObjToSpawn; i++) 
 		{
 			int chosenPoint = Random.Range (0, spawnPoints.Count); // save this to remove it from the list later

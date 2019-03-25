@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114098526147422978}
   - component: {fileID: 61281416228793676}
   - component: {fileID: 114879263470556752}
+  - component: {fileID: 114828310186486254}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDamage: 5
+--- !u!114 &114828310186486254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372599778122718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39dffe467fc34c9105741d042f198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 4
 --- !u!114 &114879263470556752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,9 +199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  ATTACK_DELAY: 0
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
-  speed: 3
+  speed: 4.5
   followRange: 10
   attackRange: 0
   Experience: 50

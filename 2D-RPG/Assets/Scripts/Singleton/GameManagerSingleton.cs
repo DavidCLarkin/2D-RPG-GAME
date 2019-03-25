@@ -36,6 +36,7 @@ public class GameManagerSingleton : MonoBehaviour
         input = player.GetComponent<InputComponent>();
         input.OnPause += PauseGame;
         statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
+        pausePanel = GameObject.Find("PausePanel");
     }
 
     private void Update()

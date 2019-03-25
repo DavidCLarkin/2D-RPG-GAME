@@ -696,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customDamage: 20
+  weaponInfo: {fileID: 0}
 --- !u!114 &114907859802262046
 MonoBehaviour:
   m_ObjectHideFlags: 1

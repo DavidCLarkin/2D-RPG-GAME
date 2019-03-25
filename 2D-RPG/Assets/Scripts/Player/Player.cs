@@ -69,29 +69,25 @@ public class Player : MonoBehaviour
 
     public void Load()
     {
-        if (SceneManager.GetActiveScene().name == "Hub")
-        {
-            PlayerData data = SaveSystem.Load();
+        if (SceneManager.GetActiveScene().name != "Hub") // Load back to hub
+            SceneManager.LoadScene("Hub");
 
-            //gameObject.GetComponent<MovementComponent>().maxStamina = data.maxStamina;
-            //gameObject.GetComponent<HealthComponent>().maxHealth = data.maxHealth;
-            gameObject.GetComponent<Stats>().HealthStat.StatLevel = data.healthLevel;
-            gameObject.GetComponent<Stats>().StaminaStat.StatLevel = data.staminaLevel;
-            gameObject.GetComponent<ExperienceComponent>().totalExp = data.totalExp;
+        PlayerData data = SaveSystem.Load();
 
-            Vector3 position;
-            position.x = data.position[0];
-            position.y = data.position[1];
-            position.z = data.position[2];
-            transform.position = position;
+        //gameObject.GetComponent<MovementComponent>().maxStamina = data.maxStamina;
+        //gameObject.GetComponent<HealthComponent>().maxHealth = data.maxHealth;
+        gameObject.GetComponent<Stats>().HealthStat.StatLevel = data.healthLevel;
+        gameObject.GetComponent<Stats>().StaminaStat.StatLevel = data.staminaLevel;
+        gameObject.GetComponent<ExperienceComponent>().totalExp = data.totalExp;
 
-            gameObject.GetComponent<Stats>().UpdateVariables();
-            GameManagerSingleton.instance.isPaused = false;
-        }
-        else
-        {
-            Debug.Log("Can only load in Hub");
-        }
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+
+        gameObject.GetComponent<Stats>().UpdateVariables();
+        GameManagerSingleton.instance.isPaused = false;
     }
 
     public void Quit()
