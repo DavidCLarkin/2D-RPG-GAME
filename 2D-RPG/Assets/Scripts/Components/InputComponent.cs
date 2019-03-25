@@ -64,6 +64,7 @@ public class InputComponent : MonoBehaviour
             //Debug.Log("Attacking");
             OnAttack();
         }
+        
 
         if(Dodge)
             OnDodge();

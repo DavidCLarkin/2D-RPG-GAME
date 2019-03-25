@@ -31,7 +31,7 @@ public class PlayerAnimationComponent : MonoBehaviour
 
     private void Update()
     {
-        MouseDirectionAttack();
+        //MouseDirectionAttack();
     }
 
     void Animate()
@@ -42,6 +42,7 @@ public class PlayerAnimationComponent : MonoBehaviour
             anim.SetBool("walkingDown", walkingDown);
             anim.SetBool("walkingLeft", walkingLeft);
             anim.SetBool("walkingRight", walkingRight);
+
             anim.SetBool("knight_slice_down", attackDown);
             anim.SetBool("knight_slice_left", attackLeft);
             anim.SetBool("knight_slice_right", attackRight);
@@ -68,7 +69,6 @@ public class PlayerAnimationComponent : MonoBehaviour
                 attackRight = false;
 
 
-            //if (Input.GetKey(KeyCode.W))
             if (Input.GetAxisRaw("Vertical") > 0)
             {
                 walkingUp = true;
@@ -77,7 +77,6 @@ public class PlayerAnimationComponent : MonoBehaviour
             else
                 walkingUp = false;
 
-            //if (Input.GetKey(KeyCode.A))
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 walkingLeft = true;
@@ -86,7 +85,6 @@ public class PlayerAnimationComponent : MonoBehaviour
             else
                 walkingLeft = false;
 
-            //if (Input.GetKey(KeyCode.S))
             if (Input.GetAxisRaw("Vertical") < 0)
             {
                 walkingDown = true;
@@ -95,7 +93,6 @@ public class PlayerAnimationComponent : MonoBehaviour
             else
                 walkingDown = false;
 
-            //if (Input.GetKey(KeyCode.D))
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 walkingRight = true;

@@ -62,7 +62,8 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
             }
 
-            //Destroy(gameObject, deathTimer);
+            if(isAI || isBoss)
+                Destroy(gameObject, deathTimer);
 
 
         }

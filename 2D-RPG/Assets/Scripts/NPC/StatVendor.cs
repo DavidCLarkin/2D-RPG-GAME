@@ -15,15 +15,31 @@ public class StatVendor : Interactable
 		upgradePanel = GameObject.Find("Canvas").transform.Find("StatsUpgrade").gameObject;
 	}
 
-	void Update()
+	public override void Update()
 	{
-		upgradePanel.SetActive (panelOpen);
-	}
+        float distance = Vector2.Distance(player.position, transform.position);
+
+        if (isFocus && !hasInteracted)
+        {
+            if (distance <= radius)
+            {
+                Interact();
+            }
+        }
+
+        upgradePanel.SetActive(panelOpen);
+    }
 
     public override void Interact()
     {
-        panelOpen = !panelOpen;
-        GameManagerSingleton.instance.PauseGame();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            panelOpen = !panelOpen;
+            hasInteracted = true;
+            Time.timeScale = panelOpen ? 0 : 1; // if panel open, pause
+        }
+        
+        //GameManagerSingleton.instance.PauseGame();
     }
 
     protected override void EnableTooltip()
@@ -40,6 +56,7 @@ public class StatVendor : Interactable
     private void OnTriggerExit2D(Collider2D collision)
     {
         DisableTooltip();
+        ClosePanel(); // out of range
     }
 
     void OnMouseEnter()
@@ -50,5 +67,11 @@ public class StatVendor : Interactable
     void OnMouseExit()
     {
         DisableTooltip();
+    }
+
+    public void ClosePanel()
+    {
+        if (panelOpen)
+            panelOpen = false;
     }
 }

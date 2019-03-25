@@ -36,27 +36,34 @@ public class GameManagerSingleton : MonoBehaviour
         input = player.GetComponent<InputComponent>();
         input.OnPause += PauseGame;
         statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
-        pausePanel = GameObject.Find("PausePanel");
+        //pausePanel = GameObject.Find("PausePanel");
     }
 
     private void Update()
     {
+        HandlePause();
+    }
+    
+    void HandlePause()
+    {
+        //if (statVendor.panelOpen) return;
+
+    }
+
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+
         if (isPaused)
         {
             Time.timeScale = 0;
-            if(!statVendor.panelOpen) // don't open pause menu if stat upgrade panel open
-                pausePanel.SetActive(true);
+            pausePanel.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
             pausePanel.SetActive(false);
         }
-    }
-    
-    public void PauseGame()
-    {
-        isPaused = !isPaused;
     }
 
 }

@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         transform.position = position;
 
         gameObject.GetComponent<Stats>().UpdateVariables();
-        GameManagerSingleton.instance.isPaused = false;
+        //GameManagerSingleton.instance.isPaused = false;
     }
 
     public void Quit()
