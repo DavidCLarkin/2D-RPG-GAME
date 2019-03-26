@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   animationToEnd: Spawn
-  animationToReturnTo: Idle
+  animationToReturnTo: 
 --- !u!114 &114273403668563402
 MonoBehaviour:
   m_ObjectHideFlags: 1

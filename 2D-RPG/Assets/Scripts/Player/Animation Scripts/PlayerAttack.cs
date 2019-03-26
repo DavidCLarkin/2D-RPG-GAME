@@ -18,7 +18,8 @@ public class PlayerAttack : StateMachineBehaviour
     {
 	    if(timer <= 0)
         {
-            animator.SetBool(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, false);
+            animator.SetBool("Attack", false);
+            //animator.SetBool(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, false);
         }
         else
         {
@@ -30,6 +31,7 @@ public class PlayerAttack : StateMachineBehaviour
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         character.isAttacking = false;
-	}
+
+    }
 
 }

@@ -8,103 +8,65 @@ public class PlayerAnimationComponent : MonoBehaviour
     private Animator anim;
     private Camera cam;
 
-    private bool walkingUp;
-    private bool walkingDown;
-    private bool walkingLeft;
-    private bool walkingRight;
     private string lastMovementDirection;
-    private bool attackDown;
-    private bool attackLeft;
-    private bool attackRight;
-    private bool attackUp;
-    private int facingDirection;
 
     private void Awake()
     {
         cam = Camera.main;
         GetComponent<MovementComponent>().AnimateMovement += Animate;
         input = GetComponent<InputComponent>();
-        input.OnAttack += MouseDirectionAttack;
+        //input.OnAttack += MouseDirectionAttack;
         anim = GetComponent<Animator>();
         lastMovementDirection = "Down";
     }
 
-    private void Update()
-    {
-        //MouseDirectionAttack();
-    }
-
     void Animate()
     {
-        if(input != null && anim != null)
+        if (input == null || anim == null) return;
+
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Magnitude", movement.magnitude);
+        if (input.Attack)
+            anim.SetBool("Attack", true);
+
+        if (lastMovementDirection.Equals("Up"))
+            anim.SetInteger("Direction", 1);
+        else if (lastMovementDirection.Equals("Down"))
+            anim.SetInteger("Direction", 3);
+        else if (lastMovementDirection.Equals("Right"))
+            anim.SetInteger("Direction", 4);
+        else if (lastMovementDirection.Equals("Left"))
+            anim.SetInteger("Direction", 2);
+
+        if (input.Vertical > 0)
         {
-            anim.SetBool("walkingUp", walkingUp);
-            anim.SetBool("walkingDown", walkingDown);
-            anim.SetBool("walkingLeft", walkingLeft);
-            anim.SetBool("walkingRight", walkingRight);
-
-            anim.SetBool("knight_slice_down", attackDown);
-            anim.SetBool("knight_slice_left", attackLeft);
-            anim.SetBool("knight_slice_right", attackRight);
-            anim.SetBool("knight_slice_up", attackUp);
-
-            if (input.Attack && facingDirection == 1)
-                attackUp = true;
-            else
-                attackUp = false;
-
-            if (input.Attack && facingDirection == 2)
-                attackLeft = true;
-            else
-                attackLeft = false;
-
-            if (input.Attack && facingDirection == 3)
-                attackDown = true;
-            else
-                attackDown = false;
-
-            if (input.Attack && facingDirection == 4)
-                attackRight = true;
-            else
-                attackRight = false;
-
-
-            if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                walkingUp = true;
-                lastMovementDirection = "Up";
-            }
-            else
-                walkingUp = false;
-
-            if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                walkingLeft = true;
-                lastMovementDirection = "Left";
-            }
-            else
-                walkingLeft = false;
-
-            if (Input.GetAxisRaw("Vertical") < 0)
-            {
-                walkingDown = true;
-                lastMovementDirection = "Down";
-            }
-            else
-                walkingDown = false;
-
-            if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                walkingRight = true;
-                lastMovementDirection = "Right";
-            }
-            else
-                walkingRight = false;
+            lastMovementDirection = "Up";
         }
+
+        if (input.Horizontal < 0)
+        {
+            lastMovementDirection = "Left";
+        }
+
+        if (input.Vertical < 0)
+        {
+            lastMovementDirection = "Down";
+        }
+
+        if (input.Horizontal > 0)
+        {
+            lastMovementDirection = "Right";
+        }
+        
     }
 
+    /*
     public void MouseDirectionAttack()
     {
+        
         Vector2 dir = cam.ScreenToViewportPoint((Input.mousePosition));
         //Debug.Log(dir);
         //if (dir.y >= 0.65f || lastMovementDirection.Equals("Top"))
@@ -132,5 +94,8 @@ public class PlayerAnimationComponent : MonoBehaviour
             facingDirection = 4;
         }
         //Debug.Log(dir);
+        
     }
+    */
+    
 }
