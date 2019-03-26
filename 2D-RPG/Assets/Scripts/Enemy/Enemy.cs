@@ -4,19 +4,18 @@ using UnityEngine.AI;
 using UnityEngine;
 
 [RequireComponent(typeof(Pathfinding))]
-public abstract class Enemy : Interactable, IDamageable
+public abstract class Enemy : Interactable
 {
 	protected float DAMAGE_DELAY = 1f;
-	public float ATTACK_DELAY; // set in inspector for time between attacks
+	public float ATTACK_COOLDOWN; // set in inspector for time between attacks
 	protected float DAMAGE_TIMER;
 	public float ATTACK_TIMER;
     protected float ANIMATION_DELAY;
     protected float ANIMATION_TIMER;
 
+    public int NumberOfAttacks;
+
     public float BASE_ATTACK_RANGE;
-    //public float MEDIUM_ATTACK_RANGE;
-    //public float HARD_ATTACK_RANGE;
-    //public float LIGHT_ATTACK_RANGE;
 
  	public float speed = 1.5f;
 	public float followRange;
@@ -111,7 +110,7 @@ public abstract class Enemy : Interactable, IDamageable
             pathfinding.target = GameManagerSingleton.instance.player.transform;
 			state = State.Moving;
 		} 
-		else if(distance <= attackRange)
+		else if(distance <= attackRange && ATTACK_TIMER <= 0)
 		{
 			state = State.Attacking;
 		} 
@@ -135,8 +134,13 @@ public abstract class Enemy : Interactable, IDamageable
                 if (ATTACK_TIMER <= 0)
                 {
                     //Debug.Log("Attacking");
-                    attackChosen = Random.Range(0, 2); // only needs to be called once
-                    Attack(attackChosen);
+                    if (NumberOfAttacks > 1)
+                    {
+                        attackChosen = Random.Range(0, NumberOfAttacks); // only needs to be called once
+                        Attack(attackChosen);
+                    }
+                    else
+                        ATTACK_TIMER = ATTACK_COOLDOWN;
                 }
 				break;
 		}
@@ -170,7 +174,7 @@ public abstract class Enemy : Interactable, IDamageable
         //distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
         //if (distance <= attackRange)
         //{
-            ChooseAttack(ATTACK_DELAY, attackChosen);
+            ChooseAttack(ATTACK_COOLDOWN, attackChosen);
         //}
 
 	}
@@ -198,15 +202,6 @@ public abstract class Enemy : Interactable, IDamageable
         return dmg;
     }
 
-    public virtual void LightAttack()
-    { }
-
-    public virtual void MediumAttack()
-    { }
-
-    public virtual void HeavyAttack()
-    { }
-
 	public virtual void Knockback(float force)
 	{
 		float xPos = force;
@@ -232,11 +227,6 @@ public abstract class Enemy : Interactable, IDamageable
 
 		rigi.AddForce(new Vector2(xPos, yPos));
 	}
-
-    public void TakeDamage(int damageAmount)
-    {
-        throw new System.NotImplementedException();
-    }
 
 	void IncreasePlayerExp()
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
-// Attack 0 - Default Attack, Attack 1 - Spawn Dangerous Tiles
+// Attack 0 = Default Attack, Attack 1 = Spawn Dangerous Tiles
 
 public class Boss : Enemy
 {
@@ -13,7 +13,7 @@ public class Boss : Enemy
     private bool walkingRight;
     private bool attacking;
     protected bool hasWeapon;
-    public float SPAWN_TILE_DELAY = 5f;
+    public float SPAWN_TILE_COOLDOWN = 5f;
     public float SPAWN_TILE_TIMER;
     float CHARGE_ATTACK_DELAY = 5f;
     public float CHARGE_ATTACK_TIMER;
@@ -68,36 +68,9 @@ public class Boss : Enemy
 
     }
 
-    public override void MediumAttack()
-    {
-        distance = Vector2.Distance(player.position, transform.position); // check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-        //if (distance <= attackRange)
-        //{
-        //    PerformAttack(25f, ATTACK_DELAY);
-        //}
-    }
-
     public override void Interact()
     {
         base.Interact();
-    }
-
-    public override void DistanceChecking()
-    {
-        distance = Vector2.Distance(player.position, transform.position);
-        if (distance > followRange)
-        {
-            state = State.Idle;
-        }
-        else if (distance <= followRange && distance > attackRange)
-        {
-            pathfinding.target = GameManagerSingleton.instance.player.transform;
-            state = State.Moving;
-        }
-        else if (distance <= attackRange && ATTACK_TIMER <= 0)
-        {
-            state = State.Attacking;
-        }
     }
 
     public override void ChooseAttack(float timeDelay, int attackChosen)
@@ -192,7 +165,7 @@ public class Boss : Enemy
         foreach (Transform tile in besideTiles)
             Instantiate(objToSpawn, tile.position, Quaternion.identity);
 
-		SPAWN_TILE_TIMER = SPAWN_TILE_DELAY;
+		SPAWN_TILE_TIMER = SPAWN_TILE_COOLDOWN;
         Debug.Log("Spawned tiles");
     }
     

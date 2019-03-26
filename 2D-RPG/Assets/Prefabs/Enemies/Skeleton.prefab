@@ -498,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
-  ATTACK_DELAY: 1
+  ATTACK_COOLDOWN: 1
   ATTACK_TIMER: 0
   BASE_ATTACK_RANGE: 0
   speed: 1

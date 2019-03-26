@@ -87,11 +87,11 @@ GameObject:
   - component: {fileID: 95949223355084002}
   - component: {fileID: 50809473138023902}
   - component: {fileID: 61603210902718578}
-  - component: {fileID: 114237325348514352}
   - component: {fileID: 114033503397073930}
   - component: {fileID: 114772982542173418}
   - component: {fileID: 114364819273192694}
   - component: {fileID: 114125269059588928}
+  - component: {fileID: 114830643216402854}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Boss
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606583210112930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.81, y: 0, z: 0}
+  m_LocalPosition: {x: 3.22, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children:
   - {fileID: 4756275034460882}
@@ -382,10 +382,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20158616, y: -0.007859364}
+  m_Offset: {x: -0.00281775, y: -0.067785144}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.38379875, y: 0.55482066}
     oldSize: {x: 1.56, y: 0.93}
     newSize: {x: 12.8, y: 12.8}
     adaptiveTilingThreshold: 0.5
@@ -393,7 +393,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7643692, y: 0.89871454}
+  m_Size: {x: 0.67759085, y: 0.89866424}
   m_EdgeRadius: 0
 --- !u!95 &95949223355084002
 Animator:
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 50
   health: 0
   isAI: 1
   isBoss: 1
@@ -447,33 +447,6 @@ MonoBehaviour:
   - {fileID: 1880501086672596, guid: 91261e984c9a6cb47b0d08848a71a6e2, type: 2}
   - {fileID: 1533345754708618, guid: ce224856fd3f88e448d83112eb165283, type: 2}
   - {fileID: 1133313339940626, guid: 224a0968109d7e544875681612bd9855, type: 2}
-  - {fileID: 1167208984112654, guid: 1031fb8ef707c1144aeacf8cab783613, type: 2}
---- !u!114 &114237325348514352
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606583210112930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b40eb75437f824e438154eb53dd6aa17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  player: {fileID: 0}
-  ATTACK_DELAY: 3.5
-  ATTACK_TIMER: 0
-  BASE_ATTACK_RANGE: 0
-  speed: 1
-  followRange: 12
-  attackRange: 3
-  Experience: 2500
-  attackChosen: 0
-  state: 2
-  SPAWN_TILE_DELAY: 5
-  SPAWN_TILE_TIMER: 0
-  CHARGE_ATTACK_TIMER: 0
-  objToSpawn: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
 --- !u!114 &114364819273192694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,6 +483,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
+--- !u!114 &114830643216402854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606583210112930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b677cded3574914092ae9fcfbd94fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  player: {fileID: 0}
+  ATTACK_COOLDOWN: 4
+  ATTACK_TIMER: 0
+  NumberOfAttacks: 3
+  BASE_ATTACK_RANGE: 0
+  speed: 1.5
+  followRange: 12
+  attackRange: 5
+  Experience: 2500
+  attackChosen: 0
+  state: 2
+  projectile: {fileID: 1685596270506868, guid: c313db5f36c088b43affc185f2fbf79a, type: 2}
+  tileObj: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
+  SPAWN_PROJECTILE_COOLDOWN: 9
+  SPAWN_PROJECTILE_TIMER: 0
+  SPAWN_TILES_COOLDOWN: 14
+  SPAWN_TILES_TIMER: 0
 --- !u!212 &212970180504497636
 SpriteRenderer:
   m_ObjectHideFlags: 1

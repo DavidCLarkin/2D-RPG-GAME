@@ -10,7 +10,7 @@ public class Skeleton : Enemy
     {
         base.Start();
         //ATTACK_DELAY = 1f; set in inspector
-        ATTACK_TIMER = ATTACK_DELAY;
+        ATTACK_TIMER = ATTACK_COOLDOWN;
 	}
 	
 	// Update is called once per frame
@@ -18,22 +18,4 @@ public class Skeleton : Enemy
     {
         base.Update();
 	}
-
-    public override void DistanceChecking()
-    {
-        distance = Vector2.Distance(player.position, transform.position);
-        if (distance > followRange)
-        {
-            state = State.Idle;
-        }
-        else if (distance <= followRange && distance > attackRange)
-        {
-            pathfinding.target = GameManagerSingleton.instance.player.transform;
-            state = State.Moving;
-        }
-        else if (distance <= attackRange && ATTACK_TIMER <= 0)
-        {
-            state = State.Attacking;
-        }
-    }
 }

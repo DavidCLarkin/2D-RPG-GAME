@@ -72,6 +72,9 @@ public class StatVendor : Interactable
     public void ClosePanel()
     {
         if (panelOpen)
+        {
             panelOpen = false;
+            Time.timeScale = panelOpen ? 0 : 1; // if panel open, pause
+        }
     }
 }

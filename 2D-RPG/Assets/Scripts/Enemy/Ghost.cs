@@ -11,7 +11,7 @@ public class Ghost : Enemy
 	void Start ()
     {
         base.Start();
-        ATTACK_DELAY = 3f;
+        ATTACK_COOLDOWN = 3f;
 	}
 	
 	// Update is called once per frame
@@ -74,7 +74,7 @@ public class Ghost : Enemy
         distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
         if (distance >= attackRange)
         {
-            ATTACK_TIMER = ATTACK_DELAY;
+            ATTACK_TIMER = ATTACK_COOLDOWN;
             SpawnMinion(transform.position + transform.right);
             SpawnMinion(transform.position + transform.up);
         }

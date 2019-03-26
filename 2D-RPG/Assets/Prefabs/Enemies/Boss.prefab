@@ -468,8 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
-  ATTACK_DELAY: 3.5
+  ATTACK_COOLDOWN: 3
   ATTACK_TIMER: 0
+  NumberOfAttacks: 2
   BASE_ATTACK_RANGE: 0
   speed: 1
   followRange: 12
@@ -477,7 +478,7 @@ MonoBehaviour:
   Experience: 2500
   attackChosen: 0
   state: 2
-  SPAWN_TILE_DELAY: 5
+  SPAWN_TILE_COOLDOWN: 6
   SPAWN_TILE_TIMER: 0
   CHARGE_ATTACK_TIMER: 0
   objToSpawn: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagingTileComponent : MonoBehaviour, IDamageDealer
+public class DamagingProjectileComponent : MonoBehaviour, IDamageDealer
 {
+
     public int customDamage;
     public int Damage { get; set; }
 
     private float flashDelay = 0.25f;
-    private BoxCollider2D col;
+    private CircleCollider2D col;
     private SpriteRenderer spr;
 
     void Awake()
@@ -18,10 +19,10 @@ public class DamagingTileComponent : MonoBehaviour, IDamageDealer
 
     void Start()
     {
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<CircleCollider2D>();
         spr = GetComponent<SpriteRenderer>();
 
-        StartCoroutine(Flash(flashDelay));
+        //StartCoroutine(Flash(flashDelay));
     }
 
     IEnumerator Flash(float x)
@@ -37,4 +38,3 @@ public class DamagingTileComponent : MonoBehaviour, IDamageDealer
         col.enabled = true;
     }
 }
-

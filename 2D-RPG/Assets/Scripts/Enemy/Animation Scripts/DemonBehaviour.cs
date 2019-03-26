@@ -16,8 +16,18 @@ public class DemonBehaviour : StateMachineBehaviour
     {
 	    if(enemy.state == Enemy.State.Attacking)
         {
-            animator.SetBool("Charge", true);
+            if (enemy.attackChosen == 1) // Spawn projectiles
+            {
+                animator.SetBool("Charge", true);
+                enemy.attackChosen = -1; // reset it so doesnt' repeat
+            }
+            else if (enemy.attackChosen == 2) // Spawn tiles
+            {
+                animator.SetBool("Spawn", true);
+                enemy.attackChosen = -1;
+            }
         }
+
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
