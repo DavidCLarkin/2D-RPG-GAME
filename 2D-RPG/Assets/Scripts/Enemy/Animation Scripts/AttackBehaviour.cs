@@ -24,7 +24,8 @@ public class AttackBehaviour : StateMachineBehaviour
 		{
 			animator.SetBool (animationToEnd, false);
             //Instead of choosing idle, change this to decide random triggers - random other attack
-			animator.SetTrigger(animationToReturnTo);
+            if(animationToReturnTo != "") // if theres actually a trigger available
+			    animator.SetTrigger(animationToReturnTo);
 		}
 		else
 		{
