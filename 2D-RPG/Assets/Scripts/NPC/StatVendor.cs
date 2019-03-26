@@ -32,7 +32,7 @@ public class StatVendor : Interactable
 
     public override void Interact()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (player.GetComponent<InputComponent>().Interact)
         {
             panelOpen = !panelOpen;
             hasInteracted = true;

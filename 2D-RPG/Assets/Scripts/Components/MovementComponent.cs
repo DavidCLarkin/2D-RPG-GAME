@@ -13,7 +13,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
     public float startDodgetime;
     public float dodgeTime;
 	public int dashCost = 30;
-    private float walkTimer = 0.55f;
+    private float walkTimer = 0.54f;
 
     public AudioClip step1;
     public AudioClip step2;
@@ -91,6 +91,8 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
     void Dodge()
     {
+        if (input.Attack) return;
+
         if (dodgeTime <= 0)
         {
             if (stamina >= dashCost)

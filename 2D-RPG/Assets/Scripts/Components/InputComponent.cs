@@ -10,6 +10,7 @@ public class InputComponent : MonoBehaviour
     public bool Dodge { get; set; }
     public bool Pause { get; set; }
     public bool UseItem { get; set; }
+    public bool DropItem { get; set; }
     public bool ChangeSlotRight { get; set; }
     public bool ChangeSlotLeft { get; set; }
 
@@ -24,6 +25,7 @@ public class InputComponent : MonoBehaviour
     public event Action OnUseInventoryItem = delegate { };
     public event Action OnInventoryMoveRight = delegate { };
     public event Action OnInventoryMoveLeft = delegate { };
+    public event Action OnInventoryDropItem = delegate { };
 
     private void Awake()
     {
@@ -38,21 +40,28 @@ public class InputComponent : MonoBehaviour
         Interact = Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Y"); // Press E or Y on controller to Interact
         Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B"); // Press Space or B on controller to Dodge
         UseItem = Input.GetButtonDown("X");
+        DropItem = (Input.GetAxis("Right_Trigger") == -1);
         ChangeSlotLeft = Input.GetButtonDown("Left_Bumper");
         ChangeSlotRight = Input.GetButtonDown("Right_Bumper");
         Pause = Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start");
 
         if (ChangeSlotLeft)
         {
-            Debug.Log("Slot left");
+            //Debug.Log("Slot left");
             OnInventoryMoveLeft();
         }
 
         if (ChangeSlotRight)
         {
-            Debug.Log("Slot right");
+            //Debug.Log("Slot right");
             OnInventoryMoveRight();
         }
+
+        if (DropItem)
+        {
+            //Debug.Log("RT");
+            OnInventoryDropItem();
+        } 
 
         if(UseItem)
         {
@@ -71,7 +80,7 @@ public class InputComponent : MonoBehaviour
 
         if (Interact)
         {
-            //Debug.Log("Interacting");
+            Debug.Log("Interacting");
             OnInteract();
         }
 

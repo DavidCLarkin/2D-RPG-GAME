@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
         input.OnInventoryMoveLeft += ChangeSlotLeft;
         input.OnInventoryMoveRight += ChangeSlotRight;
         input.OnUseInventoryItem += UseItemSelected;
+        input.OnInventoryDropItem += DropItemSelected;
 
         slots = new GameObject[numberOfSlots];
 
@@ -86,6 +87,19 @@ public class Inventory : MonoBehaviour
     {
         if (!itemSlots[slotSelected].isEmpty)
             itemSlots[slotSelected].UseItem();
+    }
+
+    void DropItemSelected()
+    {
+        //Debug.Log("Drop");
+        if(Time.timeScale != 0)
+        {
+            if (!itemSlots[slotSelected].isEmpty)
+            {
+                Remove(itemSlots[slotSelected].item);
+                itemSlots[slotSelected].RemoveItem();
+            }
+        }
     }
 
     /*

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224622113691729326}
   - component: {fileID: 114766233184251044}
   - component: {fileID: 114550631014186126}
+  - component: {fileID: 114248734866729180}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -28,6 +29,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114248734866729180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621712113394670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad60456646875be4595ca8994cc8cb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
+  upgradeButtonList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pauseButtonList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114550631014186126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 0}
   player: {fileID: 0}
+  pausePanel: {fileID: 0}
+  statVendor: {fileID: 0}
   isPaused: 0
 --- !u!224 &224622113691729326
 RectTransform:

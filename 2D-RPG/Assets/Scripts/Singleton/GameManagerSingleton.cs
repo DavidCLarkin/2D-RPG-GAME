@@ -12,7 +12,8 @@ public class GameManagerSingleton : MonoBehaviour
 	public Text tooltip;
 	public GameObject player;
     public GameObject pausePanel;
-    private StatVendor statVendor;
+    [HideInInspector]
+    public StatVendor statVendor;
 
     public bool isPaused;
     private InputComponent input;
