@@ -22,7 +22,7 @@ public class PlayerAnimationComponent : MonoBehaviour
 
     void Animate()
     {
-        if (input == null || anim == null) return;
+        if (input == null || anim == null || GameManagerSingleton.instance.isPaused) return;
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
 
