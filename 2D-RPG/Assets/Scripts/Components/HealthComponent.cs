@@ -7,6 +7,8 @@ public class HealthComponent : MonoBehaviour, IDamageable
 {
     public int maxHealth;
     public int health;
+    private float damageDelay = 0.2f;
+    private float delayTimer;
 
     public int Health
     {
@@ -31,6 +33,9 @@ public class HealthComponent : MonoBehaviour, IDamageable
     {
         if (health >= maxHealth)
             health = maxHealth;
+
+        if (delayTimer >= 0)
+            delayTimer -= Time.deltaTime;
     }
 
     // Use this for initialization
@@ -41,6 +46,8 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damageAmount)
     {
+        if (delayTimer > 0) return;
+
         health -= damageAmount;
         if (health <= 0)
         {
@@ -70,6 +77,8 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
         if(damageNotifier != null)
             ShowDamageNotifier(damageAmount);
+
+        delayTimer = damageDelay;
     }
 
     void ShowDamageNotifier(int damageAmount)

@@ -18,7 +18,7 @@ public class LoadLevel : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player") 
+		if (other.gameObject.tag == "PlayerColliders") 
 		{
 			SceneManager.LoadScene (levelToLoad);
 			player.startPoint = exitPoint;

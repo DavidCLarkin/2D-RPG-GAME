@@ -6,7 +6,7 @@ public class Skeleton : Enemy
 {
     
 	// Use this for initialization
-	public void Start ()
+	protected override void Start ()
     {
         base.Start();
         //ATTACK_DELAY = 1f; set in inspector

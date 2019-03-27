@@ -33,7 +33,20 @@ public class DemonBehaviour : StateMachineBehaviour
 
 	    if(enemy.state == Enemy.State.Attacking)
         {
-            if (enemy.attackChosen == 1) // Spawn projectiles
+            if(enemy.attackChosen == 0)
+            {
+                if(isPlayerToRight)
+                {
+                    animator.SetBool("AttackBreathRight", true);
+                    enemy.attackChosen = -1;
+                }
+                else
+                {
+                    animator.SetBool("AttackBreathLeft", true);
+                    enemy.attackChosen = -1;
+                }
+            }
+            if (enemy.attackChosen == 1) // Spawn projectiles/close range
             {
                 if (isPlayerToRight)
                 {

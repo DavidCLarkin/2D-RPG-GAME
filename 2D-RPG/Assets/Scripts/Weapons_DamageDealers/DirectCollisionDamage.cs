@@ -14,8 +14,7 @@ public class DirectCollisionDamage : MonoBehaviour, IDamageDealer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision with: " + collision.gameObject);
-        if (collision.gameObject.tag == GameManagerSingleton.instance.player.tag)
+        if (collision.gameObject.tag == "PlayerColliders")
             Destroy(transform.parent.gameObject);
     }
 

@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: ddcdb54c5e7778f418ddd1a86953a2a7
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: demon-attack-breath-right_0
+    21300002: demon-attack-breath-right_4
+    21300004: demon-attack-breath-right_5
+    21300006: demon-attack-breath-right_6
+    21300008: demon-attack-breath-right_7
+    21300010: demon-attack-breath-right_8
+    21300012: demon-attack-breath-right_9
+    21300014: demon-attack-breath-right_10
+    21300016: demon-attack-breath-right_11
+    21300018: demon-attack-breath-right_12
+    21300020: demon-attack-breath-right_13
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: demon-attack-breath-right_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 10
+        width: 189
+        height: 169
+      alignment: 9
+      pivot: {x: 0.36065912, y: 0.37325767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4731d7357d78240a7b8c6fa34991ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 10
+        width: 194
+        height: 169
+      alignment: 9
+      pivot: {x: 0.3552007, y: 0.37741315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959542cd5695535429d3f5325ce6c055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_5
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 8
+        width: 201
+        height: 172
+      alignment: 9
+      pivot: {x: 0.3375329, y: 0.38159278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b984baf374199941b77db8266634b6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_6
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 10
+        width: 199
+        height: 169
+      alignment: 9
+      pivot: {x: 0.34295806, y: 0.37533543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623b1cfdf9e2ff047a9daf89a00e96be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_7
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 22
+        width: 126
+        height: 158
+      alignment: 9
+      pivot: {x: 0.539016, y: 0.3399874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f2cdadc35830a4fbb9f855ac910a45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_8
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 26
+        width: 121
+        height: 78
+      alignment: 9
+      pivot: {x: 0.57545257, y: 0.6395552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65ea8bf2c99d8c46a8f4160a890dd19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_9
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 27
+        width: 144
+        height: 80
+      alignment: 9
+      pivot: {x: 0.60241616, y: 0.6228989}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d89df3ec57e9f4ebe15481299d0229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_10
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 24
+        width: 150
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5819328, y: 0.5308693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf397e26ca5ad944b2e3a2552c62ab6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_11
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 32
+        width: 97
+        height: 94
+      alignment: 9
+      pivot: {x: 0.47828156, y: 0.41781867}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c301ef6b5deeda4ebe6f4347071fe5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_12
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 30
+        width: 98
+        height: 105
+      alignment: 9
+      pivot: {x: 0.48566794, y: 0.39967462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4e913ef05a4be498b86d5cad3d338f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-breath-right_13
+      rect:
+        serializedVersion: 2
+        x: 2414
+        y: 21
+        width: 137
+        height: 125
+      alignment: 9
+      pivot: {x: 0.62302727, y: 0.4129176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4fdc0ad26c22644aafc313060f0309f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 397bf34782d75b5478d5bf0a28add0f9
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -49,15 +49,18 @@ public class SkeletonBehaviour : StateMachineBehaviour
 
         if (enemy.state == Enemy.State.Attacking)
         {
-            if (isPlayerToTheRight)
+            if (enemy.ATTACK_TIMER <= 0)
             {
-                //Debug.Log("player to right");
-                animator.SetBool("AttackRight", true);
-            }
-            else if (!isPlayerToTheRight)
-            {
-                //Debug.Log("Player to left");
-                animator.SetBool("AttackLeft", true);
+                if (isPlayerToTheRight)
+                {
+                    //Debug.Log("player to right");
+                    animator.SetBool("AttackRight", true);
+                }
+                else if (!isPlayerToTheRight)
+                {
+                    //Debug.Log("Player to left");
+                    animator.SetBool("AttackLeft", true);
+                }
             }
         }
     }
