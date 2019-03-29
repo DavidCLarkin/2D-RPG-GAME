@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
-public class Inventory : MonoBehaviour 
+public class Inventory : MonoBehaviour
 {
 	public static Inventory instance;
     public int numberOfSlots = 4;
     public GameObject slotHolder;
     public int slotSelected = 0;
     private InputComponent input;
-    private Slot[] itemSlots;
+    public Slot[] itemSlots;
 
 	#region Singleton
 	void Awake()
@@ -70,7 +71,7 @@ public class Inventory : MonoBehaviour
         {
             foreach (GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
             {
-                if (s.itemName.Equals(item.name))
+                if (s.itemName.Equals(item.GetComponent<Item>().itemName))
                     s.item = item.GetComponent<Item>();
             }
         }

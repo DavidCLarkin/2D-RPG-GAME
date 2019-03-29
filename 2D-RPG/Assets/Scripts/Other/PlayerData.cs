@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class PlayerData
 {
     public float[] position;
@@ -12,7 +13,9 @@ public class PlayerData
     public int healthLevel;
     public int staminaLevel;
 
+    public string[] itemNames;
 
+    // Save player data to object to serialize
     public PlayerData(GameObject player)
     {
         position = new float[3];
@@ -20,11 +23,19 @@ public class PlayerData
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
 
-        //maxStamina = player.GetComponent<MovementComponent>().maxStamina;
-        //maxHealth = player.GetComponent<HealthComponent>().maxHealth;
         healthLevel = player.GetComponent<Stats>().HealthStat.StatLevel;
         staminaLevel = player.GetComponent<Stats>().StaminaStat.StatLevel;
         totalExp = player.GetComponent<ExperienceComponent>().totalExp;
+
+        itemNames = new string[4];
+        for(int i = 0; i < itemNames.Length; i++)
+        {
+            if (!player.GetComponent<Inventory>().itemSlots[i].itemName.Equals(""))
+                itemNames[i] = player.GetComponent<Inventory>().itemSlots[i].itemName;
+            else
+                itemNames[i] = "";
+        }
+
     }
 }
 

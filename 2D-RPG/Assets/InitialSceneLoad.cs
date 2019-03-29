@@ -20,6 +20,16 @@ public class InitialSceneLoad : MonoBehaviour
         }
 
         
+        // Remove any stray items that appera to be in inventory
+        foreach(Slot s in Inventory.instance.itemSlots)
+        {
+            if(s.item == null)
+            {
+                s.RemoveItemCompletely();
+            }
+        }
+        
+        
 	}
 	
 }

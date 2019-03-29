@@ -45,6 +45,7 @@ public class InputComponent : MonoBehaviour
         ChangeSlotRight = Input.GetButtonDown("Right_Bumper");
         Pause = Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start");
 
+
         if (ChangeSlotLeft)
         {
             //Debug.Log("Slot left");

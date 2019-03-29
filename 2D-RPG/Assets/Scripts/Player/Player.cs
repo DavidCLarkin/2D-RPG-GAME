@@ -86,7 +86,47 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
+        for(int i = 0; i < data.itemNames.Length; i++)
+        {
+            if(!data.itemNames[i].Equals("")) // not an empty slot
+            {
+                foreach(GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
+                {
+                    Item dbItem = item.GetComponent<Item>();
+                    if(data.itemNames[i].Equals(dbItem.itemName))
+                    {
+                        Slot s = gameObject.GetComponent<Inventory>().itemSlots[i];
+                        s.item = dbItem.GetComponent<Item>();
+                        s.icon = dbItem.icon;
+                        s.isEmpty = false;
+                        s.itemName = dbItem.itemName;
+                        s.description = dbItem.description;
+
+                    }
+                }
+            }
+        }
+
         gameObject.GetComponent<Stats>().UpdateVariables();
+
+        // Destroy any objects that are on the ground when loading
+        GameObject[] inactiveObjects = GameObject.FindGameObjectsWithTag("Item");
+        foreach(GameObject i in inactiveObjects)
+        {
+            if (i.activeSelf)
+                Destroy(i);
+        }
+
+        
+        foreach(Slot s in gameObject.GetComponent<Inventory>().itemSlots)
+        {
+            if(s.item == null)
+            {
+                Debug.Log("Item Slot Empty");
+                s.RemoveItemCompletely();
+            }
+        }
+        
         //GameManagerSingleton.instance.isPaused = false;
     }
 

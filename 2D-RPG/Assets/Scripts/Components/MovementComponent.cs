@@ -120,64 +120,6 @@ public class MovementComponent : MonoBehaviour, IMoveable
                 }
             }
         }
-
-        /*
-        if (player != null && player.isAttacking)
-            return;
-        if (GetComponent<StaminaComponent>().stamina < 30)
-            return;
-
-        if (direction == 0)
-        {
-            if(Input.GetAxisRaw("Vertical") > 0 && input.Dodge)
-                direction = 1;
-            if(Input.GetAxisRaw("Horizontal") < 0 && input.Dodge)
-                direction = 2;
-            if(Input.GetAxisRaw("Vertical") < 0 && input.Dodge)
-                direction = 3;
-            if(Input.GetAxisRaw("Horizontal") > 0 && input.Dodge)
-                direction = 4;
-            /*for (int i = 0; i < input.keys.Length; i++)
-            {
-                if (Input.GetKey(input.keys[i]) && input.Dodge)
-                {
-                    direction = i + 1;
-                }
-            }
-            
-        }
-        else
-        {
-            if (dodgeTime <= 0)
-            {
-                direction = 0;
-                dodgeTime = startDodgetime;
-                rigidbody.velocity = Vector2.zero;
-				UseStamina ();
-            }
-            else
-            {
-                dodgeTime -= Time.deltaTime;
-
-                if (direction == 1)
-                {
-                    rigidbody.velocity = Vector2.up * dodgeSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rigidbody.velocity = Vector2.left * dodgeSpeed;
-                }
-                else if (direction == 3)
-                {
-                    rigidbody.velocity = Vector2.down * dodgeSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rigidbody.velocity = Vector2.right * dodgeSpeed;
-                }
-            }
-        }
-    }*/
     }
 
     IEnumerator RegenerateStamina()

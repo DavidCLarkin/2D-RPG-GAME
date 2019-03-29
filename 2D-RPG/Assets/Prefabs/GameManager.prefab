@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114766233184251044}
   - component: {fileID: 114550631014186126}
   - component: {fileID: 114248734866729180}
+  - component: {fileID: 114814399048399520}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -63,6 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
+  bossHealthBar: {fileID: 0}
+  bossName: {fileID: 0}
+  boss: {fileID: 0}
+  bossHealth: {fileID: 0}
 --- !u!114 &114766233184251044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +85,23 @@ MonoBehaviour:
   controlsPanel: {fileID: 0}
   statVendor: {fileID: 0}
   isPaused: 0
+--- !u!114 &114814399048399520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621712113394670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6af1f727c4ecc4e9b5665cd185808e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 1880501086672596, guid: 91261e984c9a6cb47b0d08848a71a6e2, type: 2}
+  - {fileID: 1133313339940626, guid: 224a0968109d7e544875681612bd9855, type: 2}
+  - {fileID: 1616025297648912, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
+  - {fileID: 1533345754708618, guid: ce224856fd3f88e448d83112eb165283, type: 2}
+  - {fileID: 1167208984112654, guid: 1031fb8ef707c1144aeacf8cab783613, type: 2}
 --- !u!224 &224622113691729326
 RectTransform:
   m_ObjectHideFlags: 1

@@ -11,16 +11,14 @@ public class Slot : MonoBehaviour
     public bool isEmpty;
     public Item item;
 
+    private void Update()
+    {
+        UpdateSlot();
+    }
+
     public void UpdateSlot()
     {
         gameObject.GetComponent<Image>().sprite = icon;
-    }
-
-    private void Update()
-    {
-
-        //Debug.Log("Item in slot" + item.ToString());
-        UpdateSlot();
     }
 
     public void UseItem()
