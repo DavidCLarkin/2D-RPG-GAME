@@ -1108,7 +1108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
-  ATTACK_COOLDOWN: 3
+  enemyName: Defiled Surtr
+  ATTACK_COOLDOWN: 2
   ATTACK_TIMER: 0
   NumberOfAttacks: 3
   BASE_ATTACK_RANGE: 0
@@ -1120,11 +1121,11 @@ MonoBehaviour:
   state: 2
   projectile: {fileID: 1685596270506868, guid: c313db5f36c088b43affc185f2fbf79a, type: 2}
   tileObj: {fileID: 1931742092145482, guid: df0e52f2e6ba04f41ac2e2d36de1a521, type: 2}
-  SPAWN_PROJECTILE_COOLDOWN: 6
+  SPAWN_PROJECTILE_COOLDOWN: 5
   SPAWN_PROJECTILE_TIMER: 0
-  SPAWN_TILES_COOLDOWN: 8
+  SPAWN_TILES_COOLDOWN: 6
   SPAWN_TILES_TIMER: 0
-  closeAttackRange: 3
+  closeAttackRange: 3.5
 --- !u!114 &114855189130569856
 MonoBehaviour:
   m_ObjectHideFlags: 1

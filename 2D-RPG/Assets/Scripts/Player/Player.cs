@@ -95,6 +95,11 @@ public class Player : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowControls()
+    {
+        GameManagerSingleton.instance.OpenControlsPanel();
+    }
+
     #endregion
 
 }

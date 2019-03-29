@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114890145480912526}
   - component: {fileID: 61798813519163910}
   - component: {fileID: 114063939438280086}
+  - component: {fileID: 50709054487214534}
+  - component: {fileID: 61232490941329146}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -39,12 +41,57 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015869225983704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.484994, y: -23.216486, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50709054487214534
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015869225983704}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &61232490941329146
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015869225983704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000059604645, y: -0.003847897}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.8}
+    newSize: {x: 0.64, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2244314, y: 0.4229101}
+  m_EdgeRadius: 0
 --- !u!61 &61798813519163910
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -101,7 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  ATTACK_COOLDOWN: 0
   ATTACK_TIMER: 3
+  NumberOfAttacks: 0
   BASE_ATTACK_RANGE: 0
   speed: 1
   followRange: 5

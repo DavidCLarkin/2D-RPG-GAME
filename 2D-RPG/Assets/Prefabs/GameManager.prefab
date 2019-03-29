@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114550631014186126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +77,7 @@ MonoBehaviour:
   tooltip: {fileID: 0}
   player: {fileID: 0}
   pausePanel: {fileID: 0}
+  controlsPanel: {fileID: 0}
   statVendor: {fileID: 0}
   isPaused: 0
 --- !u!224 &224622113691729326

@@ -44,7 +44,7 @@ public class Stats : MonoBehaviour
         currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
         newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
 
-        StartCoroutine(UpdateUI());
+        //StartCoroutine(UpdateUI());
 
 	}
 	
@@ -69,10 +69,15 @@ public class Stats : MonoBehaviour
             HealthStat.StatLevel++;
             exp.totalExp -= expCost;
 
+            UpdateVariables();
+            /*
             health.maxHealth = 90 + (10 * HealthStat.StatLevel);
             health.health = health.maxHealth; // set health to max
             currentHealthUIDisplay.text = (health.maxHealth).ToString();
             newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
+            currentExpUIDisplay.text = (exp.totalExp).ToString();
+            */
+
 
             Debug.Log("Leveled up");
         }
@@ -86,15 +91,21 @@ public class Stats : MonoBehaviour
             StaminaStat.StatLevel++;
             exp.totalExp -= expCost;
 
+            UpdateVariables();
+            /*
+            currentExpUIDisplay.text = (exp.totalExp).ToString();
+
             stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
             stamina.Stamina = stamina.maxStamina; // set health to max
             currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
             newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
 
             Debug.Log("Leveled up");
+            */
         }
     }
 
+    // Not used, only for testing
     public void UpdateStat(Stat statToUpgrade)
     {
         int expCost = CalculateExpCost(statToUpgrade);
@@ -115,9 +126,13 @@ public class Stats : MonoBehaviour
             {
                 stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
                 stamina.Stamina = stamina.maxStamina; //set stamina to max
+                currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
+                newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
             }
 
             Debug.Log("Leveled Up");
+
+            currentExpUIDisplay.text = (exp.totalExp).ToString();
 
         }
     }
@@ -141,19 +156,11 @@ public class Stats : MonoBehaviour
 
         currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
         newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
+
+        currentExpUIDisplay.text = (exp.totalExp).ToString();
     }
 
-    // Coroutine to update the UI every 1/10th second instead of every frame
-    IEnumerator UpdateUI()
-    {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(0.1f);
-            StatUIUpdate();
-        }
-    }
-
-    void StatUIUpdate()
+    public void StatUIUpdate()
     {
         int healthCost = CalculateExpCost(HealthStat);
         int staminaCost = CalculateExpCost(StaminaStat);

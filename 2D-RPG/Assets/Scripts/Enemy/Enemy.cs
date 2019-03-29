@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Pathfinding))]
 public abstract class Enemy : Interactable
 {
+    public string enemyName;
 	protected float DAMAGE_DELAY = 1f;
 	public float ATTACK_COOLDOWN; // set in inspector for time between attacks
 	protected float DAMAGE_TIMER;

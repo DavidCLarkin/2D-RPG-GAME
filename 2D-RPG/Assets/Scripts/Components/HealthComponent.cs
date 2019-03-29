@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 
@@ -56,18 +57,9 @@ public class HealthComponent : MonoBehaviour, IDamageable
             if(isBoss)
                 EnableSpawnRoom(); // if it's a boss, spawn the boss room
 
-            //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Die"))
-            //   Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-            //else
-
             if(!isAI && !isBoss)
-            {
-                //Destroy(GameManagerSingleton.instance);
-                //Destroy(SoundManager.instance);
-                SceneManager.LoadScene("Hub");
-                GetComponent<Player>().Load();
+                GameManagerSingleton.instance.StartCoroutine(GameManagerSingleton.instance.PlayerDeath(2));
 
-            }
 
             if(isAI || isBoss)
                 Destroy(gameObject, deathTimer);

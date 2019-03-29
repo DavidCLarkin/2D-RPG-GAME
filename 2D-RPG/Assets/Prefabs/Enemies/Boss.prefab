@@ -468,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  enemyName: Defiled Surtr
   ATTACK_COOLDOWN: 3
   ATTACK_TIMER: 0
   NumberOfAttacks: 2

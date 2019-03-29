@@ -2332,6 +2332,7 @@ GameObject:
   - component: {fileID: 61863739127982638}
   - component: {fileID: 61100929560843812}
   - component: {fileID: 61844339067152766}
+  - component: {fileID: 61049017129990672}
   m_Layer: 14
   m_Name: Walls
   m_TagString: Untagged
@@ -10097,6 +10098,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.94120026, y: 13.906656}
+  m_EdgeRadius: 0
+--- !u!61 &61049017129990672
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413588270222772}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.5631375, y: 1.0577514}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.9929953, y: 1.7681165}
   m_EdgeRadius: 0
 --- !u!61 &61100929560843812
 BoxCollider2D:

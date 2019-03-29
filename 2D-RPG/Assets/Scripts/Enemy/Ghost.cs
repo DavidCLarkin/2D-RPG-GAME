@@ -23,8 +23,9 @@ public class Ghost : Enemy
     public override void FollowTarget(Transform target)
     {
         if (Vector2.Distance(transform.position, target.position) >= attackRange) return;
-
-        transform.position = Vector2.MoveTowards(transform.position, target.position, -1 * speed * Time.deltaTime);
+        Vector2 dir = (target.position - transform.position).normalized;
+        GetComponent<Rigidbody2D>().velocity = dir * -1 * speed;
+        //transform.position = Vector2.MoveTowards(transform.position, target.position, -1 * speed * Time.deltaTime);
     }
 
     public override void DistanceChecking()

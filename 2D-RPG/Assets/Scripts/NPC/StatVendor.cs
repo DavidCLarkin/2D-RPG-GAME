@@ -36,7 +36,17 @@ public class StatVendor : Interactable
         {
             panelOpen = !panelOpen;
             hasInteracted = true;
-            Time.timeScale = panelOpen ? 0 : 1; // if panel open, pause
+            if (panelOpen)
+            {
+                //Time.timeScale = 0;
+                GameManagerSingleton.instance.isPaused = true;
+            }
+            else if (!panelOpen)
+            {
+                //Time.timeScale = 1;
+                GameManagerSingleton.instance.isPaused = false;
+            }
+            //Time.timeScale = panelOpen ? 0 : 1; // if panel open, pause
         }
         
         //GameManagerSingleton.instance.PauseGame();
@@ -71,10 +81,7 @@ public class StatVendor : Interactable
 
     public void ClosePanel()
     {
-        if (panelOpen)
-        {
-            panelOpen = false;
-            Time.timeScale = panelOpen ? 0 : 1; // if panel open, pause
-        }
+        panelOpen = false;
+        GameManagerSingleton.instance.isPaused = false;
     }
 }

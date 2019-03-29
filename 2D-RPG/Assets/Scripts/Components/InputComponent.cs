@@ -36,11 +36,11 @@ public class InputComponent : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
-        Attack = Input.GetMouseButtonDown(0) || Input.GetButtonDown("A"); // Left mouse click or A on controller to Attack
+        Attack = Input.GetMouseButtonDown(0) || Input.GetAxis("Trigger") == -1; // Left mouse click or RT on controller to Attack
         Interact = Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Y"); // Press E or Y on controller to Interact
         Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B"); // Press Space or B on controller to Dodge
-        UseItem = Input.GetButtonDown("X");
-        DropItem = (Input.GetAxis("Right_Trigger") == -1);
+        UseItem = Input.GetButtonDown("A");
+        DropItem = Input.GetAxis("Trigger") == 1;
         ChangeSlotLeft = Input.GetButtonDown("Left_Bumper");
         ChangeSlotRight = Input.GetButtonDown("Right_Bumper");
         Pause = Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start");
@@ -59,23 +59,22 @@ public class InputComponent : MonoBehaviour
 
         if (DropItem)
         {
-            //Debug.Log("RT");
             OnInventoryDropItem();
         } 
 
-        if(UseItem)
+        if(UseItem && !GameManagerSingleton.instance.isPaused)
         {
             OnUseInventoryItem();
         }
 
-        if (Attack)
+        if (Attack && !GameManagerSingleton.instance.isPaused)
         {
             //Debug.Log("Attacking");
             OnAttack();
         }
         
 
-        if(Dodge)
+        if(Dodge && !GameManagerSingleton.instance.isPaused)
             OnDodge();
 
         if (Interact)
@@ -87,5 +86,11 @@ public class InputComponent : MonoBehaviour
         if (Pause)
             OnPause();
 
+    }
+
+    private void FixedUpdate()
+    {
+        //if (Dodge)
+         //   OnDodge();
     }
 }

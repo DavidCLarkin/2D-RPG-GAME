@@ -68,7 +68,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
     public void Move()
     {
-        if (player != null && player.isAttacking)
+        if (player == null)// && player.isAttacking)
             return;
 
         rb.velocity = new Vector2(input.Horizontal * speed, rb.velocity.y);
@@ -97,6 +97,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
         {
             if (stamina >= dashCost)
             {
+
                 if (direction == 1)
                 {
                     rb.AddForce(Vector2.up * dodgeSpeed, ForceMode2D.Force);
