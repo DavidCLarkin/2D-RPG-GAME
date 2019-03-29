@@ -48,13 +48,13 @@ public class MovementComponent : MonoBehaviour, IMoveable
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
 
-        StartCoroutine(RegenerateStamina());
     }
 
     void Start()
     {
         stamina = maxStamina;
         StartCoroutine(Footsteps());
+        StartCoroutine(RegenerateStamina());
     }
 
     // Update is called once per frame

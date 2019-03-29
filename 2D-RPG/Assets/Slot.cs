@@ -18,6 +18,7 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
+
         //Debug.Log("Item in slot" + item.ToString());
         UpdateSlot();
     }

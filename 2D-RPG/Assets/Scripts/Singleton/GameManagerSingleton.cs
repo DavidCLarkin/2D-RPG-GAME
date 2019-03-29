@@ -77,7 +77,7 @@ public class GameManagerSingleton : MonoBehaviour
     public IEnumerator PlayerDeath(float delay)
     {
         Time.timeScale = 0.5f;
-        player.SetActive(false);
+        player.GetComponent<SpriteRenderer>().enabled = false;
 
         yield return new WaitForSeconds(delay);
 
@@ -85,7 +85,7 @@ public class GameManagerSingleton : MonoBehaviour
         player.GetComponent<Player>().Load();
 
         Time.timeScale = 1;
-        player.SetActive(true);
+        player.GetComponent<SpriteRenderer>().enabled = true;
 
     }
 
@@ -103,5 +103,24 @@ public class GameManagerSingleton : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
             player.GetComponent<Stats>().StatUIUpdate();
         }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    // When a new scene is loaded, run this code
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        player.GetComponent<Inventory>().PopulateInventory();
+        Debug.Log("Level Loaded");
+        Debug.Log(scene.name);
+        Debug.Log(mode);
     }
 }

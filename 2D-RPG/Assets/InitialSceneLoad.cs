@@ -18,10 +18,8 @@ public class InitialSceneLoad : MonoBehaviour
             Debug.Log("Initial Save");
             SaveSystem.Save(GameManagerSingleton.instance.player.gameObject);
         }
+
+        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
