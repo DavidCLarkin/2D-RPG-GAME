@@ -122,6 +122,12 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
+    void OnEnable()
+    {
+        StartCoroutine(RegenerateStamina());
+        StartCoroutine(Footsteps());
+    }
+
     IEnumerator RegenerateStamina()
     {
         while (true)

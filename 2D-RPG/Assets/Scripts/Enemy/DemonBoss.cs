@@ -72,7 +72,7 @@ public class DemonBoss : Enemy
                 if (ATTACK_TIMER <= 0)
                 {
                     // if close and timers 0, choose random so it's not always the same
-                    if(dist <= closeAttackRange && (SPAWN_PROJECTILE_TIMER <= 0 && SPAWN_PROJECTILE_TIMER <= 0))
+                    if(dist <= closeAttackRange && (SPAWN_TILES_TIMER <= 0 && SPAWN_PROJECTILE_TIMER <= 0))
                     {
                         attackChosen = Random.Range(0, NumberOfAttacks);
                     }

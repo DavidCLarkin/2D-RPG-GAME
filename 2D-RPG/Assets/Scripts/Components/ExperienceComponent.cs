@@ -73,4 +73,10 @@ public class ExperienceComponent : MonoBehaviour
     {
         expText.text = totalExp.ToString();
     }
+
+    // Whenever enabled, restart
+    private void OnEnable()
+    {
+        StartCoroutine(FrequentUpdateExp());
+    }
 }

@@ -77,7 +77,8 @@ public class GameManagerSingleton : MonoBehaviour
     public IEnumerator PlayerDeath(float delay)
     {
         Time.timeScale = 0.5f;
-        player.GetComponent<SpriteRenderer>().enabled = false;
+        //player.GetComponent<SpriteRenderer>().enabled = false;
+        player.SetActive(false);
 
         yield return new WaitForSeconds(delay);
 
@@ -85,14 +86,15 @@ public class GameManagerSingleton : MonoBehaviour
         player.GetComponent<Player>().Load();
 
         Time.timeScale = 1;
-        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.SetActive(true);
+
+        //player.GetComponent<SpriteRenderer>().enabled = true;
 
     }
 
     public void OpenControlsPanel()
     {
         controlsPanel.SetActive(!controlsPanel.activeSelf);
-
     }
 
     // Coroutine to update the UI every 1/10th second instead of every frame

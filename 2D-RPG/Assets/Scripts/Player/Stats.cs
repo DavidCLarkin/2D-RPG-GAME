@@ -56,8 +56,6 @@ public class Stats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
             UpdateStat(StaminaStat);
 
-        //Debug.Log("Stamina level:" + StaminaStat.StatLevel);
-        //Debug.Log("Health LeveL: " + HealthStat.StatLevel);
 
 	}
 
