@@ -20,6 +20,12 @@ public class GameManagerSingleton : MonoBehaviour
     public bool isPaused;
     private InputComponent input;
 
+    [HideInInspector]
+    public string playerColliderTag = "PlayerColliders"; // for collision 
+    [HideInInspector]
+    public string playerTag = "Player"; // for parent object
+    
+
     private void Awake()
 	{
 		if (instance != null)
@@ -28,7 +34,7 @@ public class GameManagerSingleton : MonoBehaviour
 		} 
 		else
 		{
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag(playerTag);
 			instance = this;
 			DontDestroyOnLoad(gameObject);
 		}

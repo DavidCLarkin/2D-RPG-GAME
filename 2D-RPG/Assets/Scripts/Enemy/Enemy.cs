@@ -182,26 +182,9 @@ public abstract class Enemy : Interactable
 
     public virtual void ChooseAttack(float timeDelay, int attackChosen)
     {
-        int damage = PerformAttack(attackChosen);
         ATTACK_TIMER = timeDelay; // + Random.Range(1,3);
     }
 
-    public virtual int PerformAttack(int attackChosen)
-    {
-        int dmg = 0;
-        switch(attackChosen)
-        {
-            case 0: dmg = 20;
-                break;
-            case 1: dmg = 25;
-                break;
-            default: dmg = 0;
-                Debug.Log("No damage, default case");
-                break;
-        }
-
-        return dmg;
-    }
 
 	public virtual void Knockback(float force)
 	{

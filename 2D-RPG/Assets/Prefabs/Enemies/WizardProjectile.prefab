@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114731668161077758}
   - component: {fileID: 58319917126316888}
   - component: {fileID: 114772792474921332}
+  - component: {fileID: 114047677327309606}
   m_Layer: 0
   m_Name: WizardProjectile
   m_TagString: Untagged
@@ -79,6 +80,17 @@ CircleCollider2D:
   m_Offset: {x: -0.013314145, y: 0.004992816}
   serializedVersion: 2
   m_Radius: 0.18169305
+--- !u!114 &114047677327309606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833106143683632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481cb59ee069db142872be1e5be58715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114731668161077758
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114320850233967076}
   - component: {fileID: 58460954143742504}
   - component: {fileID: 95177238325095434}
+  - component: {fileID: 114755750722873212}
   m_Layer: 0
   m_Name: DemonProjectile
   m_TagString: Untagged
@@ -189,6 +190,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 3
+--- !u!114 &114755750722873212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685596270506868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481cb59ee069db142872be1e5be58715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212927788512792192
 SpriteRenderer:
   m_ObjectHideFlags: 1

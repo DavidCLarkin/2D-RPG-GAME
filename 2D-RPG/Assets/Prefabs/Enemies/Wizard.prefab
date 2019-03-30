@@ -1775,7 +1775,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454391067583762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2372,7 +2372,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039517342659708}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2417,7 +2417,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871981266306118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2598,7 +2598,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945245705706870}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2872,7 +2872,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975074528373940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2912,7 +2912,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303743557133992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2993,7 +2993,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705347134257958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -3036,7 +3036,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613727810257334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -3117,7 +3117,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481556568160712}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -3197,7 +3197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 350
+  maxHealth: 500
   health: 0
   isAI: 1
   isBoss: 1
@@ -3242,19 +3242,26 @@ MonoBehaviour:
   radius: 3
   player: {fileID: 0}
   enemyName: Wizard
-  ATTACK_COOLDOWN: 4
+  ATTACK_COOLDOWN: 3
   ATTACK_TIMER: 0
-  NumberOfAttacks: 2
+  NumberOfAttacks: 3
   BASE_ATTACK_RANGE: 0
   speed: 1.5
   followRange: 12
-  attackRange: 6
-  Experience: 2500
+  attackRange: 4
+  Experience: 3000
   attackChosen: 0
   state: 2
+  minion: {fileID: 1794578127722868, guid: 4c072389745c94d40a64054f43cac83f, type: 2}
   projectile: {fileID: 1833106143683632, guid: 66889f927edb67a43aeb702e8bf2583e, type: 2}
-  SPAWN_PROJECTILE_COOLDOWN: 0
+  harmfulTile: {fileID: 1008369460045904, guid: 64bc99ff13d7e8a448319acd02781af7,
+    type: 2}
+  SPAWN_PROJECTILE_COOLDOWN: 5
   SPAWN_PROJECTILE_TIMER: 0
+  SPAWN_MINION_COOLDOWN: 6
+  SPAWN_MINION_TIMER: 0
+  SPAWN_TILE_COOLDOWN: 10
+  SPAWN_TILE_TIMER: 0
 --- !u!114 &114443992400430284
 MonoBehaviour:
   m_ObjectHideFlags: 1
