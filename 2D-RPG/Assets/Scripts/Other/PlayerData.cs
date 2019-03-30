@@ -13,7 +13,7 @@ public class PlayerData
     public int healthLevel;
     public int staminaLevel;
 
-    public string[] itemNames;
+    public int[] itemIDs;
 
     // Save player data to object to serialize
     public PlayerData(GameObject player)
@@ -27,13 +27,13 @@ public class PlayerData
         staminaLevel = player.GetComponent<Stats>().StaminaStat.StatLevel;
         totalExp = player.GetComponent<ExperienceComponent>().totalExp;
 
-        itemNames = new string[4];
-        for(int i = 0; i < itemNames.Length; i++)
+        itemIDs = new int[4];
+        for(int i = 0; i < itemIDs.Length; i++)
         {
-            if (!player.GetComponent<Inventory>().itemSlots[i].itemName.Equals(""))
-                itemNames[i] = player.GetComponent<Inventory>().itemSlots[i].itemName;
+            if (player.GetComponent<Inventory>().itemSlots[i].itemID != 0)
+                itemIDs[i] = player.GetComponent<Inventory>().itemSlots[i].itemID;
             else
-                itemNames[i] = "";
+                itemIDs[i] = 0;
         }
 
     }

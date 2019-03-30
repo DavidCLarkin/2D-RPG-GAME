@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
         {
             foreach (GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
             {
-                if (s.itemName.Equals(item.GetComponent<Item>().itemName))
+                if (s.itemID.Equals(item.GetComponent<Item>().itemID))
                     s.item = item.GetComponent<Item>();
             }
         }
@@ -120,7 +120,7 @@ public class Inventory : MonoBehaviour
         {
             if (!itemSlots[slotSelected].isEmpty)
             {
-                Remove(itemSlots[slotSelected].item);
+                //Remove(itemSlots[slotSelected].item);
                 itemSlots[slotSelected].RemoveItem();
             }
         }
@@ -139,6 +139,7 @@ public class Inventory : MonoBehaviour
                 slots[i].GetComponent<Slot>().itemName = item.itemName;
                 slots[i].GetComponent<Slot>().description = item.description;
                 slots[i].GetComponent<Slot>().icon = item.icon;
+                slots[i].GetComponent<Slot>().itemID = item.itemID;
                 slots[i].GetComponent<Slot>().isEmpty = false;
                 item.gameObject.SetActive(false);
                 GameManagerSingleton.instance.player.GetComponent<InteractComponent>().RemoveFocus();
@@ -156,7 +157,7 @@ public class Inventory : MonoBehaviour
         {
             foreach(GameObject i in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
             {
-                if(item.itemName.Equals(i.GetComponent<Item>().itemName))
+                if(item.itemID.Equals(i.GetComponent<Item>().itemID))
                 {
                     Instantiate(i, gameObject.transform.position, Quaternion.identity);
                 }

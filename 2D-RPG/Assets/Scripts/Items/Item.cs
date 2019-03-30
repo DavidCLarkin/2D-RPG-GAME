@@ -7,6 +7,7 @@ public abstract class Item : Interactable
     public TYPE type;
     public string itemName;
     public string description;
+    public int itemID;
     public Sprite icon;
 
     public override void Update () 

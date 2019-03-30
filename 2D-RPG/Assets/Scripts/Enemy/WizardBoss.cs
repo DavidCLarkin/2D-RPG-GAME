@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// Attack 0 - Spawn minions, Attack 1 - Shoot at player
+// Attack 0 - Spawn minions, Attack 1 - Shoot at player, Attack 2 - Tiles
 public class WizardBoss : Enemy
 {
     private GameObject bossRoom;
@@ -22,9 +22,9 @@ public class WizardBoss : Enemy
     public float SPAWN_TILE_TIMER;
 
     private int tileSpacing = 3;
-    private int tileSpawnIterations = 7;
-    private int startingXValue = -9;
-    private float delayBetweenTileSpawns = 0.5f;
+    private int tileSpawnIterations = 6;
+    private int startingXValue = 2;
+    private float delayBetweenTileSpawns = 1f;
 
     // Use this for initialization
     protected override void Start()
@@ -124,7 +124,7 @@ public class WizardBoss : Enemy
         List<Transform> tilesToUse = new List<Transform>();
         foreach (Transform tile in bossRoom.GetComponent<Tiles>().tiles)
         {
-            if (tile.transform.position.y % 3 == 0 && tile.transform.position.x == tileX)
+            if (tile.transform.position.y % 3 == 0 && tile.transform.position.x % 4 == 0)
                 tilesToUse.Add(tile);
         }
 
@@ -140,25 +140,22 @@ public class WizardBoss : Enemy
      */
     IEnumerator SpawnManyTiles(int xValue, float delay, int amountOfIterations)
     {
-        int nextX = xValue;
-        for(int i = 0; i < amountOfIterations; i++)
+        List<Transform> tilesToSpawn = GetTilePattern(xValue);
+        for(int i = 0; i < tilesToSpawn.Count; i++)
         {
-            List<Transform> tilesToSpawn = GetTilePattern(nextX);
-            foreach (Transform tile in tilesToSpawn)
-                Instantiate(harmfulTile, tile.position, Quaternion.identity);
-
-            nextX += 3;
-            yield return new WaitForSeconds(delay);
+            GameObject tile = Instantiate(harmfulTile, tilesToSpawn[i].position, Quaternion.identity);
+            if(i % (tilesToSpawn.Count / 3) == 0)
+                yield return new WaitForSeconds(delay);
         }
 
         SPAWN_TILE_TIMER = SPAWN_TILE_COOLDOWN;
     }
 
-    void SpawnProjectile()
+    void SpawnProjectile(Vector2 pos)
     {
-        GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(projectile, pos, Quaternion.identity);
         Vector2 dir = player.transform.position - obj.transform.position;
-        obj.GetComponent<Rigidbody2D>().velocity = dir.normalized * 7;
+        obj.GetComponent<Rigidbody2D>().velocity = dir.normalized * 5;
     }
 
     IEnumerator SpawnManyProjectiles(int amount, float delay)
@@ -166,7 +163,14 @@ public class WizardBoss : Enemy
         for(int i = 0; i < amount; i++)
         {
             yield return new WaitForSeconds(delay);
-            SpawnProjectile();
+            if(i == 0)
+                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.up * 2);
+            if (i == 1)
+                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.down * 2);
+            if (i == 2)
+                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.right * 2);
+            if (i == 3)
+                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.left * 2);
         }
 
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;
@@ -175,10 +179,10 @@ public class WizardBoss : Enemy
     void SpawnMinions()
     {
         //Debug.Log(bossRoom.GetComponent<Tiles>().tiles.Count);
-        Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[34].transform.position, Quaternion.identity);
-        Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[19].transform.position, Quaternion.identity);
-        Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[268].transform.position, Quaternion.identity);
-        Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[253].transform.position, Quaternion.identity);
+        GameObject minionOne = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[34].transform.position, Quaternion.identity);
+        GameObject minionTwo = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[19].transform.position, Quaternion.identity);
+        GameObject minionThree = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[268].transform.position, Quaternion.identity);
+        GameObject minionFour = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[253].transform.position, Quaternion.identity);
 
         SPAWN_MINION_TIMER = SPAWN_MINION_COOLDOWN;
     }

@@ -64,6 +64,13 @@ public class HealthComponent : MonoBehaviour, IDamageable
             if(isAI || isBoss)
                 Destroy(gameObject, deathTimer);
 
+            if(isBoss)
+            {
+                GameObject[] bossObjects = GameObject.FindGameObjectsWithTag(GameManagerSingleton.instance.bossMinionTag);
+                foreach (GameObject obj in bossObjects)
+                    Destroy(obj);
+            }
+
 
         }
 

@@ -7,7 +7,7 @@ public class DamagingTileComponent : MonoBehaviour, IDamageDealer
     public int customDamage;
     public int Damage { get; set; }
 
-    private float flashDelay = 0.25f;
+    public float flashDelay;
     private BoxCollider2D col;
     private SpriteRenderer spr;
 

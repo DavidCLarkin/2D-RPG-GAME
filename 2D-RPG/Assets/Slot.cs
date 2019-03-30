@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour
     public string description;
     public Sprite icon;
     public bool isEmpty;
+    public int itemID;
     public Item item;
 
     private void Update()
@@ -43,6 +44,7 @@ public class Slot : MonoBehaviour
         isEmpty = true;
         Inventory.instance.Remove(item);
         item = null;
+        itemID = 0;
     }
 
     // If consumed, destroy
@@ -53,5 +55,6 @@ public class Slot : MonoBehaviour
         icon = null;
         isEmpty = true;
         item = null;
+        itemID = 0;
     }
 }

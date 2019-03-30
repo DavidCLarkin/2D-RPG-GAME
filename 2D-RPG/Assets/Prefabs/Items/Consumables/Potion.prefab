@@ -83,6 +83,7 @@ MonoBehaviour:
   type: 0
   itemName: Health Potion
   description: Heals some health
+  itemID: 1
   icon: {fileID: 21300000, guid: c2e4e0e8d84da884e8f3f5c74e83b54c, type: 3}
   amount: 20
   potionType: 0

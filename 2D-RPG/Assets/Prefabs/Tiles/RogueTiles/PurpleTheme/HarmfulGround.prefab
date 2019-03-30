@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114257488537964908}
   m_Layer: 0
   m_Name: HarmfulGround
-  m_TagString: Untagged
+  m_TagString: BossMinion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customDamage: 5
+  flashDelay: 0.25
 --- !u!114 &114257488537964908
 MonoBehaviour:
   m_ObjectHideFlags: 1

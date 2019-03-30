@@ -41,7 +41,7 @@ public class WizardBehaviour : StateMachineBehaviour
         {
             //animator.SetBool("Walk", false);
 
-            if (enemy.attackChosen == 0)
+            if (enemy.attackChosen == 0 || enemy.attackChosen == 2)
             {
                 animator.SetBool("Charge", true);
                 enemy.attackChosen = -1;

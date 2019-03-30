@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 50859252869894708}
   m_Layer: 0
   m_Name: WizardMinion
-  m_TagString: Untagged
+  m_TagString: BossMinion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   Experience: 100
   attackChosen: 0
   state: 2
-  DASH_TIME_COOLDOWN: 2.5
+  DASH_TIME_COOLDOWN: 3
   DASH_TIME_TIMER: 0
   numbDashes: 3
 --- !u!114 &114355963808993312
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf76c68474bb1047a9a25c8375d14a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: 5
+  collisionDamage: 10
 --- !u!212 &212509347202206928
 SpriteRenderer:
   m_ObjectHideFlags: 1

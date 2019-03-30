@@ -86,14 +86,14 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
-        for(int i = 0; i < data.itemNames.Length; i++)
+        for(int i = 0; i < data.itemIDs.Length; i++)
         {
-            if(!data.itemNames[i].Equals("")) // not an empty slot
+            if(data.itemIDs[i] != 0) // not an empty slot
             {
                 foreach(GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
                 {
                     Item dbItem = item.GetComponent<Item>();
-                    if(data.itemNames[i].Equals(dbItem.itemName))
+                    if(data.itemIDs[i] == (dbItem.itemID))
                     {
                         Slot s = gameObject.GetComponent<Inventory>().itemSlots[i];
                         s.item = dbItem.GetComponent<Item>();
@@ -101,6 +101,7 @@ public class Player : MonoBehaviour
                         s.isEmpty = false;
                         s.itemName = dbItem.itemName;
                         s.description = dbItem.description;
+                        s.itemID = dbItem.itemID;
 
                     }
                 }

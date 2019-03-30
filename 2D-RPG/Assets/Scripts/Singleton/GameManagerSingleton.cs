@@ -24,6 +24,8 @@ public class GameManagerSingleton : MonoBehaviour
     public string playerColliderTag = "PlayerColliders"; // for collision 
     [HideInInspector]
     public string playerTag = "Player"; // for parent object
+    [HideInInspector]
+    public string bossMinionTag = "BossMinion"; // used if boss dies to destroy all boss objects
     
 
     private void Awake()
