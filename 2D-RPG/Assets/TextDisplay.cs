@@ -13,6 +13,7 @@ public class TextDisplay : MonoBehaviour
 
     private HealthComponent playerHealth;
     private MovementComponent playerStamina;
+    private bool hasBossMusicStarted = false;
 
     [HideInInspector]
     public GameObject boss;
@@ -30,24 +31,35 @@ public class TextDisplay : MonoBehaviour
 
         bossHealthBar.gameObject.SetActive(false);
 
-        //bossHealthBar.value = CalculateFillPercentage(bossHealth.health, bossHealth.maxHealth);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        SetHealthBars();
+        SetHealthBarsAndMusic();
 	}
 
-    void SetHealthBars()
+    void SetHealthBarsAndMusic()
     {
         if (boss != null)
         {
             if (Vector2.Distance(boss.transform.position, GameManagerSingleton.instance.player.transform.position) < 12f)
+            {
                 bossHealthBar.gameObject.SetActive(true);
+                if (!hasBossMusicStarted)
+                {
+                    SoundManager.instance.musicSource.clip = boss.GetComponent<BossMusic>().bossMusic;
+                    StartCoroutine(SoundManager.instance.FadeIn(SoundManager.instance.musicSource, 5f));
+                    hasBossMusicStarted = true;
+
+                }
+            }
         }
         else
+        {
             bossHealthBar.gameObject.SetActive(false);
+            StartCoroutine(SoundManager.instance.FadeOut(SoundManager.instance.musicSource, 5f));
+        }
 
         healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
         staminaBar.value = CalculateFillPercentage(playerStamina.Stamina, playerStamina.maxStamina);

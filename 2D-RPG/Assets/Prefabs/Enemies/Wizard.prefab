@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 114443992400430284}
   - component: {fileID: 114059550719912810}
   - component: {fileID: 114358703615655444}
+  - component: {fileID: 114150898720656200}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Boss
@@ -3204,6 +3205,18 @@ MonoBehaviour:
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
     type: 2}
   deathTimer: 0
+--- !u!114 &114150898720656200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403197193403414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7026ab71d226fb94ab8f924288cda5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 8300000, guid: 3230d487703b3b84d8f39f3948336483, type: 3}
 --- !u!114 &114206519091284482
 MonoBehaviour:
   m_ObjectHideFlags: 1

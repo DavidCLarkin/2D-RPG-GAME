@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HandleButtonEvents : MonoBehaviour
 {
@@ -63,6 +64,15 @@ public class HandleButtonEvents : MonoBehaviour
                 else
                     pauseBtnIndex = pauseButtonList.Length - 1;
                 btnDelayTimer = selectButtonDelay;
+            }
+
+
+            if (pauseButtonList[pauseBtnIndex].gameObject.name == "VolumeSlider")
+            {
+                if (Input.GetAxis("DPadHorizontal") == 1)
+                    pauseButtonList[pauseButtonList.Length - 1].GetComponent<Slider>().value += 0.5f;
+                if (Input.GetAxis("DPadHorizontal") == -1)
+                    pauseButtonList[pauseButtonList.Length - 1].GetComponent<Slider>().value -= 0.5f;
             }
 
         }

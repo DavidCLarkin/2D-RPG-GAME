@@ -11,6 +11,7 @@ public class Slot : MonoBehaviour
     public bool isEmpty;
     public int itemID;
     public Item item;
+    public Sprite emptyImage;
 
     private void Update()
     {
@@ -19,7 +20,10 @@ public class Slot : MonoBehaviour
 
     public void UpdateSlot()
     {
-        gameObject.GetComponent<Image>().sprite = icon;
+        if (!isEmpty)
+            gameObject.GetComponent<Image>().sprite = icon;
+        else
+            gameObject.GetComponent<Image>().sprite = emptyImage;
     }
 
     public void UseItem()

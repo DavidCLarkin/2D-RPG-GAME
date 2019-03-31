@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.34, y: 0.83, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -3411,7 +3411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1120046990c62841851ed199360d834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeSpeed: 3000
+  dodgeSpeed: 3500
   startDodgetime: 0.05
   dodgeTime: 0
   dashCost: 30
@@ -3451,8 +3451,7 @@ MonoBehaviour:
   expToLevel: 100
   expIncrease: 1.7
   totalExp: 0
-  expBar: {fileID: 0}
-  currentExpDisplay: {fileID: 0}
+  expText: {fileID: 0}
 --- !u!114 &114308860328978886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3495,6 +3494,7 @@ MonoBehaviour:
   numberOfSlots: 4
   slotHolder: {fileID: 0}
   slotSelected: 0
+  itemSlots: []
   slots: []
 --- !u!114 &114560733381892178
 MonoBehaviour:

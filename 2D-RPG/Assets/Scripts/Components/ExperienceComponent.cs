@@ -12,15 +12,13 @@ public class ExperienceComponent : MonoBehaviour
 	public float expIncrease = 1.7f;
     public int totalExp;
 
-	public Slider expBar;
-    public Text currentExpDisplay;
-    private Text expText;
+	//public Slider expBar;
+    //public Text currentExpDisplay;
+    public Text expText;
 
-    private string expString;
 
 	void Start()
 	{
-        expText = expBar.GetComponentInChildren<Text>();
         UpdateExpUI();
         StartCoroutine(FrequentUpdateExp());
     }

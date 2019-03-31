@@ -243,7 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f79a39eab12ee44b92dbc32d3b526f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  efxSource: {fileID: 82725597231967926}
+  sfxSource: {fileID: 82725597231967926}
   musicSource: {fileID: 82411786689978364}
-  lowPitchRange: 0.95
-  highPitchRange: 1.05

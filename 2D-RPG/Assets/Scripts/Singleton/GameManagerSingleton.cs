@@ -91,7 +91,7 @@ public class GameManagerSingleton : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         SceneManager.LoadScene("Hub");
-        player.GetComponent<Player>().Load();
+        GetComponent<MenuButtonFunctions>().Load();
 
         Time.timeScale = 1;
         player.SetActive(true);
