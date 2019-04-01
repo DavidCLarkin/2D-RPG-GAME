@@ -26,6 +26,7 @@ public class InputComponent : MonoBehaviour
     public event Action OnInventoryMoveRight = delegate { };
     public event Action OnInventoryMoveLeft = delegate { };
     public event Action OnInventoryDropItem = delegate { };
+    public event Action OnCallPerk = delegate { };
 
     private void Awake()
     {
@@ -72,6 +73,7 @@ public class InputComponent : MonoBehaviour
         {
             //Debug.Log("Attacking");
             OnAttack();
+            OnCallPerk();
         }
         
 

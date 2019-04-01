@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectCollisionDamage : MonoBehaviour, IDamageDealer
+public class DirectCollisionDamageEnemy : MonoBehaviour, IAiDamageDealer
 {
     public int Damage { get; set; }
     public int collisionDamage;
@@ -14,8 +14,7 @@ public class DirectCollisionDamage : MonoBehaviour, IDamageDealer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == GameManagerSingleton.instance.playerColliderTag)
+        if (collision.gameObject.tag == GameManagerSingleton.instance.enemyTag || collision.gameObject.tag == GameManagerSingleton.instance.bossTag)
             Destroy(transform.parent.gameObject);
     }
-
 }

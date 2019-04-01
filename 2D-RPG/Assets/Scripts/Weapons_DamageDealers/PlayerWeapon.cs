@@ -8,19 +8,44 @@ public class PlayerWeapon : MonoBehaviour, IAiDamageDealer
     public int Damage { get; set; }
 
     public Text weaponInfo;
+    public WeaponItem equippedWeapon;
 
 	// Use this for initialization
 	void Awake ()
     {
         Damage = customDamage;
+        UpdateUI();
 	}
 
-    public void EquipWeapon(int newDamage)
+    public void EquipWeapon(WeaponItem weapon)
     {
-        Damage = newDamage;
+        if(equippedWeapon)
+            UnequipWeapon(equippedWeapon);
+
+        foreach (GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
+            if (weapon.itemID == item.GetComponent<Item>().itemID)
+                equippedWeapon = item.GetComponent<WeaponItem>();
+
+        Damage = equippedWeapon.damage;
+
+        UpdateUI();
+
+        foreach(Perk perk in equippedWeapon.perks)
+        {
+            perk.EvaluatePerkStats();
+        }
     }
 
-    void Update()
+    public void UnequipWeapon(WeaponItem weapon)
+    {
+        equippedWeapon = null;
+        Damage = customDamage;
+        GameManagerSingleton.instance.player.GetComponent<Stats>().UpdateVariables(); // reset stats
+        GameManagerSingleton.instance.player.GetComponent<MovementComponent>().ResetSpeed();
+        UpdateUI();
+    }
+
+    private void UpdateUI()
     {
         weaponInfo.text = "Weapon Damage: " + Damage;
     }

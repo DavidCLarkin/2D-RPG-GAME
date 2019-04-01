@@ -34,8 +34,10 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
-    [SerializeField]
-    private float speed;
+    //[SerializeField]
+    [HideInInspector]
+    public float baseSpeed = 2.5f;
+    public float speed;
     public event Action AnimateMovement = delegate { };
 
     private void Awake()
@@ -64,6 +66,11 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
         AnimateMovement();
         Move();
+    }
+
+    public void ResetSpeed()
+    {
+        speed = baseSpeed;
     }
 
     public void Move()

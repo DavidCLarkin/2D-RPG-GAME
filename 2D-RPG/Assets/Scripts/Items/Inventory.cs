@@ -159,64 +159,19 @@ public class Inventory : MonoBehaviour
             {
                 if(item.itemID.Equals(i.GetComponent<Item>().itemID))
                 {
+                    // If the weapon item id is the same as the equipped weapon, unequip first
+                    if (GetComponentInChildren<PlayerWeapon>().equippedWeapon != null)
+                    {
+                        if (item.itemID == GetComponentInChildren<PlayerWeapon>().equippedWeapon.itemID)
+                        {
+                            WeaponItem weapon = (WeaponItem)item;
+                            GetComponentInChildren<PlayerWeapon>().UnequipWeapon(weapon);
+                        }
+                    }
+
                     Instantiate(i, gameObject.transform.position, Quaternion.identity);
                 }
             }
-            /*
-            //item.gameObject.transform.position = GameManagerSingleton.instance.player.transform.position;
-            GameObject obj = new GameObject();
-            obj.tag = "Item";
-            obj.name = item.itemName;
-            obj.transform.position = GameManagerSingleton.instance.player.transform.position;
-
-            if (item.type == TYPE.Weapon)
-            {
-                WeaponItem weapon = (WeaponItem)item;
-                WeaponItem i = obj.AddComponent<WeaponItem>();
-                i.itemName = item.itemName;
-                i.type = item.type;
-                i.icon = item.icon;
-                i.description = item.description;
-                i.damage = weapon.damage;
-
-                SpriteRenderer spr = obj.AddComponent<SpriteRenderer>();
-                spr.sprite = i.icon;
-                spr.sortingOrder = 5;
-
-                obj.transform.localScale = new Vector2(3.2f, 3.2f);
-
-                BoxCollider2D col = obj.AddComponent<BoxCollider2D>();
-                col.isTrigger = true;
-                col.size = col.size * 2.5f;
-                
-            }
-
-            if(item.type == TYPE.Consumable)
-            {
-                ConsumableItem consumable = (ConsumableItem)item;
-                ConsumableItem i = obj.AddComponent<ConsumableItem>();
-                i.itemName = item.itemName;
-                i.type = item.type;
-                i.icon = item.icon;
-                i.description = item.description;
-                i.amount = consumable.amount;
-
-                SpriteRenderer spr = obj.AddComponent<SpriteRenderer>();
-                spr.sprite = i.icon;
-                spr.sortingOrder = 5;
-
-                obj.transform.localScale = new Vector2(3.2f, 3.2f);
-
-                BoxCollider2D col = obj.AddComponent<BoxCollider2D>();
-                col.isTrigger = true;
-                col.size = col.size * 2.5f;
-
-            }
-            */
-
-
-            //Instantiate(obj, GameManagerSingleton.instance.player.transform.position, Quaternion.identity);
-            //item.gameObject.SetActive(true);
         }
 	}
 

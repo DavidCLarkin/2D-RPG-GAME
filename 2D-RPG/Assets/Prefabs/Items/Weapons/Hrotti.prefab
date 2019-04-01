@@ -86,6 +86,8 @@ MonoBehaviour:
   itemID: 3
   icon: {fileID: 21300000, guid: dbe3bee62e0ad6e4ca061b86a50c957c, type: 3}
   damage: 25
+  perks:
+  - {fileID: 11400000, guid: 935a7b2c25ac5414091d72a2fcfb1181, type: 2}
 --- !u!212 &212704557910972398
 SpriteRenderer:
   m_ObjectHideFlags: 1

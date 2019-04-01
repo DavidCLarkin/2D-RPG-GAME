@@ -26,6 +26,10 @@ public class GameManagerSingleton : MonoBehaviour
     public string playerTag = "Player"; // for parent object
     [HideInInspector]
     public string bossMinionTag = "BossMinion"; // used if boss dies to destroy all boss objects
+    [HideInInspector]
+    public string bossTag = "Boss";
+    [HideInInspector]
+    public string enemyTag = "Enemy";
     
 
     private void Awake()

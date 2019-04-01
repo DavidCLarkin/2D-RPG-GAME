@@ -101,7 +101,33 @@ public class HealthComponent : MonoBehaviour, IDamageable
         {
             IAiDamageDealer aiDamageDealer = collision.gameObject.GetComponentInParent<IAiDamageDealer>();
             if (aiDamageDealer != null)
+            {
                 TakeDamage(aiDamageDealer.Damage);
+                CheckTriggerableAbility(collision.tag);
+            
+            }
+        }
+    }
+
+    /*
+     * Check whether the damage was from the player's weapon, 
+     * and decide whether it has perks that are triggerable.
+     * If so, trigger the perk ability.
+     */ 
+    public void CheckTriggerableAbility(string tag)
+    {
+        if (tag == "PlayerWeapon")
+        {
+            if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon != null)
+            {
+                if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon.perks.Length > 0)
+                {
+                    foreach (Perk perk in GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon.perks)
+                    {
+                        perk.TriggerPerkAbility();
+                    }
+                }
+            }
         }
     }
 
