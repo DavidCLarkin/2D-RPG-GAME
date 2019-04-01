@@ -103,7 +103,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
             if (aiDamageDealer != null)
             {
                 TakeDamage(aiDamageDealer.Damage);
-                CheckTriggerableAbility(collision.tag);
+                CheckTriggerableAbility(collision.gameObject);
             
             }
         }
@@ -114,9 +114,9 @@ public class HealthComponent : MonoBehaviour, IDamageable
      * and decide whether it has perks that are triggerable.
      * If so, trigger the perk ability.
      */ 
-    public void CheckTriggerableAbility(string tag)
+    public void CheckTriggerableAbility(GameObject obj)
     {
-        if (tag == "PlayerWeapon")
+        if (obj.tag == "PlayerWeapon")
         {
             if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon != null)
             {
@@ -124,6 +124,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
                 {
                     foreach (Perk perk in GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon.perks)
                     {
+                        perk.enemyToAffect = gameObject;
                         perk.TriggerPerkAbility();
                     }
                 }
@@ -131,4 +132,14 @@ public class HealthComponent : MonoBehaviour, IDamageable
         }
     }
 
+    public IEnumerator ApplyDOT(int damagePerSecond)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            TakeDamage(damagePerSecond);
+            yield return new WaitForSeconds(2);
+        }
+
+        yield break;
+    }
 }

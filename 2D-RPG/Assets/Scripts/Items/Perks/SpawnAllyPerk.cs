@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Perk", menuName = "Area Of Effect Perk")]
-public class AreaOfEffectPerk : Perk
+public class SpawnAllyPerk : Perk
 {
     public int damage;
     public GameObject minion;
