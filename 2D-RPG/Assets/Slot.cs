@@ -65,8 +65,20 @@ public class Slot : MonoBehaviour
 
     public void DisplayItemInfo()
     {
-        itemInfo.gameObject.SetActive(true);
-        itemInfo.text = itemName + "\n" + description;
+        if (item)
+        {
+            if (item.type == TYPE.Weapon)
+            {
+                WeaponItem weapon = (WeaponItem)item;
+                itemInfo.text = itemName + "\n" + "Damage: " + weapon.damage + "\n" + description;
+            }
+            else if (item.type == TYPE.Consumable)
+            {
+                ConsumableItem cons = (ConsumableItem)item;
+                itemInfo.text = itemName + "\n" + description + "\n" + "Amount: " + cons.amount;
+            }
+            itemInfo.gameObject.SetActive(true);
+        }
     }
 
     public void DisableItemInfo()

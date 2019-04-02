@@ -2775,15 +2775,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Info
 --- !u!114 &114299197658484468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6483,14 +6481,14 @@ RectTransform:
   m_GameObject: {fileID: 1704321389054608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1725165, y: 0.1725165, z: 0.1725165}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15383641}
   m_Children: []
   m_Father: {fileID: 224507967001877080}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299, y: 123}
+  m_AnchoredPosition: {x: 295, y: 140}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224260652863462330

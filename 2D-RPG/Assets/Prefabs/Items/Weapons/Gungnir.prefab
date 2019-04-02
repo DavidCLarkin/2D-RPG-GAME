@@ -84,7 +84,7 @@ MonoBehaviour:
   itemName: Gungnir
   description: "+25% Stamina \n-25% Health"
   itemID: 2
-  icon: {fileID: 21300000, guid: ea5d753a1753f4742a44814ce19d378d, type: 3}
+  icon: {fileID: 21300000, guid: ffa20a964ecf41143833b460b2183b1f, type: 3}
   damage: 30
   perks:
   - {fileID: 11400000, guid: 57236dc1c8192fd4d9c85824e64d9c82, type: 2}
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: ea5d753a1753f4742a44814ce19d378d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffa20a964ecf41143833b460b2183b1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
