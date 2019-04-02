@@ -28,8 +28,13 @@ public class InitialSceneLoad : MonoBehaviour
                 s.RemoveItemCompletely();
             }
         }
-        
-        
-	}
-	
+
+        GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health = GameManagerSingleton.instance.player.GetComponent<HealthComponent>().maxHealth;
+        GameManagerSingleton.instance.player.GetComponent<MovementComponent>().stamina = GameManagerSingleton.instance.player.GetComponent<MovementComponent>().maxStamina;
+
+
+
+
+    }
+
 }

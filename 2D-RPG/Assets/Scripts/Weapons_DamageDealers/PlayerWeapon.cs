@@ -40,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour, IAiDamageDealer
     {
         equippedWeapon = null;
         Damage = customDamage;
-        GameManagerSingleton.instance.player.GetComponent<Stats>().UpdateVariables(); // reset stats
+        GameManagerSingleton.instance.player.GetComponent<Stats>().UpdateVariables(false); // reset stats
         GameManagerSingleton.instance.player.GetComponent<MovementComponent>().ResetSpeed();
         UpdateUI();
     }

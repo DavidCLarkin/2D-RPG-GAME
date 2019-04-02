@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class TextDisplay : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class TextDisplay : MonoBehaviour
     public Slider staminaBar;
     public Slider bossHealthBar;
     public Text bossName;
+    public Text healthInfo;
+    public Text staminaInfo;
 
     private HealthComponent playerHealth;
     private MovementComponent playerStamina;
-    private bool hasBossMusicStarted = false;
 
     [HideInInspector]
     public GameObject boss;
@@ -31,41 +33,45 @@ public class TextDisplay : MonoBehaviour
 
         bossHealthBar.gameObject.SetActive(false);
 
+        UpdateHealthAndStaminaInfo();
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        SetHealthBarsAndMusic();
+        SetBarValues();
+        UpdateHealthAndStaminaInfo();
 	}
 
-    void SetHealthBarsAndMusic()
+    private void UpdateHealthAndStaminaInfo()
     {
-        if (boss != null)
+        healthInfo.text = playerHealth.health + "/" + playerHealth.maxHealth;
+        staminaInfo.text = playerStamina.stamina + "/" + playerStamina.maxStamina;
+    }
+
+    void SetBarValues()
+    {
+        healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
+        staminaBar.value = CalculateFillPercentage(playerStamina.Stamina, playerStamina.maxStamina);
+
+        // Handling up boss health bar
+        if (boss)
         {
             if (Vector2.Distance(boss.transform.position, GameManagerSingleton.instance.player.transform.position) < 12f)
             {
                 bossHealthBar.gameObject.SetActive(true);
-                if (!hasBossMusicStarted)
-                {
-                    SoundManager.instance.musicSource.clip = boss.GetComponent<BossMusic>().bossMusic;
-                    StartCoroutine(SoundManager.instance.FadeIn(SoundManager.instance.musicSource, 5f));
-                    hasBossMusicStarted = true;
-
-                }
             }
+            else
+                bossHealthBar.gameObject.SetActive(false);
+
+            if (bossHealthBar.IsActive())
+                bossHealthBar.value = CalculateFillPercentage(bossHealth.health, bossHealth.maxHealth);
         }
         else
-        {
             bossHealthBar.gameObject.SetActive(false);
-            StartCoroutine(SoundManager.instance.FadeOut(SoundManager.instance.musicSource, 5f));
-        }
 
-        healthBar.value = CalculateFillPercentage(playerHealth.health, playerHealth.maxHealth);
-        staminaBar.value = CalculateFillPercentage(playerStamina.Stamina, playerStamina.maxStamina);
 
-        if(bossHealthBar.IsActive())
-            bossHealthBar.value = CalculateFillPercentage(bossHealth.health, bossHealth.maxHealth);
     }
 
     float CalculateFillPercentage(float current, float max)

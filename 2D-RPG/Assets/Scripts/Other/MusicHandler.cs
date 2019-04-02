@@ -9,13 +9,7 @@ public class MusicHandler : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        SoundManager.instance.musicSource.clip = music1;
-        SoundManager.instance.musicSource.Play();
+        SoundManager.instance.PlayMusic(music1);
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		// Later change music if boss fight etc
-	}
 }

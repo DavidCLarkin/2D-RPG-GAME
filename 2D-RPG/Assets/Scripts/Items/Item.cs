@@ -6,6 +6,7 @@ public abstract class Item : Interactable
 {
     public TYPE type;
     public string itemName;
+    [TextArea]
     public string description;
     public int itemID;
     public Sprite icon;

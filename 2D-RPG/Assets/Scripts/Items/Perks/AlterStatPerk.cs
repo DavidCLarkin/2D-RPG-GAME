@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatToChange { Health, Stamina, MovementSpeed };
-public enum IncreaseOrDecrease { Increase, Decrease };
-
 [CreateAssetMenu(fileName = "New Perk", menuName = "Alter Stat Perk")]
 public class AlterStatPerk : Perk
 {

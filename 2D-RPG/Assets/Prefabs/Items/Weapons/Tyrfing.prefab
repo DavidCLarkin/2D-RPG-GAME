@@ -82,7 +82,9 @@ MonoBehaviour:
   player: {fileID: 0}
   type: 1
   itemName: Tyrfing
-  description: -10% Stamina, Applies debuff on Hit
+  description: '-10% Stamina
+
+    Applies debuff on Hit'
   itemID: 5
   icon: {fileID: 21300000, guid: c0c5eb19ce8359249a1b17e48c9f8a23, type: 3}
   damage: 22

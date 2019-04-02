@@ -82,7 +82,9 @@ MonoBehaviour:
   player: {fileID: 0}
   type: 1
   itemName: Hrotti
-  description: -10% Movement Speed, Chance of AOE attack
+  description: '-10% Movement Speed
+
+    Chance of AOE attack'
   itemID: 3
   icon: {fileID: 21300000, guid: dbe3bee62e0ad6e4ca061b86a50c957c, type: 3}
   damage: 25

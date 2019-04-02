@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum StatToChange { Health, Stamina, MovementSpeed };
+public enum IncreaseOrDecrease { Increase, Decrease };
 
 public abstract class Perk : ScriptableObject
 {

@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour
     public int itemID;
     public Item item;
     public Sprite emptyImage;
+    public Text itemInfo;
 
     private void Update()
     {
@@ -61,4 +62,16 @@ public class Slot : MonoBehaviour
         item = null;
         itemID = 0;
     }
+
+    public void DisplayItemInfo()
+    {
+        itemInfo.gameObject.SetActive(true);
+        itemInfo.text = itemName + "\n" + description;
+    }
+
+    public void DisableItemInfo()
+    {
+        itemInfo.gameObject.SetActive(false);
+    }
+
 }

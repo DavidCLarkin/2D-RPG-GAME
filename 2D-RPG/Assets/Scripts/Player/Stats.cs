@@ -67,7 +67,7 @@ public class Stats : MonoBehaviour
             HealthStat.StatLevel++;
             exp.totalExp -= expCost;
 
-            UpdateVariables();
+            UpdateVariables(true);
             /*
             health.maxHealth = 90 + (10 * HealthStat.StatLevel);
             health.health = health.maxHealth; // set health to max
@@ -76,8 +76,6 @@ public class Stats : MonoBehaviour
             currentExpUIDisplay.text = (exp.totalExp).ToString();
             */
 
-
-            Debug.Log("Leveled up");
         }
     }
 
@@ -89,7 +87,7 @@ public class Stats : MonoBehaviour
             StaminaStat.StatLevel++;
             exp.totalExp -= expCost;
 
-            UpdateVariables();
+            UpdateVariables(true);
             /*
             currentExpUIDisplay.text = (exp.totalExp).ToString();
 
@@ -141,13 +139,23 @@ public class Stats : MonoBehaviour
         return 500 * (stat.StatLevel * 2);
     }
 
-    public void UpdateVariables()
+    public void UpdateVariables(bool isUpgrade)
     {
         stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
         health.maxHealth = 90 + (10 * HealthStat.StatLevel);
 
-        health.health = health.maxHealth;
-        stamina.stamina = stamina.maxStamina;
+        if (isUpgrade)
+        {
+            health.health = health.maxHealth;
+            stamina.stamina = stamina.maxStamina;
+        }
+
+        // if weapon equipped, recalculate stats
+        if (gameObject.GetComponentInChildren<PlayerWeapon>().equippedWeapon)
+        {
+            WeaponItem weapon = gameObject.GetComponentInChildren<PlayerWeapon>().equippedWeapon;
+            gameObject.GetComponentInChildren<PlayerWeapon>().EquipWeapon(weapon);
+        }
 
         currentHealthUIDisplay.text = (health.maxHealth).ToString();
         newHealthUIDisplay.text = (health.maxHealth + 10).ToString();

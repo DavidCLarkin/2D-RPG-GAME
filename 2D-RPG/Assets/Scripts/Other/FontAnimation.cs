@@ -13,11 +13,11 @@ public class FontAnimation : MonoBehaviour
     void Start ()
     {
         text = GetComponent<Text>();
-        StartCoroutine(FadeOut());
+        StartCoroutine(FadeTextOut());
 	}
 	
 
-    IEnumerator FadeOut()
+    IEnumerator FadeTextOut()
     {
         while(true)
             if (text.color.a > 0.4)

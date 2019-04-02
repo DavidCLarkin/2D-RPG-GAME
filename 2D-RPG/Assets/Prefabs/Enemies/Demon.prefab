@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114125269059588928}
   - component: {fileID: 114830643216402854}
   - component: {fileID: 114855189130569856}
+  - component: {fileID: 114802241195360734}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Boss
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bbd5c67362da4aba36150fab40afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 350
+  maxHealth: 600
   health: 0
   isAI: 1
   isBoss: 1
@@ -1095,6 +1096,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 1010263206487850, guid: 1d3e7431639a6ce47a65545d0e0d9b61, type: 2}
+--- !u!114 &114802241195360734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606583210112930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7026ab71d226fb94ab8f924288cda5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 8300000, guid: 3230d487703b3b84d8f39f3948336483, type: 3}
 --- !u!114 &114830643216402854
 MonoBehaviour:
   m_ObjectHideFlags: 1

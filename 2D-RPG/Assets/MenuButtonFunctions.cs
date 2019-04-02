@@ -73,7 +73,10 @@ public class MenuButtonFunctions : MonoBehaviour
         SetVolume(data.volumeLevel); // set volume that player chose
         volumeSlider.value = data.volumeLevel;
 
-        player.GetComponent<Stats>().UpdateVariables();
+        player.GetComponent<Stats>().UpdateVariables(false);
+        // Make sure player loads with max stats
+        player.GetComponent<HealthComponent>().health = player.GetComponent<HealthComponent>().maxHealth;
+        player.GetComponent<MovementComponent>().stamina = player.GetComponent<StaminaComponent>().maxStamina;
 
         // Destroy any objects that are on the ground when loading
         GameObject[] inactiveObjects = GameObject.FindGameObjectsWithTag("Item");

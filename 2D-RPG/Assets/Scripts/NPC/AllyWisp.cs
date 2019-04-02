@@ -5,12 +5,12 @@ using System.Linq;
 
 public class AllyWisp : MonoBehaviour
 {
-    private GameObject target;
+    public GameObject target;
 
     private void Start()
     {
-        target = FindClosestTarget(GameManagerSingleton.instance.enemyTag, GameManagerSingleton.instance.bossTag);
-        Debug.Log("Closest: "+ target.name);
+        target = FindClosestTarget(GetCloseEnemies(GameManagerSingleton.instance.enemyTag, GameManagerSingleton.instance.bossTag));
+        //Debug.Log("Closest: "+ target.name);
     }
 
     public void Update()
@@ -23,21 +23,24 @@ public class AllyWisp : MonoBehaviour
     }
 
     /*
-     * Find closest game object using lambda, and return the first element in list
+     * Find closest enemy from a list
      */ 
-    GameObject FindClosestTarget(params string[] trgt)
+    GameObject FindClosestTarget(List<GameObject> objects)
     {
-        Vector3 position = transform.position;
+        return objects.FirstOrDefault();
+    }
+
+    /*
+     * Find close enemies and add to a list (just using a tag)
+     */ 
+    List<GameObject> GetCloseEnemies(params string[] tags)
+    {
         List<GameObject> objects = new List<GameObject>();
+        foreach (string tag in tags)
+            objects.AddRange(GameObject.FindGameObjectsWithTag(tag));
 
-        foreach(string tag in trgt)
-        {
-            objects.AddRange(GameObject.FindGameObjectsWithTag(tag).ToList());
-            objects.OrderBy(o => (o.transform.position - position).sqrMagnitude);
-        }
+        return objects.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList();
 
-
-        return objects.First();
     }
 
 
