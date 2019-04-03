@@ -5,8 +5,18 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource sfxSource;            
     public AudioSource musicSource;                
-    public static SoundManager instance = null;           
+    public static SoundManager instance = null;
 
+    // General
+    public AudioClip[] equipWeaponSounds;
+    public AudioClip[] attackWeaponSounds;
+    public AudioClip[] pickUpItemSounds;
+    public AudioClip[] dropItemSounds;
+
+    // Wizard
+    public AudioClip[] wizardSpellProjectileSounds;
+    public AudioClip[] wizardSpawnMinionSounds;
+    public AudioClip[] wizardMinionWhooshSounds;
 
     void Awake()
     {
@@ -27,6 +37,21 @@ public class SoundManager : MonoBehaviour
     {
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    //One shot to play multiple sounds at once
+    public void PlayOneShot(AudioClip clip)
+    {
+        sfxSource.clip = clip;
+        sfxSource.PlayOneShot(clip);
+    }
+
+    // Play a random sound given a list of clips
+    public void PlayRandomOneShot(params AudioClip[] clips)
+    {
+        int randomSound = Random.Range(0, clips.Length);
+        sfxSource.clip = clips[randomSound];
+        sfxSource.PlayOneShot(clips[randomSound]);
     }
 
     //Used to play single sound clips.

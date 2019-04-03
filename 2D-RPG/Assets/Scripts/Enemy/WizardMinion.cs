@@ -29,6 +29,9 @@ public class WizardMinion : Enemy
             Vector2 dir = GameManagerSingleton.instance.player.transform.position - gameObject.transform.position;
             gameObject.GetComponent<Rigidbody2D>().velocity = dir.normalized * speed;
             numbDashes--;
+            // Play random moving sound
+            SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardMinionWhooshSounds);
+
             yield return new WaitForSeconds(delayBetweenDashes);
 
             //GetComponent<Rigidbody2D>().velocity = Vector2.zero;

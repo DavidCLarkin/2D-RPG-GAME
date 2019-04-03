@@ -28,6 +28,9 @@ public class PlayerWeapon : MonoBehaviour, IAiDamageDealer
 
         Damage = equippedWeapon.damage;
 
+        //SoundManager.instance.PlayOneShot(equippedWeapon.equipSounds[Random.Range(0,equippedWeapon.equipSounds.Length)]);
+        SoundManager.instance.PlayRandomOneShot(SoundManager.instance.equipWeaponSounds);
+
         UpdateUI();
 
         foreach(Perk perk in equippedWeapon.perks)

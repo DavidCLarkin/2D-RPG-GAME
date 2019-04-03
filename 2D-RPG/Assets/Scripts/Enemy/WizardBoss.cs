@@ -26,6 +26,8 @@ public class WizardBoss : Enemy
     private int startingXValue = 2;
     private float delayBetweenTileSpawns = 1f;
 
+    private Vector2[] positions;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -33,6 +35,8 @@ public class WizardBoss : Enemy
 
         bossRoom = GameObject.FindGameObjectWithTag("BossRoom");
         canBeKnockedBack = false;
+        positions = new Vector2[4];         
+
     }
 
     // Update is called once per frame
@@ -160,17 +164,16 @@ public class WizardBoss : Enemy
 
     IEnumerator SpawnManyProjectiles(int amount, float delay)
     {
+        positions[0] = (Vector2)gameObject.transform.position + Vector2.up;
+        positions[1] = (Vector2)gameObject.transform.position + Vector2.right;
+        positions[2] = (Vector2)gameObject.transform.position + Vector2.down;
+        positions[3] = (Vector2)gameObject.transform.position + Vector2.left;
+
         for(int i = 0; i < amount; i++)
         {
             yield return new WaitForSeconds(delay);
-            if(i == 0)
-                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.up * 2);
-            if (i == 1)
-                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.down * 2);
-            if (i == 2)
-                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.right * 2);
-            if (i == 3)
-                SpawnProjectile((Vector2)gameObject.transform.position + Vector2.left * 2);
+            SpawnProjectile(positions[Random.Range(0, positions.Length)]);
+            SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardSpellProjectileSounds);
         }
 
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;
@@ -183,6 +186,9 @@ public class WizardBoss : Enemy
         GameObject minionTwo = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[19].transform.position, Quaternion.identity);
         GameObject minionThree = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[268].transform.position, Quaternion.identity);
         GameObject minionFour = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[253].transform.position, Quaternion.identity);
+
+        // Play random minion spawn sound
+        SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardSpawnMinionSounds);
 
         SPAWN_MINION_TIMER = SPAWN_MINION_COOLDOWN;
     }

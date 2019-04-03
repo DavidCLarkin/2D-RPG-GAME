@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using System;
 
 public class Inventory : MonoBehaviour
@@ -12,6 +13,7 @@ public class Inventory : MonoBehaviour
     public int slotSelected = 0;
     private InputComponent input;
     public Slot[] itemSlots;
+    private SoundManager soundManager;
 
 	#region Singleton
 	void Awake()
@@ -42,6 +44,7 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        soundManager = SoundManager.instance;
         input = GetComponent<InputComponent>();
 
         input.OnInventoryMoveLeft += ChangeSlotLeft;
@@ -145,6 +148,9 @@ public class Inventory : MonoBehaviour
                 GameManagerSingleton.instance.player.GetComponent<InteractComponent>().RemoveFocus();
                 //Destroy(item.gameObject);
 
+                // Play random pickup sound
+                soundManager.PlayRandomOneShot(soundManager.pickUpItemSounds);
+
                 return;
             }
         }
@@ -170,6 +176,8 @@ public class Inventory : MonoBehaviour
                     }
 
                     Instantiate(i, gameObject.transform.position, Quaternion.identity);
+                    // Play random drop sound
+                    soundManager.PlayRandomOneShot(soundManager.dropItemSounds);
                 }
             }
         }

@@ -12,7 +12,7 @@ public class WeaponItem : Item
        if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null)
        {
             GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(this);
-        }
+       }
         //Debug.Log("OVERIDDING");
     }
 

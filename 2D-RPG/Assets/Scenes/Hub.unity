@@ -545,6 +545,26 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpawnMinionSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionWhooshSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpellProjectileSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4161215183945496, guid: ede6aadcecd611a4eafe1fa8588f5b08, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.090008326
@@ -577,6 +597,56 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpellProjectileSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 694f4351603e3ed4881ec7b61a6a04ad, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpellProjectileSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b5f5074149426946a616f1ce325c025, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpellProjectileSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc5ca0ab880b2849854fc8a55889b31, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpellProjectileSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ec4349308606c747a961706b17e87fd, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e3186da2f1330ef4baef9acf8566ce1e, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd0fe9c36b83a2e43b41330287ad53b1, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpawnMinionSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e3186da2f1330ef4baef9acf8566ce1e, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardSpawnMinionSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd0fe9c36b83a2e43b41330287ad53b1, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionWhooshSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e0c28a445c35e5149a36be26bbc7898f, type: 3}
+    - target: {fileID: 114802565276031742, guid: ede6aadcecd611a4eafe1fa8588f5b08,
+        type: 2}
+      propertyPath: wizardMinionWhooshSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e76a86a682ba70f47a07287d9599876f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede6aadcecd611a4eafe1fa8588f5b08, type: 2}
   m_IsPrefabAsset: 0
@@ -1584,6 +1654,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114702545403024716, guid: 91261e984c9a6cb47b0d08848a71a6e2,
+        type: 2}
+      propertyPath: equipSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4607677211084578, guid: 91261e984c9a6cb47b0d08848a71a6e2, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.2492023

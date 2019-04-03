@@ -54,7 +54,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -150,7 +150,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -247,3 +247,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 82725597231967926}
   musicSource: {fileID: 82411786689978364}
+  equipWeaponSounds:
+  - {fileID: 8300000, guid: 1ef91bc69feba7f42b401bc83e1d3b19, type: 3}
+  - {fileID: 8300000, guid: 2250f7a48ee743548868056c991b5078, type: 3}
+  - {fileID: 8300000, guid: d8ab4203fe20c8d42a5d1f7a8efa5c31, type: 3}
+  - {fileID: 8300000, guid: 6a7c580d1c95c4f47bde489caccece08, type: 3}
+  attackWeaponSounds:
+  - {fileID: 8300000, guid: f618839644e207646ab5c33b2411a6c8, type: 3}
+  pickUpItemSounds:
+  - {fileID: 8300000, guid: 8ead0b0e187c27549aef52400bd09071, type: 3}
+  - {fileID: 8300000, guid: 172073cf82aebc24298330bb63a90acf, type: 3}
+  - {fileID: 8300000, guid: 7f769d27426973d459a68710bc442f8d, type: 3}
+  - {fileID: 8300000, guid: 801a6b16fa69e534a9bc20d1631406cb, type: 3}
+  - {fileID: 8300000, guid: 575b8b12ddf7e814d848fe856cc91df2, type: 3}
+  dropItemSounds:
+  - {fileID: 8300000, guid: d8b53b85fc0990b408b01fbc47313cbb, type: 3}
+  - {fileID: 8300000, guid: e3e09d6bf9036e8468a4eb2d361b9713, type: 3}
+  - {fileID: 8300000, guid: fa9067a85d20ff649b15ba326c21cba5, type: 3}
+  - {fileID: 8300000, guid: 9e4d851ee58572a41a16fd3b68ac2188, type: 3}
+  - {fileID: 8300000, guid: 5d799583eb81ab54fa99a9de394ffc0a, type: 3}
+  wizardSpellProjectileSounds:
+  - {fileID: 8300000, guid: c19e67890e5d9c34fab4213c6709ebf9, type: 3}
+  - {fileID: 8300000, guid: 3319dd1f9ce97c6488d5503109527959, type: 3}
+  - {fileID: 8300000, guid: 69046ab7abf10534380cbaeca2010d91, type: 3}
+  - {fileID: 8300000, guid: 021c4bc84df80524b942d90a6a9cf990, type: 3}

@@ -118,16 +118,20 @@ public class HealthComponent : MonoBehaviour, IDamageable
     {
         if (obj.tag == "PlayerWeapon")
         {
-            if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon != null)
+            PlayerWeapon pWeapon = GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>();
+            if (pWeapon.equippedWeapon != null)
             {
-                if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon.perks.Length > 0)
+                if (pWeapon.equippedWeapon.perks.Length > 0)
                 {
-                    foreach (Perk perk in GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().equippedWeapon.perks)
+                    foreach (Perk perk in pWeapon.equippedWeapon.perks)
                     {
                         perk.enemyToAffect = gameObject;
                         perk.TriggerPerkAbility();
                     }
                 }
+
+                // Play random sound
+                SoundManager.instance.PlayRandomOneShot(SoundManager.instance.attackWeaponSounds);
             }
         }
     }

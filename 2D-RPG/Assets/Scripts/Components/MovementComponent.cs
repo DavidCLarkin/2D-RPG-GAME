@@ -55,8 +55,8 @@ public class MovementComponent : MonoBehaviour, IMoveable
     void Start()
     {
         stamina = maxStamina;
-        StartCoroutine(Footsteps());
-        StartCoroutine(RegenerateStamina());
+        //StartCoroutine(Footsteps());
+        //StartCoroutine(RegenerateStamina());
     }
 
     // Update is called once per frame
@@ -144,7 +144,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
             if (stamina > maxStamina)
                 stamina = maxStamina;
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
         }
     }
 
