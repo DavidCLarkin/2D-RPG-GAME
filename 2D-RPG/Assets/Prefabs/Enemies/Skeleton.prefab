@@ -501,6 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   player: {fileID: 0}
+  enemyName: 
   ATTACK_COOLDOWN: 1.5
   ATTACK_TIMER: 0
   NumberOfAttacks: 0
@@ -524,6 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 90
   health: 0
+  damageParticle: {fileID: 1580500172503804, guid: 82f5da8c23a98fe47b493ae108cb3cd0,
+    type: 2}
   isAI: 1
   isBoss: 0
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,

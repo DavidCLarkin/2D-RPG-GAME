@@ -3201,6 +3201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   health: 0
+  damageParticle: {fileID: 1937256144497708, guid: ab3ad30011f284b498af63179e9ec88d,
+    type: 2}
   isAI: 1
   isBoss: 1
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
@@ -3274,7 +3276,7 @@ MonoBehaviour:
   SPAWN_PROJECTILE_TIMER: 0
   SPAWN_MINION_COOLDOWN: 9
   SPAWN_MINION_TIMER: 0
-  SPAWN_TILE_COOLDOWN: 10
+  SPAWN_TILE_COOLDOWN: 8
   SPAWN_TILE_TIMER: 0
 --- !u!114 &114443992400430284
 MonoBehaviour:

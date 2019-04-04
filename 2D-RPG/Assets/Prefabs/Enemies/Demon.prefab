@@ -1039,6 +1039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 600
   health: 0
+  damageParticle: {fileID: 1000161224741326, guid: d2363881f6c636b469af698b87ef1302,
+    type: 2}
   isAI: 1
   isBoss: 1
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,

@@ -49,7 +49,7 @@ public class SoundManager : MonoBehaviour
     // Play a random sound given a list of clips
     public void PlayRandomOneShot(params AudioClip[] clips)
     {
-        int randomSound = Random.Range(0, clips.Length);
+        int randomSound = Random.Range(0, clips.Length - 1);
         sfxSource.clip = clips[randomSound];
         sfxSource.PlayOneShot(clips[randomSound]);
     }

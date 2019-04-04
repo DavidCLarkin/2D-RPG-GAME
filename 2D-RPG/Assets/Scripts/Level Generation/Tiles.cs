@@ -5,10 +5,10 @@ using UnityEngine;
 public class Tiles : MonoBehaviour
 {
     public List<Transform> tiles;
+    private GameObject boss;
 
 	void Start ()
     {
-        GameObject.FindGameObjectWithTag("Boss").GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
 
         foreach (Transform child in transform)
         {
@@ -18,9 +18,21 @@ public class Tiles : MonoBehaviour
                     tiles.Add(groundTile);
             }
         }
+
+        boss = GameObject.FindGameObjectWithTag("Boss");
+        boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
     }
 
-	/*
+    private void FixedUpdate()
+    {
+        if (!boss)
+        {
+            boss = GameObject.FindGameObjectWithTag("Boss");
+            boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
+        }
+    }
+
+    /*
 	 * Method to enable the last tile within a Room, which for my design will be the room to exit the dungeon
 	 */
     void EnableRoom()

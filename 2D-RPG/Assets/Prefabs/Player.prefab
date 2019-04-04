@@ -3355,6 +3355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+  damageParticle: {fileID: 1937256144497708, guid: ab3ad30011f284b498af63179e9ec88d,
+    type: 2}
   isAI: 0
   isBoss: 0
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
@@ -3415,11 +3417,13 @@ MonoBehaviour:
   startDodgetime: 0.05
   dodgeTime: 0
   dashCost: 30
+  staminaIncreaseAmount: 7
   step1: {fileID: 8300000, guid: 720d021cb442cf54fb98739c1963a865, type: 3}
   step2: {fileID: 8300000, guid: 817ae5de2de55374e9ed978ee3c13914, type: 3}
   step3: {fileID: 8300000, guid: ffed8fabe538bb64cbc32af4159e0464, type: 3}
   maxStamina: 100
   stamina: 0
+  baseSpeed: 2.5
   speed: 2.5
 --- !u!114 &114281135109530564
 MonoBehaviour:
@@ -3509,6 +3513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customDamage: 20
   weaponInfo: {fileID: 0}
+  equippedWeapon: {fileID: 0}
 --- !u!114 &114907859802262046
 MonoBehaviour:
   m_ObjectHideFlags: 1

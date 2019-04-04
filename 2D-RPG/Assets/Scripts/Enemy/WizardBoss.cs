@@ -148,7 +148,7 @@ public class WizardBoss : Enemy
         for(int i = 0; i < tilesToSpawn.Count; i++)
         {
             GameObject tile = Instantiate(harmfulTile, tilesToSpawn[i].position, Quaternion.identity);
-            if(i % (tilesToSpawn.Count / 3) == 0)
+            if(i % (tilesToSpawn.Count / 3) == 0) // only spawn a third of the tiles at once
                 yield return new WaitForSeconds(delay);
         }
 

@@ -13,6 +13,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
     public float startDodgetime;
     public float dodgeTime;
 	public int dashCost = 30;
+    public int staminaIncreaseAmount;
     private float walkTimer = 0.54f;
 
     public AudioClip step1;
@@ -139,12 +140,12 @@ public class MovementComponent : MonoBehaviour, IMoveable
     {
         while (true)
         {
-            stamina += 5;
+            stamina += staminaIncreaseAmount;
 
             if (stamina > maxStamina)
                 stamina = maxStamina;
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

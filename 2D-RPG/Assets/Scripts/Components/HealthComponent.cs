@@ -10,6 +10,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public int health;
     private float damageDelay = 0.2f;
     private float delayTimer;
+    public GameObject damageParticle;
 
     public int Health
     {
@@ -50,6 +51,11 @@ public class HealthComponent : MonoBehaviour, IDamageable
         if (delayTimer > 0) return;
 
         health -= damageAmount;
+
+        //Spawn particle when damaged
+        if(damageParticle)
+            Instantiate(damageParticle, transform.position, Quaternion.identity);
+
         if (health <= 0)
         {
             health = 0;

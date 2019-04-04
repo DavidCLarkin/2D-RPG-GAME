@@ -212,10 +212,18 @@ public class LevelGeneration : MonoBehaviour
             drawPos.x *= 20;
             drawPos.y *= 20;
 
-            //Spawn boss room at the end
+            // Spawn boss room at the end
             if (room.position == finalRoomPos)
             {
-                Instantiate(bossRooms[Random.Range(0, bossRooms.Length)], drawPos, Quaternion.identity);
+                // Have to be set up in inspector in this order : Up, Right, Down, Left
+                if (room.doorTop)
+                    Instantiate(bossRooms[0], drawPos, Quaternion.identity);
+                else if(room.doorRight)
+                    Instantiate(bossRooms[1], drawPos, Quaternion.identity);
+                else if(room.doorBottom)
+                    Instantiate(bossRooms[2], drawPos, Quaternion.identity);
+                else if(room.doorLeft)
+                    Instantiate(bossRooms[3], drawPos, Quaternion.identity);
                 continue;
             }
 
