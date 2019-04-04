@@ -81,16 +81,16 @@ MonoBehaviour:
   radius: 3
   player: {fileID: 0}
   type: 1
-  itemName: Freyr
-  description: '+20% Health
+  itemName: Tyrfing
+  description: '-10% Stamina
 
-    -20% Stamina'
+    Chance to apply DOT on hit'
   itemID: 5
   icon: {fileID: 21300000, guid: c0c5eb19ce8359249a1b17e48c9f8a23, type: 3}
-  damage: 21
+  damage: 22
   perks:
-  - {fileID: 11400000, guid: c84bdbedd82253e468b5846faf3a3b7d, type: 2}
-  - {fileID: 11400000, guid: 002121b4f083a4b45af92e9a3bcb51dc, type: 2}
+  - {fileID: 11400000, guid: f51c28c1c1553d84ba6d42bec690938b, type: 2}
+  - {fileID: 11400000, guid: a218890addd05164fb719cd9172297b7, type: 2}
 --- !u!212 &212170084751876762
 SpriteRenderer:
   m_ObjectHideFlags: 1

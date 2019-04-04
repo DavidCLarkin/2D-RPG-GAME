@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 114063939438280086}
   - component: {fileID: 50709054487214534}
   - component: {fileID: 61232490941329146}
+  - component: {fileID: 114562466089707608}
+  - component: {fileID: 114424557248948522}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -173,6 +175,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114424557248948522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015869225983704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d0333552bc29642b48414aed875335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commonItems:
+  - {fileID: 1167208984112654, guid: 1031fb8ef707c1144aeacf8cab783613, type: 2}
+  uncommonItems: []
+  rareItems: []
+--- !u!114 &114562466089707608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015869225983704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3847785b2995a408168872dd3b8750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114890145480912526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 0f1a9568ad6fa2f42a2c97ab827015f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
