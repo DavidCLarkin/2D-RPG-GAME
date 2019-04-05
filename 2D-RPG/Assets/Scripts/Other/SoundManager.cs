@@ -12,11 +12,19 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] attackWeaponSounds;
     public AudioClip[] pickUpItemSounds;
     public AudioClip[] dropItemSounds;
+    public AudioClip[] pageSounds;
+
+    // General Enemy
+    public AudioClip spawnTileSound;
 
     // Wizard
     public AudioClip[] wizardSpellProjectileSounds;
     public AudioClip[] wizardSpawnMinionSounds;
     public AudioClip[] wizardMinionWhooshSounds;
+
+    // Demon
+    public AudioClip[] demonProjectileSounds;
+    public AudioClip[] demonFireSounds;
 
     void Awake()
     {
@@ -49,9 +57,24 @@ public class SoundManager : MonoBehaviour
     // Play a random sound given a list of clips
     public void PlayRandomOneShot(params AudioClip[] clips)
     {
-        int randomSound = Random.Range(0, clips.Length - 1);
+        int randomSound = Random.Range(0, clips.Length);
         sfxSource.clip = clips[randomSound];
         sfxSource.PlayOneShot(clips[randomSound]);
+    }
+
+    // Play a random sound given a list of clips at a volume level
+    public void PlayRandomOneShot(float volumeLevel, params AudioClip[] clips)
+    {
+        int randomSound = Random.Range(0, clips.Length);
+        sfxSource.clip = clips[randomSound];
+        sfxSource.PlayOneShot(clips[randomSound], volumeLevel);
+    }
+
+    // Play a random sound at a certain point in the world space
+    public void PlayRandomOneShotAtPoint(float volumeLevel, Vector3 position, params AudioClip[] clips)
+    {
+        int randomSound = Random.Range(0, clips.Length);
+        AudioSource.PlayClipAtPoint(clips[randomSound], position, volumeLevel);
     }
 
     //Used to play single sound clips.

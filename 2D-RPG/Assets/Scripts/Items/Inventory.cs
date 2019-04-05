@@ -92,6 +92,10 @@ public class Inventory : MonoBehaviour
 
             slotSelected++;
             itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(true);
+            if (slots[slotSelected].GetComponent<Slot>().item != null)
+                slots[slotSelected].GetComponent<Slot>().DisplayItemInfo();
+            else
+                slots[slotSelected].GetComponent<Slot>().DisableItemInfo();
         }
     }
 
@@ -107,6 +111,10 @@ public class Inventory : MonoBehaviour
 
             slotSelected--;
             itemSlots[slotSelected].GetComponentInChildren<RectTransform>().GetChild(0).gameObject.SetActive(true);
+            if (slots[slotSelected].GetComponent<Slot>().item != null)
+                slots[slotSelected].GetComponent<Slot>().DisplayItemInfo();
+            else
+                slots[slotSelected].GetComponent<Slot>().DisableItemInfo();
         }
     }
 
@@ -173,6 +181,11 @@ public class Inventory : MonoBehaviour
                             WeaponItem weapon = (WeaponItem)item;
                             GetComponentInChildren<PlayerWeapon>().UnequipWeapon(weapon);
                         }
+                    }
+
+                    if((NoteItem)item != null)
+                    {
+                        GameManagerSingleton.instance.GetComponent<NoteHandler>().isNotePanelOpen = false;
                     }
 
                     Instantiate(i, gameObject.transform.position, Quaternion.identity);

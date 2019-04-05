@@ -166,12 +166,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4038461306481310, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114544339088366648, guid: 72707a9c03136be4eacf27950e7ca9e4,
         type: 2}
       propertyPath: numbOfRooms
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386074917545446, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
@@ -345,7 +349,7 @@ Transform:
   m_Children:
   - {fileID: 1545961303}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429511215
 MonoBehaviour:
@@ -875,7 +879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4161215183945496, guid: ede6aadcecd611a4eafe1fa8588f5b08, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede6aadcecd611a4eafe1fa8588f5b08, type: 2}
@@ -940,7 +944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1182261511
 Prefab:
@@ -979,7 +983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4194080558330446, guid: 14677c28c9ca3704ea9989ac733b5159, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14677c28c9ca3704ea9989ac733b5159, type: 2}
@@ -1167,7 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cd9adb33e8bee479b776d83dbcb4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointName: House Out
+  pointName: Hub Exit
 --- !u!4 &1606109961
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,7 +1183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1624193614
 Prefab:
@@ -1218,7 +1222,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4395224171323930, guid: 41fe990df302bff48aa7756111d22307, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1266819046384484, guid: 41fe990df302bff48aa7756111d22307, type: 2}
       propertyPath: m_Name
@@ -1320,7 +1324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1668505714
 MonoBehaviour:

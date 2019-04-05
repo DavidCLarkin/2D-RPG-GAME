@@ -109,7 +109,6 @@ public class DemonBoss : Enemy
         }
         else if(attackChosen == 0)
         {
-
         }
     }
 
@@ -135,6 +134,8 @@ public class DemonBoss : Enemy
 
         foreach (Transform tile in besideTiles)
             Instantiate(tileObj, tile.position, Quaternion.identity);
+
+        SoundManager.instance.PlayRandomOneShotAtPoint(1, transform.position, SoundManager.instance.spawnTileSound);
 
         SPAWN_TILES_TIMER = SPAWN_TILES_COOLDOWN;
     }
@@ -168,6 +169,9 @@ public class DemonBoss : Enemy
             Vector2 dir = (obj.transform.position - gameObject.transform.position).normalized;
 
             obj.GetComponent<Rigidbody2D>().AddForce(dir * 200);
+            // Play random projectile sound
+            //SoundManager.instance.PlayRandomOneShot(0.4f, SoundManager.instance.demonProjectileSounds);
+            SoundManager.instance.PlayRandomOneShotAtPoint(0.4f, transform.position, SoundManager.instance.demonProjectileSounds);
         }
 
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;

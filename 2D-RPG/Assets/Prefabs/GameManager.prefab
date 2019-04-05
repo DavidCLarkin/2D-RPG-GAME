@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114248734866729180}
   - component: {fileID: 114814399048399520}
   - component: {fileID: 114234715541408684}
+  - component: {fileID: 114837973246373522}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -125,6 +126,23 @@ MonoBehaviour:
   - {fileID: 1533345754708618, guid: ce224856fd3f88e448d83112eb165283, type: 2}
   - {fileID: 1167208984112654, guid: 1031fb8ef707c1144aeacf8cab783613, type: 2}
   - {fileID: 1912730893602138, guid: 8a603ff2bae226c4898147ea68a0aa2d, type: 2}
+  - {fileID: 1614727380509022, guid: d68cfe52c19df8f4e8eb81aa6b808684, type: 2}
+--- !u!114 &114837973246373522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621712113394670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d96abf139d1ec5468cbe44124253384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filesToRead:
+  - {fileID: 4900000, guid: 11679a52cc946314eab099993e53607a, type: 3}
+  - {fileID: 4900000, guid: c4e77cfe509fcc24981ce353d9a2253e, type: 3}
+  notePanel: {fileID: 0}
+  isNotePanelOpen: 0
 --- !u!224 &224622113691729326
 RectTransform:
   m_ObjectHideFlags: 1

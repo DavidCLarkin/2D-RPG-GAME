@@ -150,7 +150,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -266,6 +266,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fa9067a85d20ff649b15ba326c21cba5, type: 3}
   - {fileID: 8300000, guid: 9e4d851ee58572a41a16fd3b68ac2188, type: 3}
   - {fileID: 8300000, guid: 5d799583eb81ab54fa99a9de394ffc0a, type: 3}
+  pageSounds:
+  - {fileID: 8300000, guid: bc6f9019787f60942ad040f556a89c62, type: 3}
+  - {fileID: 8300000, guid: 383f6a92447ffde4a910305a56a417ad, type: 3}
+  spawnTileSound: {fileID: 8300000, guid: 9d481e5a6f46d2646b69fc9b0210d939, type: 3}
   wizardSpellProjectileSounds:
   - {fileID: 8300000, guid: 694f4351603e3ed4881ec7b61a6a04ad, type: 3}
   wizardSpawnMinionSounds:
@@ -274,3 +278,8 @@ MonoBehaviour:
   wizardMinionWhooshSounds:
   - {fileID: 8300000, guid: e0c28a445c35e5149a36be26bbc7898f, type: 3}
   - {fileID: 8300000, guid: e76a86a682ba70f47a07287d9599876f, type: 3}
+  demonProjectileSounds:
+  - {fileID: 8300000, guid: d64f6659213ec53498da258cf46966a6, type: 3}
+  - {fileID: 8300000, guid: 46906b642e20d844f9a8dcd5896a7eba, type: 3}
+  demonFireSounds:
+  - {fileID: 8300000, guid: ccf2d93d0cf7b27418ca35a104c59d28, type: 3}

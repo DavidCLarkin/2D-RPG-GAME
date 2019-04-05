@@ -77,6 +77,10 @@ public class Slot : MonoBehaviour
                 ConsumableItem cons = (ConsumableItem)item;
                 itemInfo.text = itemName + "\n" + description + "\n" + "Amount: " + cons.amount;
             }
+            else if(item.type == TYPE.Note)
+            {
+                itemInfo.text = itemName;
+            }
             itemInfo.gameObject.SetActive(true);
         }
     }

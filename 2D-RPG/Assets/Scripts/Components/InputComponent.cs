@@ -3,6 +3,7 @@ using System;
 
 public class InputComponent : MonoBehaviour
 {
+
     public float Horizontal { get; set; }
     public float Vertical { get; set; }
     public bool Attack { get; set; }
@@ -37,7 +38,7 @@ public class InputComponent : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
-        Attack = Input.GetMouseButtonDown(0) || Input.GetAxis("Trigger") == -1; // Left mouse click or RT on controller to Attack
+        Attack = Input.GetMouseButtonDown(0) || Input.GetButtonDown("X"); // Left mouse click or X on controller to Attack
         Interact = Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Y"); // Press E or Y on controller to Interact
         Dodge = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("B"); // Press Space or B on controller to Dodge
         UseItem = Input.GetButtonDown("A");
@@ -75,7 +76,7 @@ public class InputComponent : MonoBehaviour
             OnAttack();
             OnCallPerk();
         }
-        
+
 
         if(Dodge && !GameManagerSingleton.instance.isPaused)
             OnDodge();

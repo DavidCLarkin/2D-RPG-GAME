@@ -29,6 +29,7 @@ public class PlayerAnimationComponent : MonoBehaviour
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
         anim.SetFloat("Magnitude", movement.magnitude);
+
         if (input.Attack)
             anim.SetBool("Attack", true);
 

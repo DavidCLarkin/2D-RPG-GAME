@@ -3,25 +3,52 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class LoadLevel : MonoBehaviour 
+public class LoadLevel : Interactable
 {
 	public string levelToLoad;
 	public string exitPoint;
+    public string textToDisplay;
 
-	private Player player;
+	private Player playerComponent;
 
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameManagerSingleton.instance.player.GetComponent<Player>();
+        player = GameManagerSingleton.instance.player.transform; 
+        playerComponent = player.GetComponent<Player>();
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+    public override void Update()
+    {
+        float distance = Vector2.Distance(player.position, transform.position);
+
+        if (isFocus && !hasInteracted)
+        {
+            if (distance <= radius)
+            {
+                Interact();
+            }
+        }
+
+    }
+
+    public override void Interact()
+    {
+        if(player.GetComponent<InputComponent>().Interact)
+        {
+            Destroy(gameObject);
+            hasInteracted = true;
+            SceneManager.LoadScene(levelToLoad);
+            playerComponent.startPoint = exitPoint;
+            DisableTooltip();
+        }
+    }
+
+    
+    void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "PlayerColliders") 
-		{
-			SceneManager.LoadScene (levelToLoad);
-			player.startPoint = exitPoint;
-		}
+        GameManagerSingleton.instance.tooltip.text = textToDisplay;
+        EnableTooltip();
 	}
+    
 }

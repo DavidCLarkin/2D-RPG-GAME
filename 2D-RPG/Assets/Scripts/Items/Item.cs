@@ -32,6 +32,7 @@ public abstract class Item : Interactable
         else if(type == TYPE.Note)
         {
             Debug.Log("Reading Note etc");
+            PickUp();
         }
 
 	}

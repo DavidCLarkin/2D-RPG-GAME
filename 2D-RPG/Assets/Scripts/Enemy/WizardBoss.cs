@@ -173,7 +173,8 @@ public class WizardBoss : Enemy
         {
             yield return new WaitForSeconds(delay);
             SpawnProjectile(positions[Random.Range(0, positions.Length)]);
-            SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardSpellProjectileSounds);
+            //SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardSpellProjectileSounds);
+            SoundManager.instance.PlayRandomOneShotAtPoint(1, transform.position, SoundManager.instance.wizardSpellProjectileSounds);
         }
 
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;

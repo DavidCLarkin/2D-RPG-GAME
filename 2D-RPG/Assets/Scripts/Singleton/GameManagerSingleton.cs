@@ -106,6 +106,7 @@ public class GameManagerSingleton : MonoBehaviour
 
     public void OpenControlsPanel()
     {
+        SoundManager.instance.PlayRandomOneShot(SoundManager.instance.pageSounds);
         controlsPanel.SetActive(!controlsPanel.activeSelf);
     }
 
