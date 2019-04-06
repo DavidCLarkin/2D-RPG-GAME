@@ -40,11 +40,10 @@ public class MenuButtonFunctions : MonoBehaviour
 
         PlayerData data = SaveSystem.Load();
 
-        //gameObject.GetComponent<MovementComponent>().maxStamina = data.maxStamina;
-        //gameObject.GetComponent<HealthComponent>().maxHealth = data.maxHealth;
         player.GetComponent<Stats>().HealthStat.StatLevel = data.healthLevel;
         player.GetComponent<Stats>().StaminaStat.StatLevel = data.staminaLevel;
         player.GetComponent<ExperienceComponent>().totalExp = data.totalExp;
+        GameManagerSingleton.instance.GetComponent<NoteHandler>().numberOfNotesFound = data.notesRead;
 
         player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
 

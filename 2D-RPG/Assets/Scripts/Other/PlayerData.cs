@@ -13,6 +13,7 @@ public class PlayerData
     public int healthLevel;
     public int staminaLevel;
     public float volumeLevel;
+    public int notesRead;
 
     public int[] itemIDs;
 
@@ -28,6 +29,7 @@ public class PlayerData
         staminaLevel = player.GetComponent<Stats>().StaminaStat.StatLevel;
         totalExp = player.GetComponent<ExperienceComponent>().totalExp;
         volumeLevel = GameManagerSingleton.instance.GetComponent<MenuButtonFunctions>().volumeSlider.value;
+        notesRead = GameManagerSingleton.instance.GetComponent<NoteHandler>().numberOfNotesFound;
 
         itemIDs = new int[4];
         for(int i = 0; i < itemIDs.Length; i++)

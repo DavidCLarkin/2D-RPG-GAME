@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InitialSceneLoad : MonoBehaviour
+public class InitialScene
+    : MonoBehaviour
 {
 
 	// Use this for initialization

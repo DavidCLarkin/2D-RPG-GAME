@@ -16,13 +16,6 @@ public class HandleButtonEvents : MonoBehaviour
 
     private float selectButtonDelay = 0.25f;
     private float btnDelayTimer;
-
-	// Use this for initialization
-	void Start ()
-    {
-        //eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
-        
-	}
 	
 	// Update is called once per frame
 	void Update ()

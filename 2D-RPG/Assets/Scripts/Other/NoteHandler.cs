@@ -15,6 +15,8 @@ public class NoteHandler : MonoBehaviour
     [HideInInspector]
     private int currentFile = 0;
 
+    public int numberOfNotesFound = 0;
+
     private void Update()
     {
         notePanel.gameObject.SetActive(isNotePanelOpen);
@@ -40,6 +42,10 @@ public class NoteHandler : MonoBehaviour
         currentFile++;
         if (currentFile >= filesToRead.Length - 1)
             currentFile = filesToRead.Length - 1;
+        if (currentFile >= numberOfNotesFound)
+            currentFile = numberOfNotesFound;
+
+        Debug.Log(currentFile);
 
         SetNoteText();
     }

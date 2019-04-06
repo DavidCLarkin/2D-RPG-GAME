@@ -159,6 +159,9 @@ public class Inventory : MonoBehaviour
                 // Play random pickup sound
                 soundManager.PlayRandomOneShot(soundManager.pickUpItemSounds);
 
+                if (item is NoteItem)
+                    GameManagerSingleton.instance.GetComponent<NoteHandler>().numberOfNotesFound++; // increment number of notes
+
                 return;
             }
         }
@@ -183,12 +186,13 @@ public class Inventory : MonoBehaviour
                         }
                     }
 
-                    if((NoteItem)item != null)
+                    if(item is NoteItem)
                     {
                         GameManagerSingleton.instance.GetComponent<NoteHandler>().isNotePanelOpen = false;
                     }
+                    else
+                        Instantiate(i, gameObject.transform.position, Quaternion.identity);
 
-                    Instantiate(i, gameObject.transform.position, Quaternion.identity);
                     // Play random drop sound
                     soundManager.PlayRandomOneShot(soundManager.dropItemSounds);
                 }
