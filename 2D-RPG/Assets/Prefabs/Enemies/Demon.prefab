@@ -1057,6 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d0333552bc29642b48414aed875335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guaranteedDrops:
+  - {fileID: 1614727380509022, guid: d68cfe52c19df8f4e8eb81aa6b808684, type: 2}
   commonItems:
   - {fileID: 1616025297648912, guid: d685502a35dbaec4d84f498daace5ab3, type: 2}
   - {fileID: 1533345754708618, guid: ce224856fd3f88e448d83112eb165283, type: 2}

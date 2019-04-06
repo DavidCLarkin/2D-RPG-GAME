@@ -14,7 +14,7 @@ public class GameManagerSingleton : MonoBehaviour
     public GameObject pausePanel;
     public GameObject controlsPanel;
 
-    [HideInInspector]
+    //[HideInInspector]
     public StatVendor statVendor;
 
     public bool isPaused;
@@ -134,6 +134,8 @@ public class GameManagerSingleton : MonoBehaviour
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         player.GetComponent<Inventory>().PopulateInventory();
+        if(scene.name.Equals("Hub"))
+            statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
         Debug.Log("Level Loaded");
         Debug.Log(scene.name);
         Debug.Log(mode);

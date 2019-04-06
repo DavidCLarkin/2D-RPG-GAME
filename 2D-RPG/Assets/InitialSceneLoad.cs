@@ -11,7 +11,7 @@ public class InitialScene
 	// Use this for initialization
 	void Start ()
     {
-        GameManagerSingleton.instance.statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
+        //GameManagerSingleton.instance.statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
         if (File.Exists(Application.persistentDataPath + "/player.bin"))
             SaveSystem.Load();
         else

@@ -748,6 +748,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1238440076978586, guid: 4e05ce59328f3464390a777404cff2dd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e05ce59328f3464390a777404cff2dd, type: 2}
   m_IsPrefabAsset: 0
@@ -791,6 +795,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4128257301822246, guid: 8b13b383c3d80644295114bcf003ad53,
     type: 2}
   m_PrefabInternal: {fileID: 385205657}
+--- !u!224 &600577071 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224289690275979772, guid: 4e05ce59328f3464390a777404cff2dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 448695155}
 --- !u!1 &680557314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1612625330228356, guid: 4e05ce59328f3464390a777404cff2dd,
@@ -1626,6 +1635,11 @@ Prefab:
       propertyPath: staminaInfo
       value: 
       objectReference: {fileID: 448695158}
+    - target: {fileID: 114837973246373522, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: notePanel
+      value: 
+      objectReference: {fileID: 600577071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f, type: 2}
   m_IsPrefabAsset: 0

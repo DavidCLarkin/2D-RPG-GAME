@@ -20,7 +20,6 @@ public class ManageGhostBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float distance = Vector2.Distance(animator.transform.position, GameManagerSingleton.instance.player.transform.position);
         if (health.health <= 0)
         {
             animator.SetTrigger("Die");

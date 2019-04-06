@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DropTable : MonoBehaviour
 {
+    public List<GameObject> guaranteedDrops;
+
     public List<GameObject> commonItems; // Set a list of items that enemy can drop, and choose randomly
     public List<GameObject> uncommonItems;
     public List<GameObject> rareItems;
@@ -19,7 +21,6 @@ public class DropTable : MonoBehaviour
     void DropItem()
     {
         int randomNumber = Random.Range(0, 100);
-        Debug.Log(randomNumber);
         if (rareItems.Count > 0 && randomNumber <= 20)
         {
             item = rareItems[Random.Range(0, rareItems.Count)].GetComponent<Item>();
@@ -35,5 +36,11 @@ public class DropTable : MonoBehaviour
 
         if(item)
             Instantiate(item, transform.position, Quaternion.identity);
+
+        if(guaranteedDrops.Count > 0)
+        {
+            for(int i = 0; i < guaranteedDrops.Count; i++)
+                Instantiate(guaranteedDrops[i], (Vector2)transform.position + Vector2.right * (i+1), Quaternion.identity);
+        }
     }
 }
