@@ -23,6 +23,15 @@ TextureImporter:
     21300036: controllerButton_18
     21300038: controllerButton_19
     21300040: controllerButton_20
+    21300042: controllerButton_21
+    21300044: controllerButton_22
+    21300046: controllerButton_23
+    21300048: controllerButton_24
+    21300050: controllerButton_25
+    21300052: controllerButton_26
+    21300054: controllerButton_27
+    21300056: controllerButton_28
+    21300058: controllerButton_29
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -119,6 +128,86 @@ TextureImporter:
       name: controllerButton_0
       rect:
         serializedVersion: 2
+        x: 148
+        y: 180
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ef91d5b5fd5694786d380aa2aa06d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 180
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300ab9badd7729c46a34944c60069e43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 180
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d011aba0fe508742be20bbc5ab750fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 180
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e728bf5685f7314c9dfb07830c91c14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_4
+      rect:
+        serializedVersion: 2
         x: 16
         y: 144
         width: 32
@@ -130,13 +219,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97e4f61126690b04f889142c8a42e57c
+      spriteID: 8d53a94f31285bc48af2e1e1b2ec00b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_1
+      name: controllerButton_5
       rect:
         serializedVersion: 2
         x: 66
@@ -150,13 +239,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75cbdbc6ac89a1648b2d491cba057782
+      spriteID: 94e846ac4941a86488e4995d9b66d616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_2
+      name: controllerButton_6
       rect:
         serializedVersion: 2
         x: 82
@@ -170,13 +259,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 516fbbf6d7654f14ca2dc90d4fc1bfe2
+      spriteID: d2910faf395d3614e94d0effe480db89
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_3
+      name: controllerButton_7
       rect:
         serializedVersion: 2
         x: 97
@@ -190,13 +279,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61b8368fb0dcede4289c0576ca7b0b21
+      spriteID: ab2ee6fdd7ed0014b920c511aa52b3a9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_4
+      name: controllerButton_8
       rect:
         serializedVersion: 2
         x: 106
@@ -210,13 +299,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ced0abb500e5b83458c6cee6d8aac02e
+      spriteID: 547fe383d7d17a44f90e5e45e6d96e38
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_5
+      name: controllerButton_9
       rect:
         serializedVersion: 2
         x: 115
@@ -230,13 +319,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d3e27f17fa9d9e4e801436fae0fc855
+      spriteID: 8eaddf8bb9abd2b49b539582937f4e1a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_6
+      name: controllerButton_10
       rect:
         serializedVersion: 2
         x: 124
@@ -250,13 +339,73 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 671a68f76f18eaa4fbad4c324eadd1e6
+      spriteID: a93e9584887686746a94f87e65ec8dd6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_7
+      name: controllerButton_11
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 164
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80aba303854b77c468982752a86b37f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 164
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5520bea06bc68274cbefeba30a3a5716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 163
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3a19d837fe59b48a8b8d159dc2ff3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_14
       rect:
         serializedVersion: 2
         x: 66
@@ -270,13 +419,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4990efe6c4ac264893831c499108588
+      spriteID: b8c29d9cb72983543a15241c58b526ca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_8
+      name: controllerButton_15
       rect:
         serializedVersion: 2
         x: 82
@@ -290,13 +439,53 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60bc5f89817448849a1fb54a87970f53
+      spriteID: 87a7482c2f5328b45baa40f9ffddf31f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_9
+      name: controllerButton_16
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 148
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9295e612274eecd49b6a0d78d352c9e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_17
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 148
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335a6d7117534d04fa0c5e28e39679db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controllerButton_18
       rect:
         serializedVersion: 2
         x: 16
@@ -310,13 +499,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1885cd0c952454aa45a0f913f7ef51
+      spriteID: 2447b0d8c7975964b9961c248ba0029e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_10
+      name: controllerButton_19
       rect:
         serializedVersion: 2
         x: 64
@@ -330,13 +519,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a45598109c2c83c44b35c733f3fab357
+      spriteID: 67f595ee19b55fb4eb1aca2021f69ff7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_11
+      name: controllerButton_20
       rect:
         serializedVersion: 2
         x: 112
@@ -350,13 +539,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72bd92af73ff42241a912bb8b1989339
+      spriteID: 7eb2142360d803c4a846d9fd7d610c01
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_12
+      name: controllerButton_21
       rect:
         serializedVersion: 2
         x: 160
@@ -370,13 +559,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46f7d401f0a5b5e48bd493ab80b839bf
+      spriteID: 99b35d2811d46e240a79e97f1d2fbb7d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_13
+      name: controllerButton_22
       rect:
         serializedVersion: 2
         x: 16
@@ -390,13 +579,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6381602f9cd33534aadaaa22e9b477ac
+      spriteID: ed4cd10e6a5cbcc4589a2ae39bd1fb0d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_14
+      name: controllerButton_23
       rect:
         serializedVersion: 2
         x: 64
@@ -410,13 +599,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91467919aed142147b8d83474f02c4c4
+      spriteID: 14d3d9ba88763df45a132b588f52267b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_15
+      name: controllerButton_24
       rect:
         serializedVersion: 2
         x: 115
@@ -430,13 +619,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 319b10a4c6e403b42aa68ab18bbc33db
+      spriteID: 0d28521a3b4116f4184bf0d6936411d9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_16
+      name: controllerButton_25
       rect:
         serializedVersion: 2
         x: 163
@@ -450,13 +639,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e393ac0e4bc4d94f926f7fc9dd72fe9
+      spriteID: 25e9e6bc1a0ff7b40a681b33a23d97a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_17
+      name: controllerButton_26
       rect:
         serializedVersion: 2
         x: 16
@@ -470,13 +659,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8ebb5f5978504449a214f4ef22ec7f9
+      spriteID: 03fecc9b833f88546b639ee5de90ce61
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_18
+      name: controllerButton_27
       rect:
         serializedVersion: 2
         x: 64
@@ -490,13 +679,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 745a2f804d68efd49bc75ca65a744d65
+      spriteID: bc49b68a5133ac2428057d9bb6eeb73c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_19
+      name: controllerButton_28
       rect:
         serializedVersion: 2
         x: 112
@@ -510,13 +699,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89debf43b297f0d4fb380e8184cd3a03
+      spriteID: 4131de50a10415c4e9cb4905e8e8dc3d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: controllerButton_20
+      name: controllerButton_29
       rect:
         serializedVersion: 2
         x: 160
@@ -530,7 +719,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fbfedf6c8e44e34298d681ff3855dd7
+      spriteID: 362393abafa107c43b8738cd6987e2b1
       vertices: []
       indices: 
       edges: []

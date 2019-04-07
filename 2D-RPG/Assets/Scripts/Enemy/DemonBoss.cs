@@ -176,4 +176,5 @@ public class DemonBoss : Enemy
 
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;
     }
+
 }

@@ -19,23 +19,25 @@ public class Tiles : MonoBehaviour
             }
         }
 
-        boss = GameObject.FindGameObjectWithTag("Boss");
-        boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
+        //boss = GameObject.FindGameObjectWithTag("Boss");
+        //boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
     }
 
     private void FixedUpdate()
     {
-        if (!boss)
+        /*
+        if (boss == null)
         {
             boss = GameObject.FindGameObjectWithTag("Boss");
             boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
         }
+        */
     }
 
     /*
 	 * Method to enable the last tile within a Room, which for my design will be the room to exit the dungeon
 	 */
-    void EnableRoom()
+    public void EnableRoom()
     {
         tiles[tiles.Count - 1].gameObject.SetActive(true);
     }

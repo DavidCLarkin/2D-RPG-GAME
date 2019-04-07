@@ -216,5 +216,4 @@ public abstract class Enemy : Interactable
 	{
 		GameManagerSingleton.instance.player.GetComponent<ExperienceComponent> ().IncreaseExp (Experience);	
 	}
-
 }
