@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This Script courtesy of Sebastian Lague, Video series found here: https://www.youtube.com/watch?v=nhiFx28e7JY 
+ */
 public class Pathfinding : MonoBehaviour
 {
     [HideInInspector]

@@ -16,6 +16,7 @@ public static class SaveSystem
         stream.Close();
     }
 
+    // Used to retrieve player data and assign player's values 
     public static PlayerData Load()
     {
         string path = Application.persistentDataPath + "/player.bin";

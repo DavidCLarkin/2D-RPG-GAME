@@ -6,6 +6,7 @@ using UnityEngine;
 public class InputFunctions : MonoBehaviour
 {
     public string sceneToLoad;
+    public string tutorialScene;
     public AudioClip menuMusic;
 
     private void Start()
@@ -16,7 +17,12 @@ public class InputFunctions : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        PlayerData data = SaveSystem.Load();
+        if (data == null || !data.hasCompletedTutorial)
+            SceneManager.LoadScene(tutorialScene);
+        else if(data.hasCompletedTutorial)
+            SceneManager.LoadScene(sceneToLoad);
+
     }
 
     private void Update()

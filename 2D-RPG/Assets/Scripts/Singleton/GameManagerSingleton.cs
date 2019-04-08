@@ -15,6 +15,9 @@ public class GameManagerSingleton : MonoBehaviour
     public GameObject controlsPanel;
 
     //[HideInInspector]
+    public bool hasCompletedTutorial;
+
+    //[HideInInspector]
     public StatVendor statVendor;
 
     public bool isPaused;

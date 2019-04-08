@@ -4,8 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InitialScene
-    : MonoBehaviour
+public class InitialSceneLoad : MonoBehaviour
 {
 
 	// Use this for initialization
@@ -13,7 +12,11 @@ public class InitialScene
     {
         //GameManagerSingleton.instance.statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
         if (File.Exists(Application.persistentDataPath + "/player.bin"))
-            SaveSystem.Load();
+        {
+            Debug.Log("Loaded file");
+            //SaveSystem.Load();
+            GameManagerSingleton.instance.GetComponent<MenuButtonFunctions>().Load();
+        }
         else
         {
             Debug.Log("Initial Save");
@@ -22,11 +25,11 @@ public class InitialScene
 
         
         // Remove any stray items that appera to be in inventory
-        foreach(Slot s in Inventory.instance.itemSlots)
+        foreach(Slot slot in Inventory.instance.itemSlots)
         {
-            if(s.item == null)
+            if(slot.item == null)
             {
-                s.RemoveItemCompletely();
+                slot.RemoveItemCompletely();
             }
         }
 

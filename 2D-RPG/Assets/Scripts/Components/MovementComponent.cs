@@ -46,7 +46,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
         direction = 1;
         input = GetComponent<InputComponent>();
 		movement = GetComponent<MovementComponent> ();
-		GetComponent<StaminaComponent> ().OnUse += UseStamina;
+		//GetComponent<StaminaComponent> ().OnUse += UseStamina;
         input.OnDodge += Dodge;
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();

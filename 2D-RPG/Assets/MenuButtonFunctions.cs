@@ -11,11 +11,11 @@ public class MenuButtonFunctions : MonoBehaviour
 
     public Slider volumeSlider;
 
-    private GameObject player;
+    //private GameObject player;
 
     private void Start()
     {
-        player = GameManagerSingleton.instance.player;
+        //player = GameManagerSingleton.instance.player;
     }
 
     public void SetVolume(float volume)
@@ -28,7 +28,7 @@ public class MenuButtonFunctions : MonoBehaviour
     public void Save()
     {
         if (SceneManager.GetActiveScene().name == "Hub")
-            SaveSystem.Save(player);
+            SaveSystem.Save(GameManagerSingleton.instance.player);
         else
             Debug.Log("Can only save in Hub");
     }
@@ -40,12 +40,13 @@ public class MenuButtonFunctions : MonoBehaviour
 
         PlayerData data = SaveSystem.Load();
 
-        player.GetComponent<Stats>().HealthStat.StatLevel = data.healthLevel;
-        player.GetComponent<Stats>().StaminaStat.StatLevel = data.staminaLevel;
-        player.GetComponent<ExperienceComponent>().totalExp = data.totalExp;
+        GameManagerSingleton.instance.player.GetComponent<Stats>().HealthStat.StatLevel = data.healthLevel;
+        GameManagerSingleton.instance.player.GetComponent<Stats>().StaminaStat.StatLevel = data.staminaLevel;
+        GameManagerSingleton.instance.player.GetComponent<ExperienceComponent>().totalExp = data.totalExp;
         GameManagerSingleton.instance.GetComponent<NoteHandler>().numberOfNotesFound = data.notesRead;
+        GameManagerSingleton.instance.hasCompletedTutorial = data.hasCompletedTutorial;
 
-        player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        GameManagerSingleton.instance.player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
 
         for (int i = 0; i < data.itemIDs.Length; i++)
         {
@@ -56,7 +57,7 @@ public class MenuButtonFunctions : MonoBehaviour
                     Item dbItem = item.GetComponent<Item>();
                     if (data.itemIDs[i] == (dbItem.itemID))
                     {
-                        Slot s = player.GetComponent<Inventory>().itemSlots[i];
+                        Slot s = GameManagerSingleton.instance.player.GetComponent<Inventory>().itemSlots[i];
                         s.item = dbItem.GetComponent<Item>();
                         s.icon = dbItem.icon;
                         s.isEmpty = false;
@@ -72,10 +73,10 @@ public class MenuButtonFunctions : MonoBehaviour
         SetVolume(data.volumeLevel); // set volume that player chose
         volumeSlider.value = data.volumeLevel;
 
-        player.GetComponent<Stats>().UpdateVariables(false);
+        GameManagerSingleton.instance.player.GetComponent<Stats>().UpdateVariables(false);
         // Make sure player loads with max stats
-        player.GetComponent<HealthComponent>().health = player.GetComponent<HealthComponent>().maxHealth;
-        player.GetComponent<MovementComponent>().stamina = player.GetComponent<StaminaComponent>().maxStamina;
+        GameManagerSingleton.instance.player.GetComponent<HealthComponent>().health = GameManagerSingleton.instance.player.GetComponent<HealthComponent>().maxHealth;
+        GameManagerSingleton.instance.player.GetComponent<MovementComponent>().stamina = GameManagerSingleton.instance.player.GetComponent<MovementComponent>().maxStamina;
 
         // Destroy any objects that are on the ground when loading
         GameObject[] inactiveObjects = GameObject.FindGameObjectsWithTag("Item");
@@ -86,12 +87,12 @@ public class MenuButtonFunctions : MonoBehaviour
         }
 
 
-        foreach (Slot s in player.GetComponent<Inventory>().itemSlots)
+        foreach (Slot slot in GameManagerSingleton.instance.player.GetComponent<Inventory>().itemSlots)
         {
-            if (s.item == null)
+            if (slot.item == null)
             {
                 Debug.Log("Item Slot Empty");
-                s.RemoveItemCompletely();
+                slot.RemoveItemCompletely();
             }
         }
 

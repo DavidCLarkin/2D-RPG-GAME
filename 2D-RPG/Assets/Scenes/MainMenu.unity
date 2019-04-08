@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Hub
+  tutorialScene: Tutorial
   menuMusic: {fileID: 8300000, guid: dd4115a2429b3c44fb8982baf1a33a64, type: 3}
 --- !u!4 &1639939782
 Transform:

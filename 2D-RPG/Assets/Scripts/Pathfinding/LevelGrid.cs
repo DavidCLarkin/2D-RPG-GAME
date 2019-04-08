@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This Script courtesy of Sebastian Lague, Video series found here: https://www.youtube.com/watch?v=nhiFx28e7JY 
+ */
+
 public class LevelGrid : MonoBehaviour
 {
     public LayerMask unwalkableMask;
@@ -75,7 +79,7 @@ public class LevelGrid : MonoBehaviour
 
     public List<Node> path;
     
-    /*
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
@@ -95,7 +99,7 @@ public class LevelGrid : MonoBehaviour
             }
         }
     }
-    */
+    
     
     
     

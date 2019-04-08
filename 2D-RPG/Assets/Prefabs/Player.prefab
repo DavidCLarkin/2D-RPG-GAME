@@ -422,9 +422,7 @@ GameObject:
   - component: {fileID: 114160261082746414}
   - component: {fileID: 114043762561686482}
   - component: {fileID: 114400466678232406}
-  - component: {fileID: 114105536752077910}
   - component: {fileID: 114308860328978886}
-  - component: {fileID: 114281135109530564}
   - component: {fileID: 114284943723754334}
   - component: {fileID: 60927248500000794}
   - component: {fileID: 114163959613214420}
@@ -3362,17 +3360,6 @@ MonoBehaviour:
   damageNotifier: {fileID: 1780666588451988, guid: 4d5df9dfb0ab9154c9cc4ce4a2daefd3,
     type: 2}
   deathTimer: 0
---- !u!114 &114105536752077910
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de064767df6d824880f459c71319d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114160261082746414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3425,19 +3412,6 @@ MonoBehaviour:
   stamina: 0
   baseSpeed: 2.5
   speed: 2.5
---- !u!114 &114281135109530564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1433843073848626}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb886a658127a85439405464cb245b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxStamina: 100
-  stamina: 0
 --- !u!114 &114284943723754334
 MonoBehaviour:
   m_ObjectHideFlags: 1
