@@ -60,17 +60,22 @@ public class GameManagerSingleton : MonoBehaviour
 
     private void Update()
     {
-        HandlePause();
-
-        //Time.timeScale = isPaused ? 0 : 1;
+        if(statVendor != null)
+        {
+            if(statVendor.panelOpen)
+            {
+                player.GetComponent<MovementComponent>().enabled = false;
+                player.GetComponent<PlayerAnimationComponent>().enabled = false;
+            }
+            else if(!statVendor.panelOpen)
+            {
+                player.GetComponent<MovementComponent>().enabled = true;
+                player.GetComponent<PlayerAnimationComponent>().enabled = true;
+            }
+        }
 
     }
     
-    void HandlePause()
-    {
-        //if (statVendor.panelOpen) return;
-
-    }
 
     public void PauseGame()
     {
@@ -93,15 +98,16 @@ public class GameManagerSingleton : MonoBehaviour
     {
         Time.timeScale = 0.5f;
         //player.GetComponent<SpriteRenderer>().enabled = false;
-        player.SetActive(false);
+        player.GetComponent<SpriteRenderer>().enabled = false;
 
         yield return new WaitForSeconds(delay);
+
+        player.GetComponent<SpriteRenderer>().enabled = true;
 
         SceneManager.LoadScene("Hub");
         GetComponent<MenuButtonFunctions>().Load();
 
         Time.timeScale = 1;
-        player.SetActive(true);
 
         //player.GetComponent<SpriteRenderer>().enabled = true;
 

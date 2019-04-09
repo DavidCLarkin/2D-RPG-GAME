@@ -33,15 +33,6 @@ public class PlayerAnimationComponent : MonoBehaviour
         if (input.Attack)
             anim.SetBool("Attack", true);
 
-        if (lastMovementDirection.Equals("Up"))
-            anim.SetInteger("Direction", 1);
-        else if (lastMovementDirection.Equals("Down"))
-            anim.SetInteger("Direction", 3);
-        else if (lastMovementDirection.Equals("Right"))
-            anim.SetInteger("Direction", 4);
-        else if (lastMovementDirection.Equals("Left"))
-            anim.SetInteger("Direction", 2);
-
         if (input.Vertical > 0)
         {
             lastMovementDirection = "Up";
@@ -61,6 +52,15 @@ public class PlayerAnimationComponent : MonoBehaviour
         {
             lastMovementDirection = "Right";
         }
+
+        if (lastMovementDirection.Equals("Up"))
+            anim.SetInteger("Direction", 1);
+        else if (lastMovementDirection.Equals("Down"))
+            anim.SetInteger("Direction", 3);
+        else if (lastMovementDirection.Equals("Right"))
+            anim.SetInteger("Direction", 4);
+        else if (lastMovementDirection.Equals("Left"))
+            anim.SetInteger("Direction", 2);
         
     }
 
@@ -70,33 +70,39 @@ public class PlayerAnimationComponent : MonoBehaviour
         
         Vector2 dir = cam.ScreenToViewportPoint((Input.mousePosition));
         //Debug.Log(dir);
-        //if (dir.y >= 0.65f || lastMovementDirection.Equals("Top"))
-        if(lastMovementDirection.Equals("Up"))
+        if (dir.y >= 0.65f)
+        //if(lastMovementDirection.Equals("Up"))
         {
             //Debug.Log("Top");
-            facingDirection = 1;
+            //facingDirection = 1;
+            lastMovementDirection = "Up";
         }
-        //else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f) || lastMovementDirection.Equals("Left"))
-        else if(lastMovementDirection.Equals("Left"))
+        else if (dir.x <= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
+        //else if(lastMovementDirection.Equals("Left"))
         {
             //Debug.Log("Left");
-            facingDirection = 2;
+            //facingDirection = 2;
+            lastMovementDirection = "Left";
         }
-        //else if (dir.y <= 0.35f || lastMovementDirection.Equals("Down"))
-        else if(lastMovementDirection.Equals("Down"))
+        else if (dir.y <= 0.35f)
+        //else if(lastMovementDirection.Equals("Down"))
         {
             //Debug.Log("Down");
-            facingDirection = 3;
+            //facingDirection = 3;
+            lastMovementDirection = "Down";
+
         }
-        //else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f) || lastMovementDirection.Equals("Right"))
-        else if(lastMovementDirection.Equals("Right"))
+        else if (dir.x >= 0.5f && (dir.y > 0.35f && dir.y < 0.65f))
+        //else if(lastMovementDirection.Equals("Right"))
         {
             //Debug.Log("Right");
-            facingDirection = 4;
+            //facingDirection = 4;
+            lastMovementDirection = "Right";
         }
         //Debug.Log(dir);
         
     }
     */
+    
     
 }

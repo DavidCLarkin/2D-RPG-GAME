@@ -25,7 +25,7 @@ public class HandleButtonEvents : MonoBehaviour
 
         if (btnDelayTimer <= 0)
         {
-            if (Input.GetAxisRaw("Joystick Y") > 0)
+            if (Input.GetAxisRaw("Vertical") < 0)
             {
                 if (upgradeBtnIndex != upgradeButtonList.Length - 1)
                     upgradeBtnIndex++;
@@ -33,7 +33,7 @@ public class HandleButtonEvents : MonoBehaviour
                     upgradeBtnIndex = 0;
                 btnDelayTimer = selectButtonDelay;
             }
-            else if (Input.GetAxisRaw("Joystick Y") < 0)
+            else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 if (upgradeBtnIndex != 0)
                     upgradeBtnIndex--;
@@ -42,7 +42,7 @@ public class HandleButtonEvents : MonoBehaviour
                 btnDelayTimer = selectButtonDelay;
             }
 
-            if (Input.GetAxisRaw("Joystick Y") > 0)
+            if (Input.GetAxisRaw("Vertical") < 0)
             {
                 if (pauseBtnIndex != pauseButtonList.Length - 1)
                     pauseBtnIndex++;
@@ -50,7 +50,7 @@ public class HandleButtonEvents : MonoBehaviour
                     pauseBtnIndex = 0;
                 btnDelayTimer = selectButtonDelay;
             }
-            else if (Input.GetAxisRaw("Joystick Y") < 0)
+            else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 if (pauseBtnIndex != 0)
                     pauseBtnIndex--;
@@ -84,4 +84,14 @@ public class HandleButtonEvents : MonoBehaviour
         }
 
 	}
+
+    public void OnButtonSelected(Button button)
+    {
+        button.GetComponentInChildren<Text>().color = Color.white;
+    }
+
+    public void OnButtonDeselect(Button button)
+    {
+        button.GetComponentInChildren<Text>().color = Color.black;
+    }
 }
