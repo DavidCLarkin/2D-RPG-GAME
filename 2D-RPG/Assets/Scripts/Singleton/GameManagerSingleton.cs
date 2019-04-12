@@ -25,6 +25,8 @@ public class GameManagerSingleton : MonoBehaviour
     private InputComponent input;
 
     [HideInInspector]
+    public string playerWeaponColliderTag = "PlayerWeapon";
+    [HideInInspector]
     public string playerColliderTag = "PlayerColliders"; // for collision 
     [HideInInspector]
     public string playerTag = "Player"; // for parent object

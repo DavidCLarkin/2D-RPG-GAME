@@ -105,6 +105,7 @@ MonoBehaviour:
   hasCompletedTutorial: 0
   statVendor: {fileID: 0}
   isPaused: 0
+  playerWeaponColliderTag: PlayerWeapon
   playerColliderTag: PlayerColliders
   playerTag: Player
   bossMinionTag: BossMinion
@@ -130,6 +131,7 @@ MonoBehaviour:
   - {fileID: 1912730893602138, guid: 8a603ff2bae226c4898147ea68a0aa2d, type: 2}
   - {fileID: 1614727380509022, guid: d68cfe52c19df8f4e8eb81aa6b808684, type: 2}
   - {fileID: 1687517984430382, guid: b22e4993785358342aac5fe0ec06aff4, type: 2}
+  - {fileID: 1554719554793784, guid: 6be8df7ac4eb36b4a89d8d43e6e74d20, type: 2}
 --- !u!114 &114837973246373522
 MonoBehaviour:
   m_ObjectHideFlags: 1

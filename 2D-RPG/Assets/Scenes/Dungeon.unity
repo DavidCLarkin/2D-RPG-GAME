@@ -461,6 +461,15 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114118612320408200, guid: 4e05ce59328f3464390a777404cff2dd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073485738315322, guid: 4e05ce59328f3464390a777404cff2dd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e05ce59328f3464390a777404cff2dd, type: 2}
   m_IsPrefabAsset: 0
@@ -517,6 +526,10 @@ Prefab:
         type: 2}
       propertyPath: clumpiness
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386074917545446, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
@@ -585,9 +598,9 @@ Prefab:
       objectReference: {fileID: 680557314}
     - target: {fileID: 114284943723754334, guid: 8b13b383c3d80644295114bcf003ad53,
         type: 2}
-      propertyPath: expBar
+      propertyPath: expText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1052480854}
     - target: {fileID: 114560733381892178, guid: 8b13b383c3d80644295114bcf003ad53,
         type: 2}
       propertyPath: weaponInfo
@@ -628,11 +641,6 @@ Prefab:
       propertyPath: staminaUpgradeCost
       value: 
       objectReference: {fileID: 779527403}
-    - target: {fileID: 114284943723754334, guid: 8b13b383c3d80644295114bcf003ad53,
-        type: 2}
-      propertyPath: expText
-      value: 
-      objectReference: {fileID: 1052480854}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b13b383c3d80644295114bcf003ad53, type: 2}
   m_IsPrefabAsset: 0
