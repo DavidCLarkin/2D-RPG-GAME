@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
-using System;
+using TMPro;
 
 public class GameManagerSingleton : MonoBehaviour 
 {
@@ -13,6 +13,7 @@ public class GameManagerSingleton : MonoBehaviour
 	public GameObject player;
     public GameObject pausePanel;
     public GameObject controlsPanel;
+    public GameObject deathText;
 
     //[HideInInspector]
     public bool hasCompletedTutorial;
@@ -99,9 +100,12 @@ public class GameManagerSingleton : MonoBehaviour
         Time.timeScale = 0.5f;
         //player.GetComponent<SpriteRenderer>().enabled = false;
         player.GetComponent<SpriteRenderer>().enabled = false;
+        deathText.SetActive(true);
+
 
         yield return new WaitForSeconds(delay);
 
+        deathText.SetActive(false);
         player.GetComponent<SpriteRenderer>().enabled = true;
 
         SceneManager.LoadScene("Hub");
@@ -143,10 +147,8 @@ public class GameManagerSingleton : MonoBehaviour
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         player.GetComponent<Inventory>().PopulateInventory();
+
         if(scene.name.Equals("Hub"))
             statVendor = GameObject.Find("Stat Vendor NPC").GetComponent<StatVendor>();
-        Debug.Log("Level Loaded");
-        Debug.Log(scene.name);
-        Debug.Log(mode);
     }
 }

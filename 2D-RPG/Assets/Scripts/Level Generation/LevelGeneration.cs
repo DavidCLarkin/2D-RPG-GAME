@@ -8,11 +8,16 @@ public class LevelGeneration : MonoBehaviour
     public int numbOfRooms = 30;
     public Vector2 finalRoomPos; // keep final room as it's going to be the boss room spawn location
 
+    [Range(1,3)]
+    public int roomDensityAllowance = 2; // essentially a higher value makes the dungeon appear more gridlike - 1/2 is ideal.
+
     Room[,] rooms;
     List<Vector2> takenPositions = new List<Vector2>();
     int gridSizeX, gridSizeY;
 
+    // all rooms
     public GameObject roomR, roomL, roomU, roomD, roomDL, roomDR, roomDLR, roomLR, roomUD, roomUDL, roomUDLR, roomUDR, roomUL, roomULR, roomUR;
+    // array of boss rooms to choose from
     public GameObject[] bossRooms;
 
 	// Use this for initialization
@@ -26,32 +31,30 @@ public class LevelGeneration : MonoBehaviour
         gridSizeX = Mathf.RoundToInt(mapSize.x);
         gridSizeY = Mathf.RoundToInt(mapSize.y);
 
-        CreateRooms();
-        SetRoomDoors();
-        InstantiateRooms();
+        CreateRooms(); // The main function to set the positions of each room in the dungeon
+        SetRoomDoors(); // Decide which room has what kind of doors depending on neighbouring rooms 
+        InstantiateRooms(); // Spawn the rooms and boos room at the end
 	}
 
+    /*
+     * Set up the initial room position at (0,0), choose room positions for each room,
+     * insert each room into the takenPositions list. 
+     */ 
     void CreateRooms()
     {
         rooms = new Room[gridSizeX * 2, gridSizeY * 2];
-        rooms[gridSizeX, gridSizeY] = new Room(new Vector2(0,0), 1); // first room set to center
+        rooms[gridSizeX, gridSizeY] = new Room(new Vector2(0,0)); // first room set to center
         takenPositions.Insert(0, new Vector2(0,0)); //insert a taken position to list
         Vector2 checkPos = new Vector2(0,0);
-
-        //magic numb
-        float randomCompare = 0.2f, randomCompareStart = 0.2f, randomCompareEnd = 0.01f;
 
         //add rooms
         for (int i = 0; i < numbOfRooms - 1; i++)
         {
-            float randomPerc = ((float)i) / (((float)numbOfRooms - 1));
-            randomCompare = Mathf.Lerp(randomCompareStart, randomCompareEnd, randomPerc);
-
             //grab new pos
             checkPos = NewPosition();
 
             //test new pos
-            if(NumberOfNeighbours(checkPos, takenPositions) > 1 && Random.value > randomCompare)
+            if(NumberOfNeighbours(checkPos, takenPositions) > roomDensityAllowance)
             {
                 int iterations = 0;
                 do
@@ -59,11 +62,11 @@ public class LevelGeneration : MonoBehaviour
                     checkPos = SelectiveNewPosition();
                     iterations++;
                 }
-                while (NumberOfNeighbours(checkPos, takenPositions) > 1 && iterations < 100);
+                while (NumberOfNeighbours(checkPos, takenPositions) > roomDensityAllowance && iterations < 100);
             }
 
             //finalise pos
-            rooms[(int)checkPos.x + gridSizeX, (int)checkPos.y + gridSizeY] = new Room(checkPos, 0);
+            rooms[(int)checkPos.x + gridSizeX, (int)checkPos.y + gridSizeY] = new Room(checkPos);
             takenPositions.Insert(0, checkPos);
 
             if (i == numbOfRooms - 2)
@@ -73,17 +76,24 @@ public class LevelGeneration : MonoBehaviour
 
     }
 
+    /*
+     * Method to retrieve the next position to add a room
+     */ 
     Vector2 NewPosition()
     {
         int x = 0, y = 0;
         Vector2 checkingPos = new Vector2(0,0);
 
+        // Attempt to made a new position at a position that isn't already in takenPositions list
         do
         {
-            int index = Random.Range(0, takenPositions.Count - 1);
+            int index = Random.Range(0, takenPositions.Count - 1); // choose random taken position
+
+            // Retrieve x and y from chosen room
             x = (int)takenPositions[index].x;
             y = (int)takenPositions[index].y;
 
+            // 50% random values - essentially checking random direction to add a room
             bool UpOrDown = (Random.value < 0.5f);
             bool positive = (Random.value < 0.5f);
 
@@ -103,9 +113,14 @@ public class LevelGeneration : MonoBehaviour
             }
             checkingPos = new Vector2(x, y);
         } while (takenPositions.Contains(checkingPos) || x >= gridSizeX || x < -gridSizeX || y >= gridSizeY || y < -gridSizeY);
+
         return checkingPos;
     }
 
+    /*
+     * Method similar to NewPosition but instead of choosing random room in takenPositions,
+     * I choose a room with less than roomDensityAllowance neighbouring rooms, to be more selective
+     */ 
     Vector2 SelectiveNewPosition()
     {
         int index = 0, inc = 0;
@@ -115,7 +130,8 @@ public class LevelGeneration : MonoBehaviour
         while (takenPositions.Contains(checkingPos) || x >= gridSizeX || x < -gridSizeX || y >= gridSizeY || y < -gridSizeY)
         {
             inc = 0;
-            while(NumberOfNeighbours(takenPositions[index], takenPositions) > 1 && inc < 100)
+            // Keep choosing rooms until a room is not beside 3 or more neighbours
+            while(NumberOfNeighbours(takenPositions[index], takenPositions) > roomDensityAllowance && inc < 100)
             {
                 index = Random.Range(0, takenPositions.Count - 1);
                 inc++;
@@ -126,6 +142,7 @@ public class LevelGeneration : MonoBehaviour
 
             bool UpOrDown = (Random.value < 0.5f);
             bool positive = (Random.value < 0.5f);
+
             if (UpOrDown)
             {
                 if (positive)
@@ -140,6 +157,7 @@ public class LevelGeneration : MonoBehaviour
                 else
                     x -= 1;
             }
+
             checkingPos = new Vector2(x, y);
         }
 
@@ -147,16 +165,16 @@ public class LevelGeneration : MonoBehaviour
     }
 
     // Helper to get the number of rooms beside a position, checking up, down, left and right of the room
-    int NumberOfNeighbours(Vector2 checkingPos, List<Vector2> usedPositions)
+    int NumberOfNeighbours(Vector2 roomPos, List<Vector2> usedPositions)
     {
         int numbOfNeighbours = 0;
-        if (usedPositions.Contains(checkingPos + Vector2.right))
+        if (usedPositions.Contains(roomPos + Vector2.right))
             numbOfNeighbours++;
-        if (usedPositions.Contains(checkingPos + Vector2.left))
+        if (usedPositions.Contains(roomPos + Vector2.left))
             numbOfNeighbours++;
-        if (usedPositions.Contains(checkingPos + Vector2.up))
+        if (usedPositions.Contains(roomPos + Vector2.up))
             numbOfNeighbours++;
-        if (usedPositions.Contains(checkingPos + Vector2.down))
+        if (usedPositions.Contains(roomPos + Vector2.down))
             numbOfNeighbours++;
 
         return numbOfNeighbours;
@@ -168,38 +186,39 @@ public class LevelGeneration : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY * 2; y++)
             {
-                if (rooms[x, y] == null)
+                if (rooms[x, y] == null) // if room position not taken
                     continue;
 
                 //Check above
                 if (y - 1 < 0)
                     rooms[x, y].doorBottom = false;
                 else
-                    rooms[x, y].doorBottom = (rooms[x, y - 1] != null); // if theres a room below, then it's true, else false. Same for all below
+                    rooms[x, y].doorBottom = (rooms[x, y - 1] != null); // if theres a room below, then has door at bottom
 
                 //Check below
                 if (y + 1 >= gridSizeY * 2)
                     rooms[x, y].doorTop = false;
                 else
-                    rooms[x, y].doorTop = (rooms[x, y + 1] != null);
+                    rooms[x, y].doorTop = (rooms[x, y + 1] != null); // if theres a room above, then has door at top
 
                 //check left
                 if (x - 1 < 0)
                     rooms[x, y].doorLeft = false;
                 else
-                    rooms[x, y].doorLeft = (rooms[x - 1, y] != null);
+                    rooms[x, y].doorLeft = (rooms[x - 1, y] != null); // if theres a room to the left, then has door to the left
 
                 //check right
                 if (x + 1 >= gridSizeX * 2)
                     rooms[x, y].doorRight = false;
                 else
-                    rooms[x, y].doorRight = (rooms[x + 1, y] != null);
+                    rooms[x, y].doorRight = (rooms[x + 1, y] != null); // if theres a room to the right, then has door to the right
             }
         }
     }
 
     /*
-     * Method to finally Instantiate each room at their positions, with a little math to place them properly
+     * Method to finally Instantiate each room at their positions with an offset
+     * so they instantiate correctly
      */ 
     void InstantiateRooms()
     {
@@ -209,8 +228,8 @@ public class LevelGeneration : MonoBehaviour
                 continue;
 
             Vector2 drawPos = room.position;
-            drawPos.x *= 20;
-            drawPos.y *= 20;
+            drawPos.x *= Mathf.RoundToInt(20);
+            drawPos.y *= Mathf.RoundToInt(20);
 
             // Spawn boss room at the end
             if (room.position == finalRoomPos)

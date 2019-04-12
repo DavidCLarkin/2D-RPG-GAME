@@ -101,6 +101,8 @@ MonoBehaviour:
   player: {fileID: 0}
   pausePanel: {fileID: 0}
   controlsPanel: {fileID: 0}
+  deathText: {fileID: 0}
+  hasCompletedTutorial: 0
   statVendor: {fileID: 0}
   isPaused: 0
   playerColliderTag: PlayerColliders

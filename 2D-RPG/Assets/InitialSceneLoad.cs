@@ -15,7 +15,7 @@ public class InitialSceneLoad : MonoBehaviour
         {
             Debug.Log("Loaded file");
             //SaveSystem.Load();
-            GameManagerSingleton.instance.GetComponent<MenuButtonFunctions>().Load();
+            //GameManagerSingleton.instance.GetComponent<MenuButtonFunctions>().Load();
         }
         else
         {
