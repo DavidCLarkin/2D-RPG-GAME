@@ -269,6 +269,10 @@ MonoBehaviour:
   pageSounds:
   - {fileID: 8300000, guid: bc6f9019787f60942ad040f556a89c62, type: 3}
   - {fileID: 8300000, guid: 383f6a92447ffde4a910305a56a417ad, type: 3}
+  potBreakSounds:
+  - {fileID: 8300000, guid: 6fc75d44366b29f45aba117c1f82408b, type: 3}
+  - {fileID: 8300000, guid: 2cdebc0493494a540b6a1bc6387666d5, type: 3}
+  - {fileID: 8300000, guid: 13f9d727bddd83446a33ef721a698de1, type: 3}
   spawnTileSound: {fileID: 8300000, guid: 9d481e5a6f46d2646b69fc9b0210d939, type: 3}
   wizardSpellProjectileSounds:
   - {fileID: 8300000, guid: 694f4351603e3ed4881ec7b61a6a04ad, type: 3}

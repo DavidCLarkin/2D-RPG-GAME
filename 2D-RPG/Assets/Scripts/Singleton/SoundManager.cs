@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] pickUpItemSounds;
     public AudioClip[] dropItemSounds;
     public AudioClip[] pageSounds;
+    public AudioClip[] potBreakSounds;
 
     // General Enemy
     public AudioClip spawnTileSound;

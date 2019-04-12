@@ -20,6 +20,7 @@ public class DestructibleItem : MonoBehaviour
         if(collision.tag == GameManagerSingleton.instance.playerWeaponColliderTag)
         {
             anim.SetBool("Break", true);
+            SoundManager.instance.PlayRandomOneShotAtPoint(Random.Range(0.6f,0.8f), transform.position, SoundManager.instance.potBreakSounds);
         }
     }
 

@@ -74,6 +74,7 @@ public class GameManagerSingleton : MonoBehaviour
             {
                 player.GetComponent<MovementComponent>().enabled = true;
                 player.GetComponent<PlayerAnimationComponent>().enabled = true;
+
             }
         }
 

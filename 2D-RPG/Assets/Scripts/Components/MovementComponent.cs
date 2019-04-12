@@ -56,6 +56,8 @@ public class MovementComponent : MonoBehaviour, IMoveable
     void Start()
     {
         stamina = maxStamina;
+        StartCoroutine(Footsteps());
+        StartCoroutine(RegenerateStamina());
         //StartCoroutine(Footsteps());
         //StartCoroutine(RegenerateStamina());
     }
@@ -130,12 +132,6 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
-    void OnEnable()
-    {
-        StartCoroutine(RegenerateStamina());
-        StartCoroutine(Footsteps());
-    }
-
     void OnDisable()
     {
         StopCoroutine(RegenerateStamina());
@@ -155,7 +151,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
-    IEnumerator Footsteps()
+    public IEnumerator Footsteps()
     {
         while (true)
         {
