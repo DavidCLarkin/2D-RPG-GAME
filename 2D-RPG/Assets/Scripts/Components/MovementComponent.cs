@@ -9,6 +9,13 @@ public class MovementComponent : MonoBehaviour, IMoveable
     private Rigidbody2D rb;
     private Player player;
 
+    // Particles
+    public GameObject dashDownParticles;
+    public GameObject dashUpParticles;
+    public GameObject dashRightParticles;
+    public GameObject dashLeftParticles;
+
+
     public float dodgeSpeed;
     public float startDodgetime;
     public float dodgeTime;
@@ -112,24 +119,51 @@ public class MovementComponent : MonoBehaviour, IMoveable
                 {
                     rb.AddForce(Vector2.up * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
+                    SpawnDashParticles(direction);
+                    
                 }
                 else if (direction == 2)
                 {
                     rb.AddForce(Vector2.left * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
+                    SpawnDashParticles(direction);
                 }
                 else if (direction == 3)
                 {
                     rb.AddForce(Vector2.down * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
+                    SpawnDashParticles(direction);
                 }
                 else if (direction == 4)
                 {
                     rb.AddForce(Vector2.right * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
+                    SpawnDashParticles(direction);
                 }
             }
         }
+    }
+
+    GameObject SpawnDashParticles(int dir)
+    {
+        GameObject dashParticles = null;
+        switch (dir)
+        {
+            case 1:
+                dashParticles = dashUpParticles;
+                break;
+            case 2:
+                dashParticles = dashLeftParticles;
+                break;
+            case 3:
+                dashParticles = dashDownParticles;
+                break;
+            case 4:
+                dashParticles = dashRightParticles;
+                break;
+        }
+
+        return Instantiate(dashParticles, transform.position, Quaternion.identity);
     }
 
     void OnDisable()

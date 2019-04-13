@@ -1026,7 +1026,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433843073848626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.34, y: 0.83, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4230419512173258}
@@ -3400,6 +3400,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1120046990c62841851ed199360d834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashDownParticles: {fileID: 1141418654154968, guid: ebd660ac6519d484b958ca9b11a26510,
+    type: 2}
+  dashUpParticles: {fileID: 1989319040027014, guid: c0880e652cf857b47a5d7770136fd108,
+    type: 2}
+  dashRightParticles: {fileID: 1824472720308704, guid: 3a4f8331dc7b7de4fb248bab87ce99fe,
+    type: 2}
+  dashLeftParticles: {fileID: 1688185318481116, guid: cfdcd995bf438d845b3243808a9a35e5,
+    type: 2}
   dodgeSpeed: 3500
   startDodgetime: 0.05
   dodgeTime: 0
