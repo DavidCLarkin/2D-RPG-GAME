@@ -35,6 +35,8 @@ public abstract class Enemy : Interactable
 	protected float distance;
 	public int attackChosen;
 
+    private bool isSlowed = false;
+
     [HideInInspector]
 	public enum State { Moving, Attacking, Idle };
     [HideInInspector]
@@ -216,4 +218,23 @@ public abstract class Enemy : Interactable
 	{
 		GameManagerSingleton.instance.player.GetComponent<ExperienceComponent> ().IncreaseExp (Experience);	
 	}
+
+    // Slow the speed of the enemy, used for perk
+    public IEnumerator SlowSpeed(float lengthOfSlow)
+    {
+        if (isSlowed) yield break;
+
+        isSlowed = true;
+
+        float initialSpeed = speed;
+        speed *= 0.5f;
+        Color baseColor = GetComponent<SpriteRenderer>().color;
+        GetComponent<SpriteRenderer>().color = new Color(82/255.0f, 145/255.0f, 196/255.0f, 255/255.0f); // light blue
+
+        yield return new WaitForSeconds(lengthOfSlow);
+
+        speed = initialSpeed;
+        GetComponent<SpriteRenderer>().color = Color.white;
+        isSlowed = false;
+    }
 }
