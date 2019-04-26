@@ -71,6 +71,9 @@ public class Ghost : Enemy
 
     }
 
+    /*
+     * Method to attack (which is calling the SpawnMinion Method to attack for the Ghost)
+     */ 
     public override void Attack(int attackChosen)
     {
         distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
@@ -83,6 +86,9 @@ public class Ghost : Enemy
 
     }
 
+    /*
+     * Spawn a Wisp at a position
+     */ 
     private void SpawnMinion(Vector2 position)
     {
         Instantiate(minion, position, Quaternion.identity);

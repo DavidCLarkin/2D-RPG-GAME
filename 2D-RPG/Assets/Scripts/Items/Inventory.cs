@@ -59,6 +59,9 @@ public class Inventory : MonoBehaviour
 
     }
 
+    /*
+     * Used when loading to populate the inventory based on what the player should have/had before loading
+     */ 
     public void PopulateInventory()
     {
         foreach (Slot s in itemSlots)
@@ -109,20 +112,24 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /*
+     * Helper to use an item for controller
+     */ 
     void UseItemSelected()
     {
         if (!itemSlots[slotSelected].isEmpty)
             itemSlots[slotSelected].UseItem();
     }
 
+    /*
+     * Helper for controller to drop an item
+     */ 
     void DropItemSelected()
     {
-        //Debug.Log("Drop");
         if(Time.timeScale != 0)
         {
             if (!itemSlots[slotSelected].isEmpty)
             {
-                //Remove(itemSlots[slotSelected].item);
                 itemSlots[slotSelected].RemoveItem();
             }
         }
@@ -130,6 +137,8 @@ public class Inventory : MonoBehaviour
 
     /*
      * Add an item to the player's inventory
+     * Set the Slot variables to the item's variables and play a random sound.
+     * Increment the numberOfNotesFound variables from NoteHandler if item is a Note
      */
     public void Add(Item item)
 	{
@@ -157,7 +166,12 @@ public class Inventory : MonoBehaviour
         }
 	}
 
-	//public void Remove(Item item)
+    /*
+     * Remove an item from the inventory by checking if the item's ID equals an item's ID in the database.
+     * If the item is a weapon, then unequip it.
+     * If the item is a note, destroy it, else if it's not, drop it on the ground.
+     * Also, player a random sound
+     */ 
     public void Remove(Item item)
 	{
         if (item != null)

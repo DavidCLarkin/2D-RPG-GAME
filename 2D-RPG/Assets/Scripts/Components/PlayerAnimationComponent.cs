@@ -13,13 +13,15 @@ public class PlayerAnimationComponent : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        GetComponent<MovementComponent>().AnimateMovement += Animate;
-        input = GetComponent<InputComponent>();
-        //input.OnAttack += MouseDirectionAttack;
+        GetComponent<MovementComponent>().AnimateMovement += Animate; // subscribe to MovementComponents AnimateMovement delegate
+        input = GetComponent<InputComponent>(); // used to get input from the player, and not taking input in this class
         anim = GetComponent<Animator>();
         lastMovementDirection = "Down";
     }
 
+    /*
+     * Method that controls the AnimationController of the player.
+     */ 
     void Animate()
     {
         if (input == null || anim == null || GameManagerSingleton.instance.isPaused) return;

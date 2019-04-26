@@ -19,6 +19,9 @@ public class Slot : MonoBehaviour
         UpdateSlot();
     }
 
+    /*
+     * Show the icon of the item in the inventory slot
+     */ 
     public void UpdateSlot()
     {
         if (!isEmpty)
@@ -27,6 +30,9 @@ public class Slot : MonoBehaviour
             gameObject.GetComponent<Image>().sprite = emptyImage;
     }
 
+    /*
+     * Use the item via it's overridden use method
+     */ 
     public void UseItem()
     {
         if (item != null)
@@ -63,6 +69,9 @@ public class Slot : MonoBehaviour
         itemID = 0;
     }
 
+    /*
+     * Show description of the item when hovered over with mouse or selected with controller
+     */ 
     public void DisplayItemInfo()
     {
         if (item)

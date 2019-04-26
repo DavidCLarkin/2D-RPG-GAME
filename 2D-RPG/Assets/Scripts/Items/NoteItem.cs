@@ -9,13 +9,14 @@ public class NoteItem : Item
 
     private void Start()
     {
-        //noteHandler = GameManagerSingleton.instance.GetComponent<NoteHandler>();
         player = GameManagerSingleton.instance.player.transform;
     }
 
+    /*
+     * Use a note to show the page on screen so the player can read. Also play a random sound
+     */ 
     public override void Use()
     {
-        //Debug.Log(noteHandler == null);
         if (GameManagerSingleton.instance.GetComponent<NoteHandler>().isNotePanelOpen == false)
         {
             GameManagerSingleton.instance.GetComponent<NoteHandler>().ReadCurrentFile();

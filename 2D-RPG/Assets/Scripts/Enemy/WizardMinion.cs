@@ -22,6 +22,9 @@ public class WizardMinion : Enemy
             DASH_TIME_TIMER -= Time.deltaTime;
 	}
 
+    /*
+     * Enumerator to dash to the player every few seconds (denoted by delayBetweenDashes argument)
+     */
     IEnumerator DashToPlayer(float delayBetweenDashes)
     {
         while (numbDashes > 0)
@@ -30,12 +33,10 @@ public class WizardMinion : Enemy
             gameObject.GetComponent<Rigidbody2D>().velocity = dir.normalized * speed;
             numbDashes--;
             // Play random moving sound
-            //SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardMinionWhooshSounds);
             SoundManager.instance.PlayRandomOneShotAtPoint(1, transform.position, SoundManager.instance.wizardMinionWhooshSounds);
 
             yield return new WaitForSeconds(delayBetweenDashes);
 
-            //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             if(numbDashes <= 0)
                 Destroy(gameObject);
 

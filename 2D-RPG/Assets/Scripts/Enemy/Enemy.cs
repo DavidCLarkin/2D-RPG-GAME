@@ -50,8 +50,9 @@ public abstract class Enemy : Interactable
         canBeKnockedBack = true;
 	}
 
-    // Simple method to set up necessary variables - Used so I can have different variables for different enemies 
-    // e.g,. setting canBeKnockedBack to false for bosses
+    /* Simple method to set up necessary variables - Used so I can have different variables for different enemies 
+    * e.g,. setting canBeKnockedBack to false for bosses
+    */ 
     private void SetUp()
     {
         player = GameManagerSingleton.instance.player.transform;
@@ -147,7 +148,9 @@ public abstract class Enemy : Interactable
 
 	}
 
-    // Pathfinding method
+    /*
+     * Pathfinding method to follow an input target
+     */ 
 	public virtual void FollowTarget(Transform target)
 	{
         if (path.Count > 0)
@@ -172,9 +175,12 @@ public abstract class Enemy : Interactable
         ChooseAttack(ATTACK_COOLDOWN, attackChosen);
 	}
 
+    /*
+     * Used in classes with more than one attack i.e. bosses
+     */ 
     public virtual void ChooseAttack(float timeDelay, int attackChosen)
     {
-        ATTACK_TIMER = timeDelay; // + Random.Range(1,3);
+        ATTACK_TIMER = timeDelay;
     }
 
     /*
@@ -213,7 +219,9 @@ public abstract class Enemy : Interactable
 		GameManagerSingleton.instance.player.GetComponent<ExperienceComponent> ().IncreaseExp (Experience);	
 	}
 
-    // Slow the speed of the enemy, used for perk
+    /*
+     * Slow the speed of the enemy, used for perk
+     */
     public IEnumerator SlowSpeed(float lengthOfSlow)
     {
         if (isSlowed) yield break;

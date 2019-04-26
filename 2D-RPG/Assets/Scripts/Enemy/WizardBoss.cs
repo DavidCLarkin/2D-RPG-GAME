@@ -91,7 +91,7 @@ public class WizardBoss : Enemy
                 {
                     if (dist <= attackRange && (SPAWN_PROJECTILE_TIMER <= 0 || SPAWN_MINION_TIMER <= 0 || SPAWN_TILE_TIMER <= 0))
                     {
-                        attackChosen = Random.Range(0, NumberOfAttacks);
+                        attackChosen = Random.Range(0, NumberOfAttacks); // choosing random attack based on number of attacks the boss has
                     }
 
                     Attack(attackChosen);
@@ -100,6 +100,9 @@ public class WizardBoss : Enemy
         }
     }
 
+    /*
+     * Choose an attack and execute it's method
+     */ 
     public override void ChooseAttack(float timeDelay, int attackChosen)
     {
         //base.ChooseAttack(timeDelay, attackChosen);
@@ -155,6 +158,9 @@ public class WizardBoss : Enemy
         SPAWN_TILE_TIMER = SPAWN_TILE_COOLDOWN;
     }
 
+    /*
+     * Spawn a Projectile at a position and move it towards the player's position
+     */ 
     void SpawnProjectile(Vector2 pos)
     {
         GameObject obj = Instantiate(projectile, pos, Quaternion.identity);
@@ -162,6 +168,10 @@ public class WizardBoss : Enemy
         obj.GetComponent<Rigidbody2D>().velocity = dir.normalized * 5;
     }
 
+    /*
+     * Enumerator to Spawn 4 projectiles in each cardinal direction so each one
+     * spawns in direction spots
+     */ 
     IEnumerator SpawnManyProjectiles(int amount, float delay)
     {
         positions[0] = (Vector2)gameObject.transform.position + Vector2.up;
@@ -179,6 +189,10 @@ public class WizardBoss : Enemy
         SPAWN_PROJECTILE_TIMER = SPAWN_PROJECTILE_COOLDOWN;
     }
 
+    /*
+     * Spawn minions at each corner of the room (hardcoded because the tiles of a room are preplaced and these positions are
+     * the 4 corners)
+     */ 
     void SpawnMinions()
     {
         GameObject minionOne = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[34].transform.position, Quaternion.identity);

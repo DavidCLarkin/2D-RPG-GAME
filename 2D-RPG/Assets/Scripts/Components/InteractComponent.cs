@@ -32,48 +32,16 @@ public class InteractComponent : MonoBehaviour
 
             }
         }
-        /*else
-        {
-            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit)
-            {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null)
-                {
-                    string intTag = interactable.tag;
-                    switch (intTag)
-                    {
-                        /*
-                        case "Enemy": // TODO add attacking, interaction etc.
-                            Debug.Log("Enemy CASE"); //ATTACK
-                            break;
-                            
-                        case "NPC":
-                            Debug.Log("NPC CASE");
-                            interactable.Interact();
-                            break;
-                        case "Item":
-                            Debug.Log("Item CASE"); //PICK UP
-                            break;
-                        default:
-                            Debug.Log("Default");
-                            break;
-                    }
-                    SetFocus(interactable);
-                }
-            }
-        }
-*/
-
     }
 
+    // Set interactable focus to new one
     void SetFocus(Interactable newFocus)
     {
         focus = newFocus;
         newFocus.OnFocused(transform);
     }
 
+    //Remove the focus
     public void RemoveFocus()
     {
         if (focus == null) return;
@@ -82,6 +50,7 @@ public class InteractComponent : MonoBehaviour
         focus = null;
     }
 
+    // Set focus to the object the player is near (items etc.)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Interactable>() != null)
@@ -91,6 +60,7 @@ public class InteractComponent : MonoBehaviour
         }
     }
 
+    // Remove focus on exit
     private void OnTriggerExit2D(Collider2D collision)
     {
         RemoveFocus();

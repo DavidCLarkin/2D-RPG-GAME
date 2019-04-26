@@ -37,6 +37,9 @@ public class DemonBoss : Enemy
             SPAWN_TILES_TIMER -= Time.deltaTime;
 	}
 
+    /*
+     * Simply checks the distance from player to enemy
+     */ 
     public override void DistanceChecking()
     {
         distance = Vector2.Distance(player.position, transform.position);
@@ -55,17 +58,17 @@ public class DemonBoss : Enemy
         }
     }
 
+    /*
+     * Decides the state that the enemy should be in
+     */ 
     public override void StateDecision()
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
-        //base.StateDecision();
         switch (state)
         {
             case State.Idle:
-                //Debug.Log("Idle");
                 break;
             case State.Moving:
-                //Debug.Log("Moving");
                 FollowTarget(player);
                 break;
             case State.Attacking:
@@ -78,7 +81,7 @@ public class DemonBoss : Enemy
                     }
                     else if (dist <= attackRange && dist >= closeAttackRange)
                     {
-                        Debug.Log("Range for projectile/tiles");
+                        //Debug.Log("Range for projectile/tiles");
                         if (SPAWN_PROJECTILE_TIMER <= 0)
                             attackChosen = 1;
                         else if (SPAWN_TILES_TIMER <= 0)
@@ -86,7 +89,7 @@ public class DemonBoss : Enemy
                     }
                     else if (dist <= closeAttackRange)
                     {
-                        Debug.Log("range for melee");
+                        //Debug.Log("range for melee");
                         attackChosen = 0;
                     }
 
@@ -96,6 +99,9 @@ public class DemonBoss : Enemy
         }
     }
 
+    /*
+     * Choose attack based on the attackChosen int (chosen in StateDecision())
+     */ 
     public override void ChooseAttack(float timeDelay, int attackChosen)
     {
         base.ChooseAttack(timeDelay, attackChosen);
@@ -128,6 +134,9 @@ public class DemonBoss : Enemy
 
     }
 
+    /*
+     * Spawn harmful tiles using the above method's returned tile pattern
+     */ 
     void SpawnHarmfulTiles()
     {
         List<Transform> besideTiles = GetTilePattern();

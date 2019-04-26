@@ -15,9 +15,12 @@ public class DropTable : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        GetComponent<HealthComponent>().OnDie += DropItem;
+        GetComponent<HealthComponent>().OnDie += DropItem; // subscribe to the HealthComponent OnDie method so this gets called when something dies
     }
 
+    /*
+     * Randomly generate a number and based on this, spawn a different rarity of item (categorised above with different lists)
+     */ 
     void DropItem()
     {
         int randomNumber = Random.Range(0, 100);

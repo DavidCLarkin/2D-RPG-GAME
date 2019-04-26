@@ -21,6 +21,9 @@ public abstract class Item : Interactable
         // To be overridden
     }
 
+    /*
+     * Overriding base class Interact method to pick up an item
+     */ 
 	public override void Interact()
 	{
         //base.Interact();
@@ -37,6 +40,9 @@ public abstract class Item : Interactable
 
 	}
 
+    /*
+     * Method to add an item to the Inventory and disable tooltip afterwards
+     */ 
 	void PickUp()
 	{
 		Inventory.instance.Add(this);
@@ -44,28 +50,39 @@ public abstract class Item : Interactable
             GameManagerSingleton.instance.tooltip.gameObject.SetActive(false);
 
 	}
-
+    
+    /*
+     * Enable the tool tip. Used when close to an item (colliding via trigger)
+     */ 
     protected override void EnableTooltip()
     {
         GameManagerSingleton.instance.tooltip.text = itemName;
         base.EnableTooltip();
     }
 
+    /*
+     * When colliding with object, enable tooltip
+     */ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnableTooltip();
     }
 
+    /*
+     * When exiting collider, disable tooltip
+     */ 
     private void OnTriggerExit2D(Collider2D collision)
     {
         DisableTooltip();
     }
 
+    // same as on trigger
     void OnMouseEnter()
     {
         EnableTooltip();
     }
 
+    // same as exiting trigger
     void OnMouseExit()
     {
         DisableTooltip();

@@ -42,7 +42,6 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
-    //[SerializeField]
     [HideInInspector]
     public float baseSpeed = 2.5f;
     public float speed;
@@ -53,8 +52,7 @@ public class MovementComponent : MonoBehaviour, IMoveable
         direction = 1;
         input = GetComponent<InputComponent>();
 		movement = GetComponent<MovementComponent> ();
-		//GetComponent<StaminaComponent> ().OnUse += UseStamina;
-        input.OnDodge += Dodge;
+        input.OnDodge += Dodge; // subscribe to Dodge delegate
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
 
@@ -62,11 +60,10 @@ public class MovementComponent : MonoBehaviour, IMoveable
 
     void Start()
     {
+        // set max stamina and start sound coroutines
         stamina = maxStamina;
         StartCoroutine(Footsteps());
         StartCoroutine(RegenerateStamina());
-        //StartCoroutine(Footsteps());
-        //StartCoroutine(RegenerateStamina());
     }
 
     // Update is called once per frame
@@ -78,14 +75,20 @@ public class MovementComponent : MonoBehaviour, IMoveable
         Move();
     }
 
+    /*
+     * Helper for perks to reset speed
+     */ 
     public void ResetSpeed()
     {
         speed = baseSpeed;
     }
 
+    /*
+     * Move using axes (controller and keys)
+     */
     public void Move()
     {
-        if (player == null)// && player.isAttacking)
+        if (player == null)
             return;
 
         rb.velocity = new Vector2(input.Horizontal * speed, rb.velocity.y);
@@ -101,40 +104,46 @@ public class MovementComponent : MonoBehaviour, IMoveable
             direction = 4;
     }
 
+    /*
+     * Use stamina when dash
+     */ 
 	public void UseStamina()
 	{
         stamina -= dashCost;
 	}
 
+    /*
+     * Dodge method that handles moving the player in a certain direction via appling Force to rigidbody
+     */ 
     void Dodge()
     {
         if (input.Attack) return;
 
-        if (dodgeTime <= 0)
+        if (dodgeTime <= 0) // only dodge when timer 0
         {
-            if (stamina >= dashCost)
+            if (stamina >= dashCost) // and if has enough stamina
             {
 
-                if (direction == 1)
+                if (direction == 1) // dodge up
                 {
                     rb.AddForce(Vector2.up * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                     SpawnDashParticles(direction);
                     
                 }
-                else if (direction == 2)
+                else if (direction == 2) // dodge left
                 {
                     rb.AddForce(Vector2.left * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                     SpawnDashParticles(direction);
                 }
-                else if (direction == 3)
+                else if (direction == 3) // dodge down
                 {
                     rb.AddForce(Vector2.down * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
                     SpawnDashParticles(direction);
                 }
-                else if (direction == 4)
+                else if (direction == 4) // dodge right
                 {
                     rb.AddForce(Vector2.right * dodgeSpeed, ForceMode2D.Force);
                     UseStamina();
@@ -144,6 +153,9 @@ public class MovementComponent : MonoBehaviour, IMoveable
         }
     }
 
+    /*
+     * Simple method to spawn particles in the opposite direction the player is dashing
+     */ 
     GameObject SpawnDashParticles(int dir)
     {
         GameObject dashParticles = null;
@@ -163,15 +175,21 @@ public class MovementComponent : MonoBehaviour, IMoveable
                 break;
         }
 
-        return Instantiate(dashParticles, transform.position, Quaternion.identity);
+        return Instantiate(dashParticles, transform.position, Quaternion.identity); // spawn the particles
     }
 
+    /*
+     * Disable footsteps and regeneration of stamina when they load etc. or sounds will overlap
+     */ 
     void OnDisable()
     {
         StopCoroutine(RegenerateStamina());
         StopCoroutine(Footsteps());
     }
 
+    /*
+     * Continuously regenerate stamina while playing
+     */ 
     IEnumerator RegenerateStamina()
     {
         while (true)
@@ -184,7 +202,10 @@ public class MovementComponent : MonoBehaviour, IMoveable
             yield return new WaitForSeconds(0.5f);
         }
     }
-
+    
+    /*
+     * When moving, play a random footstep sound
+     */ 
     public IEnumerator Footsteps()
     {
         while (true)
