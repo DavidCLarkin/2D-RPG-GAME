@@ -85,10 +85,9 @@ public abstract class Enemy : Interactable
 		StateDecision();
 
 	}
-
+    /*
 	public override void Interact() //called when Interactable Interact() method is called
 	{
-		//base.Interact();
 		if (DAMAGE_TIMER <= 0)
 		{
             if(canBeKnockedBack)
@@ -96,6 +95,7 @@ public abstract class Enemy : Interactable
 			DAMAGE_TIMER = DAMAGE_DELAY;
 		}
 	}
+    */
 
 	/*
 	 * Checking the distance between player and AI.
@@ -127,16 +127,13 @@ public abstract class Enemy : Interactable
 		switch(state)
 		{
 			case State.Idle:
-				//Debug.Log("Idle");
 				break;
 			case State.Moving:
-				//Debug.Log("Moving");
 				FollowTarget(player);
 				break;
 			case State.Attacking:
                 if (ATTACK_TIMER <= 0)
                 {
-                    //Debug.Log("Attacking");
                     if (NumberOfAttacks > 1)
                     {
                         attackChosen = Random.Range(0, NumberOfAttacks); // only needs to be called once
@@ -153,8 +150,6 @@ public abstract class Enemy : Interactable
     // Pathfinding method
 	public virtual void FollowTarget(Transform target)
 	{
-        // Pathfinding
-        //path = grid.path;
         if (path.Count > 0)
         {
             if ((Vector2)transform.position != path[0].position)
@@ -174,12 +169,7 @@ public abstract class Enemy : Interactable
 	 */
 	public virtual void Attack(int attackChosen)
 	{
-        //distance = Vector2.Distance(player.position, transform.position); //check distance again to make sure enemy is in range of player - Should be replaced with checking collision
-        //if (distance <= attackRange)
-        //{
-            ChooseAttack(ATTACK_COOLDOWN, attackChosen);
-        //}
-
+        ChooseAttack(ATTACK_COOLDOWN, attackChosen);
 	}
 
     public virtual void ChooseAttack(float timeDelay, int attackChosen)
@@ -187,7 +177,7 @@ public abstract class Enemy : Interactable
         ATTACK_TIMER = timeDelay; // + Random.Range(1,3);
     }
 
-
+    /*
 	public virtual void Knockback(float force)
 	{
 		float xPos = force;
@@ -213,7 +203,11 @@ public abstract class Enemy : Interactable
 
 		rigi.AddForce(new Vector2(xPos, yPos));
 	}
+    */
 
+    /*
+     * Method to increase player exp when this enemy dies
+     */ 
 	void IncreasePlayerExp()
 	{
 		GameManagerSingleton.instance.player.GetComponent<ExperienceComponent> ().IncreaseExp (Experience);	

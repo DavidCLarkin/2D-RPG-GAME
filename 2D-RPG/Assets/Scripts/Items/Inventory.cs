@@ -18,15 +18,6 @@ public class Inventory : MonoBehaviour
 	#region Singleton
 	void Awake()
 	{
-        /*
-		if(instance != null)
-		{
-			Debug.Log("More than one instance of inventory found");
-			return;
-		}
-
-		instance = this;
-        */
         if (instance != null)
         {
             Destroy(gameObject);
@@ -154,7 +145,6 @@ public class Inventory : MonoBehaviour
                 slots[i].GetComponent<Slot>().isEmpty = false;
                 item.gameObject.SetActive(false);
                 GameManagerSingleton.instance.player.GetComponent<InteractComponent>().RemoveFocus();
-                //Destroy(item.gameObject);
 
                 // Play random pickup sound
                 soundManager.PlayRandomOneShot(soundManager.pickUpItemSounds);

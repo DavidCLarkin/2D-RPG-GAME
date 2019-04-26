@@ -26,7 +26,7 @@ public class WizardBoss : Enemy
     private int startingXValue = 2;
     private float delayBetweenTileSpawns = 1f;
 
-    private Vector2[] positions;
+    private Vector2[] positions; // used to randomly choose where to shoot projectiles 
 
     // Use this for initialization
     protected override void Start()
@@ -173,7 +173,6 @@ public class WizardBoss : Enemy
         {
             yield return new WaitForSeconds(delay);
             SpawnProjectile(positions[Random.Range(0, positions.Length)]);
-            //SoundManager.instance.PlayRandomOneShot(SoundManager.instance.wizardSpellProjectileSounds);
             SoundManager.instance.PlayRandomOneShotAtPoint(1, transform.position, SoundManager.instance.wizardSpellProjectileSounds);
         }
 
@@ -182,7 +181,6 @@ public class WizardBoss : Enemy
 
     void SpawnMinions()
     {
-        //Debug.Log(bossRoom.GetComponent<Tiles>().tiles.Count);
         GameObject minionOne = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[34].transform.position, Quaternion.identity);
         GameObject minionTwo = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[19].transform.position, Quaternion.identity);
         GameObject minionThree = Instantiate(minion, bossRoom.GetComponent<Tiles>().tiles[268].transform.position, Quaternion.identity);

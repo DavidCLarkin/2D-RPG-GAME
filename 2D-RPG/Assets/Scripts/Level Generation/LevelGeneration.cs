@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    public Vector2 mapSize = new Vector2(100, 100);
-    public int numbOfRooms = 30;
+    public int width, height; // width and height of where rooms can be placed
+    public int numbOfRooms;
+    public int minRooms; // 5 is good
+    public int maxRooms; // 12 is good
     public Vector2 finalRoomPos; // keep final room as it's going to be the boss room spawn location
 
     [Range(1,3)]
@@ -13,7 +15,6 @@ public class LevelGeneration : MonoBehaviour
 
     Room[,] rooms;
     List<Vector2> takenPositions = new List<Vector2>();
-    int gridSizeX, gridSizeY;
 
     // all rooms
     public GameObject roomR, roomL, roomU, roomD, roomDL, roomDR, roomDLR, roomLR, roomUD, roomUDL, roomUDLR, roomUDR, roomUL, roomULR, roomUR;
@@ -21,15 +22,9 @@ public class LevelGeneration : MonoBehaviour
     public GameObject[] bossRooms;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
-		if(numbOfRooms >= (mapSize.x * 2) * (mapSize.y * 2))
-        {
-            numbOfRooms = Mathf.RoundToInt((mapSize.x * 2) * (mapSize.y * 2));
-        }
-
-        gridSizeX = Mathf.RoundToInt(mapSize.x);
-        gridSizeY = Mathf.RoundToInt(mapSize.y);
+        numbOfRooms = Random.Range(minRooms, maxRooms); // random dungeon size
 
         CreateRooms(); // The main function to set the positions of each room in the dungeon
         SetRoomDoors(); // Decide which room has what kind of doors depending on neighbouring rooms 
@@ -42,8 +37,8 @@ public class LevelGeneration : MonoBehaviour
      */ 
     void CreateRooms()
     {
-        rooms = new Room[gridSizeX * 2, gridSizeY * 2];
-        rooms[gridSizeX, gridSizeY] = new Room(new Vector2(0,0)); // first room set to center
+        rooms = new Room[width * 2, height* 2];
+        rooms[width, height] = new Room(new Vector2(0,0)); // first room set to center
         takenPositions.Insert(0, new Vector2(0,0)); //insert a taken position to list
         Vector2 checkPos = new Vector2(0,0);
 
@@ -66,7 +61,7 @@ public class LevelGeneration : MonoBehaviour
             }
 
             //finalise pos
-            rooms[(int)checkPos.x + gridSizeX, (int)checkPos.y + gridSizeY] = new Room(checkPos);
+            rooms[(int)checkPos.x + width, (int)checkPos.y + height] = new Room(checkPos);
             takenPositions.Insert(0, checkPos);
 
             if (i == numbOfRooms - 2)
@@ -112,7 +107,7 @@ public class LevelGeneration : MonoBehaviour
                     x -= 1;
             }
             checkingPos = new Vector2(x, y);
-        } while (takenPositions.Contains(checkingPos) || x >= gridSizeX || x < -gridSizeX || y >= gridSizeY || y < -gridSizeY);
+        } while (takenPositions.Contains(checkingPos) || x >= width || x < -width || y >= height || y < -height);
 
         return checkingPos;
     }
@@ -123,11 +118,10 @@ public class LevelGeneration : MonoBehaviour
      */ 
     Vector2 SelectiveNewPosition()
     {
-        int index = 0, inc = 0;
-        int x = 0, y = 0;
+        int index = 0, inc = 0, x= 0, y = 0;
         Vector2 checkingPos = new Vector2(0,0);
 
-        while (takenPositions.Contains(checkingPos) || x >= gridSizeX || x < -gridSizeX || y >= gridSizeY || y < -gridSizeY)
+        while (takenPositions.Contains(checkingPos) || x >= width || x < -width || y >= height || y < -height)
         {
             inc = 0;
             // Keep choosing rooms until a room is not beside 3 or more neighbours
@@ -140,21 +134,21 @@ public class LevelGeneration : MonoBehaviour
             x = (int)takenPositions[index].x;
             y = (int)takenPositions[index].y;
 
-            bool UpOrDown = (Random.value < 0.5f);
-            bool positive = (Random.value < 0.5f);
+            bool vertical = (Random.value < 0.5f); // place vertically if true (y axis), horizontally if false (x axis)
+            bool positive = (Random.value < 0.5f); // if positive, increment, else decrement
 
-            if (UpOrDown)
+            if (vertical) // up 
             {
-                if (positive)
+                if (positive) // up
                     y += 1;
-                else
+                else // down
                     y -= 1;
             }
-            else
+            else // down
             {
-                if (positive)
+                if (positive) // right
                     x += 1;
-                else
+                else // left
                     x -= 1;
             }
 
@@ -182,9 +176,9 @@ public class LevelGeneration : MonoBehaviour
 
     void SetRoomDoors()
     {
-        for(int x = 0; x < gridSizeX * 2; x++)
+        for(int x = 0; x < width * 2; x++)
         {
-            for (int y = 0; y < gridSizeY * 2; y++)
+            for (int y = 0; y < height * 2; y++)
             {
                 if (rooms[x, y] == null) // if room position not taken
                     continue;
@@ -196,7 +190,7 @@ public class LevelGeneration : MonoBehaviour
                     rooms[x, y].doorBottom = (rooms[x, y - 1] != null); // if theres a room below, then has door at bottom
 
                 //Check below
-                if (y + 1 >= gridSizeY * 2)
+                if (y + 1 >= height * 2)
                     rooms[x, y].doorTop = false;
                 else
                     rooms[x, y].doorTop = (rooms[x, y + 1] != null); // if theres a room above, then has door at top
@@ -208,7 +202,7 @@ public class LevelGeneration : MonoBehaviour
                     rooms[x, y].doorLeft = (rooms[x - 1, y] != null); // if theres a room to the left, then has door to the left
 
                 //check right
-                if (x + 1 >= gridSizeX * 2)
+                if (x + 1 >= width * 2)
                     rooms[x, y].doorRight = false;
                 else
                     rooms[x, y].doorRight = (rooms[x + 1, y] != null); // if theres a room to the right, then has door to the right

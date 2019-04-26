@@ -140,15 +140,15 @@ public class DemonBoss : Enemy
         SPAWN_TILES_TIMER = SPAWN_TILES_COOLDOWN;
     }
 
-
+    /*
+     * Get position around radius via the angle in which to spawn a projectile
+     */ 
     Vector2 CreateRingOfProjectiles(Vector2 center, float radius, int angle)
     {
-        //Debug.Log(a);
         float ang = angle;
         Vector2 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
         pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
-        //pos.z = -5; // to keep it above some tiles
         return pos;
     }
 
@@ -161,16 +161,14 @@ public class DemonBoss : Enemy
 
         for (int i = 0; i < numProjectiles; i++)
         {
-            int a = 360 / numProjectiles * i;
-            Vector2 pos = CreateRingOfProjectiles(transform.position, 1f, a);
+            int angle = 360 / numProjectiles * i; // change the angle every interation to get it in a circle
+            Vector2 pos = CreateRingOfProjectiles(transform.position, 1f, angle);
             GameObject obj = Instantiate(projectile, pos, Quaternion.identity);
 
             // Add force relative to the projectile position in opposite direction from the boss
             Vector2 dir = (obj.transform.position - gameObject.transform.position).normalized;
 
             obj.GetComponent<Rigidbody2D>().AddForce(dir * 200);
-            // Play random projectile sound
-            //SoundManager.instance.PlayRandomOneShot(0.4f, SoundManager.instance.demonProjectileSounds);
             SoundManager.instance.PlayRandomOneShotAtPoint(0.4f, transform.position, SoundManager.instance.demonProjectileSounds);
         }
 

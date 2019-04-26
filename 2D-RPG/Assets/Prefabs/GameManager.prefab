@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: f4b6eca5dd5a36d48b083f7f7b6f6465, type: 2}
+  saveInfo: {fileID: 0}
   volumeSlider: {fileID: 0}
 --- !u!114 &114248734866729180
 MonoBehaviour:

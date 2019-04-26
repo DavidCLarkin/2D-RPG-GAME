@@ -5,7 +5,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource sfxSource;            
     public AudioSource musicSource;                
-    public static SoundManager instance = null;
+    public static SoundManager instance;
 
     // General
     public AudioClip[] equipWeaponSounds;

@@ -56,7 +56,6 @@ public class Stats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
             UpdateStat(StaminaStat);
 
-
 	}
 
     public void UpgradeHealth()
@@ -68,13 +67,6 @@ public class Stats : MonoBehaviour
             exp.totalExp -= expCost;
 
             UpdateVariables(true);
-            /*
-            health.maxHealth = 90 + (10 * HealthStat.StatLevel);
-            health.health = health.maxHealth; // set health to max
-            currentHealthUIDisplay.text = (health.maxHealth).ToString();
-            newHealthUIDisplay.text = (health.maxHealth + 10).ToString();
-            currentExpUIDisplay.text = (exp.totalExp).ToString();
-            */
 
         }
     }
@@ -88,16 +80,6 @@ public class Stats : MonoBehaviour
             exp.totalExp -= expCost;
 
             UpdateVariables(true);
-            /*
-            currentExpUIDisplay.text = (exp.totalExp).ToString();
-
-            stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
-            stamina.Stamina = stamina.maxStamina; // set health to max
-            currentStaminaUIDisplay.text = (stamina.maxStamina).ToString();
-            newStaminaUIDisplay.text = (stamina.maxStamina + 10).ToString();
-
-            Debug.Log("Leveled up");
-            */
         }
     }
 

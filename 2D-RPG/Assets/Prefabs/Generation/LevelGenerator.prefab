@@ -51,9 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e752134641701442ab68a6872b3dfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: {x: 5, y: 5}
-  numbOfRooms: 4
+  width: 5
+  height: 5
+  numbOfRooms: 2
+  minRooms: 6
+  maxRooms: 13
   finalRoomPos: {x: 0, y: 0}
+  roomDensityAllowance: 2
   roomR: {fileID: 1029034590308626, guid: b3863a97cb27e174cb59459d5a069df7, type: 2}
   roomL: {fileID: 1381370237229696, guid: f53656f76c1740944814c23d80307749, type: 2}
   roomU: {fileID: 1057126587362994, guid: d0f862093112cbb44977fb64624e1937, type: 2}

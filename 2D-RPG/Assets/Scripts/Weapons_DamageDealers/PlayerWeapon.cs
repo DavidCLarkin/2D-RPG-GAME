@@ -17,28 +17,36 @@ public class PlayerWeapon : MonoBehaviour, IAiDamageDealer
         UpdateUI();
 	}
 
+    /*
+     * Method to equip a weapon 
+     * Sets the damage number to the equipped weapons damage, plays a sound and evaluates perks
+     * (changes health/stamina/movement speed accordingly)
+     */ 
     public void EquipWeapon(WeaponItem weapon)
     {
         if(equippedWeapon)
             UnequipWeapon(equippedWeapon);
-
+        // Check in-game DB to equip the right weapon via it's ID
         foreach (GameObject item in GameManagerSingleton.instance.GetComponent<ItemDatabase>().items)
             if (weapon.itemID == item.GetComponent<Item>().itemID)
                 equippedWeapon = item.GetComponent<WeaponItem>();
 
-        Damage = equippedWeapon.damage;
+        Damage = equippedWeapon.damage; // set weapon damage
 
-        //SoundManager.instance.PlayOneShot(equippedWeapon.equipSounds[Random.Range(0,equippedWeapon.equipSounds.Length)]);
         SoundManager.instance.PlayRandomOneShot(SoundManager.instance.equipWeaponSounds);
 
         UpdateUI();
 
+        // Evaluate perk changes to the player stats
         foreach(Perk perk in equippedWeapon.perks)
         {
             perk.EvaluatePerkStats();
         }
     }
 
+    /*
+     * Unequips a weapon by setting equippedWeapon to null and updating variables.
+     */ 
     public void UnequipWeapon(WeaponItem weapon)
     {
         equippedWeapon = null;

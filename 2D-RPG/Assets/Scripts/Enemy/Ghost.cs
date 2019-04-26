@@ -26,7 +26,6 @@ public class Ghost : Enemy
 
         Vector2 dir = (target.position - transform.position).normalized;
         GetComponent<Rigidbody2D>().velocity = dir * -1 * speed;
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, -1 * speed * Time.deltaTime);
     }
 
     public override void DistanceChecking()

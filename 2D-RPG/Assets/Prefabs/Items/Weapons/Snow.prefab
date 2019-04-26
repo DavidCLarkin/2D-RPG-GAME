@@ -82,12 +82,15 @@ MonoBehaviour:
   player: {fileID: 0}
   type: 1
   itemName: Snow
-  description: Slows enemy for 4 seconds
+  description: 'Slows enemy for 4 seconds
+
+    -10% Health'
   itemID: 10
   icon: {fileID: 21300000, guid: 30d28bb5772f5fb4cbeca0a8b31b67ac, type: 3}
   damage: 17
   perks:
   - {fileID: 11400000, guid: f4f093b8bbc82e54f98caa1057509b42, type: 2}
+  - {fileID: 11400000, guid: 2c7b2a1fedec9f340940440ebfb43f63, type: 2}
 --- !u!212 &212186121905344420
 SpriteRenderer:
   m_ObjectHideFlags: 1

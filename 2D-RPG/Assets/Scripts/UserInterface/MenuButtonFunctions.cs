@@ -4,18 +4,28 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuButtonFunctions : MonoBehaviour
 {
     public AudioMixer mixer;
-
+    public TextMeshProUGUI saveInfo;
     public Slider volumeSlider;
 
-    //private GameObject player;
+    private float saveInfoLength = 3f;
+    private float saveInfoTimer = 0f;
 
-    private void Start()
+    private void Update()
     {
-        //player = GameManagerSingleton.instance.player;
+        HandleTextTimer();
+    }
+
+    private void HandleTextTimer()
+    {
+        if (saveInfoTimer > 0)
+            saveInfoTimer -= Time.unscaledDeltaTime;
+        else if (saveInfoTimer <= 0)
+            saveInfo.gameObject.SetActive(false);
     }
 
     public void SetVolume(float volume)
@@ -30,7 +40,10 @@ public class MenuButtonFunctions : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Hub")
             SaveSystem.Save(GameManagerSingleton.instance.player);
         else
-            Debug.Log("Can only save in Hub");
+        {
+            saveInfo.gameObject.SetActive(true);
+            saveInfoTimer = saveInfoLength;
+        }
     }
 
     public void Load()

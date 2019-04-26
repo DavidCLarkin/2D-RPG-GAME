@@ -517,20 +517,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114544339088366648, guid: 72707a9c03136be4eacf27950e7ca9e4,
-        type: 2}
-      propertyPath: numbOfRooms
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114544339088366648, guid: 72707a9c03136be4eacf27950e7ca9e4,
-        type: 2}
-      propertyPath: clumpiness
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1386074917545446, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
   m_IsPrefabAsset: 0
@@ -955,6 +941,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114061317446536822, guid: 14677c28c9ca3704ea9989ac733b5159,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14677c28c9ca3704ea9989ac733b5159, type: 2}
   m_IsPrefabAsset: 0
@@ -1267,7 +1258,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1290,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1496,51 +1487,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: eventSystem
-      value: 
-      objectReference: {fileID: 1948309645}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: upgradeButtonList.Array.data[0]
-      value: 
-      objectReference: {fileID: 37158041}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: upgradeButtonList.Array.data[1]
-      value: 
-      objectReference: {fileID: 951585498}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: upgradeButtonList.Array.data[2]
-      value: 
-      objectReference: {fileID: 1753894828}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: pauseButtonList.Array.data[0]
-      value: 
-      objectReference: {fileID: 748752197}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: pauseButtonList.Array.data[1]
-      value: 
-      objectReference: {fileID: 435882399}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: pauseButtonList.Array.data[2]
-      value: 
-      objectReference: {fileID: 84056637}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: pauseButtonList.Array.data[3]
-      value: 
-      objectReference: {fileID: 1527852284}
-    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
-        type: 2}
-      propertyPath: pauseButtonList.Array.data[4]
-      value: 
-      objectReference: {fileID: 448695157}
     - target: {fileID: 114766233184251044, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
         type: 2}
       propertyPath: tooltip
@@ -1596,11 +1542,61 @@ Prefab:
       propertyPath: staminaInfo
       value: 
       objectReference: {fileID: 448695158}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1948309645}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: upgradeButtonList.Array.data[0]
+      value: 
+      objectReference: {fileID: 37158041}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: upgradeButtonList.Array.data[1]
+      value: 
+      objectReference: {fileID: 951585498}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: upgradeButtonList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1753894828}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: pauseButtonList.Array.data[0]
+      value: 
+      objectReference: {fileID: 748752197}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: pauseButtonList.Array.data[1]
+      value: 
+      objectReference: {fileID: 435882399}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: pauseButtonList.Array.data[2]
+      value: 
+      objectReference: {fileID: 84056637}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: pauseButtonList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1527852284}
+    - target: {fileID: 114248734866729180, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: pauseButtonList.Array.data[4]
+      value: 
+      objectReference: {fileID: 448695157}
     - target: {fileID: 114837973246373522, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
         type: 2}
       propertyPath: notePanel
       value: 
       objectReference: {fileID: 600577071}
+    - target: {fileID: 114234715541408684, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
+        type: 2}
+      propertyPath: saveInfo
+      value: 
+      objectReference: {fileID: 2098519099}
     - target: {fileID: 114234715541408684, guid: d9b4a0e4182409b4d9d0e7dc52b32d2f,
         type: 2}
       propertyPath: volumeSlider
@@ -1615,6 +1611,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2033086219}
   m_Script: {fileID: 11500000, guid: a8e2b9a06890ee84db951d43dfa484d8, type: 3}
+--- !u!114 &2098519099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114542856614541986, guid: 4e05ce59328f3464390a777404cff2dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 99616324}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1001 &2124454965
 Prefab:
   m_ObjectHideFlags: 0
