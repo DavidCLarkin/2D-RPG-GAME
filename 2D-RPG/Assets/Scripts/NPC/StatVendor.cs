@@ -23,13 +23,17 @@ public class StatVendor : Interactable
         {
             if (distance <= radius)
             {
-                Interact();
+                //Interact();
             }
         }
+        
 
         upgradePanel.SetActive(panelOpen);
     }
 
+    /* overridden interact method
+     * Decide to open or close the upgrade panel when interacting
+     */ 
     public override void Interact()
     {
         if (player.GetComponent<InputComponent>().Interact)

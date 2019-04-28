@@ -80,7 +80,9 @@ public class GameManagerSingleton : MonoBehaviour
 
     }
     
-
+    /*
+     * Simple method to pause or unpause game via timescale
+     */ 
     public void PauseGame()
     {
         isPaused = !isPaused;

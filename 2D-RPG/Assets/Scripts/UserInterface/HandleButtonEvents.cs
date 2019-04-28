@@ -70,7 +70,7 @@ public class HandleButtonEvents : MonoBehaviour
 
         }
 
-        if (SceneManager.GetActiveScene().name == "Hub")
+        if (SceneManager.GetActiveScene().name == "Hub" || SceneManager.GetActiveScene().name == "Tutorial")
         {
             if (GameManagerSingleton.instance.statVendor.panelOpen)
             {

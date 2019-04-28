@@ -20,6 +20,9 @@ public class BossMusicHandler : MonoBehaviour
         HandleMusic();
     }
 
+    /*
+     * Decide whether to player the boss music according to distance
+     */ 
     void HandleMusic()
     {
         if (boss != null)

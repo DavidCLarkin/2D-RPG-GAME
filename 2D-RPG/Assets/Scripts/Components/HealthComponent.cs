@@ -11,6 +11,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     private float damageDelay = 0.2f;
     private float delayTimer;
     public GameObject damageParticle;
+    private bool isDOTActive = false;
 
     public int Health
     {
@@ -147,12 +148,16 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
     public IEnumerator ApplyDOT(int damagePerSecond)
     {
+        if (isDOTActive) yield break;
+
+        isDOTActive = true;
         for (int i = 0; i < 5; i++)
         {
             TakeDamage(damagePerSecond);
             yield return new WaitForSeconds(2);
         }
 
+        isDOTActive = false;
         yield break;
     }
 }

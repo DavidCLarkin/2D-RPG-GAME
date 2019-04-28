@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4981192359741298}
   - component: {fileID: 198377148134793808}
   - component: {fileID: 199856828713464996}
+  - component: {fileID: 114143946082505550}
   m_Layer: 11
   m_Name: DashUpParticle
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114143946082505550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989319040027014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39dffe467fc34c9105741d042f198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 1
 --- !u!198 &198377148134793808
 ParticleSystem:
   m_ObjectHideFlags: 1

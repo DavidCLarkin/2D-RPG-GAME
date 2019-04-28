@@ -10,6 +10,9 @@ public abstract class Interactable : MonoBehaviour
 	protected bool hasInteracted = false;
 	public Transform player;
 
+    /*
+     * Method to be overridden upon interacting such as Items/NPC
+     */ 
 	public virtual void Interact()
 	{
 		//Debug.Log ("Interacting with " + transform.name);
@@ -36,14 +39,12 @@ public abstract class Interactable : MonoBehaviour
 	public void OnFocused(Transform playerTransform)
 	{
 		isFocus = true;
-		//player = playerTransform;
 		hasInteracted = false;
 	}
 		
 	public void DeFocused()
 	{
 		isFocus = false;
-		//player = null;
 		hasInteracted = false;
 	}
 

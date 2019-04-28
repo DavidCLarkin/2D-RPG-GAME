@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Old player class, not used anymore
+ */ 
 public class PlayerController : MonoBehaviour 
 {
 	private Camera cam;

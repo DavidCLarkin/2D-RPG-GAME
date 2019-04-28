@@ -16,6 +16,7 @@ public class ChangeColor : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        // Change color if half health
         if (health.health <= health.maxHealth / 2)
             GetComponent<SpriteRenderer>().color = colorToChangeTo;
 	}

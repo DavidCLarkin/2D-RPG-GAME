@@ -517,6 +517,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114544339088366648, guid: 72707a9c03136be4eacf27950e7ca9e4,
+        type: 2}
+      propertyPath: maxRooms
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544339088366648, guid: 72707a9c03136be4eacf27950e7ca9e4,
+        type: 2}
+      propertyPath: minRooms
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72707a9c03136be4eacf27950e7ca9e4, type: 2}
   m_IsPrefabAsset: 0
@@ -1258,7 +1268,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1281,7 +1291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668505708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.00000023841858, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

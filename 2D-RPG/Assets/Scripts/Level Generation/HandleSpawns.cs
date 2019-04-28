@@ -8,6 +8,7 @@ public class HandleSpawns : MonoBehaviour
 	public List<Transform> spawnPoints;
 	public List<GameObject> objects;
 
+    // Add spawnpoints from prefab
 	void Start () 
 	{
 		foreach (Transform child in transform)
@@ -22,6 +23,9 @@ public class HandleSpawns : MonoBehaviour
 		SpawnObjects();
 	}
 
+    /*
+     * Spawn random number of objects based on size of the spawn points in a room prefab object 
+     */ 
 	void SpawnObjects()
 	{
         // 2 to get more population of interaction

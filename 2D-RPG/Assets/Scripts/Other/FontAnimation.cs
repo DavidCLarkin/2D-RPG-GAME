@@ -16,7 +16,9 @@ public class FontAnimation : MonoBehaviour
         StartCoroutine(FadeTextOut());
 	}
 	
-
+    /*
+     * Fade text out
+     */ 
     IEnumerator FadeTextOut()
     {
         while(true)

@@ -15,6 +15,9 @@ public class InputFunctions : MonoBehaviour
         SoundManager.instance.musicSource.Play();
     }
 
+    /*
+     * Load the tutorial if not complete, else load the input scene
+     */ 
     private void LoadScene()
     {
         PlayerData data = SaveSystem.Load();
@@ -25,6 +28,9 @@ public class InputFunctions : MonoBehaviour
 
     }
 
+    /*
+     * If the user presses a key on main menu, load the game
+     */
     private void Update()
     {
         if(Input.anyKey)

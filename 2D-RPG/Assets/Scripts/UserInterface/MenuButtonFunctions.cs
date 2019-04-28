@@ -28,6 +28,10 @@ public class MenuButtonFunctions : MonoBehaviour
             saveInfo.gameObject.SetActive(false);
     }
 
+    /*
+     * Set the volume in menu. 
+     * If volume hits certain level, mute it. 
+     */ 
     public void SetVolume(float volume)
     {
         mixer.SetFloat("masterVolume", volume);
@@ -35,6 +39,10 @@ public class MenuButtonFunctions : MonoBehaviour
             mixer.SetFloat("masterVolume", -80f); // mute
     }
 
+    /*
+     * Only save the game when in the "Hub" scene
+     * else display notification to player saying they can only save in the Hub
+     */
     public void Save()
     {
         if (SceneManager.GetActiveScene().name == "Hub")
@@ -46,6 +54,9 @@ public class MenuButtonFunctions : MonoBehaviour
         }
     }
 
+    /*
+     * Load the game and set up the player variables according to PlayerData class
+     */ 
     public void Load()
     {
         if (SceneManager.GetActiveScene().name != "Hub") // Load back to hub
@@ -112,6 +123,7 @@ public class MenuButtonFunctions : MonoBehaviour
         //GameManagerSingleton.instance.isPaused = false;
     }
 
+    // Simply quit the game
     public void Quit()
     {
         Application.Quit();

@@ -9,6 +9,7 @@ public class BossMusic : MonoBehaviour
 
     private void Update()
     {
+        // Decide to play the boss music or not
         if(Vector2.Distance(GameManagerSingleton.instance.player.transform.position, gameObject.transform.position) <= GetComponent<Enemy>().followRange)
         {
             if (!hasBossMusicStarted)

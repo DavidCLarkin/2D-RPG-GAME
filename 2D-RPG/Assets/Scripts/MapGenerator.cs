@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Old generation script
+ */ 
 public class MapGenerator : MonoBehaviour 
 {
 	public GameObject[] groundTiles; // Set in inspector

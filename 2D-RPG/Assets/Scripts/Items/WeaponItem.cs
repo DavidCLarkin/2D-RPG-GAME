@@ -20,8 +20,5 @@ public class WeaponItem : Item
        {
             GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(this);
        }
-       
     }
-
-    
 }

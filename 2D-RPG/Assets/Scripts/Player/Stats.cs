@@ -115,12 +115,17 @@ public class Stats : MonoBehaviour
         }
     }
 
-
+    /*
+     * Algorithm to calculate exp cost
+     */ 
     int CalculateExpCost(Stat stat)
     {
         return 500 * (stat.StatLevel * 2);
     }
 
+    /*
+     * Update variables of the player (used when upgrading/perks etc)
+     */ 
     public void UpdateVariables(bool isUpgrade)
     {
         stamina.maxStamina = 90 + (10 * StaminaStat.StatLevel);
@@ -148,6 +153,9 @@ public class Stats : MonoBehaviour
         currentExpUIDisplay.text = (exp.totalExp).ToString();
     }
 
+    /*
+     * Update the user interface 
+     */ 
     public void StatUIUpdate()
     {
         int healthCost = CalculateExpCost(HealthStat);

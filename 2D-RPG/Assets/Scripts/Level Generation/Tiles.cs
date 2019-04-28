@@ -7,9 +7,9 @@ public class Tiles : MonoBehaviour
     public List<Transform> tiles;
     private GameObject boss;
 
+    // Add each tile to the list - used in boss script 
 	void Start ()
     {
-
         foreach (Transform child in transform)
         {
             if (child.name == "Ground")
@@ -23,16 +23,6 @@ public class Tiles : MonoBehaviour
         //boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
     }
 
-    private void FixedUpdate()
-    {
-        /*
-        if (boss == null)
-        {
-            boss = GameObject.FindGameObjectWithTag("Boss");
-            boss.GetComponent<HealthComponent>().EnableSpawnRoom += EnableRoom; //delegated to check if boss is dead
-        }
-        */
-    }
 
     /*
 	 * Method to enable the last tile within a Room, which for my design will be the room to exit the dungeon
