@@ -113,10 +113,20 @@ public class GameManagerSingleton : MonoBehaviour
         deathText.SetActive(false);
         player.GetComponent<SpriteRenderer>().enabled = true;
 
-        SceneManager.LoadScene("Hub");
-        GetComponent<MenuButtonFunctions>().Load();
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            SceneManager.LoadScene("Tutorial");
+            player.GetComponent<HealthComponent>().health = 100;
+            player.transform.position = new Vector2(-50, -9);
+        }
+        else
+        {
+            SceneManager.LoadScene("Hub");
+            GetComponent<MenuButtonFunctions>().Load();
+        }
 
         Time.timeScale = 1;
+
 
         //player.GetComponent<SpriteRenderer>().enabled = true;
 

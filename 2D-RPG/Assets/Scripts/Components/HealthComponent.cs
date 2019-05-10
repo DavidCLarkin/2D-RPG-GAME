@@ -65,10 +65,12 @@ public class HealthComponent : MonoBehaviour, IDamageable
             {
                 GameObject.FindGameObjectWithTag("BossRoom").GetComponent<Tiles>().EnableRoom();
             }
-                //EnableSpawnRoom(); // if it's a boss, spawn the boss room
+            //EnableSpawnRoom(); // if it's a boss, spawn the boss room
 
-            if(!isAI && !isBoss)
+            if (!isAI && !isBoss)
+            {
                 GameManagerSingleton.instance.StartCoroutine(GameManagerSingleton.instance.PlayerDeath(2));
+            }
 
 
             if(isAI || isBoss)

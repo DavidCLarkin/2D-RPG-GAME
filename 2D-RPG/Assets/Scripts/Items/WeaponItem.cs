@@ -10,15 +10,15 @@ public class WeaponItem : Item
 {
     public int damage;
     public Perk[] perks; // list of perks the weapon has - can vary for flexibility
-    
+
     /*
      * Overridden Use method that equips a weapon when a weapon is clicked in inventory slot
-     */ 
+     */
     public override void Use()
     {
-       if (GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>() != null)
+       if (player.GetComponentInChildren<PlayerWeapon>() != null)
        {
-            GameManagerSingleton.instance.player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(this);
+            player.GetComponentInChildren<PlayerWeapon>().EquipWeapon(this);
        }
     }
 }
